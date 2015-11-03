@@ -1,0 +1,24 @@
+[include]
+  path = .gitconfig.local
+[color]
+  status      = auto
+  diff        = auto
+  branch      = auto
+  interactive = auto
+  grep        = auto
+[core]
+  editor       = vim
+  excludesfile = .gitignore
+  quotepath    = false
+[push]
+  default = nothing
+[commit]
+  cleanup = whitespace
+[alias]
+  st                     = status
+  ci                     = commit
+  co                     = checkout
+  br                     = branch
+  df                     = diff
+  ranking                = shortlog -ns
+  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune

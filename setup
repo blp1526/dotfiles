@@ -1,0 +1,20 @@
+#!/bin/bash -ex
+cd $(dirname $0)
+
+ln -sf $(pwd)/.bash_profile    ~/
+ln -sf $(pwd)/.bashrc          ~/
+ln -sf $(pwd)/.gitconfig       ~/
+ln -sf $(pwd)/.gitconfig.local ~/
+ln -sf $(pwd)/.vimrc           ~/
+ln -sf $(pwd)/.tmux.conf       ~/
+ln -sf $(pwd)/.tigrc           ~/
+ln -sf $(pwd)/.gemrc           ~/
+ln -sf $(pwd)/.inputrc         ~/
+
+if [ -e  $(pwd)/.ssh ]; then
+  ln -sf $(pwd)/.ssh           ~/
+fi
+
+if ! [ -e $HOME/.vim/bundle ]; then
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+fi
