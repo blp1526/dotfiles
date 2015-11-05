@@ -25,6 +25,9 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'moll/vim-node'
+NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'myhere/vim-nodejs-complete'
 
 call neobundle#end()
 filetype plugin indent on
@@ -35,7 +38,6 @@ NeoBundleCheck
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " -- end
-
 
 " -- scrooloose/nerdtree do
 let NERDTreeShowHidden = 1
