@@ -12,8 +12,6 @@
   quotepath    = false
 [push]
   default = nothing
-[commit]
-  cleanup = whitespace
 [alias]
   st                     = status
   ci                     = commit
