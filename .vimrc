@@ -185,6 +185,9 @@ noremap <C-]> g<C-]>
 " about autocmd / augroup
 " http://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
 
+" http://secondlife.hatenablog.jp/entry/20050107/1105029582
+autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'
+
 " http://qiita.com/katton/items/bc9720826120f5f61fc1
 augroup LastSpace
   autocmd!
