@@ -1,6 +1,6 @@
 *.DS_Store
 *.swp
-
+.bash_profile
 .ssh
 /iTerm2
 .gitconfig.local
