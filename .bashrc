@@ -1,4 +1,3 @@
-
 SHELL='bash'
 EDITOR='vim'
 HISTSIZE='50000'
@@ -39,6 +38,11 @@ if [[ -n "$PS1" ]]; then
     return $s
   }
 fi
+
+# http://qiita.com/spesnova/items/f90b14973120f19bcda1
+cr() {
+  cd $(ghq list --full-path | peco)
+}
 
 ###-begin-npm-completion-###
 #
