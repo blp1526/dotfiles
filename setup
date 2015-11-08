@@ -10,6 +10,7 @@ ln -sf $(pwd)/.tmux.conf       ~/
 ln -sf $(pwd)/.tigrc           ~/
 ln -sf $(pwd)/.gemrc           ~/
 ln -sf $(pwd)/.inputrc         ~/
+ln -sf $(pwd)/.rubocop.yml     ~/
 
 if [ -e  $(pwd)/.ssh ]; then
   ln -sf $(pwd)/.ssh           ~/

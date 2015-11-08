@@ -1,0 +1,18 @@
+Style/Lambda:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/IndentationConsistency:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+LineLength:
+  Enabled: false
+ClassLength:
+  Enabled: false
+AsciiComments:
+  Enabled: false
+Lint/Eval:
+  Enabled: false
