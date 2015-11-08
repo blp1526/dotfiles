@@ -1,5 +1,3 @@
-export LANG=en_US.UTF-8
-export PATH=$PATH:$HOME/.nodebrew/current/bin
 
 SHELL='bash'
 EDITOR='vim'
@@ -20,7 +18,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 PS1_USER='\[\033[32m\]\u@\h'
 PS1_DIR='\[\033[34m\]\W'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\n\[\033[00m\]\$ '
-export PS1="${PS1_USER}: ${PS1_DIR}${PS1_BRANCH}"
+PS1="${PS1_USER}: ${PS1_DIR}${PS1_BRANCH}"
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
