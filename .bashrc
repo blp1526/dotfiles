@@ -40,7 +40,7 @@ if [[ -n "$PS1" ]]; then
 fi
 
 # http://qiita.com/spesnova/items/f90b14973120f19bcda1
-cr() {
+r() {
   cd $(ghq list --full-path | peco)
 }
 
