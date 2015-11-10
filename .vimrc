@@ -34,6 +34,11 @@ filetype plugin indent on
 NeoBundleCheck
 " -- end
 
+" -- myhere/vim-nodejs-complete do
+" http://ellengummesson.com/blog/2015/05/03/nodejs-complete-for-vim/
+autocmd FileType javascript set completeopt-=preview
+" -- end
+
 " -- easymotion/vim-easymotion do
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
