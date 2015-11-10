@@ -44,6 +44,9 @@ r() {
   cd $(ghq list --full-path | peco)
 }
 
+# grunt-cli
+eval "$(grunt --completion=bash)"
+
 ###-begin-npm-completion-###
 #
 # npm command completion script
