@@ -2,8 +2,8 @@ set vertical-split = no
 set split-view-height = 75%
 set diff-options = -m --first-parent
 
-bind main D !git diff HEAD %(commit)
-bind diff D !git diff HEAD %(commit)
+bind main D !git diff %(commit) HEAD
+bind diff D !git diff %(commit) HEAD
 
 # http://sue445.hatenablog.com/entry/2014/08/07/015811
 bind main R !git rebase -i %(commit)
