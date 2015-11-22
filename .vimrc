@@ -23,6 +23,8 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'moll/vim-node'
@@ -32,6 +34,13 @@ NeoBundle 'myhere/vim-nodejs-complete'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+" -- end
+
+" -- kannokanno/previm do
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 " -- end
 
 " -- myhere/vim-nodejs-complete do
