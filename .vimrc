@@ -13,6 +13,7 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
@@ -34,6 +35,16 @@ NeoBundle 'myhere/vim-nodejs-complete'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+" -- end
+
+" -- kien/ctrlp.vim do
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 " -- end
 
 " -- kannokanno/previm do
@@ -65,8 +76,6 @@ cnoremap <silent><C-e><C-u> :NERDTreeToggle<CR>
 
 " -- scrooloose/syntastic do
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
-" rubocop (0.26.1)
-" parser  (2.2.0.3)
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 " -- end
