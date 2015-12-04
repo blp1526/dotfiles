@@ -30,6 +30,8 @@ yum install -y nginx
 yum install -y mariadb
 yum install -y mariadb-server
 yum install -y mariadb-devel
+yum install -y sqlite
+yum install -y sqlite-devel
 
 # ruby
 yum install -y openssl-devel
