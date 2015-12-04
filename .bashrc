@@ -1,51 +1,45 @@
+# OSX settings
+if [ $(uname) = 'Darwin' ]; then
+  alias ls='ls -vGF'
+  alias ll='ls -l'
+  alias la='ll -a'
+  alias grep='grep --color=auto'
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+  if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
+  fi
+fi
+
+# Linux settings
+if [ $(uname) = 'Linux' ]; then
+  source /usr/share/doc/git/contrib/completion/git-completion.bash
+  source /usr/share/doc/git/contrib/completion/git-prompt.sh
+fi
+
+# Shared settings
+
+# http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
+stty stop undef
+
 SHELL='bash'
 EDITOR='vim'
 HISTSIZE='50000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
-
-alias ls='ls -vGF'
-alias ll='ls -l'
-alias la='ll -a'
-alias grep='grep --color=auto'
-
-# http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
-stty stop undef
-
 GIT_PS1_SHOWDIRTYSTATE=true
-
 PS1_USER='\[\033[32m\]\u'
 PS1_DIR='\[\033[34m\]\W'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 PS1="${PS1_USER}:${PS1_DIR}${PS1_BRANCH}"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
-if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
-# http://inaz2.hatenablog.com/entry/2014/12/11/015125
-if [[ -n "$PS1" ]]; then
-  cd() {
-    command cd "$@"
-    local s=$?
-    if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
-      history -s cd $(printf "%q" "$PWD")
-    fi
-    return $s
-  }
-fi
 
 # http://qiita.com/spesnova/items/f90b14973120f19bcda1
 r() {
   cd $(ghq list --full-path | peco)
 }
-
-# grunt-cli
-eval "$(grunt --completion=bash)"
 
 ###-begin-npm-completion-###
 #
