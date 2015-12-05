@@ -9,6 +9,7 @@ fi
 # for fedora-21
 # basic
 yum install -y yum-fastestmirror
+yum install -y man
 yum install -y vim
 yum install -y git
 yum install -y tig
@@ -24,6 +25,9 @@ yum install -y patch
 yum install -y ccache
 yum install -y ncurses-devel
 yum install -y ctags
+
+# golang
+yum install -y go
 
 # web+db
 yum install -y nginx
