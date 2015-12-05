@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -x
 cd $(dirname $0)
 
 ln -sf $(pwd)/.bash_profile    ~/
@@ -27,16 +27,16 @@ if [ $? != 0 ]; then
 fi
 
 # golang
-which ghq
-if [ $? != 0 ]; then
-  go get github.com/motemen/ghq
-fi
-
 which peco
 if [ $? != 0 ]; then
   go get github.com/peco/peco/cmd/peco
 fi
 
+which ghq
+if [ $? != 0 ]; then
+  go get github.com/motemen/ghq
+fi
+echo -e $'\e[32m set "[ghq] root = your_repo_path" to gitconfig.local \e[m'
 
 if [ $(uname) = Darwin ]; then
   which brew
