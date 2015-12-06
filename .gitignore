@@ -1,5 +1,3 @@
 *.DS_Store
 *.swp
-.ssh
 /iTerm2
-.gitconfig.local

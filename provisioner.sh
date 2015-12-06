@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eux
+set -ux
 
 # only root privilege
 if [ $(whoami) != root ];then
@@ -45,8 +45,7 @@ yum install -y libyaml-devel
 yum install -y libffi-devel
 
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
-  cat /etc/group | awk -F : '{print $1}' | egrep ^rbenv$
-  if [ $? != 0 ]; then
+  if ! cat /etc/group | awk -F : '{print $1}' | egrep ^rbenv$; then
     groupadd rbenv
   fi
   gpasswd -a vagrant rbenv

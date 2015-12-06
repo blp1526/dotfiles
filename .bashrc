@@ -8,15 +8,16 @@ if [ $(uname) = 'Darwin' ]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
-  if which rbenv > /dev/null; then
+
+  if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)"
   fi
 fi
 
 # Linux settings
 if [ $(uname) = 'Linux' ]; then
-  source /usr/share/doc/git/contrib/completion/git-completion.bash
-  source /usr/share/doc/git/contrib/completion/git-prompt.sh
+  . /usr/share/doc/git/contrib/completion/git-completion.bash
+  . /usr/share/doc/git/contrib/completion/git-prompt.sh
 fi
 
 # Shared settings
