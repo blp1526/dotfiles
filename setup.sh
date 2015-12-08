@@ -26,7 +26,7 @@ if [ $(uname) = Darwin ]; then
   # Kindle
   # Security Soft
 
-  if ! type brew > /dev/null 2>&1; then
+  if ! type brew >/dev/null 2>&1; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
@@ -49,7 +49,7 @@ if [ $(uname) = Darwin ]; then
   brew install rbenv
   brew install ruby-build
 
-  if ! type pecrant > /dev/null 2>&1; then
+  if ! type pecrant >/dev/null 2>&1; then
     curl -o ${HOME}/bin/pecrant https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
     chmod +x ${HOME}/bin/pecrant
   fi
@@ -86,14 +86,14 @@ if ! [ -e ${HOME}/.vim/bundle ]; then
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 fi
 
-if ! type nodebrew > /dev/null 2>&1; then
+if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup
 fi
 
-if ! type peco > /dev/null 2>&1; then
+if ! type peco >/dev/null 2>&1; then
   go get github.com/peco/peco/cmd/peco
 fi
 
-if ! type ghq > /dev/null 2>&1; then
+if ! type ghq >/dev/null 2>&1; then
   go get github.com/motemen/ghq
 fi

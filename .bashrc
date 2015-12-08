@@ -9,7 +9,7 @@ if [ $(uname) = 'Darwin' ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 
-  if type rbenv > /dev/null 2>&1; then
+  if type rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
   fi
 fi
