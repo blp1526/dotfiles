@@ -48,6 +48,7 @@ if [ $(uname) = Darwin ]; then
   brew install go
   brew install rbenv
   brew install ruby-build
+  brew install reattach-to-user-namespace
 
   if ! type pecrant >/dev/null 2>&1; then
     curl -o ${HOME}/bin/pecrant https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
