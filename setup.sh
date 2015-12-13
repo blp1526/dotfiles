@@ -50,6 +50,10 @@ if [ $(uname) = Darwin ]; then
   brew install ruby-build
   brew install reattach-to-user-namespace
 
+  if ! [ -e ${HOME}/bin ]; then
+    mkdir ${HOME}/bin
+  fi
+
   if ! type pecrant >/dev/null 2>&1; then
     curl -o ${HOME}/bin/pecrant https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
     chmod +x ${HOME}/bin/pecrant
@@ -58,15 +62,15 @@ fi
 
 cd $(dirname $0)
 
-ln -sf $(pwd)/.bash_profile    ~/
-ln -sf $(pwd)/.bashrc          ~/
-ln -sf $(pwd)/.gitconfig       ~/
-ln -sf $(pwd)/.vimrc           ~/
-ln -sf $(pwd)/.tmux.conf       ~/
-ln -sf $(pwd)/.tigrc           ~/
-ln -sf $(pwd)/.gemrc           ~/
-ln -sf $(pwd)/.inputrc         ~/
-ln -sf $(pwd)/.rubocop.yml     ~/
+ln -sf $(pwd)/.bash_profile ~/
+ln -sf $(pwd)/.bashrc       ~/
+ln -sf $(pwd)/.gitconfig    ~/
+ln -sf $(pwd)/.vimrc        ~/
+ln -sf $(pwd)/.tmux.conf    ~/
+ln -sf $(pwd)/.tigrc        ~/
+ln -sf $(pwd)/.gemrc        ~/
+ln -sf $(pwd)/.inputrc      ~/
+ln -sf $(pwd)/.rubocop.yml  ~/
 
 if ! [ -e ~/.gitconfig.local ]; then
   echo 'Enter name for .gitconfig.local'
