@@ -1,10 +1,5 @@
 # OSX settings
 if [ $(uname) = 'Darwin' ]; then
-  alias ls='ls -vGF'
-  alias ll='ls -l'
-  alias la='ll -a'
-  alias grep='grep --color=auto'
-
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
@@ -12,12 +7,26 @@ if [ $(uname) = 'Darwin' ]; then
   if type rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
   fi
+
+  change-vagrant-dir() {
+    cd $(vagrant global-status | awk '/^[[:alnum:]]{7}\s/ { print $NF }' | peco)
+  }
+
+  alias cvd='change-vagrant-dir'
+  alias ls='ls -vGF'
+  alias ll='ls -l'
+  alias la='ll -a'
+  alias grep='grep --color=auto'
 fi
 
 # Linux settings
 if [ $(uname) = 'Linux' ]; then
   . /usr/share/doc/git/contrib/completion/git-completion.bash
   . /usr/share/doc/git/contrib/completion/git-prompt.sh
+
+  jman() {
+    LANG=ja_JP.UTF-8 man $1 $2
+  }
 fi
 
 # Shared settings
@@ -36,11 +45,11 @@ PS1_DIR='\[\033[34m\]\W'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 PS1="${PS1_USER}:${PS1_DIR}${PS1_BRANCH}"
 
-
 # http://qiita.com/spesnova/items/f90b14973120f19bcda1
-r() {
+change-repository-dir() {
   cd $(ghq list --full-path | peco)
 }
+alias crd='change-repository-dir'
 
 ###-begin-npm-completion-###
 #

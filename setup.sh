@@ -102,3 +102,7 @@ fi
 if ! type ghq >/dev/null 2>&1; then
   go get github.com/motemen/ghq
 fi
+
+if ! type bats >/dev/null 2>&1; then
+  git clone https://github.com/sstephenson/bats.git ~/.bats
+fi
