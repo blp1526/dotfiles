@@ -12,7 +12,7 @@ if [ $(uname) = 'Darwin' ]; then
     cd $(vagrant global-status | awk '/^[[:alnum:]]{7}\s/ { print $NF }' | peco)
   }
 
-  alias cvd='change-vagrant-dir'
+  alias cdv='change-vagrant-dir'
   alias ls='ls -vGF'
   alias ll='ls -l'
   alias la='ll -a'
@@ -36,7 +36,7 @@ stty stop undef
 
 SHELL='bash'
 EDITOR='vim'
-HISTSIZE='50000'
+HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -49,7 +49,12 @@ PS1="${PS1_USER}:${PS1_DIR}${PS1_BRANCH}"
 change-repository-dir() {
   cd $(ghq list --full-path | peco)
 }
-alias crd='change-repository-dir'
+alias cdr='change-repository-dir'
+
+peco-history() {
+  $(history | awk '{ for(i = 3; i < NF; i++) { printf("%s%s", $i, OFS=" "); }; print $NF; }' | sort | uniq | peco)
+}
+bind -x '"\C-r": peco-history'
 
 ###-begin-npm-completion-###
 #
