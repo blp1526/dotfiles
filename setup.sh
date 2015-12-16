@@ -30,25 +30,31 @@ if [ $(uname) = Darwin ]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  brew install git
-  brew install gibo
-  brew install tig
-  brew install vim
-  brew install wget
-  brew install tree
-  brew install readline
-  brew install openssl
-  brew install nmap
-  brew install ctags
-  brew install bash-completion
-  brew install tmux
-  brew install mobile-shell
-  brew install direnv
-  brew install the_silver_searcher
-  brew install go
-  brew install rbenv
-  brew install ruby-build
-  brew install reattach-to-user-namespace
+  brew_names=(
+    git
+    gibo
+    tig
+    vim
+    wget
+    tree
+    readline
+    openssl
+    nmap
+    ctags
+    bash-completion
+    tmux
+    mobile-shell
+    direnv
+    the_silver_searcher
+    go
+    rbenv
+    ruby-build
+    reattach-to-user-namespace
+  )
+
+  for brew_name in "${brew_names[@]}"; do
+    brew install ${brew_name}
+  done
 
   if ! [ -e ${HOME}/bin ]; then
     mkdir ${HOME}/bin
@@ -62,15 +68,21 @@ fi
 
 cd $(dirname $0)
 
-ln -sf $(pwd)/.bash_profile ~/
-ln -sf $(pwd)/.bashrc       ~/
-ln -sf $(pwd)/.gitconfig    ~/
-ln -sf $(pwd)/.vimrc        ~/
-ln -sf $(pwd)/.tmux.conf    ~/
-ln -sf $(pwd)/.tigrc        ~/
-ln -sf $(pwd)/.gemrc        ~/
-ln -sf $(pwd)/.inputrc      ~/
-ln -sf $(pwd)/.rubocop.yml  ~/
+file_names=(
+  .bash_profile
+  .bashrc
+  .gitconfig
+  .vimrc
+  .tmux.conf
+  .tigrc
+  .gemrc
+  .inputrc
+  .rubocop.yml
+)
+
+for file_name in "${file_names[@]}"; do
+  ln -sf $(pwd)/${file_name} ~/
+done
 
 if ! [ -e ~/.gitconfig.local ]; then
   echo 'Enter name for .gitconfig.local'
