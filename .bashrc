@@ -51,10 +51,10 @@ change-repository-dir() {
 }
 alias cdr='change-repository-dir'
 
-peco-history() {
-  history | awk '{ for(i = 3; i < NF; i++) { printf("%s%s", $i, OFS=" "); }; print $NF; }' | sort | uniq | peco | xargs -I {} bash -c {}
-}
-bind -x '"\C-r": peco-history'
+# peco-history() {
+#   history | awk '{ for(i = 3; i < NF; i++) { printf("%s%s", $i, OFS=" "); }; print $NF; }' | sort | uniq | peco | xargs -I {} bash -c {}
+# }
+# bind -x '"\C-r": peco-history'
 
 ###-begin-npm-completion-###
 #
