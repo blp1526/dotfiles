@@ -32,6 +32,7 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
+NeoBundle 'simeji/winresizer'
 
 call neobundle#end()
 filetype plugin indent on
