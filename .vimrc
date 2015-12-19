@@ -69,11 +69,11 @@ omap / <Plug>(easymotion-tn)
 " -- scrooloose/nerdtree do
 let NERDTreeShowHidden = 1
 " http://blog.livedoor.jp/kumonopanya/archives/51048805.html
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-vnoremap <silent><C-e><Esc> :NERDTreeToggle<CR>
-onoremap <silent><C-e> :NERDTreeToggle<CR>
-inoremap <silent><C-e><Esc> :NERDTreeToggle<CR>
-cnoremap <silent><C-e><C-u> :NERDTreeToggle<CR>
+nnoremap <silent><C-t> :NERDTreeToggle<CR>
+vnoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
+onoremap <silent><C-t> :NERDTreeToggle<CR>
+inoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
+cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
 " -- end
 
 " -- scrooloose/syntastic do
