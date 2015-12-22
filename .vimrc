@@ -35,6 +35,7 @@ NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 filetype plugin indent on
@@ -49,6 +50,10 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(1)':        ['<up>'],
     \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
+" -- end
+
+" -- thinca/vim-quickrun do
+let g:quickrun_config = { '*': { 'split': '' } }
 " -- end
 
 " -- kannokanno/previm do
@@ -175,6 +180,7 @@ set laststatus=2
 set pumheight=10
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=0
+set splitbelow
 " http://blog.pg1x.com/entry/2014/08/22/081215
 set backspace=indent,eol,start
 " http://844196.com/post/114133954334/vim
@@ -208,6 +214,11 @@ cnoremap <M-f> <S-Right>
 
 " ctags
 noremap <C-]> g<C-]>
+
+" http://nvie.com/posts/how-i-boosted-my-vim/
+" http://deris.hatenablog.jp/entry/2013/05/02/192415
+let mapleader = ","
+noremap \ ,
 
 " about autocmd / augroup
 " http://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
