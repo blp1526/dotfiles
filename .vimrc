@@ -13,6 +13,15 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
@@ -50,10 +59,12 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(1)':        ['<up>'],
     \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 " -- end
 
 " -- thinca/vim-quickrun do
 let g:quickrun_config = { '*': { 'split': '' } }
+let g:quickrun_config._ = { 'runner': 'vimproc' }
 " -- end
 
 " -- kannokanno/previm do
