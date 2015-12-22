@@ -16,6 +16,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'easymotion/vim-easymotion'
@@ -33,6 +34,7 @@ NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
+NeoBundle 'othree/yajs.vim'
 
 call neobundle#end()
 filetype plugin indent on
