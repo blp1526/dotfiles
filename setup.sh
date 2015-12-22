@@ -32,6 +32,7 @@ if [ $(uname) = Darwin ]; then
 
   brew_names=(
     git
+    hub
     gibo
     tig
     vim
