@@ -8,6 +8,8 @@ if [ $(uname) = 'Darwin' ]; then
     eval "$(rbenv init -)"
   fi
 
+  eval "$(hub alias -s)"
+
   change-vagrant-dir() {
     cd $(vagrant global-status | awk '/^[[:alnum:]]{7}\s/ { print $NF }' | peco)
   }

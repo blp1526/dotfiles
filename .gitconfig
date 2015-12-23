@@ -20,3 +20,4 @@
   df                     = diff
   ranking                = shortlog -ns
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune
+  see                    = browse
