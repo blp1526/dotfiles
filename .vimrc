@@ -53,11 +53,11 @@ NeoBundleCheck
 
 " -- kien/ctrlp.vim do
 let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-n>'],
-    \ 'PrtSelectMove("k")':   ['<c-p>'],
-    \ 'PrtHistory(-1)':       ['<down>'],
-    \ 'PrtHistory(1)':        ['<up>'],
-    \ }
+\ 'PrtSelectMove("j")':   ['<c-n>'],
+\ 'PrtSelectMove("k")':   ['<c-p>'],
+\ 'PrtHistory(-1)':       ['<down>'],
+\ 'PrtHistory(1)':        ['<up>'],
+\ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 " -- end
@@ -65,6 +65,15 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " -- thinca/vim-quickrun do
 let g:quickrun_config = { '*': { 'split': '' } }
 let g:quickrun_config._ = { 'runner': 'vimproc' }
+let g:quickrun_config['javascript.mocha'] = {
+\ 'command': 'mocha',
+\ 'cmdopt': '--reporter spec',
+\ 'exec': ['%c %o %s']
+\ }
+augroup Mocha
+  autocmd!
+  autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
+augroup END
 " -- end
 
 " -- kannokanno/previm do
@@ -117,10 +126,10 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+\ 'default' : '',
+\ 'vimshell' : $HOME.'/.vimshell_hist',
+\ 'scheme' : $HOME.'/.gosh_completions'
+\ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
@@ -255,9 +264,9 @@ augroup END
 
 augroup RailsSyntaxHighlight
   autocmd!
-  autocmd BufNewFile,BufRead *.json.jbuilder setfiletype ruby
-  autocmd BufNewFile,BufRead *.xlsx.axlsx    setfiletype ruby
-  autocmd BufNewFile,BufRead *.cap           setfiletype ruby
+  autocmd BufNewFile,BufRead *.json.jbuilder set filetype=ruby
+  autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
+  autocmd BufNewFile,BufRead *.cap           set filetype=ruby
 augroup END
 
 augroup HardTab
