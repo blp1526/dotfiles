@@ -95,7 +95,7 @@ omap / <Plug>(easymotion-tn)
 " -- end
 
 " -- scrooloose/nerdtree do
-let NERDTreeShowHidden = 1
+let g:NERDTreeShowHidden = 1
 " http://blog.livedoor.jp/kumonopanya/archives/51048805.html
 nnoremap <silent><C-t> :NERDTreeToggle<CR>
 vnoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
@@ -109,6 +109,8 @@ cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_vim_checkers = ['vint']
+" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
+let g:syntastic_html_tidy_exec = 'tidy5'
 " -- end
 
 " -- elzr/vim-json do
