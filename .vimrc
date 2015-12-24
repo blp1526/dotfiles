@@ -26,8 +26,9 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'todesking/vint-syntastic'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'elzr/vim-json'
@@ -107,6 +108,7 @@ cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_vim_checkers = ['vint']
 " -- end
 
 " -- elzr/vim-json do

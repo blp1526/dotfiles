@@ -102,6 +102,10 @@ EOS
     curl -o ${HOME}/bin/pecrant https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
     chmod +x ${HOME}/bin/pecrant
   fi
+
+  if ! type vint >/dev/null 2>&1; then
+    pip install vim-vint
+  fi
 fi
 
 cd $(dirname $0)
