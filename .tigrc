@@ -1,3 +1,4 @@
+set main-view = id date author commit-title:graph=yes,refs=yes
 set vertical-split = no
 set split-view-height = 75%
 set diff-options = -m --first-parent
