@@ -168,7 +168,7 @@ nmap Y <Plug>(operator-flashy)$
 " }}}
 
 " personal settings {{{
-" like a macvim-kaoriya scripts {{{
+" acts as macvim-kaoriya {{{
 " c_CTRL-X
 " Input current buffer's directory on command line.
 " http://www.kaoriya.net/blog/2014/12/28/
@@ -185,7 +185,84 @@ function! s:GetBufferDirectory()
   return dir . (exists('+shellslash') && !&shellslash ? '\' : '/')
 endfunction
 " }}}
+" highlight {{{
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
+highlight Search  ctermfg=0 ctermbg=14
+highlight Visual  ctermfg=1 ctermbg=15
+" http://stackoverflow.com/questions/1294790/change-tilde-color-in-vim
+highlight NonText ctermfg=0
 
+highlight Folded     ctermfg=0 ctermbg=10
+highlight FoldColumn ctermfg=0 ctermbg=10
+
+function! JISX0208SpaceHilight()
+  syntax match JISX0208Space "　" display containedin=ALL
+  highlight JISX0208Space term=underline ctermbg=LightCyan
+endf
+" }}}
+" key mapping {{{
+" http://d.hatena.ne.jp/h1mesuke/20080327/p1
+nnoremap <silent><ESC><ESC> :noh<CR>
+
+" http://cohama.hateblo.jp/entry/20130529/1369843236
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" http://deris.hatenablog.jp/entry/2013/05/15/024932
+" nnoremap / /\v
+
+" ctags
+noremap <C-]> g<C-]>
+
+" http://nvie.com/posts/how-i-boosted-my-vim/
+" http://deris.hatenablog.jp/entry/2013/05/02/192415
+let mapleader = ","
+noremap \ ,
+" }}}
+" augroup {{{
+" about autocmd / augroup
+" http://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
+
+" http://secondlife.hatenablog.jp/entry/20050107/1105029582
+augroup Yaml
+  autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'
+augroup END
+
+" http://qiita.com/katton/items/bc9720826120f5f61fc1
+augroup LastSpace
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//ge
+augroup END
+
+augroup MultiByteSpace
+  autocmd!
+  autocmd BufNew,BufRead * call JISX0208SpaceHilight()
+augroup END
+
+augroup RailsSyntaxHighlight
+  autocmd!
+  autocmd BufNewFile,BufRead *.json.jbuilder set filetype=ruby
+  autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
+  autocmd BufNewFile,BufRead *.cap           set filetype=ruby
+augroup END
+
+augroup HardTab
+  autocmd!
+  autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+  autocmd BufNewFile,BufRead *.c  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+augroup END
+" }}}
+" matchit {{{
+if !exists('loading_matchit')
+  runtime macros/matchit.vim
+endif
+" }}}
+" set option {{{
 set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
 set nowrap
@@ -210,80 +287,9 @@ set backspace=indent,eol,start
 " set synmaxcol=300
 " set lazyredraw
 " set ttyfast
-
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
-highlight Search  ctermfg=0 ctermbg=14
-highlight Visual  ctermfg=1 ctermbg=15
-" http://stackoverflow.com/questions/1294790/change-tilde-color-in-vim
-highlight NonText ctermfg=0
-
-highlight Folded     ctermfg=0 ctermbg=10
-highlight FoldColumn ctermfg=0 ctermbg=10
-
-" http://d.hatena.ne.jp/h1mesuke/20080327/p1
-nnoremap <silent><ESC><ESC> :noh<CR>
-
-" http://cohama.hateblo.jp/entry/20130529/1369843236
-cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
-cnoremap <C-e> <End>
-cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
-
-" http://deris.hatenablog.jp/entry/2013/05/15/024932
-" nnoremap / /\v
-
-" ctags
-noremap <C-]> g<C-]>
-
-" http://nvie.com/posts/how-i-boosted-my-vim/
-" http://deris.hatenablog.jp/entry/2013/05/02/192415
-let mapleader = ","
-noremap \ ,
-
-" about autocmd / augroup
-" http://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
-
-" http://secondlife.hatenablog.jp/entry/20050107/1105029582
-autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'
-
-" http://qiita.com/katton/items/bc9720826120f5f61fc1
-augroup LastSpace
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//ge
-augroup END
-
-function! JISX0208SpaceHilight()
-  syntax match JISX0208Space "　" display containedin=ALL
-  highlight JISX0208Space term=underline ctermbg=LightCyan
-endf
-
-augroup MultiByteSpace
-  autocmd!
-  autocmd BufNew,BufRead * call JISX0208SpaceHilight()
-augroup END
-
-augroup RailsSyntaxHighlight
-  autocmd!
-  autocmd BufNewFile,BufRead *.json.jbuilder set filetype=ruby
-  autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
-  autocmd BufNewFile,BufRead *.cap           set filetype=ruby
-augroup END
-
-augroup HardTab
-  autocmd!
-  autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
-  autocmd BufNewFile,BufRead *.c  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
-augroup END
-
-if !exists('loading_matchit')
-  runtime macros/matchit.vim
-endif
-
 " http://rbtnn.hateblo.jp/entry/2014/11/30/174749
 syntax on
+" }}}
 " }}}
 
 " vim: foldmethod=marker
