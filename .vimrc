@@ -1,4 +1,7 @@
-" -- Shougo/NeoBundle.vim do
+scriptencoding utf-8
+
+" plugin settings {{{
+" Shougo/NeoBundle.vim {{{
 if has('vim_starting')
   if &compatible
     set nocompatible
@@ -52,9 +55,8 @@ NeoBundle 'haya14busa/vim-operator-flashy'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
-" -- end
-
-" -- kien/ctrlp.vim do
+" }}}
+" kien/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-n>'],
 \ 'PrtSelectMove("k")':   ['<c-p>'],
@@ -63,9 +65,8 @@ let g:ctrlp_prompt_mappings = {
 \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-" -- end
-
-" -- thinca/vim-quickrun do
+" }}}
+" thinca/vim-quickrun {{{
 let g:quickrun_config = { '*': { 'split': '' } }
 let g:quickrun_config._ = { 'runner': 'vimproc' }
 let g:quickrun_config['javascript.mocha'] = {
@@ -77,26 +78,22 @@ augroup Mocha
   autocmd!
   autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
 augroup END
-" -- end
-
-" -- kannokanno/previm do
+" }}}
+" kannokanno/previm {{{
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-" -- end
-
-" -- myhere/vim-nodejs-complete do
+" }}}
+" myhere/vim-nodejs-complete {{{
 " http://ellengummesson.com/blog/2015/05/03/nodejs-complete-for-vim/
 autocmd FileType javascript set completeopt-=preview
-" -- end
-
-" -- easymotion/vim-easymotion do
+" }}}
+" easymotion/vim-easymotion {{{
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-" -- end
-
-" -- scrooloose/nerdtree do
+" }}}
+" scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
 " http://blog.livedoor.jp/kumonopanya/archives/51048805.html
 nnoremap <silent><C-t> :NERDTreeToggle<CR>
@@ -104,22 +101,19 @@ vnoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
 onoremap <silent><C-t> :NERDTreeToggle<CR>
 inoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
 cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
-" -- end
-
-" -- scrooloose/syntastic do
+" }}}
+" scrooloose/syntastic {{{
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_vim_checkers = ['vint']
 " https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
 let g:syntastic_html_tidy_exec = 'tidy5'
-" -- end
-
-" -- elzr/vim-json do
+" }}}
+" elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
-" -- end
-
-" -- Shougo/neocomplcache do
+" }}}
+" Shougo/neocomplcache {{{
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -160,22 +154,21 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><C-e> neocomplcache#cancel_popup()
-" -- end
-
-" -- rking/ag.vim do
+" }}}
+" rking/ag.vim {{{
 let g:ag_highlight=1
-" -- end
-
-" -- plasticboy/vim-markdown do
+" }}}
+" plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
-" -- end
-
-" -- haya14busa/vim-operator-flashy do
+" }}}
+" haya14busa/vim-operator-flashy {{{
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
-" -- end
+" }}}
+" }}}
 
-" -- like a macvim-kaoriya scripts
+" personal settings {{{
+" like a macvim-kaoriya scripts {{{
 " c_CTRL-X
 " Input current buffer's directory on command line.
 " http://www.kaoriya.net/blog/2014/12/28/
@@ -191,9 +184,8 @@ function! s:GetBufferDirectory()
   endif
   return dir . (exists('+shellslash') && !&shellslash ? '\' : '/')
 endfunction
-" -- end
+" }}}
 
-" -- personal settings do
 set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
 set nowrap
@@ -292,4 +284,8 @@ endif
 
 " http://rbtnn.hateblo.jp/entry/2014/11/30/174749
 syntax on
-" ---- end
+" }}}
+
+" vim: foldmethod=marker
+" vim: foldcolumn=3
+" vim: foldlevel=0
