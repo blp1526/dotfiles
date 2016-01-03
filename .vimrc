@@ -288,6 +288,9 @@ set backspace=indent,eol,start
 " set lazyredraw
 " set ttyfast
 " http://rbtnn.hateblo.jp/entry/2014/11/30/174749
+set foldmethod=indent
+set foldcolumn=0
+set foldlevel=99
 syntax on
 " }}}
 " }}}
