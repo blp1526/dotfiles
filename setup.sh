@@ -51,6 +51,7 @@ if [ $(uname) = Darwin ]; then
     rbenv
     ruby-build
     reattach-to-user-namespace
+    gawk
   )
 
   for brew_name in "${brew_names[@]}"; do
