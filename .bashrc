@@ -8,6 +8,10 @@ if [ $(uname) = 'Darwin' ]; then
     eval "$(rbenv init -)"
   fi
 
+  if type plenv >/dev/null 2>&1; then
+    eval "$(plenv init -)"
+  fi
+
   eval "$(hub alias -s)"
 
   change-vagrant-dir() {

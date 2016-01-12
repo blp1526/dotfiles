@@ -50,6 +50,8 @@ if [ $(uname) = Darwin ]; then
     go
     rbenv
     ruby-build
+    plenv
+    perl-build
     reattach-to-user-namespace
     gawk
   )
