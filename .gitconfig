@@ -12,6 +12,8 @@
   quotepath    = false
 [push]
   default = nothing
+[merge]
+  ff = false
 [alias]
   st                     = status
   ci                     = commit
