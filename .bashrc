@@ -1,5 +1,9 @@
 # OSX settings
 if [ $(uname) = 'Darwin' ]; then
+  PS1_USER='\[\033[32m\]\u'
+  PS1_DIR='\[\033[34m\]\W'
+  PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
@@ -27,6 +31,10 @@ fi
 
 # Linux settings
 if [ $(uname) = 'Linux' ]; then
+  PS1_USER='\[\033[47;32m\]\u'
+  PS1_DIR='\[\033[47;34m\]\W'
+  PS1_BRANCH='\[\033[47;31m\]$(__git_ps1)\[\033[47;00m\]\$ '
+
   . /usr/share/doc/git/contrib/completion/git-completion.bash
   . /usr/share/doc/git/contrib/completion/git-prompt.sh
 
@@ -46,9 +54,7 @@ HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
 GIT_PS1_SHOWDIRTYSTATE=true
-PS1_USER='\[\033[32m\]\u'
-PS1_DIR='\[\033[34m\]\W'
-PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+# http://ambiesoft.fam.cx/blog/archives/1122
 PS1="${PS1_USER}:${PS1_DIR}${PS1_BRANCH}"
 
 # http://qiita.com/spesnova/items/f90b14973120f19bcda1
