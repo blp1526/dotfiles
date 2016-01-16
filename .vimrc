@@ -49,8 +49,7 @@ NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'haya14busa/vim-operator-flashy'
+NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 
 call neobundle#end()
 filetype plugin indent on
@@ -160,10 +159,6 @@ let g:ag_highlight=1
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
-" }}}
-" haya14busa/vim-operator-flashy {{{
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
 " }}}
 " }}}
 
