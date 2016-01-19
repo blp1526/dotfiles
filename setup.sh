@@ -54,6 +54,7 @@ if [ $(uname) = Darwin ]; then
     perl-build
     reattach-to-user-namespace
     gawk
+    parallel
   )
 
   for brew_name in "${brew_names[@]}"; do
