@@ -16,6 +16,10 @@ if [ $(uname) = 'Darwin' ]; then
     eval "$(plenv init -)"
   fi
 
+  if type direnv >/dev/null 2>&1; then
+    eval "$(direnv hook bash)"
+  fi
+
   eval "$(hub alias -s)"
 
   change-vagrant-dir() {
@@ -49,7 +53,6 @@ fi
 stty stop undef
 
 SHELL='bash'
-EDITOR='vim'
 HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
