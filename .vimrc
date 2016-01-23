@@ -50,6 +50,7 @@ NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
+NeoBundle 'glidenote/rspec-result-syntax'
 
 call neobundle#end()
 filetype plugin indent on
@@ -76,6 +77,19 @@ let g:quickrun_config['javascript.mocha'] = {
 augroup Mocha
   autocmd!
   autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
+augroup END
+
+let g:quickrun_config['ruby.rspec'] = {
+\ 'command': 'rspec',
+\ 'cmdopt': '-cfd',
+\ 'exec': ['bundle exec %c %o %s'],
+\ 'outputter/buffer/filetype': 'rspec-result',
+\ 'filetype': 'rspec-result'
+\ }
+
+augroup Rspec
+  autocmd!
+  autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 augroup END
 " }}}
 " kannokanno/previm {{{
