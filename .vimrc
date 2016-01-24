@@ -276,7 +276,7 @@ set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
 set nowrap
 noremap <silent><F1> :set wrap!<CR>
-set nonumber
+set number
 noremap <silent><F2> :set number!<CR>
 set ruler
 set ignorecase

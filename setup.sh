@@ -55,6 +55,8 @@ if [ $(uname) = Darwin ]; then
     reattach-to-user-namespace
     gawk
     parallel
+    mysql
+    sqlite
   )
 
   for brew_name in "${brew_names[@]}"; do
