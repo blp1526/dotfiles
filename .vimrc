@@ -51,6 +51,7 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
+NeoBundle 'tmux-plugins/vim-tmux'
 
 call neobundle#end()
 filetype plugin indent on
