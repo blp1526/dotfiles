@@ -253,11 +253,14 @@ augroup MultiByteSpace
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
 augroup END
 
-augroup RailsSyntaxHighlight
+augroup CustomSyntaxHighlight
   autocmd!
   autocmd BufNewFile,BufRead *.json.jbuilder set filetype=ruby
   autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
   autocmd BufNewFile,BufRead *.cap           set filetype=ruby
+  autocmd BufNewFile,BufRead .envrc          set filetype=sh
+  autocmd BufNewFile,BufRead .gemrc          set filetype=sh
+  autocmd BufNewFile,BufRead .tigrc          set filetype=sh
 augroup END
 
 augroup HardTab
