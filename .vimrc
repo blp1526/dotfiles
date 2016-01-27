@@ -70,14 +70,21 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|sv
 " thinca/vim-quickrun {{{
 let g:quickrun_config = { '*': { 'split': '' } }
 let g:quickrun_config._ = { 'runner': 'vimproc' }
+
+augroup Mocha
+  autocmd!
+  autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
+augroup END
+
 let g:quickrun_config['javascript.mocha'] = {
 \ 'command': 'mocha',
 \ 'cmdopt': '--reporter spec',
 \ 'exec': ['%c %o %s']
 \ }
-augroup Mocha
+
+augroup Rspec
   autocmd!
-  autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
+  autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
 augroup END
 
 let g:quickrun_config['ruby.rspec'] = {
@@ -87,11 +94,6 @@ let g:quickrun_config['ruby.rspec'] = {
 \ 'outputter/buffer/filetype': 'rspec-result',
 \ 'filetype': 'rspec-result'
 \ }
-
-augroup Rspec
-  autocmd!
-  autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
-augroup END
 " }}}
 " kannokanno/previm {{{
 augroup PrevimSettings
@@ -120,6 +122,9 @@ cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
+" http://d.hatena.ne.jp/oppara/20140515/p1
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_vim_checkers = ['vint']
 " https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
 let g:syntastic_html_tidy_exec = 'tidy5'
@@ -214,6 +219,11 @@ endf
 " http://d.hatena.ne.jp/h1mesuke/20080327/p1
 nnoremap <silent><ESC><ESC> :noh<CR>
 
+" http://qiita.com/kuwana/items/d9778a9ec42a53b3aa10
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
 " http://cohama.hateblo.jp/entry/20130529/1369843236
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
@@ -262,6 +272,7 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead .envrc          set filetype=sh
   autocmd BufNewFile,BufRead .gemrc          set filetype=sh
   autocmd BufNewFile,BufRead .tigrc          set filetype=sh
+  autocmd BufNewFile,BufRead *.t             set filetype=perl
 augroup END
 
 augroup HardTab
@@ -303,6 +314,7 @@ set backspace=indent,eol,start
 set foldmethod=indent
 set foldcolumn=0
 set foldlevel=99
+set ttimeoutlen=10
 syntax on
 " }}}
 " }}}
