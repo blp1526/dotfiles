@@ -31,6 +31,7 @@ if [ $(uname) = 'Darwin' ]; then
   alias ll='ls -l'
   alias la='ll -a'
   alias grep='grep --color=auto'
+  alias camera='screencapture -i $HOME/Desktop/$(date +%s).png'
 fi
 
 # Linux settings
