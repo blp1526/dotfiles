@@ -94,6 +94,18 @@ let g:quickrun_config['ruby.rspec'] = {
 \ 'outputter/buffer/filetype': 'rspec-result',
 \ 'filetype': 'rspec-result'
 \ }
+
+" http://cside.hatenadiary.com/entry/2012/09/02/155055
+augroup Perl
+  autocmd!
+  autocmd BufNewFile,BufRead *.t set filetype=perl
+augroup END
+
+let g:quickrun_config['perl'] = {
+\ 'command': 'perl',
+\ 'cmdopt': '-MProject::Libs',
+\ 'exec': ['%c %o %s']
+\ }
 " }}}
 " kannokanno/previm {{{
 augroup PrevimSettings
@@ -272,7 +284,6 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead .envrc          set filetype=sh
   autocmd BufNewFile,BufRead .gemrc          set filetype=sh
   autocmd BufNewFile,BufRead .tigrc          set filetype=sh
-  autocmd BufNewFile,BufRead *.t             set filetype=perl
 augroup END
 
 augroup HardTab
