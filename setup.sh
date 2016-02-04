@@ -125,6 +125,7 @@ file_names=(
   .tigrc
   .gemrc
   .inputrc
+  .proverc
   .rubocop.yml
 )
 
