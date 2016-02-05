@@ -37,6 +37,9 @@ yum install -y mariadb-devel
 yum install -y sqlite
 yum install -y sqlite-devel
 
+# AMQP
+yum install -y rabbitmq-server
+
 # ruby
 yum install -y openssl-devel
 yum install -y zlib-devel
