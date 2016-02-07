@@ -21,6 +21,7 @@ yum install -y automake
 yum install -y autoconf
 yum install -y strace
 yum install -y man-pages-ja
+yum install -y the_silver_searcher
 
 # code reading
 yum install -y patch
