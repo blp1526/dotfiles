@@ -7,6 +7,8 @@ if [ $(whoami) != root ];then
 fi
 
 # for fedora-21
+yum update -y
+
 # basic
 yum install -y yum-fastestmirror
 yum install -y man
