@@ -52,6 +52,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 call neobundle#end()
 filetype plugin indent on
@@ -129,6 +130,19 @@ vnoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
 onoremap <silent><C-t> :NERDTreeToggle<CR>
 inoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
 cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
+" }}}
+" Xuyuanp/nerdtree-git-plugin {{{
+let g:NERDTreeIndicatorMapCustom = {
+\ 'Modified'  : '✹',
+\ 'Staged'    : '✚',
+\ 'Untracked' : '✭',
+\ 'Renamed'   : '➜',
+\ 'Unmerged'  : '═',
+\ 'Deleted'   : '✖',
+\ 'Dirty'     : '✗',
+\ 'Clean'     : '✔︎',
+\ 'Unknown'   : '?'
+\ }
 " }}}
 " scrooloose/syntastic {{{
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
