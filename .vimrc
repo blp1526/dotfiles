@@ -25,7 +25,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
@@ -58,7 +58,7 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 " }}}
-" kien/ctrlp.vim {{{
+" ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-n>'],
 \ 'PrtSelectMove("k")':   ['<c-p>'],
