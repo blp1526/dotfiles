@@ -53,6 +53,7 @@ NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
 filetype plugin indent on
