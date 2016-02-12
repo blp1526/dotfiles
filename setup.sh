@@ -17,6 +17,7 @@ if [ $(uname) = Darwin ]; then
   # Dash
   # Evernote
   # Skitch
+  # LICEcap
   # Karabiner
   # Shiftit
   # Slack
