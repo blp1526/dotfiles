@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+" http://deris.hatenablog.jp/entry/2013/05/02/192415
+let g:mapleader = ','
+noremap \ ,
+
 " plugin settings {{{
 " Shougo/NeoBundle.vim {{{
 if has('vim_starting')
@@ -44,6 +48,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'mattn/ctrlp-ghq'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
@@ -71,6 +76,9 @@ let g:ctrlp_prompt_mappings = {
 \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+" }}}
+" mattn/ctrlp-ghq {{{
+noremap <leader>g :<c-u>CtrlPGhq<cr>
 " }}}
 " thinca/vim-quickrun {{{
 let g:quickrun_config = { '*': { 'split': '' } }
@@ -281,11 +289,6 @@ cnoremap <M-f> <S-Right>
 
 " ctags
 noremap <C-]> g<C-]>
-
-" http://nvie.com/posts/how-i-boosted-my-vim/
-" http://deris.hatenablog.jp/entry/2013/05/02/192415
-let mapleader = ","
-noremap \ ,
 " }}}
 " augroup {{{
 " about autocmd / augroup
