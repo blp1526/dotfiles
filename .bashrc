@@ -16,6 +16,10 @@ if [ $(uname) = 'Darwin' ]; then
     eval "$(plenv init -)"
   fi
 
+  if type pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  fi
+
   if type direnv >/dev/null 2>&1; then
     eval "$(direnv hook bash)"
   fi

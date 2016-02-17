@@ -58,6 +58,7 @@ if [ $(uname) = Darwin ]; then
     parallel
     mysql
     sqlite
+    pyenv
   )
 
   for brew_name in "${brew_names[@]}"; do
