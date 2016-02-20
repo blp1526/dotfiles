@@ -67,6 +67,14 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 " }}}
+" Shougo/unite.vim {{{
+nnoremap <LEADER>tl :<C-u>Unite tab<CR>
+nnoremap <LEADER>tn :<C-u>tabnew<CR>
+nnoremap <Up>       :<C-u>tabprevious<CR>
+nnoremap <Down>     :<C-u>tabnext<CR>
+nnoremap <Left>     :<C-u>tabprevious<CR>
+nnoremap <Right>    :<C-u>tabnext<CR>
+" }}}
 " ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-n>'],
