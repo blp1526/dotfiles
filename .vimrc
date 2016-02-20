@@ -68,11 +68,11 @@ filetype plugin indent on
 NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
-nnoremap <LEADER>t :<C-u>Unite tab<CR>
-nnoremap <Up>      :<C-u>tabclose<CR>
-nnoremap <Down>    :<C-u>tabnew<CR>
-nnoremap <Left>    :<C-u>tabprevious<CR>
-nnoremap <Right>   :<C-u>tabnext<CR>
+nnoremap <LEADER>t :Unite tab<CR>
+nnoremap <Up>      :tabclose<CR>
+nnoremap <Down>    :tabnew<CR>
+nnoremap <Left>    :tabprevious<CR>
+nnoremap <Right>   :tabnext<CR>
 " }}}
 " ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
