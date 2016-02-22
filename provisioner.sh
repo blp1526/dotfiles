@@ -43,6 +43,10 @@ yum install -y sqlite-devel
 # AMQP
 yum install -y rabbitmq-server
 
+# KVM
+yum -y install -y qemu-kvm
+yum -y install -y qemu-kvm-tools
+
 # ruby
 yum install -y openssl-devel
 yum install -y zlib-devel

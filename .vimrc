@@ -15,7 +15,6 @@ endif
 
 call neobundle#begin(expand('$HOME/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'Shougo/neocomplcache'
@@ -48,7 +47,6 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
-NeoBundle 'mattn/ctrlp-ghq'
 NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
@@ -58,6 +56,7 @@ NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'junegunn/vader.vim'
 NeoBundle 'eighty.vim', {
 \ 'base' : '~/.ghq/github.com/blp1526',
 \ 'type' : 'nosync'
@@ -83,9 +82,6 @@ let g:ctrlp_prompt_mappings = {
 \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-" }}}
-" mattn/ctrlp-ghq {{{
-noremap <leader>g :<c-u>CtrlPGhq<cr>
 " }}}
 " thinca/vim-quickrun {{{
 let g:quickrun_config = { '*': { 'split': '' } }
