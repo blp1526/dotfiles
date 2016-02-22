@@ -117,3 +117,29 @@ $ ag -g stdio /usr/include/
 ```markdown
 top -c
 ```
+
+## restrict max-depth
+
+```markdown
+du --max-depth=1 /var/
+```
+
+## Show top 10
+
+```markdown
+du -s * | sort -nr | head -10
+```
+
+## Dry run before delete
+
+see http://www.slideshare.net/oinume/qpstudy01-rsync-4168853
+
+```markdown
+rsync --dry-run --delete
+```
+
+## Change keyboard type temporarily
+
+```markdown
+loadkeys us
+```
