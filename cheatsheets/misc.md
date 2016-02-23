@@ -130,12 +130,22 @@ du --max-depth=1 /var/
 du -s * | sort -nr | head -10
 ```
 
-## Dry run before delete
+## Dry run
+
+### rsync
 
 see http://www.slideshare.net/oinume/qpstudy01-rsync-4168853
 
 ```markdown
 rsync --dry-run --delete
+```
+
+### chef-client
+
+see http://d.hatena.ne.jp/rx7/20120910/p1
+
+```markdown
+chef-client --why-run
 ```
 
 ## Change keyboard type temporarily
