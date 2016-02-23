@@ -56,7 +56,6 @@ NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'junegunn/vader.vim'
 NeoBundle 'eighty.vim', {
 \ 'base' : '~/.ghq/github.com/blp1526',
 \ 'type' : 'nosync'
@@ -68,10 +67,6 @@ NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
 nnoremap <LEADER>t :Unite tab<CR>
-nnoremap <Up>      :tabclose<CR>
-nnoremap <Down>    :tabnew<CR>
-nnoremap <Left>    :tabprevious<CR>
-nnoremap <Right>   :tabnext<CR>
 " }}}
 " ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
@@ -289,6 +284,12 @@ cnoremap <M-f> <S-Right>
 
 " http://deris.hatenablog.jp/entry/2013/05/15/024932
 " nnoremap / /\v
+
+" tab
+nnoremap <C-c> :tabclose<CR>
+nnoremap <C-n> :tabnew<CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
 
 " ctags
 noremap <C-]> g<C-]>
