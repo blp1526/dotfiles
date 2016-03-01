@@ -36,7 +36,7 @@ if [ $(uname) = Darwin ]; then
     hub
     gibo
     tig
-    vim
+    'vim --with-lua'
     wget
     tree
     readline
