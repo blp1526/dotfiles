@@ -8,6 +8,7 @@ if [ $(uname) = Darwin ]; then
   # Google Japanese Input
   # iTerm2
   # VirtualBox
+  # VMware
   # Vagrant
   # Alfred 2
   # Atom
@@ -55,6 +56,7 @@ if [ $(uname) = Darwin ]; then
     perl-build
     reattach-to-user-namespace
     gawk
+    gnu-sed
     parallel
     mysql
     sqlite
@@ -109,6 +111,10 @@ EOS
   if ! type pecrant >/dev/null 2>&1; then
     curl -o ${HOME}/bin/pecrant https://raw.githubusercontent.com/gongo/pecrant/master/pecrant
     chmod +x ${HOME}/bin/pecrant
+  fi
+
+  if [ -e /Applications/VMware\ Fusion.app/Contents/Library/vmrun ]; then
+    ln -s /Applications/VMware\ Fusion.app/Contents/Library/vmrun ${HOME}/bin/vmrun
   fi
 
   if ! type vint >/dev/null 2>&1; then
