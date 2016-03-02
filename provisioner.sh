@@ -2,57 +2,62 @@
 set -ux
 
 # only root privilege
-if [ $(whoami) != root ];then
+if [ $(whoami) != root ]; then
   exit
 fi
 
-# for fedora-21
-yum update -y
+fedora_version=$(cat /etc/redhat-release | awk '{ print $3 }')
+if [ $fedora_version -gt 21 ]; then
+  manager=dnf
+else
+  manager=yum
+fi
+
+$manager update -y
 
 # basic
-yum install -y yum-fastestmirror
-yum install -y man
-yum install -y vim
-yum install -y git
-yum install -y tig
-yum install -y tmux
-yum install -y gcc-c++
-yum install -y automake
-yum install -y autoconf
-yum install -y strace
-yum install -y man-pages-ja
-yum install -y the_silver_searcher
+$manager install -y man
+$manager install -y vim
+$manager install -y git
+$manager install -y tig
+$manager install -y tmux
+$manager install -y gcc-c++
+$manager install -y automake
+$manager install -y autoconf
+$manager install -y strace
+$manager install -y man-pages-ja
+$manager install -y the_silver_searcher
 
 # code reading
-yum install -y patch
-yum install -y ccache
-yum install -y ncurses-devel
-yum install -y ctags
+$manager install -y patch
+$manager install -y ccache
+$manager install -y ncurses-devel
+$manager install -y ctags
 
 # golang
-yum install -y go
+$manager install -y go
 
 # web+db
-yum install -y nginx
-yum install -y mariadb
-yum install -y mariadb-server
-yum install -y mariadb-devel
-yum install -y sqlite
-yum install -y sqlite-devel
+$manager install -y nginx
+$manager install -y mariadb
+$manager install -y mariadb-server
+$manager install -y mariadb-devel
+$manager install -y sqlite
+$manager install -y sqlite-devel
 
 # AMQP
-yum install -y rabbitmq-server
+$manager install -y rabbitmq-server
 
 # KVM
-yum -y install -y qemu-kvm
-yum -y install -y qemu-kvm-tools
+$manager -y install -y qemu-kvm
+$manager -y install -y qemu-kvm-tools
 
 # ruby
-yum install -y openssl-devel
-yum install -y zlib-devel
-yum install -y readline-devel
-yum install -y libyaml-devel
-yum install -y libffi-devel
+$manager install -y openssl-devel
+$manager install -y zlib-devel
+$manager install -y readline-devel
+$manager install -y libyaml-devel
+$manager install -y libffi-devel
 
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
   if ! cat /etc/group | awk -F : '{print $1}' | egrep ^rbenv$; then
