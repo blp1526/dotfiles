@@ -1,12 +1,10 @@
 # VirtualBox
 
-## Guest Additions
+## Install Guest Additions
 
-### Installation
+Example: Fedora 23
 
-Fedora 23 Example
-
-```
+```markdown
 dnf update
 dnf install -y gcc
 dnf install -y make
@@ -15,13 +13,41 @@ dnf install -y kernel-headers
 reboot
 ```
 
-Devices => Insert Guest Additions CD image...
+VirtualBox VM
+* Devices
+  * Insert Guest Additions CD image
 
-```
+```markdown
 mkdir /mnt/cdrom
 mount /dev/cdrom /mnt/cdrom
 cd /mnt/cdrom
 ./VBoxLinuxAdditions.run
 ```
 
-If any troubles, see [this](http://kaworu.jpn.org/kaworu/2013-07-29-1.php).
+## Network
+
+VirtualBox Preferences
+
+* Network
+  * Host-only Network
+    * Add vboxnet0
+
+VirtualBox VM Settings
+
+* Network
+  * Adapter 1
+    * NAT
+  * Adapter 2
+    * Attached to: Host-only Adapter
+    * Name: vboxnet0
+
+## Provisioning
+
+```markdown
+ssh-keygen
+mkdir ~/.ghq/github.com/blp1526
+cd ~/.ghq/github.com/blp1526
+git clone git@github.com:blp1526/dotfiles.git
+cd dotfiles
+./setup.sh
+```

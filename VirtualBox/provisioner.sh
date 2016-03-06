@@ -6,6 +6,15 @@ if [ $(whoami) != root ]; then
   exit
 fi
 
+# add user
+user=user
+grep ^$user: /etc/passwd
+if ! [ $? -eq 0 ]; then
+  adduser $user
+  passwd $user
+fi
+
+# package manager
 fedora_version=$(cat /etc/redhat-release | awk '{ print $3 }')
 if [ $fedora_version -gt 21 ]; then
   manager=dnf
@@ -60,20 +69,19 @@ $manager install -y libyaml-devel
 $manager install -y libffi-devel
 
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
-  if ! cat /etc/group | awk -F : '{print $1}' | egrep ^rbenv$; then
-    groupadd rbenv
-  fi
-  gpasswd -a vagrant rbenv
 
   cd /usr/local
   git clone https://github.com/sstephenson/rbenv.git
-
-  chown -R vagrant:rbenv /usr/local/rbenv
-
   mkdir /usr/local/rbenv/plugins
   cd /usr/local/rbenv/plugins
   git clone https://github.com/sstephenson/ruby-build.git
 fi
+
+if ! cat /etc/group | awk -F : '{print $1}' | egrep ^rbenv$; then
+  groupadd rbenv
+fi
+gpasswd -a $user rbenv
+chown -R $user:rbenv /usr/local/rbenv
 
 cat << "__EOS__" > /etc/profile.d/rbenv.sh
 export RBENV_ROOT=/usr/local/rbenv
@@ -81,9 +89,9 @@ export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 __EOS__
 
-## sshd
+# sshd
 systemctl enable sshd.service
 systemctl start  sshd.service
 
-## SELinux
+# SELinux
 sed -i -e 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config

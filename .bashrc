@@ -36,8 +36,8 @@ fi
 
 # Linux settings
 if [ $(uname) = 'Linux' ]; then
-  . /usr/share/doc/git/contrib/completion/git-completion.bash
-  . /usr/share/doc/git/contrib/completion/git-prompt.sh
+  . /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
+  . /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
 
   jman() {
     LANG=ja_JP.UTF-8 man $1 $2
@@ -59,11 +59,12 @@ GIT_PS1_SHOWDIRTYSTATE=true
 # http://ambiesoft.fam.cx/blog/archives/1122
 # http://news.mynavi.jp/articles/2009/09/09/bash/
 PS1_USER='\[\033[32m\]\u'
+PS1_OS='\[\033[35m\]{$(uname)}'
 PS1_JOBS='\[\033[33m\][jobs:\j]'
 PS1_SEPARATOR='\[\033[37m\]:'
 PS1_DIR='\[\033[34m\]\W'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-PS1="${PS1_USER}${PS1_JOBS}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}"
+PS1="${PS1_USER}${PS1_OS}${PS1_JOBS}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}"
 
 # http://qiita.com/spesnova/items/f90b14973120f19bcda1
 change-repository-dir() {
