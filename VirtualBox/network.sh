@@ -20,4 +20,4 @@ read xxx
 nmcli connection modify enp0s8 ipv4.method manual ipv4.address "192.168.56.$xxx/24"
 
 nmcli device disconnect enp0s8
-nmcli device connect enp0s8
+nmcli device connect    enp0s8
