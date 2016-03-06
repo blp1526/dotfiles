@@ -392,7 +392,7 @@ set foldcolumn=0
 set foldlevel=99
 set ttimeoutlen=10
 set mouse=a
-set ttymouse=xterm2
+" set ttymouse=xterm2
 syntax on
 " }}}
 " }}}
