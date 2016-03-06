@@ -12,6 +12,7 @@ grep ^$user: /etc/passwd
 if ! [ $? -eq 0 ]; then
   adduser $user
   passwd $user
+  gpasswd -a $user wheel
 fi
 
 # package manager
