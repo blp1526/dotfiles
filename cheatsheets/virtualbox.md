@@ -44,9 +44,8 @@ VirtualBox VM Settings
 ## Provisioning
 
 ```markdown
-ssh-keygen
 mkdir ~/.ghq/github.com/blp1526
-cd ~/.ghq/github.com/blp1526
+cd    ~/.ghq/github.com/blp1526
 git clone git@github.com:blp1526/dotfiles.git
 cd dotfiles
 ./setup.sh
