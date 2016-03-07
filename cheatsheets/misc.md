@@ -153,3 +153,11 @@ chef-client --why-run
 ```markdown
 loadkeys us
 ```
+
+## Check hash value by openssl
+
+```markdown
+openssl dgst -md5 file
+openssl dgst -sha1 file
+openssl dgst -sha256 file
+```

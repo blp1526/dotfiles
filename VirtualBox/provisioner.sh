@@ -70,7 +70,6 @@ $manager install -y libyaml-devel
 $manager install -y libffi-devel
 
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
-
   cd /usr/local
   git clone https://github.com/sstephenson/rbenv.git
   mkdir /usr/local/rbenv/plugins
