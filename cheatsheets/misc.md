@@ -161,3 +161,11 @@ openssl dgst -md5 file
 openssl dgst -sha1 file
 openssl dgst -sha256 file
 ```
+
+## Show cwd list
+
+```markdown
+lsof -d cwd
+```
+
+see http://stackoverflow.com/questions/8327139/working-directory-of-running-process-on-mac-os
