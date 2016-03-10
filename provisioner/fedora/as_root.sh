@@ -97,9 +97,14 @@ if ! type direnv >/dev/null 2>&1; then
   make install
 fi
 
+# markdown viewer
+pip install grip
+
 # sshd
 systemctl enable sshd.service
 systemctl start  sshd.service
+
+# firewalld
 
 # SELinux
 sed -i -e 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config
