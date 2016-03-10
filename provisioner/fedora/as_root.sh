@@ -89,6 +89,14 @@ export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 __EOS__
 
+# direnv
+if ! type direnv >/dev/null 2>&1; then
+  cd /tmp
+  git clone https://github.com/direnv/direnv.git
+  cd direnv
+  make install
+fi
+
 # sshd
 systemctl enable sshd.service
 systemctl start  sshd.service
