@@ -28,9 +28,22 @@ cd /mnt/cdrom
 
 VirtualBox Preferences
 
+see http://www.kakiro-web.com/memo/virtualbox-create-virtual-machine-centos6-2.html
+
 * Network
   * Host-only Network
     * Add vboxnet0
+    * Adapter
+      * IPv4 Address:             192.168.56.1
+      * IPv4 Network Mask:        255.255.255.0
+      * IPv6 Address:             (blank)
+      * IPv6 Network Mask Length: 0
+    * DHCP Server
+      * Enable Server
+      * Server Address:      192.168.56.100
+      * Server Mask:         255.255.255.0
+      * Lower Address Bound: 192.168.56.101
+      * Upper Address Bound: 192.168.56.254
 
 VirtualBox VM Settings
 
@@ -40,13 +53,3 @@ VirtualBox VM Settings
   * Adapter 2
     * Attached to: Host-only Adapter
     * Name: vboxnet0
-
-## Provisioning
-
-```markdown
-mkdir ~/.ghq/github.com/blp1526
-cd    ~/.ghq/github.com/blp1526
-git clone git@github.com:blp1526/dotfiles.git
-cd dotfiles
-./setup.sh
-```
