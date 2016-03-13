@@ -138,7 +138,7 @@ file_names=(
 )
 
 for file_name in "${file_names[@]}"; do
-  ln -sf $(pwd)/${file_name} ~/
+  ln -sf ${HOME}/.ghq/github.com/blp1526/dotfiles/${file_name} ~/
 done
 
 if ! [ -e ~/.gitconfig.local ]; then
