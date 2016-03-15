@@ -169,3 +169,9 @@ lsof -d cwd
 ```
 
 see http://stackoverflow.com/questions/8327139/working-directory-of-running-process-on-mac-os
+
+## ps o(user-defined format)
+
+```markdown
+ps axfo ppid,pid,cmd
+```

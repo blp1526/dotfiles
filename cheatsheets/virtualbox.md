@@ -1,5 +1,12 @@
 # VirtualBox
 
+## VBoxManage
+
+```markdown
+VBoxManage startvm   fedora-23 --type headless
+VBoxManage controlvm fedora-23 poweroff
+```
+
 ## Install Guest Additions
 
 Example: Fedora 23
