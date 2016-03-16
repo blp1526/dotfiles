@@ -39,6 +39,9 @@ if [ $(uname) = 'Linux' ]; then
     LANG=ja_JP.UTF-8 man $1 $2
   }
 
+  # OSX => ps: illegal option -- f
+  alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
+
   # http://qiita.com/sonots/items/2d7950a68da0a02ba7e4
   agent="$HOME/.ssh/agent"
   if [ -S "$SSH_AUTH_SOCK" ]; then
