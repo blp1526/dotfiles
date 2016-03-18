@@ -97,14 +97,18 @@ if ! type direnv >/dev/null 2>&1; then
   make install
 fi
 
-# markdown viewer
+# pip
 pip install grip
+pip install vim-vint
 
 # sshd
 systemctl enable sshd.service
 systemctl start  sshd.service
 
 # firewalld
+# firewall-cmd --get-default-zone
+# firewall-cmd --list-all-zones
+# firewall-cmd --set-default-zone=zone_name
 
 # SELinux
 sed -i -e 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config
