@@ -1,75 +1,30 @@
-# OSX settings
-if [ $(uname) = 'Darwin' ]; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
-
-  if type rbenv >/dev/null 2>&1; then
-    eval "$(rbenv init -)"
-  fi
-
-  if type plenv >/dev/null 2>&1; then
-    eval "$(plenv init -)"
-  fi
-
-  if type pyenv >/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-  fi
-
-  eval "$(hub alias -s)"
-
-  change-vagrant-dir() {
-    cd $(vagrant global-status | awk '/^[[:alnum:]]{7}\s/ { print $NF }' | peco)
-  }
-
-  alias cdv='change-vagrant-dir'
-  alias ls='ls -vGF'
-  alias ll='ls -l'
-  alias la='ll -a'
-  alias grep='grep --color=auto'
-  alias camera='screencapture -i $HOME/Desktop/$(date +%s).png'
+# ssh-agent
+## http://qiita.com/sonots/items/2d7950a68da0a02ba7e4
+agent="$HOME/.ssh/agent"
+if [ -S "$SSH_AUTH_SOCK" ]; then
+  case $SSH_AUTH_SOCK in
+  /tmp/*/agent.[0-9]*)
+    ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+  esac
+elif [ -S $agent ]; then
+  export SSH_AUTH_SOCK=$agent
+else
+  echo "no ssh-agent"
 fi
 
-# Linux settings
-if [ $(uname) = 'Linux' ]; then
-  . /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
-  . /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
+# git completion & prompt
+. /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
+. /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
 
-  jman() {
-    LANG=ja_JP.UTF-8 man $1 $2
-  }
-
-  # OSX => ps: illegal option -- f
-  alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
-
-  # http://qiita.com/sonots/items/2d7950a68da0a02ba7e4
-  agent="$HOME/.ssh/agent"
-  if [ -S "$SSH_AUTH_SOCK" ]; then
-    case $SSH_AUTH_SOCK in
-    /tmp/*/agent.[0-9]*)
-      ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
-    esac
-  elif [ -S $agent ]; then
-    export SSH_AUTH_SOCK=$agent
-  else
-    echo "no ssh-agent"
-  fi
-fi
-
-# Shared settings
-
-# http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
-stty stop undef
-
+# shell variables
 SHELL='bash'
 HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
 GIT_PS1_SHOWDIRTYSTATE=true
-
-# https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519
-# http://ambiesoft.fam.cx/blog/archives/1122
-# http://news.mynavi.jp/articles/2009/09/09/bash/
+## https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519
+## http://ambiesoft.fam.cx/blog/archives/1122
+## http://news.mynavi.jp/articles/2009/09/09/bash/
 PS1_USER='\[\033[32m\]\u'
 PS1_OS='\[\033[35m\]{$(uname)}'
 PS1_JOBS='\[\033[33m\][jobs:\j]'
@@ -78,29 +33,27 @@ PS1_DIR='\[\033[34m\]\W'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 PS1="${PS1_USER}${PS1_OS}${PS1_JOBS}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}"
 
-# http://qiita.com/spesnova/items/f90b14973120f19bcda1
+# disable tty lock
+## http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
+stty stop undef
+
+# functions
+jman() {
+  LANG=ja_JP.UTF-8 man $1 $2
+}
+
+## http://qiita.com/spesnova/items/f90b14973120f19bcda1
 change-repository-dir() {
   cd $(ghq list --full-path | peco)
 }
-alias cdr='change-repository-dir'
+alias c='change-repository-dir'
+alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
 
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
-# peco-history() {
-#   history | awk '{ for(i = 3; i < NF; i++) { printf("%s%s", $i, OFS=" "); }; print $NF; }' | sort | uniq | peco | xargs -I {} bash -c {}
-# }
-# bind -x '"\C-r": peco-history'
-
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
-
+# npm-completion
 if type complete &>/dev/null; then
   _npm_completion () {
     local words cword
@@ -149,4 +102,3 @@ elif type compctl &>/dev/null; then
   }
   compctl -K _npm_completion npm
 fi
-###-end-npm-completion-###
