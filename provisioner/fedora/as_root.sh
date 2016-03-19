@@ -98,6 +98,7 @@ if ! type direnv >/dev/null 2>&1; then
 fi
 
 # pip
+pip install --upgrade pip
 pip install grip
 pip install vim-vint
 
