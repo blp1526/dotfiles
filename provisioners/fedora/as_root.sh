@@ -6,7 +6,7 @@ if [ $(whoami) != root ]; then
   exit
 fi
 
-# add user
+# non-root user
 user=user
 grep ^$user: /etc/passwd
 if ! [ $? -eq 0 ]; then
@@ -62,13 +62,14 @@ $manager install -y rabbitmq-server
 $manager -y install -y qemu-kvm
 $manager -y install -y qemu-kvm-tools
 
-# ruby
+# Ruby Requirements
 $manager install -y openssl-devel
 $manager install -y zlib-devel
 $manager install -y readline-devel
 $manager install -y libyaml-devel
 $manager install -y libffi-devel
 
+# rbenv
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
   cd /usr/local
   git clone https://github.com/sstephenson/rbenv.git
@@ -87,6 +88,27 @@ cat << "__EOS__" > /etc/profile.d/rbenv.sh
 export RBENV_ROOT=/usr/local/rbenv
 export PATH="$RBENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
+__EOS__
+
+# plenv
+if ! [ -e /usr/local/plenv/bin/plenv ]; then
+  cd /usr/local
+  git clone https://github.com/tokuhirom/plenv.git
+  mkdir /usr/local/plenv/plugins
+  cd /usr/local/plenv/plugins
+  git clone https://github.com/tokuhirom/Perl-Build.git
+fi
+
+if ! cat /etc/group | awk -F : '{print $1}' | egrep ^plenv$; then
+  groupadd plenv
+fi
+gpasswd -a $user plenv
+chown -R $user:plenv /usr/local/plenv
+
+cat << "__EOS__" > /etc/profile.d/plenv.sh
+export PLENV_ROOT=/usr/local/plenv
+export PATH="$PLENV_ROOT/bin:$PATH"
+eval "$(plenv init -)"
 __EOS__
 
 # direnv
