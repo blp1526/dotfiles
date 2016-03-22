@@ -42,6 +42,21 @@ jman() {
   LANG=ja_JP.UTF-8 man $1 $2
 }
 
+manselect() {
+  if [ $# -ne 1 ]; then
+    echo 'ArgumentError: wrong number of arguments (expected 1)'
+    return 1
+  fi
+  man $1 > /dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    echo "ArgumentError: no manual entry for $1"
+    return 1
+  fi
+  selected=$(man -aw $1 | peco)
+  args=$(basename $selected | awk -F . '{ printf("%s %s\n", $2, $1) }')
+  man $args
+}
+
 ## http://qiita.com/spesnova/items/f90b14973120f19bcda1
 change-repository-dir() {
   cd $(ghq list --full-path | peco)
