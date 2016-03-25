@@ -390,6 +390,8 @@ set foldlevel=99
 set ttimeoutlen=10
 set mouse=a
 " set ttymouse=xterm2
+" http://qiita.com/shuhei/items/b1052736116055be7d7b
+set iskeyword-=_
 syntax on
 " }}}
 " }}}
