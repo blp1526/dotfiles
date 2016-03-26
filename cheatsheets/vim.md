@@ -1,5 +1,12 @@
 # Vim
 
+## Show character code
+
+normal mode ga
+command mode :as
+
+http://qiita.com/fieldville/items/89c3a5a2244b912592ea
+
 ## .vimrc
 
 ### neobundle
