@@ -1,5 +1,10 @@
 # VirtualBox
 
+## UEFI (for Arch Linux)
+
+* settings
+  * System => Enable EFI (special OSes only)
+
 ## VBoxManage
 
 ```markdown
