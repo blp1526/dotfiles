@@ -23,7 +23,7 @@ else
   manager=yum
 fi
 
-$manager update -y
+# $manager update -y
 
 # basic
 $manager install -y man
