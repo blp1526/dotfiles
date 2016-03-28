@@ -146,6 +146,7 @@ let g:ctrlp_prompt_mappings = {
 \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_show_hidden = 1
 " }}}
 " thinca/vim-quickrun {{{
 let g:quickrun_config = { '*': { 'split': '' } }
