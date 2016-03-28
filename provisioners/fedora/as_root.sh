@@ -23,7 +23,7 @@ else
   manager=yum
 fi
 
-$manager update -y
+# $manager update -y
 
 # basic
 $manager install -y man
@@ -59,8 +59,8 @@ $manager install -y sqlite-devel
 $manager install -y rabbitmq-server
 
 # KVM
-$manager -y install -y qemu-kvm
-$manager -y install -y qemu-kvm-tools
+# $manager -y install -y qemu-kvm
+# $manager -y install -y qemu-kvm-tools
 
 # Ruby Requirements
 $manager install -y openssl-devel

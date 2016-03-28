@@ -293,7 +293,7 @@ endf
 " }}}
 " key mapping {{{
 " http://d.hatena.ne.jp/h1mesuke/20080327/p1
-nnoremap <silent><ESC><ESC> :noh<CR>
+nnoremap <silent><ESC> :noh<CR>
 
 " http://qiita.com/kuwana/items/d9778a9ec42a53b3aa10
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
