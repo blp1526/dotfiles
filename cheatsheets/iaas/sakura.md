@@ -1,8 +1,6 @@
 # SAKURA
 
-## Cloud
-
-### Object storage
+## Object storage
 
 When you use the `s3cmd` tool, you must add `alias s3cmd='s3cmd --signature-v2'` to `/etc/bashrc` or `~/.bashrc`.
 
