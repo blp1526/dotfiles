@@ -37,6 +37,7 @@ $manager install -y autoconf
 $manager install -y strace
 $manager install -y man-pages-ja
 $manager install -y the_silver_searcher
+$manager install -y parallel
 
 # code reading
 $manager install -y patch
