@@ -294,7 +294,7 @@ endf
 " }}}
 " key mapping {{{
 " http://d.hatena.ne.jp/h1mesuke/20080327/p1
-nnoremap <silent><ESC> :noh<CR>
+nnoremap <silent><ESC><ESC> :noh<CR>
 
 " http://qiita.com/kuwana/items/d9778a9ec42a53b3aa10
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -392,7 +392,9 @@ set ttimeoutlen=10
 set mouse=a
 " set ttymouse=xterm2
 " http://qiita.com/shuhei/items/b1052736116055be7d7b
-set iskeyword-=_
+" set iskeyword-=_
+" http://d.hatena.ne.jp/tacroe/20100612/1276294999
+set shortmess+=I
 syntax on
 " }}}
 " }}}
