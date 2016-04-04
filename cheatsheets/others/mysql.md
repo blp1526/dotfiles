@@ -54,3 +54,75 @@ mysql> FLUSH PRIVILEGES;
 ```
 
 See [this](http://qiita.com/is0me/items/91a0af0342c307b94a16).
+
+## Replication
+
+Master: Create a user for replication.
+
+```markdown
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'xxx.xxx.xxx.xxx' IDENTIFIED BY 'password string';
+```
+
+Master: Update my.cnf.
+
+```markdown
+[mysqld]
+log-bin=mysql-bin
+server-id=1001
+```
+
+Slave: Update my.cnf.
+
+```markdown
+[mysqld]
+server-id=1002
+```
+
+Master: Check MASTER STATUS by terminal 1.
+
+```markdown
+mysql > FLUSH TABLES WITH READ LOCK;
+mysql > SHOW MASTER STATUS;
+
++------------------+----------+--------------+------------------+
+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------+----------+--------------+------------------+
+| mysql-bin.000001 | 123 | | |
++------------------+----------+--------------+------------------+
+1 row in set (0.00 sec)
+```
+
+Master: Create master data snapshot by terminal 2.
+
+```markdown
+mysqldump --all-databases --events --lock-all-tables > dbdump.db
+```
+
+Master: Unlock tables.
+
+```markdown
+mysql > UNLOCK TABLES;
+```
+
+Slave: Update database by dbdump.db.
+
+```markdown
+mysql < dbdump.db
+```
+
+Slave: Change master infomation.
+
+```markdown
+mysql > CHANGE MASTER TO
+MASTER_HOST='xxx.xxx.xxx.xxx',
+MASTER_USER='repl',
+MASTER_PASSWORD='password',
+MASTER_LOG_FILE='mysql-bin.000001',
+MASTER_LOG_POS=123;
+```
+
+Slave: Start slave.
+
+```markdown
+mysql > START SLAVE;
+```
