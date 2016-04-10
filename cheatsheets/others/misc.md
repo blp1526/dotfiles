@@ -187,3 +187,9 @@ lscpu --parse=CPU,Core
 0,0
 1,1
 ```
+
+## Change ssh passphrase
+
+```markdown
+ssh-keygen -p
+```
