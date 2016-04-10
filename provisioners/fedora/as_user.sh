@@ -7,6 +7,10 @@ if ! [ -e ${HOME}/bin ]; then
   mkdir ${HOME}/bin
 fi
 
+if ! [ -e ${HOME}/tmp ]; then
+  mkdir ${HOME}/tmp
+fi
+
 file_names=(
   .bash_profile
   .bashrc
