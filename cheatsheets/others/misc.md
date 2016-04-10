@@ -175,3 +175,15 @@ see http://stackoverflow.com/questions/8327139/working-directory-of-running-proc
 ```markdown
 ps axfo ppid,pid,cmd
 ```
+
+## Parsable lscpu
+
+```markdown
+lscpu --parse=CPU,Core
+# The following is the parsable format, which can be fed to other
+# programs. Each different item in every column has an unique ID
+# starting from zero.
+# CPU,Core
+0,0
+1,1
+```
