@@ -32,6 +32,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'todesking/vint-syntastic'
@@ -56,6 +57,7 @@ NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -243,6 +245,55 @@ let g:ag_highlight=1
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
+" }}}
+" itchyny/lightline.vim {{{
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'readonly': 'LightLineReadonly',
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename'
+      \ },
+      \ 'separator': { 'left': '|', 'right': '|' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+function! LightLineModified()
+  if &filetype == 'help'
+    return ''
+  elseif &modified
+    return '+'
+  elseif &modifiable
+    return ''
+  else
+    return ''
+  endif
+endfunction
+
+function! LightLineReadonly()
+  if &filetype == 'help'
+    return ''
+  elseif &readonly
+    return '|'
+  else
+    return ''
+  endif
+endfunction
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 " }}}
 " }}}
 
