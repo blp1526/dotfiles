@@ -457,6 +457,7 @@ set mouse=a
 " set iskeyword-=_
 " http://d.hatena.ne.jp/tacroe/20100612/1276294999
 set shortmess+=I
+set textwidth=0
 syntax on
 " }}}
 " }}}
