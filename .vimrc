@@ -372,6 +372,9 @@ nnoremap <C-l> :tabnext<CR>
 
 " ctags
 noremap <C-]> g<C-]>
+
+" selected text replacement
+vnoremap <C-t> :s/\%V
 " }}}
 " augroup {{{
 " about autocmd / augroup
@@ -404,6 +407,7 @@ augroup HardTab
   autocmd!
   autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
   autocmd BufNewFile,BufRead *.c  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
+  autocmd BufNewFile,BufRead *.h  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 augroup END
 
 " http://d.hatena.ne.jp/rdera/20081022/1224682665
