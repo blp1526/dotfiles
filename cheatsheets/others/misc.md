@@ -193,3 +193,14 @@ lscpu --parse=CPU,Core
 ```markdown
 ssh-keygen -p
 ```
+
+## Available CPU size for current process
+
+```markdown
+# grep processor /proc/cpuinfo | wc -l
+# Above result is not available CPU size for current process.
+# Use following command.
+nproc
+```
+
+see http://qiita.com/masami256/items/47163fefed7c1e337dec
