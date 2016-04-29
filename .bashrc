@@ -13,13 +13,14 @@ else
 fi
 
 # git completion & prompt
-if [ -e /etc/lsb-release ]; then
-  . /etc/bash_completion.d/git-prompt
-fi
-
 if [ -e /etc/fedora-release ]; then
   . /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
   . /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
+fi
+
+if [ -e /etc/lsb-release ]; then
+  . /etc/profile.d/bash_completion.sh
+  . /etc/bash_completion.d/git-prompt
 fi
 
 # shell variables
