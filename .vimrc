@@ -333,7 +333,8 @@ endif
 highlight Search  ctermfg=0 ctermbg=14
 highlight Visual  ctermfg=1 ctermbg=15
 " http://stackoverflow.com/questions/1294790/change-tilde-color-in-vim
-highlight NonText ctermfg=0
+" FIXME: Change NonText ctermfg by background color
+highlight NonText ctermfg=white
 
 highlight Folded     ctermfg=0 ctermbg=10
 highlight FoldColumn ctermfg=0 ctermbg=10
