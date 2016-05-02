@@ -463,6 +463,8 @@ set mouse=a
 " http://d.hatena.ne.jp/tacroe/20100612/1276294999
 set shortmess+=I
 set textwidth=0
+" http://deris.hatenablog.jp/entry/2013/05/15/024932
+set smartcase
 syntax on
 " }}}
 " }}}
