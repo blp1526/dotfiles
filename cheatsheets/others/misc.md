@@ -204,3 +204,15 @@ nproc
 ```
 
 see http://qiita.com/masami256/items/47163fefed7c1e337dec
+
+## Show filesystem super block
+
+```markdown
+tune2fs -l /dev/xxx
+```
+
+## Show configuration values
+
+```markdown
+getconf -a
+```
