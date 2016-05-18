@@ -366,10 +366,10 @@ cnoremap <M-f> <S-Right>
 " nnoremap / /\v
 
 " tab
-nnoremap <C-c> :tabclose<CR>
-nnoremap <C-n> :tabnew<CR>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
+nnoremap <silent><C-c> :tabclose<CR>
+nnoremap <silent><C-n> :tabnew<CR>
+nnoremap <silent><C-h> :tabprevious<CR>
+nnoremap <silent><C-l> :tabnext<CR>
 
 " ctags
 noremap <C-]> g<C-]>
