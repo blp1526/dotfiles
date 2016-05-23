@@ -1,5 +1,6 @@
 # git completion & prompt
 if [ -e /etc/fedora-release ]; then
+  . /usr/share/bash-completion/bash_completion
   . /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
   . /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
 fi
