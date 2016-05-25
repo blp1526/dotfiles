@@ -56,6 +56,7 @@ $manager install -y mariadb-server
 $manager install -y mariadb-devel
 $manager install -y sqlite
 $manager install -y sqlite-devel
+$manager install -y jq
 
 # AMQP
 $manager install -y rabbitmq-server
