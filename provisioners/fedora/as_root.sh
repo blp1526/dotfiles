@@ -38,7 +38,10 @@ $manager install -y strace
 $manager install -y man-pages-ja
 $manager install -y the_silver_searcher
 $manager install -y parallel
+
+# filesystem
 $manager install -y fuse-sshfs
+$manager install -y autofs
 
 # code reading
 $manager install -y patch
