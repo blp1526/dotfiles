@@ -12,3 +12,9 @@ see [this](http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-use-
 
 * Finder => Preferences
   * Uncheck all checkboxes at "Show these items on the desktop:"
+
+## Samba
+
+```markdown
+mount_smbfs //foo.com/documents mnt/documents
+```
