@@ -10,6 +10,8 @@ Style/Documentation:
   Enabled: false
 Style/NumericLiterals:
   Enabled: false
+Style/BlockComments:
+  Enabled: false
 LineLength:
   Enabled: false
 ClassLength:
