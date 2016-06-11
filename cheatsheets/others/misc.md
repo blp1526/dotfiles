@@ -216,3 +216,10 @@ tune2fs -l /dev/xxx
 ```markdown
 getconf -a
 ```
+
+## Remove double quotation mark from jq result
+
+```markdown
+# Use -r
+echo '{"items":[{"id":1,"name":"beer","price":200},{"id":2,"name":"water", price":100}]}' | jq -r '.items[].name'
+```
