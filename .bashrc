@@ -24,8 +24,9 @@ PS1_OS='\[\033[35m\]{$(uname)}'
 PS1_JOBS='\[\033[33m\][jobs:\j]'
 PS1_SEPARATOR='\[\033[37m\]:'
 PS1_DIR='\[\033[34m\]\W'
-PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
-PS1="${PS1_USER}${PS1_OS}${PS1_JOBS}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}"
+PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]'
+PS1_DOLLAR='\n\$ '
+PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
 # disable tty lock
 ## http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
