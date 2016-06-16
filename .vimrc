@@ -456,7 +456,8 @@ set foldmethod=indent
 set foldcolumn=0
 set foldlevel=99
 set ttimeoutlen=10
-set mouse=a
+" http://yskwkzhr.blogspot.jp/2013/02/use-mouse-on-terminal-vim.html
+" set mouse=a
 " set ttymouse=xterm2
 " http://qiita.com/shuhei/items/b1052736116055be7d7b
 " set iskeyword-=_
