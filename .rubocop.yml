@@ -12,6 +12,8 @@ Style/NumericLiterals:
   Enabled: false
 Style/BlockComments:
   Enabled: false
+Style/BracesAroundHashParameters:
+  Enabled: false
 LineLength:
   Enabled: false
 ClassLength:
