@@ -41,6 +41,7 @@ $manager install -y parallel
 
 # filesystem
 $manager install -y fuse-sshfs
+$manager install -y fuse-devel
 $manager install -y autofs
 
 # code reading
