@@ -22,3 +22,5 @@ AsciiComments:
   Enabled: false
 Lint/Eval:
   Enabled: false
+AllCops:
+  TargetRubyVersion: 2.1
