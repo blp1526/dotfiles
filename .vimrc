@@ -421,6 +421,11 @@ augroup BinaryXXD
   autocmd BufWritePost * if &binary | silent %!xxd -g 1
   autocmd BufWritePost * set nomod | endif
 augroup END
+
+augroup Log
+  autocmd!
+  autocmd BufNewFile,BufRead *.log set cursorline
+augroup END
 " }}}
 " matchit {{{
 if !exists('loading_matchit')
