@@ -223,3 +223,13 @@ getconf -a
 # Use -r
 echo '{"items":[{"id":1,"name":"beer","price":200},{"id":2,"name":"water", price":100}]}' | jq -r '.items[].name'
 ```
+
+## Force log logrotion
+
+```markdown
+# d: debug, v: verbose
+logrotate -dv whenever
+
+# f: force
+logrotate -f whenever
+```
