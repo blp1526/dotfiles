@@ -232,7 +232,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " http://d.hatena.ne.jp/oppara/20140515/p1
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_vim_checkers = ['vint']
+" let g:syntastic_vim_checkers = ['vint']
 " https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
 let g:syntastic_html_tidy_exec = 'tidy5'
 " }}}
@@ -425,6 +425,11 @@ augroup END
 augroup Log
   autocmd!
   autocmd BufNewFile,BufRead *.log set cursorline
+augroup END
+
+augroup Vint
+  autocmd!
+  autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
 augroup END
 " }}}
 " matchit {{{
