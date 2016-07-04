@@ -424,7 +424,8 @@ augroup END
 
 augroup Log
   autocmd!
-  autocmd BufNewFile,BufRead *.log set cursorline
+  autocmd BufNewFile,BufRead *.log     set cursorline
+  autocmd BufNewFile,BufRead *.log*.gz set cursorline
 augroup END
 
 augroup Vint
