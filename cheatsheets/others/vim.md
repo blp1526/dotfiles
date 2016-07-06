@@ -1,5 +1,15 @@
 # Vim
 
+## Session.vim
+
+```markdown
+:mksession
+:qa
+# vim -S Session.vim
+vim
+:source Session.vim
+```
+
 ## Show character code
 
 * normal mode `ga`
