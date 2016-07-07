@@ -233,3 +233,10 @@ logrotate -dv whenever
 # f: force
 logrotate -f whenever
 ```
+
+## Open a sar file
+
+```markdown
+# -f: open filename
+sar -f /var/log/sa/sa01
+```
