@@ -44,6 +44,9 @@ $manager install -y fuse-sshfs
 $manager install -y fuse-devel
 $manager install -y autofs
 
+# cgroup
+$manager install -y libcgroup-tools
+
 # code reading
 $manager install -y patch
 $manager install -y ccache
