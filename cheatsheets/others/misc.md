@@ -240,3 +240,11 @@ logrotate -f whenever
 # -f: open filename
 sar -f /var/log/sa/sa01
 ```
+
+## Show dig short result
+
+```markdown
+dig example.com +short
+```
+
+see http://takuya-1st.hatenablog.jp/entry/2016/07/01/190135
