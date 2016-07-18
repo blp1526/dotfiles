@@ -377,6 +377,15 @@ noremap <C-]> g<C-]>
 
 " selected text replacement
 vnoremap <C-t> :s/\%V
+
+" strftime
+" http://note103.hateblo.jp/entry/2016/07/06/114746
+inoremap <expr> <LEADER>df strftime('%Y-%m-%d %H:%M')
+inoremap <expr> <LEADER>dd strftime('%Y-%m-%d')
+inoremap <expr> <LEADER>dt strftime('%H:%M')
+let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
+let wday = strftime("%w")
+inoremap <expr> <LEADER>ds strftime('%Y-%m-%d ').weeks[wday]
 " }}}
 " augroup {{{
 " about autocmd / augroup
