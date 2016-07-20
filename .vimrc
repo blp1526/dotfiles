@@ -244,6 +244,9 @@ let g:vim_json_syntax_conceal = 0
 " rking/ag.vim {{{
 let g:ag_highlight=1
 " }}}
+" MarcWeber/vim-addon-local-vimrc {{{
+let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
+" }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
 " }}}
