@@ -491,6 +491,8 @@ set shortmess+=I
 set textwidth=0
 " http://deris.hatenablog.jp/entry/2013/05/15/024932
 set smartcase
+" http://m.designbits.jp/14022515/
+set nrformats=alpha
 syntax on
 " }}}
 " }}}
