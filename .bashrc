@@ -32,6 +32,18 @@ PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 ## http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
 stty stop undef
 
+# http://inaz2.hatenablog.com/entry/2014/12/11/015125
+if [[ -n "$PS1" ]]; then
+  cd() {
+    command cd "$@"
+    local s=$?
+    if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
+      history -s cd $(printf "%q" "$PWD")
+    fi
+    return $s
+  }
+fi
+
 # functions
 jman() {
   LANG=ja_JP.UTF-8 man $1 $2
