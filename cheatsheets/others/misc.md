@@ -248,3 +248,11 @@ dig example.com +short
 ```
 
 see http://takuya-1st.hatenablog.jp/entry/2016/07/01/190135
+
+## Kill processes by name
+
+```markdown
+pgrep -f worker
+# pgrep -fl worker
+pkill -f worker
+```
