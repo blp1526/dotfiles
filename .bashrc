@@ -32,6 +32,9 @@ PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 ## http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
 stty stop undef
 
+# http://kiririmode.hatenablog.jp/entry/20160731/1469930855
+# shopt -s extglob
+
 # http://inaz2.hatenablog.com/entry/2014/12/11/015125
 if [[ -n "$PS1" ]]; then
   cd() {
