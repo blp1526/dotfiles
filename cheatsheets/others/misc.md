@@ -256,3 +256,10 @@ pgrep -f worker
 # pgrep -fl worker
 pkill -f worker
 ```
+
+## Show RabbitMQ queues
+
+```markdown
+rabbitmqctl list_vhosts
+rabbitmqctl list_queues -p vhost_name
+```
