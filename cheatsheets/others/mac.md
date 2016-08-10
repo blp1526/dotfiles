@@ -18,3 +18,15 @@ see [this](http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-use-
 ```markdown
 mount_smbfs //foo.com/documents mnt/documents
 ```
+
+## ftps
+
+```markdown
+brew install lftp
+lftp username@example.com
+set ftp:passive-mode on
+set ftp:ssl-protect-data true
+put example.iso
+```
+
+see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
