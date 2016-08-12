@@ -38,6 +38,7 @@ $manager install -y strace
 $manager install -y man-pages-ja
 $manager install -y the_silver_searcher
 $manager install -y parallel
+$manager install -y lftp
 
 # filesystem
 $manager install -y fuse-sshfs
