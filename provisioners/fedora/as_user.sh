@@ -30,6 +30,7 @@ file_names=(
   .inputrc
   .proverc
   .rubocop.yml
+  .lftprc
 )
 
 for file_name in "${file_names[@]}"; do
