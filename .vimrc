@@ -389,6 +389,9 @@ inoremap <expr> <LEADER>dt strftime('%H:%M')
 let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
 let wday = strftime("%w")
 inoremap <expr> <LEADER>ds strftime('%Y-%m-%d ').weeks[wday]
+
+" tab new gf
+nnoremap gf <C-w>gf
 " }}}
 " augroup {{{
 " about autocmd / augroup
