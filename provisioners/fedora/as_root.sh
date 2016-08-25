@@ -39,6 +39,7 @@ $manager install -y man-pages-ja
 $manager install -y the_silver_searcher
 $manager install -y parallel
 $manager install -y lftp
+$manager install -y clang
 
 # filesystem
 $manager install -y fuse-sshfs
