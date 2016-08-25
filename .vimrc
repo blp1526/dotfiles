@@ -57,6 +57,7 @@ NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'justmao945/vim-clang'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -298,6 +299,10 @@ function! LightLineFilename()
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
+" }}}
+" justmao945/vim-clang {{{
+let g:clang_c_options   = '-std=c11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 " }}}
 " }}}
 
