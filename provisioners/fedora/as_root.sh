@@ -70,6 +70,9 @@ $manager install -y jq
 # AMQP
 $manager install -y rabbitmq-server
 
+# Utility
+$manager install -y s3cmd
+
 # KVM
 # $manager -y install -y qemu-kvm
 # $manager -y install -y qemu-kvm-tools
