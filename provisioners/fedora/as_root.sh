@@ -45,6 +45,7 @@ $manager install -y clang
 $manager install -y fuse-sshfs
 $manager install -y fuse-devel
 $manager install -y autofs
+$manager install -y inotify-tools
 
 # cgroup
 $manager install -y libcgroup-tools
