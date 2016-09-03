@@ -66,7 +66,15 @@ filetype plugin indent on
 NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
-nnoremap <LEADER>t :Unite tab<CR>
+let g:unite_enable_split_vertically = 1
+let g:unite_winwidth = 40
+
+" http://deris.hatenablog.jp/entry/2013/05/02/192415
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 " Disable AutoComplPop.
