@@ -59,6 +59,7 @@ NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'justmao945/vim-clang'
+NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()

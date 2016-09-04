@@ -73,6 +73,7 @@ $manager install -y rabbitmq-server
 
 # Utility
 $manager install -y s3cmd
+$manager install -y w3m
 
 # KVM
 # $manager -y install -y qemu-kvm
