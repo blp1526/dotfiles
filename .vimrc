@@ -76,6 +76,7 @@ nmap <Space>u [unite]
 
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 " Disable AutoComplPop.
