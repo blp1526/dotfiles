@@ -14,6 +14,10 @@ Style/BlockComments:
   Enabled: false
 Style/BracesAroundHashParameters:
   Enabled: false
+Style/BlockDelimiters:
+  Enabled: false
+Style/SingleLineBlockParams:
+  Enabled: false
 LineLength:
   Enabled: false
 ClassLength:
