@@ -60,6 +60,7 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -77,6 +78,7 @@ nmap <Space>u [unite]
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]s :<C-u>Unite source<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 " Disable AutoComplPop.
@@ -261,6 +263,9 @@ let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
+" }}}
+" gregsexton/gitv {{{
+let g:Gitv_OpenHorizontal = 1
 " }}}
 " itchyny/lightline.vim {{{
 let g:lightline = {
