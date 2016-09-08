@@ -19,6 +19,8 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -28,12 +30,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
-NeoBundle 'Shougo/unite-outline'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'easymotion/vim-easymotion'
@@ -60,7 +62,6 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'gregsexton/gitv'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -69,7 +70,7 @@ NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
 let g:unite_enable_split_vertically = 1
-let g:unite_winwidth = 40
+let g:unite_winwidth = 80
 
 " http://deris.hatenablog.jp/entry/2013/05/02/192415
 nnoremap [unite] <Nop>
