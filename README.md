@@ -4,7 +4,7 @@
 
 ### Guest OS (Fedora)
 
-If you use VirtualBox, read `cheatsheets/virtualbox.md`.
+If you use VirtualBox, read [virtualbox.md](cheatsheets/others/virtualbox.md).
 
 * as root user
   * Run `./provisioners/fedora/as_root.sh`
