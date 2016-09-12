@@ -69,6 +69,7 @@ filetype plugin indent on
 NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
+let g:unite_enable_start_insert=1
 let g:unite_enable_split_vertically = 1
 let g:unite_winwidth = 80
 
@@ -76,10 +77,20 @@ let g:unite_winwidth = 80
 nnoremap [unite] <Nop>
 nmap <Space>u [unite]
 
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [unite]s :<C-u>Unite source<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]m :<C-u>Unite mapping<CR>
+
+" http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 " }}}
 " Shougo/neocomplete.vim {{{
 " Disable AutoComplPop.
