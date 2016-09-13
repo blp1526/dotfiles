@@ -34,12 +34,14 @@ $manager install -y tmux
 $manager install -y gcc-c++
 $manager install -y automake
 $manager install -y autoconf
-$manager install -y strace
 $manager install -y man-pages-ja
 $manager install -y the_silver_searcher
 $manager install -y parallel
 $manager install -y lftp
 $manager install -y clang
+$manager install -y strace
+# https://sourceware.org/systemtap/examples/
+$manager install -y systemtap
 
 # filesystem
 $manager install -y fuse-sshfs
