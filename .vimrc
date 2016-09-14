@@ -425,6 +425,10 @@ inoremap <expr> <LEADER>ds strftime('%Y-%m-%d ').weeks[wday]
 
 " tab new gf
 nnoremap gf <C-w>gf
+
+" user-manual
+nnoremap <LEADER>me :help usr_toc.txt@en<CR>
+nnoremap <LEADER>mj :help usr_toc.txt@ja<CR>
 " }}}
 " augroup {{{
 " about autocmd / augroup
