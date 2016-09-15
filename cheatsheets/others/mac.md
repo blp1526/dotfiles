@@ -30,3 +30,8 @@ put example.iso
 ```
 
 see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
+
+## iTerm2
+
+* Profile => Text => Unicode
+  * Uncheck "Treat ambiguous-width characters as double width (not recommended)" for tmux
