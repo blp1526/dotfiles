@@ -70,8 +70,8 @@ NeoBundleCheck
 " }}}
 " Shougo/unite.vim {{{
 let g:unite_enable_start_insert=1
-let g:unite_enable_split_vertically = 1
-let g:unite_winwidth = 80
+" let g:unite_enable_split_vertically = 1
+" let g:unite_winwidth = 80
 
 " http://deris.hatenablog.jp/entry/2013/05/02/192415
 nnoremap [unite] <Nop>
