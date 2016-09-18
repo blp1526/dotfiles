@@ -60,6 +60,7 @@ NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'blp1526/eighty.vim'
@@ -493,7 +494,7 @@ if !exists('loading_matchit')
 endif
 " }}}
 " set option {{{
-set hlsearch
+" set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
 set nowrap
 set number
