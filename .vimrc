@@ -381,6 +381,9 @@ function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
   highlight JISX0208Space term=underline ctermbg=LightCyan
 endf
+
+" http://secret-garden.hatenablog.com/entry/2016/08/16/000149
+highlight link EndOfBuffer Ignore
 " }}}
 " key mapping {{{
 " http://d.hatena.ne.jp/h1mesuke/20080327/p1
