@@ -16,7 +16,7 @@
   ff = false
 [alias]
   st                     = status
-  ci                     = commit
+  ci                     = commit -v
   co                     = checkout
   br                     = branch
   df                     = diff
