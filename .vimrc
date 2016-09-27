@@ -66,6 +66,7 @@ NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'blp1526/eighty.vim'
+NeoBundle 'blp1526/storage.vim'
 
 call neobundle#end()
 filetype plugin indent on
