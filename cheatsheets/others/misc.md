@@ -263,3 +263,9 @@ pkill -f worker
 rabbitmqctl list_vhosts
 rabbitmqctl list_queues -p vhost_name
 ```
+
+## Display file system
+
+```markdown
+stat --file-system --format %T /path
+```
