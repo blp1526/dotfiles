@@ -77,9 +77,14 @@ $manager install -y rabbitmq-server
 $manager install -y s3cmd
 $manager install -y w3m
 
+# Healing
+$manager install -y sl
+$manager install -y banner
+
 # KVM
 # $manager -y install -y qemu-kvm
 # $manager -y install -y qemu-kvm-tools
+
 
 # Ruby Requirements
 $manager install -y openssl-devel

@@ -499,8 +499,8 @@ endif
 " set option {{{
 " set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
+" set number
 set nowrap
-set number
 noremap <silent><F2> :set number!<CR>
 set ruler
 set ignorecase
