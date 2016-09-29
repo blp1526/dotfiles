@@ -268,4 +268,5 @@ rabbitmqctl list_queues -p vhost_name
 
 ```markdown
 stat --file-system --format %T /path
+lsblk -lf
 ```
