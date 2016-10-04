@@ -29,5 +29,10 @@ ClassLength:
   Enabled: false
 AsciiComments:
   Enabled: false
+FileName:
+  Exclude:
+    - '**/Rakefile'
+    - '**/Gemfile'
+    - '**/Capfile'
 AllCops:
   TargetRubyVersion: 2.1
