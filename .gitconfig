@@ -24,3 +24,5 @@
   ranking                = shortlog -ns
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune
   see                    = browse
+  # http://inside.pixiv.net/entry/2014/03/26/100539
+  quicktag               = !git tag $(date +%Y%m%d%H%M)
