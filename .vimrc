@@ -63,6 +63,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -332,6 +333,9 @@ endfunction
 " justmao945/vim-clang {{{
 let g:clang_c_options   = '-std=c11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+" }}}
+" soramugi/auto-ctags.vim {{{
+let g:auto_ctags = 1
 " }}}
 " }}}
 

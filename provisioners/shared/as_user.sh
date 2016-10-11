@@ -31,6 +31,7 @@ file_names=(
   .proverc
   .rubocop.yml
   .lftprc
+  .ctags
 )
 
 for file_name in "${file_names[@]}"; do
