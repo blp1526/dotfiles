@@ -64,6 +64,7 @@ NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'blp1526/eighty.vim'
 
 call neobundle#end()
@@ -337,6 +338,9 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 " soramugi/auto-ctags.vim {{{
 let g:auto_ctags = 1
 " }}}
+" blp1526/eighty.vim {{{
+let g:eighty_vim_threshold = 78
+" }}}
 " }}}
 
 " personal settings {{{
@@ -361,10 +365,11 @@ endfunction
 " http://d.hatena.ne.jp/thinca/20110903/1314982646
 " after/ftplugin/help.vim
 if &l:buftype !=# 'help'
+  " http://stackoverflow.com/questions/28026110/what-is-the-reason-origin-of-textwidth-78-rather-than-80
   setlocal list tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab textwidth=78
-  if exists('+colorcolumn')
-    setlocal colorcolumn=+1
-  endif
+  " if exists('+colorcolumn')
+  "   setlocal colorcolumn=+1
+  " endif
   if has('conceal')
     setlocal conceallevel=0
   endif
