@@ -1,3 +1,6 @@
 " kernel coding
-set path+=/usr/src/linux-headers-4.4.0-21/include
-let g:syntastic_c_include_dirs = ['/usr/src/linux-headers-4.4.0-21/include']
+" set path+=/usr/src/linux-headers-4.4.0-21/include
+" let g:syntastic_c_include_dirs = ['/usr/src/linux-headers-4.4.0-21/include']
+
+" disable specific language checker
+" let g:syntastic_php_checkers = []
