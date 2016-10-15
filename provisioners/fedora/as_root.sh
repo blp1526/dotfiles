@@ -80,6 +80,7 @@ $manager install -y w3m
 # Healing
 $manager install -y sl
 $manager install -y banner
+$manager install -y cowsay
 
 # KVM
 # $manager -y install -y qemu-kvm
