@@ -35,3 +35,11 @@ see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
 
 * Profile => Text => Unicode
   * Uncheck "Treat ambiguous-width characters as double width (not recommended)" for tmux
+
+## TextEdit
+
+### Select by the limits of the columns size
+
+<kbd>option</kbd> + <kbd>command</kbd> + drag
+
+see [this](http://qiita.com/mogulla3/items/ca5bfa585ef19ed1eb9b).
