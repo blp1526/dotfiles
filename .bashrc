@@ -71,6 +71,12 @@ manselect() {
 change-repository-dir() {
   cd $(ghq list --full-path | peco)
 }
+
+ssh-agent-add() {
+  eval `ssh-agent`
+  ssh-add
+}
+
 alias c='change-repository-dir'
 alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
 alias ll='ls -l'
