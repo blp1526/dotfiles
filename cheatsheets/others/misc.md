@@ -278,3 +278,9 @@ cowsay -l | grep -v "^Cow" | sed -e "s% %\n%g" | sed -e "s%\(.*\)%cowsay -f \1 N
 ```
 
 see https://orebibou.com/2014/06/linux%E3%81%AE%E3%82%B8%E3%83%A7%E3%83%BC%E3%82%AF%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%8911%E5%80%8B%E3%82%92%E3%81%BE%E3%81%A8%E3%82%81%E3%81%A6%E3%81%BF%E3%81%9F/
+
+## Force makestep
+
+```markdown
+chronyc -a makestep
+```
