@@ -470,6 +470,7 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
   autocmd BufNewFile,BufRead *.cap           set filetype=ruby
   autocmd BufNewFile,BufRead Guardfile       set filetype=ruby
+  autocmd BufNewFile,BufRead Capfile         set filetype=ruby
 augroup END
 
 augroup HardTab
