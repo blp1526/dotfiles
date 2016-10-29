@@ -267,6 +267,7 @@ let g:syntastic_perl_checkers = ['perl']
 " let g:syntastic_vim_checkers = ['vint']
 " https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
 let g:syntastic_html_tidy_exec = 'tidy5'
+nnoremap <C-s> :call SyntasticToggleMode()<CR>
 " }}}
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
