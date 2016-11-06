@@ -512,7 +512,7 @@ endif
 " set hlsearch
 " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
 " set number
-set helplang=ja,en
+" set helplang=ja,en
 set nowrap
 noremap <silent><F2> :set number!<CR>
 set ruler
