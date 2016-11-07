@@ -65,6 +65,7 @@ NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'blp1526/eighty.vim'
 NeoBundle 'blp1526/storage.vim'
 
