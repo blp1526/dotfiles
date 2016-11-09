@@ -177,7 +177,7 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtHistory(1)':        ['<up>'],
 \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn))$'
 let g:ctrlp_show_hidden = 1
 " You have to find the way to enable ctrlp_custom_ignore
 " let g:ctrlp_user_command = 'ag %s -l -U --nocolor --hidden -g ""'
