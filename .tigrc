@@ -13,3 +13,5 @@ bind diff R !git rebase -i %(commit)
 # http://qiita.com/yaotti/items/62947b0c981ae38fae82
 bind main G !@hub browse -- commit/%(commit)
 bind diff G !@hub browse -- commit/%(commit)
+
+bind refs C !<git checkout %(branch)
