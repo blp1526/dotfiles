@@ -284,3 +284,12 @@ see https://orebibou.com/2014/06/linux%E3%81%AE%E3%82%B8%E3%83%A7%E3%83%BC%E3%82
 ```markdown
 chronyc -a makestep
 ```
+
+## Create .toprc
+
+```markdown
+# when running top command
+shift + w
+# sample
+# z => x => shift + m => shift + w
+```
