@@ -27,6 +27,7 @@ file_names=(
   .tmux.conf
   .tigrc
   .gemrc
+  .railsrc
   .inputrc
   .proverc
   .rubocop.yml
