@@ -7,7 +7,7 @@
 | Name | Master Boot Record | GUID Partition Table |
 | Firmware | BIOS / UEFI | UEFI |
 | Max Partition | 4 | 128 |
-| Command | fdisk / parted | gdisk/ parted |
+| Command | fdisk / parted | gdisk / parted |
 
 http://tooljp.com/linux/doc/01OS/007UEFI/UEFI.html
 
