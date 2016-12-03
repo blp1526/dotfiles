@@ -24,6 +24,8 @@
   ranking                = shortlog -ns
   refs                   = !git checkout $(git branch | peco | awk '{ print $NF }')
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune
-  see                    = browse
   # http://inside.pixiv.net/entry/2014/03/26/100539
   quicktag               = !git tag $(date +%Y%m%d%H%M)
+  cf                     = cat-file -p
+  sb                     = show-branch
+  sr                     = show-ref
