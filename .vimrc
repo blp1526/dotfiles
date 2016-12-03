@@ -18,9 +18,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -44,8 +41,6 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'moll/vim-node'
@@ -56,11 +51,9 @@ NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
-NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
@@ -72,30 +65,6 @@ NeoBundle 'blp1526/storage.vim'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
-" }}}
-" Shougo/unite.vim {{{
-let g:unite_enable_start_insert=1
-" let g:unite_enable_split_vertically = 1
-" let g:unite_winwidth = 80
-
-" http://deris.hatenablog.jp/entry/2013/05/02/192415
-nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]f :<C-u>Unite file<CR>
-nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [unite]s :<C-u>Unite source<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]m :<C-u>Unite mapping<CR>
-
-" http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
 " }}}
 " Shougo/neocomplete.vim {{{
 " Disable AutoComplPop.
@@ -222,12 +191,6 @@ let g:quickrun_config['perl'] = {
 \ 'exec': ['%c %o %s']
 \ }
 " }}}
-" kannokanno/previm {{{
-augroup PrevimSettings
-  autocmd!
-  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-" }}}
 " myhere/vim-nodejs-complete {{{
 " http://ellengummesson.com/blog/2015/05/03/nodejs-complete-for-vim/
 autocmd FileType javascript set completeopt-=preview
@@ -347,37 +310,6 @@ let g:eighty_vim_threshold = 78
 " }}}
 
 " personal settings {{{
-" acts as macvim-kaoriya {{{
-" c_CTRL-X
-" Input current buffer's directory on command line.
-" http://www.kaoriya.net/blog/2014/12/28/
-cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
-function! s:GetBufferDirectory()
-  let path = expand('%:p:h')
-  let cwd = getcwd()
-  let dir = '.'
-  if match(path, escape(cwd, '\')) != 0
-    let dir = path
-  elseif strlen(path) > strlen(cwd)
-    let dir = strpart(path, strlen(cwd) + 1)
-  endif
-  return dir . (exists('+shellslash') && !&shellslash ? '\' : '/')
-endfunction
-" }}}
-" for vim plugin help writers {{{
-" http://d.hatena.ne.jp/thinca/20110903/1314982646
-" after/ftplugin/help.vim
-if &l:buftype !=# 'help'
-  " http://stackoverflow.com/questions/28026110/what-is-the-reason-origin-of-textwidth-78-rather-than-80
-  setlocal list tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab textwidth=78
-  " if exists('+colorcolumn')
-  "   setlocal colorcolumn=+1
-  " endif
-  if has('conceal')
-    setlocal conceallevel=0
-  endif
-endif
-" }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 highlight Search  ctermfg=0 ctermbg=14
@@ -430,21 +362,8 @@ noremap <C-]> g<C-]>
 " selected text replacement
 vnoremap <C-t> :s/\%V
 
-" strftime
-" http://note103.hateblo.jp/entry/2016/07/06/114746
-inoremap <expr> <LEADER>df strftime('%Y-%m-%d %H:%M')
-inoremap <expr> <LEADER>dd strftime('%Y-%m-%d')
-inoremap <expr> <LEADER>dt strftime('%H:%M')
-let weeks = [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ]
-let wday = strftime("%w")
-inoremap <expr> <LEADER>ds strftime('%Y-%m-%d ').weeks[wday]
-
 " tab new gf
 nnoremap gf <C-w>gf
-
-" user-manual
-nnoremap <LEADER>me :help usr_toc.txt@en<CR>
-nnoremap <LEADER>mj :help usr_toc.txt@ja<CR>
 " }}}
 " augroup {{{
 " about autocmd / augroup
@@ -510,10 +429,6 @@ if !exists('loading_matchit')
 endif
 " }}}
 " set option {{{
-" set hlsearch
-" http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
-" set number
-" set helplang=ja,en
 set nowrap
 noremap <silent><F2> :set number!<CR>
 set ruler
@@ -530,20 +445,11 @@ set tabstop=2 shiftwidth=2 softtabstop=0
 set splitbelow
 " http://blog.pg1x.com/entry/2014/08/22/081215
 set backspace=indent,eol,start
-" http://844196.com/post/114133954334/vim
-" set synmaxcol=300
-" set lazyredraw
-" set ttyfast
 " http://rbtnn.hateblo.jp/entry/2014/11/30/174749
 set foldmethod=indent
 set foldcolumn=0
 set foldlevel=99
 set ttimeoutlen=10
-" http://yskwkzhr.blogspot.jp/2013/02/use-mouse-on-terminal-vim.html
-" set mouse=a
-" set ttymouse=xterm2
-" http://qiita.com/shuhei/items/b1052736116055be7d7b
-" set iskeyword-=_
 " http://d.hatena.ne.jp/tacroe/20100612/1276294999
 set shortmess+=I
 set textwidth=0
