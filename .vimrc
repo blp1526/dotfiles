@@ -28,7 +28,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
@@ -49,7 +48,6 @@ NeoBundle 'myhere/vim-nodejs-complete'
 NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
-NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
@@ -149,46 +147,6 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" thinca/vim-quickrun {{{
-let g:quickrun_config = { '*': { 'split': '' } }
-let g:quickrun_config._ = { 'runner': 'vimproc' }
-
-augroup Mocha
-  autocmd!
-  autocmd BufNewFile,BufRead *_mocha.js set filetype=javascript.mocha
-augroup END
-
-let g:quickrun_config['javascript.mocha'] = {
-\ 'command': 'mocha',
-\ 'cmdopt': '--reporter spec',
-\ 'exec': ['%c %o %s']
-\ }
-
-augroup Rspec
-  autocmd!
-  autocmd BufNewFile,BufRead *_spec.rb set filetype=ruby.rspec
-augroup END
-
-let g:quickrun_config['ruby.rspec'] = {
-\ 'command': 'rspec',
-\ 'cmdopt': '-cfd',
-\ 'exec': ['bundle exec %c %o %s'],
-\ 'outputter/buffer/filetype': 'rspec-result',
-\ 'filetype': 'rspec-result'
-\ }
-
-" http://cside.hatenadiary.com/entry/2012/09/02/155055
-augroup Perl
-  autocmd!
-  autocmd BufNewFile,BufRead *.t set filetype=perl
-augroup END
-
-let g:quickrun_config['perl'] = {
-\ 'command': 'perl',
-\ 'cmdopt': '-MProject::Libs',
-\ 'exec': ['%c %o %s']
-\ }
 " }}}
 " myhere/vim-nodejs-complete {{{
 " http://ellengummesson.com/blog/2015/05/03/nodejs-complete-for-vim/
