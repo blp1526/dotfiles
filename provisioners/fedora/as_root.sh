@@ -75,7 +75,6 @@ $manager install -y rabbitmq-server
 
 # Utility
 $manager install -y s3cmd
-$manager install -y w3m
 
 # Healing
 $manager install -y sl
