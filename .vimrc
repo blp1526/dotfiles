@@ -31,8 +31,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'rking/ag.vim'
@@ -41,7 +39,6 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'moll/vim-node'
 NeoBundle 'mattn/jscomplete-vim'
 NeoBundle 'myhere/vim-nodejs-complete'
@@ -50,10 +47,8 @@ NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'justmao945/vim-clang'
-NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -156,28 +151,6 @@ autocmd FileType javascript set completeopt-=preview
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " }}}
-" scrooloose/nerdtree {{{
-let g:NERDTreeShowHidden = 1
-" http://blog.livedoor.jp/kumonopanya/archives/51048805.html
-nnoremap <silent><C-t> :NERDTreeToggle<CR>
-vnoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
-onoremap <silent><C-t> :NERDTreeToggle<CR>
-inoremap <silent><C-t><Esc> :NERDTreeToggle<CR>
-cnoremap <silent><C-t><C-u> :NERDTreeToggle<CR>
-" }}}
-" Xuyuanp/nerdtree-git-plugin {{{
-let g:NERDTreeIndicatorMapCustom = {
-\ 'Modified'  : '✹',
-\ 'Staged'    : '✚',
-\ 'Untracked' : '✭',
-\ 'Renamed'   : '➜',
-\ 'Unmerged'  : '═',
-\ 'Deleted'   : '✖',
-\ 'Dirty'     : '✗',
-\ 'Clean'     : '✔︎',
-\ 'Unknown'   : '?'
-\ }
-" }}}
 " scrooloose/syntastic {{{
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -201,9 +174,6 @@ let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
-" }}}
-" gregsexton/gitv {{{
-let g:Gitv_OpenHorizontal = 1
 " }}}
 " itchyny/lightline.vim {{{
 let g:lightline = {
@@ -321,16 +291,11 @@ vnoremap <C-t> :s/\%V
 
 " tab new gf
 nnoremap gf <C-w>gf
+
+" Explore
+nnoremap <silent><LEADER>ex :Explore<CR>
 " }}}
 " augroup {{{
-" about autocmd / augroup
-" http://qiita.com/s_of_p/items/b61e4c3a0c7ee279848a
-
-" http://secondlife.hatenablog.jp/entry/20050107/1105029582
-augroup Yaml
-  autocmd FileType yaml nmap ,e :execute '!ruby -ryaml -e "begin;YAML::load(open('."'"."%"."'".","."'"."r"."'".').read);rescue ArgumentError=>e;puts e;end"'
-augroup END
-
 " http://qiita.com/katton/items/bc9720826120f5f61fc1
 augroup LastSpace
   autocmd!
