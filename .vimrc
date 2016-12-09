@@ -19,8 +19,6 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'rking/ag.vim'
@@ -35,11 +33,9 @@ NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
 NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'blp1526/eighty.vim'
 NeoBundle 'blp1526/storage.vim'
 
@@ -86,55 +82,6 @@ let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
-" }}}
-" itchyny/lightline.vim {{{
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'LightLineFugitive',
-      \   'readonly': 'LightLineReadonly',
-      \   'modified': 'LightLineModified',
-      \   'filename': 'LightLineFilename'
-      \ },
-      \ 'separator': { 'left': '|', 'right': '|' },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
-      \ }
-
-function! LightLineModified()
-  if &filetype == 'help'
-    return ''
-  elseif &modified
-    return '+'
-  elseif &modifiable
-    return ''
-  else
-    return ''
-  endif
-endfunction
-
-function! LightLineReadonly()
-  if &filetype == 'help'
-    return ''
-  elseif &readonly
-    return '|'
-  else
-    return ''
-  endif
-endfunction
-
-function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
 " }}}
 " justmao945/vim-clang {{{
 let g:clang_c_options   = '-std=c11'
