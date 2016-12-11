@@ -224,25 +224,31 @@ set wildmenu
 set wildmode=longest,full
 set list
 set listchars=tab:^\ ,trail:~
-set laststatus=2
 set pumheight=10
 set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=0
 set splitbelow
-" http://blog.pg1x.com/entry/2014/08/22/081215
 set backspace=indent,eol,start
-" http://rbtnn.hateblo.jp/entry/2014/11/30/174749
 set foldmethod=indent
 set foldcolumn=0
 set foldlevel=99
 set ttimeoutlen=10
-" http://d.hatena.ne.jp/tacroe/20100612/1276294999
 set shortmess+=I
 set textwidth=0
-" http://deris.hatenablog.jp/entry/2013/05/15/024932
 set smartcase
-" http://m.designbits.jp/14022515/
 set nrformats=alpha
+
+set laststatus=2
+set statusline=%t
+set statusline+=%m
+set statusline+=%r
+set statusline+=%=
+set statusline+=%{&fileformat}\ \|
+set statusline+=\ %{&encoding}\ \|
+set statusline+=\ %{&filetype}\ \|
+set statusline+=\ %L\ \|
+set statusline+=\ %l,%c\ \|
+
 syntax on
 " }}}
 " }}}
