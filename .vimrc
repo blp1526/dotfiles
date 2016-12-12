@@ -28,7 +28,6 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'moll/vim-node'
-NeoBundle 'vim-utils/vim-man'
 NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
@@ -69,7 +68,7 @@ let g:syntastic_perl_checkers = ['perl']
 " let g:syntastic_vim_checkers = ['vint']
 " https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
 let g:syntastic_html_tidy_exec = 'tidy5'
-nnoremap <LEADER>s :call SyntasticToggleMode()<CR>
+nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
 " }}}
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
@@ -100,17 +99,9 @@ let g:eighty_vim_threshold = 78
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 highlight Search  ctermfg=0 ctermbg=14
 highlight Visual  ctermfg=1 ctermbg=15
-" http://stackoverflow.com/questions/1294790/change-tilde-color-in-vim
-" FIXME: Change NonText ctermfg by background color
-highlight NonText ctermfg=white
 
 highlight Folded     ctermfg=0 ctermbg=10
 highlight FoldColumn ctermfg=0 ctermbg=10
-
-function! JISX0208SpaceHilight()
-  syntax match JISX0208Space "　" display containedin=ALL
-  highlight JISX0208Space term=underline ctermbg=LightCyan
-endf
 
 " http://secret-garden.hatenablog.com/entry/2016/08/16/000149
 highlight link EndOfBuffer Ignore
@@ -151,12 +142,18 @@ vnoremap <C-t> :s/\%V
 " tab new gf
 nnoremap gf <C-w>gf
 
-" Explore
+" Netrw
+" https://shapeshed.com/vim-netrw/
+let g:netrw_liststyle= 3
+let g:netrw_banner = 0
 nnoremap <silent><LEADER>ex :Explore<CR>
 
 " Session.vim
 nnoremap <LEADER>ms :mksession!<CR>
 nnoremap <LEADER>ss :source Session.vim<CR>
+
+" source %
+nnoremap <silent><LEADER>r :source %<CR>
 " }}}
 " augroup {{{
 " http://qiita.com/katton/items/bc9720826120f5f61fc1
@@ -164,6 +161,11 @@ augroup LastSpace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
+
+function! JISX0208SpaceHilight()
+  syntax match JISX0208Space "　" display containedin=ALL
+  highlight JISX0208Space term=underline ctermbg=LightCyan
+endf
 
 augroup MultiByteSpace
   autocmd!
@@ -213,9 +215,13 @@ if !exists('loading_matchit')
   runtime macros/matchit.vim
 endif
 " }}}
+" runtime {{{
+" /usr/share/vim/vim74/ftplugin/man.vim
+runtime ftplugin/man.vim
+" }}}
 " set option {{{
+
 set nowrap
-noremap <silent><F2> :set number!<CR>
 set ruler
 set ignorecase
 set nobackup
@@ -243,9 +249,16 @@ set statusline=%t
 set statusline+=%m
 set statusline+=%r
 set statusline+=%=
-set statusline+=%{&fileformat}\ \|
+function! FtOrNoFt()
+  if &filetype !=? ""
+    return &filetype
+  else
+    return "no ft"
+  endif
+endfunction
+set statusline+=\ %{&fileformat}\ \|
 set statusline+=\ %{&encoding}\ \|
-set statusline+=\ %{&filetype}\ \|
+set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
 
