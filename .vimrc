@@ -90,7 +90,7 @@ let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 let g:auto_ctags = 1
 " }}}
 " blp1526/eighty.vim {{{
-let g:eighty_vim_threshold = 78
+let g:eighty_vim_threshold = 0
 " }}}
 " }}}
 
@@ -245,9 +245,25 @@ set smartcase
 set nrformats=alpha
 
 set laststatus=2
-set statusline=%t
+set statusline=\|\ %t
 set statusline+=%m
-set statusline+=%r
+set statusline+=%r\ \|
+function! CwdGitBranch()
+  if match(expand("%:p"), getcwd()) == 0 && isdirectory(getcwd() . "/.git")
+    " example, 'ref: refs/heads/branch_name' or only commit hash
+    let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
+    let last_index = (len(head_list) - 1)
+    " example, 'refs/heads/branch_name' or only commit hash
+    let refs_heads_branch_list = split(head_list[last_index], "/")
+    let last_index = (len(refs_heads_branch_list) - 1)
+    " example, 'branch_name' or only commit hash
+    let branch = refs_heads_branch_list[last_index]
+    return " " . branch  . " |"
+  else
+    return ""
+  endif
+endfunction
+set statusline+=%{CwdGitBranch()}
 set statusline+=%=
 function! FtOrNoFt()
   if &filetype !=? ""
@@ -256,7 +272,7 @@ function! FtOrNoFt()
     return "no ft"
   endif
 endfunction
-set statusline+=\ %{&fileformat}\ \|
+set statusline+=\|\ %{&fileformat}\ \|
 set statusline+=\ %{&encoding}\ \|
 set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
