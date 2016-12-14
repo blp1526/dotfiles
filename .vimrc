@@ -153,7 +153,7 @@ nnoremap <LEADER>ms :mksession!<CR>
 nnoremap <LEADER>ss :source Session.vim<CR>
 
 " source %
-nnoremap <silent><LEADER>r :source %<CR>
+nnoremap <silent><LEADER>s% :source %<CR>
 " }}}
 " augroup {{{
 " http://qiita.com/katton/items/bc9720826120f5f61fc1
@@ -249,22 +249,26 @@ set statusline=\|\ %t
 set statusline+=%m
 set statusline+=%r\ \|
 function! CwdGitBranch()
-  if match(expand("%:p"), getcwd()) == 0 && isdirectory(getcwd() . "/.git")
-    " example, 'ref: refs/heads/branch_name' or only commit hash
-    let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
-    let last_index = (len(head_list) - 1)
-    " example, 'refs/heads/branch_name' or only commit hash
-    let refs_heads_branch_list = split(head_list[last_index], "/")
-    let last_index = (len(refs_heads_branch_list) - 1)
-    " example, 'branch_name' or only commit hash
-    let branch = refs_heads_branch_list[last_index]
-    return " " . branch  . " |"
-  else
-    return ""
-  endif
+  try
+    if match(expand("%:p"), getcwd()) == 0 && isdirectory(getcwd() . "/.git")
+      " head_list is ['ref:', 'refs/heads/branch_name'] or commit hash
+      let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
+      let last_index = (len(head_list) - 1)
+      let refs_heads_branch_list = split(head_list[last_index], "/")
+      let last_index = (len(refs_heads_branch_list) - 1)
+      let branch = refs_heads_branch_list[last_index]
+      return " " . branch  . " |"
+    else
+      return ""
+    endif
+  catch
+    return " " . v:exception . " |"
+  endtry
 endfunction
 set statusline+=%{CwdGitBranch()}
 set statusline+=%=
+set statusline+=\|\ %{&fileformat}\ \|
+set statusline+=\ %{&encoding}\ \|
 function! FtOrNoFt()
   if &filetype !=? ""
     return &filetype
@@ -272,8 +276,6 @@ function! FtOrNoFt()
     return "no ft"
   endif
 endfunction
-set statusline+=\|\ %{&fileformat}\ \|
-set statusline+=\ %{&encoding}\ \|
 set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
