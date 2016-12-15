@@ -250,13 +250,11 @@ set statusline+=%m
 set statusline+=%r\ \|
 function! CwdGitBranch()
   try
-    if match(expand("%:p"), getcwd()) == 0 && isdirectory(getcwd() . "/.git")
+    if match(expand("%:p"), escape(getcwd(), "~")) == 0 && isdirectory(getcwd() . "/.git")
       " head_list is ['ref:', 'refs/heads/branch_name'] or commit hash
       let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
       let last_index = (len(head_list) - 1)
-      let refs_heads_branch_list = split(head_list[last_index], "/")
-      let last_index = (len(refs_heads_branch_list) - 1)
-      let branch = refs_heads_branch_list[last_index]
+      let branch = substitute(head_list[last_index], "refs/heads/", "", "")
       return " " . branch  . " |"
     else
       return ""
