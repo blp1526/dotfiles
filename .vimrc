@@ -95,6 +95,36 @@ let g:eighty_vim_threshold = 0
 " }}}
 
 " personal settings {{{
+" functions {{{
+function! JISX0208SpaceHilight()
+  syntax match JISX0208Space "　" display containedin=ALL
+  highlight JISX0208Space term=underline ctermbg=LightCyan
+endf
+
+function! CwdGitBranch()
+  try
+    if match(expand("%:p"), escape(getcwd(), "~")) == 0 && isdirectory(getcwd() . "/.git")
+      " head_list is ['ref:', 'refs/heads/branch_name'] or commit hash
+      let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
+      let last_index = (len(head_list) - 1)
+      let branch = substitute(head_list[last_index], "refs/heads/", "", "")
+      return " " . branch  . " |"
+    else
+      return ""
+    endif
+  catch
+    return " " . v:exception . " |"
+  endtry
+endfunction
+
+function! FtOrNoFt()
+  if &filetype !=? ""
+    return &filetype
+  else
+    return "no ft"
+  endif
+endfunction
+" }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 highlight Search  ctermfg=0 ctermbg=14
@@ -145,15 +175,7 @@ nnoremap gf <C-w>gf
 " Netrw
 " https://shapeshed.com/vim-netrw/
 let g:netrw_liststyle= 3
-let g:netrw_banner = 0
 nnoremap <silent><LEADER>ex :Explore<CR>
-
-" Session.vim
-nnoremap <LEADER>ms :mksession!<CR>
-nnoremap <LEADER>ss :source Session.vim<CR>
-
-" source %
-nnoremap <silent><LEADER>s% :source %<CR>
 " }}}
 " augroup {{{
 " http://qiita.com/katton/items/bc9720826120f5f61fc1
@@ -161,11 +183,6 @@ augroup LastSpace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//ge
 augroup END
-
-function! JISX0208SpaceHilight()
-  syntax match JISX0208Space "　" display containedin=ALL
-  highlight JISX0208Space term=underline ctermbg=LightCyan
-endf
 
 augroup MultiByteSpace
   autocmd!
@@ -248,32 +265,10 @@ set laststatus=2
 set statusline=\|\ %t
 set statusline+=%m
 set statusline+=%r\ \|
-function! CwdGitBranch()
-  try
-    if match(expand("%:p"), escape(getcwd(), "~")) == 0 && isdirectory(getcwd() . "/.git")
-      " head_list is ['ref:', 'refs/heads/branch_name'] or commit hash
-      let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
-      let last_index = (len(head_list) - 1)
-      let branch = substitute(head_list[last_index], "refs/heads/", "", "")
-      return " " . branch  . " |"
-    else
-      return ""
-    endif
-  catch
-    return " " . v:exception . " |"
-  endtry
-endfunction
 set statusline+=%{CwdGitBranch()}
 set statusline+=%=
 set statusline+=\|\ %{&fileformat}\ \|
 set statusline+=\ %{&encoding}\ \|
-function! FtOrNoFt()
-  if &filetype !=? ""
-    return &filetype
-  else
-    return "no ft"
-  endif
-endfunction
 set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
