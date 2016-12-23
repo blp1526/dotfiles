@@ -82,6 +82,7 @@ alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
 alias ll='ls -l'
 alias la='ll -a'
 alias tree='tree -I ".git|tags"'
+alias inode='stat -c %i'
 
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
