@@ -81,7 +81,7 @@ alias c='change-repository-dir'
 alias p='ps axfo user,pid,pgid,ppid,sid,stat,cmd'
 alias ll='ls -l'
 alias la='ll -a'
-alias tree='tree -I ".git|tags"'
+alias tree='tree -I ".git|tags|vendor|node_modules"'
 alias inode='stat -c %i'
 
 if type direnv >/dev/null 2>&1; then
