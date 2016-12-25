@@ -47,6 +47,7 @@ $manager install -y systemtap
 $manager install -y fuse-sshfs
 $manager install -y fuse-devel
 $manager install -y autofs
+$manager install -y bindfs
 $manager install -y inotify-tools
 
 # cgroup
