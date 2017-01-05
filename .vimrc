@@ -178,12 +178,6 @@ let g:netrw_liststyle= 3
 nnoremap <silent><LEADER>ex :Explore<CR>
 " }}}
 " augroup {{{
-" http://qiita.com/katton/items/bc9720826120f5f61fc1
-augroup LastSpace
-  autocmd!
-  autocmd BufWritePre * :%s/\s\+$//ge
-augroup END
-
 augroup MultiByteSpace
   autocmd!
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
