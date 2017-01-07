@@ -14,6 +14,8 @@
   default = nothing
 [merge]
   ff = false
+[pull]
+  ff = only
 [alias]
   st                     = status
   ci                     = commit -v
