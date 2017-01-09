@@ -42,6 +42,8 @@ $manager install -y clang
 $manager install -y strace
 # https://sourceware.org/systemtap/examples/
 $manager install -y systemtap
+$manager install -y python2-editorconfig
+# $manager install -y python3-editorconfig
 
 # filesystem
 $manager install -y fuse-sshfs
