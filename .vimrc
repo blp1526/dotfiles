@@ -174,7 +174,12 @@ nnoremap gf <C-w>gf
 
 " Netrw
 " https://shapeshed.com/vim-netrw/
+" open file { Enter: current buffer, t: new tab, o: split, v: virtical split }
+" let g:netrw_browse_split = 3
 let g:netrw_liststyle= 3
+let g:netrw_winsize = 75
+let g:netrw_altv = 1
+let g:netrw_alto = 1
 nnoremap <silent><LEADER>ex :Explore<CR>
 " }}}
 " augroup {{{
