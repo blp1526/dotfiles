@@ -40,6 +40,7 @@ $manager install -y parallel
 $manager install -y lftp
 $manager install -y clang
 $manager install -y strace
+$manager install -y ltrace
 # https://sourceware.org/systemtap/examples/
 $manager install -y systemtap
 $manager install -y python2-editorconfig
