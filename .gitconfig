@@ -19,6 +19,7 @@
 [alias]
   st                     = status
   ci                     = commit -v
+  cie                    = commit -v --allow-empty
   co                     = checkout
   br                     = branch
   df                     = diff
