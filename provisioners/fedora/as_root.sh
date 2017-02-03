@@ -52,6 +52,7 @@ $manager install -y fuse-devel
 $manager install -y autofs
 $manager install -y bindfs
 $manager install -y inotify-tools
+$manager install -y ddrescue
 
 # cgroup
 $manager install -y libcgroup-tools

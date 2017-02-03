@@ -20,7 +20,6 @@ NeoBundle 'kana/vim-tabpagecd'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -53,10 +52,6 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" easymotion/vim-easymotion {{{
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
 " }}}
 " scrooloose/syntastic {{{
 " http://qiita.com/ka2n/items/55a435c10a240ea5d434
