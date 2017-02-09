@@ -33,6 +33,7 @@ file_names=(
   .rubocop.yml
   .lftprc
   .ctags
+  .npm-completion.sh
 )
 
 for file_name in "${file_names[@]}"; do
