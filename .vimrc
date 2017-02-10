@@ -30,7 +30,6 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'simeji/winresizer'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
-NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'justmao945/vim-clang'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -69,13 +68,13 @@ nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
 let g:vim_json_syntax_conceal = 0
 " }}}
 " rking/ag.vim {{{
-let g:ag_highlight=1
+let g:ag_highlight = 1
 " }}}
 " MarcWeber/vim-addon-local-vimrc {{{
 let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " }}}
 " plasticboy/vim-markdown {{{
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled = 1
 " }}}
 " justmao945/vim-clang {{{
 let g:clang_c_options   = '-std=c11'
@@ -194,13 +193,6 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead *.cap           set filetype=ruby
   autocmd BufNewFile,BufRead Guardfile       set filetype=ruby
   autocmd BufNewFile,BufRead Capfile         set filetype=ruby
-augroup END
-
-augroup HardTab
-  autocmd!
-  autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
-  autocmd BufNewFile,BufRead *.c  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
-  autocmd BufNewFile,BufRead *.h  set noexpandtab tabstop=4 shiftwidth=4 softtabstop=0
 augroup END
 
 " http://d.hatena.ne.jp/rdera/20081022/1224682665
