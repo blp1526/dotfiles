@@ -34,6 +34,7 @@ file_names=(
   .lftprc
   .ctags
   .npm-completion.sh
+  .gitignore_global
 )
 
 for file_name in "${file_names[@]}"; do
@@ -49,9 +50,9 @@ for config_file_path in "${config_file_path[@]}"; do
 done
 
 if ! [ -e ~/.gitconfig.local ]; then
-  echo 'Enter name for .gitconfig.local'
+  echo 'Enter your user.name for .gitconfig'
   read name
-  echo 'Enter email for .gitconfig.local'
+  echo 'Enter your user.email for .gitconfig'
   read email
 
 cat << __EOS__ > ~/.gitconfig.local
