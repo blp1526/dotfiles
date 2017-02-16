@@ -80,6 +80,7 @@ $manager install -y rabbitmq-server
 
 # Utility
 $manager install -y s3cmd
+$manager install -y dstat
 
 # Healing
 $manager install -y sl
