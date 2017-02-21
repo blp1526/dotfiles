@@ -268,5 +268,5 @@ syntax on
 " }}}
 
 " vim: foldmethod=marker
-" vim: foldcolumn=3
+" vim: foldcolumn=0
 " vim: foldlevel=0
