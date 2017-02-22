@@ -11,19 +11,19 @@ if [ -e /etc/lsb-release ]; then
 fi
 
 # shell variables
-## https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519
-## http://ambiesoft.fam.cx/blog/archives/1122
-## http://news.mynavi.jp/articles/2009/09/09/bash/
 SHELL='bash'
 HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
+
+## https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519
+## http://ambiesoft.fam.cx/blog/archives/1122
 GIT_PS1_SHOWDIRTYSTATE=true
 PS1_USER='\[\033[32m\]\u'
 PS1_OS='\[\033[35m\]{$(uname)}'
 PS1_JOBS='\[\033[33m\][jobs:\j]'
 PS1_SEPARATOR='\[\033[37m\]:'
-PS1_DIR='\[\033[34m\]\W'
+PS1_DIR='\[\033[34m\]\w'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]'
 PS1_DOLLAR='\n\$ '
 PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
