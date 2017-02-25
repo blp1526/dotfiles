@@ -193,6 +193,8 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead *.cap           set filetype=ruby
   autocmd BufNewFile,BufRead Guardfile       set filetype=ruby
   autocmd BufNewFile,BufRead Capfile         set filetype=ruby
+  autocmd BufNewFile,BufRead *.t             set filetype=perl
+  autocmd BufNewFile,BufRead *.psgi          set filetype=perl
 augroup END
 
 " http://d.hatena.ne.jp/rdera/20081022/1224682665
