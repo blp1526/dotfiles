@@ -6,15 +6,6 @@ if [ $(whoami) != root ]; then
   exit
 fi
 
-# non-root user
-user=user
-grep ^$user: /etc/passwd
-if ! [ $? -eq 0 ]; then
-  adduser $user
-  passwd $user
-  gpasswd -a $user wheel
-fi
-
 # package manager
 fedora_version=$(cat /etc/redhat-release | awk '{ print $3 }')
 if [ $fedora_version -gt 21 ]; then
@@ -23,7 +14,7 @@ else
   manager=yum
 fi
 
-# $manager update -y
+$manager update -y
 
 # basic
 $manager install -y man

@@ -1,3 +1,12 @@
+# non-root user
+user=user
+grep ^$user: /etc/passwd
+if ! [ $? -eq 0 ]; then
+  adduser $user
+  passwd $user
+  gpasswd -a $user wheel
+fi
+
 # rbenv
 if ! [ -e /usr/local/rbenv/bin/rbenv ]; then
   cd /usr/local
