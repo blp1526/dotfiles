@@ -58,9 +58,11 @@ if ! type direnv >/dev/null 2>&1; then
 fi
 
 # pip
-pip install --upgrade pip
-pip install grip
-pip install vim-vint
+if type pip >/dev/null 2>&1; then
+  pip install --upgrade pip
+  pip install grip
+  pip install vim-vint
+fi
 
 # sshd
 systemctl enable sshd.service
@@ -72,4 +74,4 @@ systemctl start  sshd.service
 # firewall-cmd --set-default-zone=zone_name
 
 # SELinux
-sed -i -e 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config
+# sed -i -e 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config
