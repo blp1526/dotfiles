@@ -31,8 +31,6 @@ apt install -y jq
 
 # Network
 apt install -y ssh
-systemctl enable ssh.service
-systemctl start  ssh.service
 
 # Kernel
 apt install -y libncurses-dev
@@ -41,7 +39,7 @@ apt install -y fakeroot
 apt install -y kernel-package
 apt install -y linux-source
 
-# Ruby
+# Ruby https://github.com/rbenv/ruby-build/wiki
 apt install -y autoconf
 apt install -y bison
 apt install -y libssl-dev
