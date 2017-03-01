@@ -2,13 +2,9 @@
 
 ## Usage
 
-### Guest OS (Fedora)
-
-If you use VirtualBox, read [virtualbox.md](cheatsheets/others/virtualbox.md).
-
 * as root user
-  * Run `./provisioners/fedora/as_root.sh`
-  * Run `./provisioners/fedora/network.sh` (optional)
+  * `bash provisioners/distribution_name/as_root.sh`
+  * `bash provisioners/shared/network.sh` (optional)
 
 * as non-root user
-  * Run `./provisioners/fedora/as_user.sh`
+  * `bash provisioners/shared/as_user.sh`

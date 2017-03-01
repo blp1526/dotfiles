@@ -21,19 +21,11 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'othree/html5.vim'
 NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'moll/vim-node'
 NeoBundle 'simeji/winresizer'
-NeoBundle 'othree/yajs.vim'
 NeoBundle 'MarcWeber/vim-addon-local-vimrc'
-NeoBundle 'justmao945/vim-clang'
 NeoBundle 'soramugi/auto-ctags.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'blp1526/eighty.vim'
 NeoBundle 'blp1526/storage.vim'
 
 call neobundle#end()
@@ -64,9 +56,6 @@ let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_html_tidy_exec = 'tidy5'
 nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
 " }}}
-" elzr/vim-json {{{
-let g:vim_json_syntax_conceal = 0
-" }}}
 " rking/ag.vim {{{
 let g:ag_highlight = 1
 " }}}
@@ -76,15 +65,8 @@ let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
 " }}}
-" justmao945/vim-clang {{{
-let g:clang_c_options   = '-std=c11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-" }}}
 " soramugi/auto-ctags.vim {{{
 let g:auto_ctags = 1
-" }}}
-" blp1526/eighty.vim {{{
-let g:eighty_vim_threshold = 0
 " }}}
 " }}}
 
