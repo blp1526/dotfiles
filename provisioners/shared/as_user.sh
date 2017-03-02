@@ -64,9 +64,24 @@ fi
 
 . ~/.bash_profile >/dev/null 2>&1
 
-if ! [ -e ${HOME}/.vim/bundle ]; then
-  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-fi
+mkdir -p ~/.vim/pack/mypack/start
+
+package_names=(
+  kana/vim-tabpagecd
+  ctrlpvim/ctrlp.vim
+  tpope/vim-endwise
+  scrooloose/syntastic
+  rking/ag.vim
+  plasticboy/vim-markdown
+  simeji/winresizer
+  MarcWeber/vim-addon-local-vimrc
+  soramugi/auto-ctags.vim
+  editorconfig/editorconfig-vim
+)
+
+for package_name in "${package_names[@]}"; do
+  git clone --depth 1 https://github.com/${package_name}.git ${HOME}/.vim/pack/mypack/start/$(echo $package_name | awk -F / '{ print $2 }') >/dev/null 2>&1
+done
 
 if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup

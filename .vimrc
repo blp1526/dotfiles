@@ -3,35 +3,9 @@ scriptencoding utf-8
 " http://deris.hatenablog.jp/entry/2013/05/02/192415
 let g:mapleader = ','
 noremap \ ,
+filetype plugin indent on
 
 " plugin settings {{{
-" Shougo/NeoBundle.vim {{{
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#begin(expand('$HOME/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'kana/vim-tabpagecd'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'simeji/winresizer'
-NeoBundle 'MarcWeber/vim-addon-local-vimrc'
-NeoBundle 'soramugi/auto-ctags.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'blp1526/storage.vim'
-
-call neobundle#end()
-filetype plugin indent on
-NeoBundleCheck
-" }}}
 " ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-n>'],
@@ -212,6 +186,7 @@ runtime ftplugin/man.vim
 " }}}
 " set option {{{
 
+set nocompatible
 set nowrap
 set ruler
 set ignorecase
