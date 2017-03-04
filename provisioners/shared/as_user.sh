@@ -87,19 +87,24 @@ if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup
 fi
 
-if ! type peco >/dev/null 2>&1; then
-  go get github.com/peco/peco/cmd/peco
-fi
-
-if ! type ghq >/dev/null 2>&1; then
-  go get github.com/motemen/ghq
-fi
-
 if ! type bats >/dev/null 2>&1; then
   git clone https://github.com/sstephenson/bats.git ~/.bats
 fi
 
+if ! type peco >/dev/null 2>&1; then
+  curl -L https://github.com/peco/peco/releases/download/v0.4.9/peco_linux_amd64.tar.gz -o ~/tmp/peco.tar.gz
+  tar zxvf ~/tmp/peco.tar.gz -C ~/tmp
+  mv ~/tmp/peco_linux_amd64/peco ~/bin
+fi
+
+if ! type ghq >/dev/null 2>&1; then
+  curl -L https://github.com/motemen/ghq/releases/download/v0.7.4/ghq_linux_amd64.zip -o ~/tmp/ghq.zip
+  unzip ~/tmp/ghq.zip -d ~/tmp
+mv ~/tmp/ghq ~/bin
+fi
+
 if ! type gibo >/dev/null 2>&1; then
-  curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo \
-        -so ~/bin/gibo && chmod +x ~/bin/gibo && gibo -u
+  curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo -o ~/bin/gibo
+  chmod +x ~/bin/gibo
+  gibo -u
 fi
