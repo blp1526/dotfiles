@@ -187,6 +187,7 @@ runtime ftplugin/man.vim
 " set option {{{
 
 set nocompatible
+set hlsearch
 set nowrap
 set ruler
 set ignorecase
