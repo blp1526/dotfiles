@@ -1,49 +1,5 @@
 scriptencoding utf-8
 
-" http://deris.hatenablog.jp/entry/2013/05/02/192415
-let g:mapleader = ','
-noremap \ ,
-filetype plugin indent on
-
-" plugin settings {{{
-" ctrlpvim/ctrlp.vim {{{
-let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':   ['<c-n>'],
-\ 'PrtSelectMove("k")':   ['<c-p>'],
-\ 'PrtHistory(-1)':       ['<down>'],
-\ 'PrtHistory(1)':        ['<up>'],
-\ }
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" scrooloose/syntastic {{{
-" http://qiita.com/ka2n/items/55a435c10a240ea5d434
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
-" http://d.hatena.ne.jp/oppara/20140515/p1
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl']
-" let g:syntastic_vim_checkers = ['vint']
-" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
-let g:syntastic_html_tidy_exec = 'tidy5'
-nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
-" }}}
-" rking/ag.vim {{{
-let g:ag_highlight = 1
-" }}}
-" MarcWeber/vim-addon-local-vimrc {{{
-let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
-" }}}
-" plasticboy/vim-markdown {{{
-let g:vim_markdown_folding_disabled = 1
-" }}}
-" soramugi/auto-ctags.vim {{{
-let g:auto_ctags = 1
-" }}}
-" }}}
-
 " personal settings {{{
 " functions {{{
 function! JISX0208SpaceHilight()
@@ -121,20 +77,6 @@ vnoremap <C-t> :s/\%V
 
 " tab new gf
 nnoremap gf <C-w>gf
-
-" Netrw
-" https://shapeshed.com/vim-netrw/
-" netrw-i => CHANGE LISTING STYLE (THIN LOG WIDE TREE)
-" netrw-t => BROWSING WITH A NEW TAB
-" netrw-% => OPEN A NEW FILE IN NETRW'S CURRENT DIRECTORY
-" netrw-d => MAKING A NEW DIRECTORY
-" netrw-R => RENAMING FILES OR DIRECTORIES
-" netrw-D => DELETING FILES OR DIRECTORIES
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 75
-let g:netrw_altv = 1
-let g:netrw_alto = 1
-nnoremap <silent><LEADER>ex :Explore<CR>
 " }}}
 " augroup {{{
 augroup MultiByteSpace
@@ -175,17 +117,12 @@ augroup Vint
   autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
 augroup END
 " }}}
-" matchit {{{
-if !exists('loading_matchit')
-  runtime macros/matchit.vim
-endif
-" }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
+runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " set option {{{
-
 set nocompatible
 set hlsearch
 set nowrap
@@ -222,10 +159,67 @@ set statusline+=\ %{&encoding}\ \|
 set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
+" }}}
+" misc {{{
+let g:mapleader = ','
+noremap \ ,
 
+" Netrw
+" https://shapeshed.com/vim-netrw/
+" netrw-i => CHANGE LISTING STYLE (THIN LOG WIDE TREE)
+" netrw-t => BROWSING WITH A NEW TAB
+" netrw-% => OPEN A NEW FILE IN NETRW'S CURRENT DIRECTORY
+" netrw-d => MAKING A NEW DIRECTORY
+" netrw-R => RENAMING FILES OR DIRECTORIES
+" netrw-D => DELETING FILES OR DIRECTORIES
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 75
+let g:netrw_altv = 1
+let g:netrw_alto = 1
+" }}}
+" }}}
+
+" plugin settings {{{
+" ctrlpvim/ctrlp.vim {{{
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-n>'],
+\ 'PrtSelectMove("k")':   ['<c-p>'],
+\ 'PrtHistory(-1)':       ['<down>'],
+\ 'PrtHistory(1)':        ['<up>'],
+\ }
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_cmd = 'CtrlPCurWD'
+" }}}
+" scrooloose/syntastic {{{
+" http://qiita.com/ka2n/items/55a435c10a240ea5d434
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
+" http://d.hatena.ne.jp/oppara/20140515/p1
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_perl_checkers = ['perl']
+" let g:syntastic_vim_checkers = ['vint']
+" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
+let g:syntastic_html_tidy_exec = 'tidy5'
+nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
+" }}}
+" rking/ag.vim {{{
+let g:ag_highlight = 1
+" }}}
+" MarcWeber/vim-addon-local-vimrc {{{
+let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
+" }}}
+" plasticboy/vim-markdown {{{
+let g:vim_markdown_folding_disabled = 1
+" }}}
+" soramugi/auto-ctags.vim {{{
+let g:auto_ctags = 1
+" }}}
+" }}}
+
+filetype plugin indent on
 syntax on
-" }}}
-" }}}
 
 " vim: foldmethod=marker
 " vim: foldcolumn=0
