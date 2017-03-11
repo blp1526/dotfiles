@@ -19,6 +19,7 @@ apt install -y clang
 apt install -y silversearcher-ag
 apt install -y golang
 apt install -y dstat
+apt install -y iotop
 
 # Healing
 apt install -y sl
@@ -31,6 +32,7 @@ apt install -y jq
 
 # Network
 apt install -y ssh
+apt install -y libnss-myhostname
 
 # Kernel
 apt install -y libncurses-dev

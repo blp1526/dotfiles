@@ -35,6 +35,8 @@ $manager install -y ltrace
 # https://sourceware.org/systemtap/examples/
 $manager install -y systemtap
 $manager install -y python2-editorconfig
+$manager install -y dstat
+$manager install -y iotop
 # $manager install -y python3-editorconfig
 
 # filesystem
@@ -71,7 +73,6 @@ $manager install -y rabbitmq-server
 
 # Utility
 $manager install -y s3cmd
-$manager install -y dstat
 
 # Healing
 $manager install -y sl
