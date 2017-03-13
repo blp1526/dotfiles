@@ -62,8 +62,22 @@
 # passwd foo
 # visudo => use %wheel ALL=(ALL) ALL
 #
+# vi /etc/pacman.conf =>
+# [archlinuxfr]
+# SigLevel = Never
+# Server = http://repo.archlinux.fr/$arch
+#
+# sudo pacman --sync --refresh yaourt
+#
 # sudo pacman -S virtualbox-guest-utils => select 2 (virtualbox-guest-modules-arch)
 # sudo systemctl enable vboxservice
 # sudo shutdown -h now
 #
 ##############################
+
+pacman -S openssh
+pacman -S tmux
+pacman -S vim
+pacman -S git
+pacman -S tig
+pacman -S the_silver_searcher
