@@ -78,6 +78,7 @@
 pacman -S openssh
 # for "Host-only", see https://wiki.archlinux.org/index.php/VirtualBox#Load_the_VirtualBox_kernel_modules
 pacman -S net-tools
+pacman -S mlocate
 pacman -S tmux
 pacman -S vim
 pacman -S git
