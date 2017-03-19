@@ -4,10 +4,15 @@
 #### Pre provisioning
 #### Install Arch Linux
 ####
-#### Enable EFI
-#### * VirtualBox => Settings => System => Enable EFI (special OSes only)
+#### Enable EFI (and Nested Virtualization only VMware)
+#### * VirtualBox
+####   * Settings => System => Enable EFI (special OSes only)
+#### * VMware
+####   * `vim archlinux.vmx`, and add below lines
+####     * firmware = "efi"
+####     * vhv.enable = "TRUE"
 ####
-#### Start Arch ~linux as VirtualBox guest OS
+#### Start Arch linux as guest OS
 ##############################
 #
 # timedatectl set-ntp true
@@ -55,7 +60,7 @@
 #
 ##############################
 #### Remove Arch Linux iso
-#### Start Arch Linux as VirtualBox guest OS
+#### Start Arch Linux as guest OS
 ##############################
 #
 # useradd -m -G wheel -s /bin/bash foo
