@@ -13,6 +13,12 @@
 ####     * vhv.enable = "TRUE"
 ####
 #### Start Arch linux as guest OS
+####
+#### passwd
+#### systemctl start sshd
+#### ip a
+####
+#### Connect from iTerm2
 ##############################
 #
 # timedatectl set-ntp true
@@ -21,8 +27,8 @@
 # sgdisk -t 1:EF00   /dev/sda
 # sgdisk -n 2::      /dev/sda
 #
-# mkfs -t vfat -F32 /dev/sda1
-# mkfs -t ext4      /dev/sda2
+# mkfs.vfat -F32 /dev/sda1
+# mkfs.btrfs     /dev/sda2
 #
 # mount /dev/sda2 /mnt
 # mkdir /mnt/boot
@@ -37,7 +43,7 @@
 # arch-chroot /mnt/ /bin/bash
 #
 # vi /etc/locale.gen => use en_US.UTF-8, ja_JP.UTF-8
-# locate-gen
+# locale-gen
 # echo LANG=en_US.UTF-8 > /etc/locale.conf
 # export LANG=en_US.UTF-8
 #
