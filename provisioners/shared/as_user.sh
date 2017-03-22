@@ -77,6 +77,7 @@ package_names=(
   MarcWeber/vim-addon-local-vimrc
   soramugi/auto-ctags.vim
   editorconfig/editorconfig-vim
+  fatih/vim-go
 )
 
 for package_name in "${package_names[@]}"; do
