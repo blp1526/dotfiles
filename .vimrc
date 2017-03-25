@@ -216,6 +216,14 @@ let g:vim_markdown_folding_disabled = 1
 " soramugi/auto-ctags.vim {{{
 let g:auto_ctags = 1
 " }}}
+" fatih/vim-go {{{
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" }}}
 " }}}
 
 filetype plugin indent on
