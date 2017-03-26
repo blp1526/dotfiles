@@ -95,17 +95,6 @@ augroup CustomSyntaxHighlight
   autocmd BufNewFile,BufRead *.psgi          set filetype=perl
 augroup END
 
-" http://d.hatena.ne.jp/rdera/20081022/1224682665
-augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-  autocmd BufReadPost * set ft=xxd | endif
-  autocmd BufWritePre * if &binary | %!xxd -r | endif
-  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-  autocmd BufWritePost * set nomod | endif
-augroup END
-
 augroup Log
   autocmd!
   autocmd BufNewFile,BufRead *.log     set cursorline
@@ -223,6 +212,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = 'goimports'
 " }}}
 " }}}
 
