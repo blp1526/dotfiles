@@ -32,3 +32,5 @@
   cf                     = cat-file -p
   sb                     = show-branch
   sr                     = show-ref
+[ghq]
+  root = ~/src

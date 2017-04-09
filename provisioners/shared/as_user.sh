@@ -7,12 +7,16 @@ if ! [ -e ${HOME}/bin ]; then
   mkdir ${HOME}/bin
 fi
 
-if ! [ -e ${HOME}/tmp ]; then
-  mkdir ${HOME}/tmp
+if ! [ -e ${HOME}/src ]; then
+  mkdir ${HOME}/src
 fi
 
-if ! [ -e ${HOME}/mnt ]; then
-  mkdir -p ${HOME}/mnt/sshfs
+if ! [ -e ${HOME}/pkg ]; then
+  mkdir ${HOME}/pkg
+fi
+
+if ! [ -e ${HOME}/tmp ]; then
+  mkdir ${HOME}/tmp
 fi
 
 if ! [ -e ${HOME}/.config/peco ]; then
@@ -38,7 +42,7 @@ file_names=(
 )
 
 for file_name in "${file_names[@]}"; do
-  ln -sf ${HOME}/.ghq/github.com/blp1526/dotfiles/${file_name} ~/
+  ln -sf ${HOME}/src/github.com/blp1526/dotfiles/${file_name} ~/
 done
 
 config_file_path=(
