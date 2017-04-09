@@ -204,6 +204,7 @@ let g:vim_markdown_folding_disabled = 1
 " }}}
 " soramugi/auto-ctags.vim {{{
 let g:auto_ctags = 1
+let g:auto_ctags_directory_list = ['.git', '.svn']
 " }}}
 " fatih/vim-go {{{
 let g:go_highlight_functions = 1
