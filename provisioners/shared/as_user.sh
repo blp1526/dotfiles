@@ -82,6 +82,7 @@ package_names=(
   soramugi/auto-ctags.vim
   editorconfig/editorconfig-vim
   fatih/vim-go
+  PProvost/vim-ps1
 )
 
 for package_name in "${package_names[@]}"; do
