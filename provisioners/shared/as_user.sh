@@ -23,6 +23,8 @@ if ! [ -e ${HOME}/.config/peco ]; then
   mkdir -p ${HOME}/.config/peco
 fi
 
+dotfiles_path=${HOME}/src/github.com/blp1526/dotfiles
+
 file_names=(
   .bash_profile
   .bashrc
@@ -42,7 +44,7 @@ file_names=(
 )
 
 for file_name in "${file_names[@]}"; do
-  ln -sf ${HOME}/src/github.com/blp1526/dotfiles/${file_name} ~/
+  ln -sf ${dotfiles_path}/${file_name} ~/
 done
 
 config_file_path=(
@@ -50,7 +52,7 @@ config_file_path=(
 )
 
 for config_file_path in "${config_file_path[@]}"; do
-  ln -sf ${HOME}/.ghq/github.com/blp1526/dotfiles/.config/${config_file_path} ~/.config/${config_file_path}
+  ln -sf ${dotfiles_path}/.config/${config_file_path} ~/.config/${config_file_path}
 done
 
 if ! [ -e ~/.gitconfig.local ]; then
