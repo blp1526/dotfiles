@@ -20,6 +20,8 @@ apt install -y silversearcher-ag
 apt install -y golang
 apt install -y dstat
 apt install -y iotop
+apt install -y docker.io
+apt install -y python-pip
 
 # Healing
 apt install -y sl
