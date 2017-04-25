@@ -6,8 +6,10 @@ if [ $(whoami) != root ]; then
   exit
 fi
 
-# apt update -y
-# apt upgrade -y
+apt update -y
+apt upgrade -y
+apt install -y apt-file
+apt-file update
 
 # Basic
 apt install -y git
