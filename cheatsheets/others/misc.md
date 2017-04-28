@@ -299,3 +299,9 @@ shift + w
 ```markdown
 ssh-keygen -l -E md5 -f ~/.ssh/id_rsa.pub
 ```
+
+## Show Full arguments
+
+```markdown
+pstree -a -l
+```
