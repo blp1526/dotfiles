@@ -34,3 +34,9 @@ f803 Ceph dm-crypt journa  f804 Ceph disk in creatio  f805 Ceph dm-crypt disk i
 fb00 VMWare VMFS           fb01 VMWare reserved       fc00 VMWare kcore crash p
 fd00 Linux RAID
 ```
+
+## Query the udev database for device information
+
+```markdown
+$ udevadm info --query=all --name=sda
+```
