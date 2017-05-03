@@ -23,6 +23,12 @@ if [ -e /etc/lsb-release ]; then
   . /etc/bash_completion.d/git-prompt
 fi
 
+if [ -e /etc/arch-release ]; then
+  . /usr/share/bash-completion/bash_completion
+  . /usr/share/git/completion/git-completion.bash
+  . /usr/share/git/git-prompt.sh
+fi
+
 # shell variables
 SHELL='bash'
 HISTSIZE='1000'

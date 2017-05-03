@@ -86,12 +86,22 @@
 #
 ##############################
 
+timedatectl set-timezone Asia/Tokyo
 pacman -S openssh
-# for "Host-only", see https://wiki.archlinux.org/index.php/VirtualBox#Load_the_VirtualBox_kernel_modules
-pacman -S net-tools
+pacman -S bash-completion
 pacman -S mlocate
 pacman -S tmux
 pacman -S vim
 pacman -S git
 pacman -S tig
 pacman -S the_silver_searcher
+pacman -S strace
+pacman -S unzip
+pacman -S go
+pacman -S python
+pacman -S python-pip
+# https://wiki.archlinuxjp.org/index.php/Docker
+# tee /etc/modules-load.d/loop.conf <<< "loop"
+# modprobe loop
+pacman -S docker
+yaourt python-editorconfig
