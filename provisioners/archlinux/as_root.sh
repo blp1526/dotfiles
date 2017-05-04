@@ -86,22 +86,34 @@
 #
 ##############################
 
+# https://wiki.archlinuxjp.org/index.php/%E6%99%82%E5%88%BB
 timedatectl set-timezone Asia/Tokyo
-pacman -S openssh
-pacman -S bash-completion
-pacman -S mlocate
-pacman -S tmux
-pacman -S vim
-pacman -S git
-pacman -S tig
-pacman -S the_silver_searcher
-pacman -S strace
-pacman -S unzip
-pacman -S go
-pacman -S python
-pacman -S python-pip
+
+pacman --needed -S openssh
+
+# https://github.com/rbenv/ruby-build/wiki
+pacman --needed -S openssl
+pacman --needed -S libyaml
+pacman --needed -S libffi
+pacman --needed -S zlib
+
+pacman --needed -S bash-completion
+pacman --needed -S gptfdisk
+pacman --needed -S mlocate
+pacman --needed -S tmux
+pacman --needed -S git
+pacman --needed -S tig
+pacman --needed -S the_silver_searcher
+pacman --needed -S strace
+pacman --needed -S unzip
+pacman --needed -S go
+pacman --needed -S python
+pacman --needed -S python-pip
+pacman --needed -S python-editorconfig
+pacman --needed -S vim
+pacman --needed -S docker
 # https://wiki.archlinuxjp.org/index.php/Docker
 # tee /etc/modules-load.d/loop.conf <<< "loop"
 # modprobe loop
-pacman -S docker
-yaourt python-editorconfig
+
+updatedb
