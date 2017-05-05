@@ -25,6 +25,9 @@ pacman --needed -S python
 pacman --needed -S python-pip
 pacman --needed -S python-editorconfig
 pacman --needed -S vim
+pacman --needed -S tree
+pacman --needed -S lftp
+pacman --needed -S ctags
 pacman --needed -S docker
 
 # https://wiki.archlinuxjp.org/index.php/Docker
