@@ -126,3 +126,10 @@ Slave: Start slave.
 ```markdown
 mysql > START SLAVE;
 ```
+
+## Performance tuning by hdparm command
+
+```markdown
+# https://dev.mysql.com/doc/refman/5.6/ja/disk-issues.html
+$ hdparm -m 16 -d 1
+```

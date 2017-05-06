@@ -13,6 +13,7 @@ pacman --needed -S zlib
 
 pacman --needed -S bash-completion
 pacman --needed -S gptfdisk
+pacman --needed -S hdparm
 pacman --needed -S mlocate
 pacman --needed -S tmux
 pacman --needed -S git
