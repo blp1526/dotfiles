@@ -62,7 +62,7 @@ ssh-agent-add() {
 }
 
 alias c='change-repository-dir'
-alias ll='ls -li --color=auto' # 'i' shows inode
+alias ll='ls -lip --color=auto' # 'i' shows inode
 alias la='ll -a'
 alias tree='tree -I ".git|tags|vendor|node_modules"'
 alias inode='stat -c %i'
