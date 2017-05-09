@@ -41,6 +41,7 @@ file_names=(
   .ctags
   .npm-completion.sh
   .gitignore_global
+  .editorconfig
 )
 
 for file_name in "${file_names[@]}"; do
