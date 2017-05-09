@@ -1,0 +1,28 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[{Makefile,Makefile.am,Makefile.in}]
+indent_style = tab
+indent_size = 4
+
+# https://github.com/editorconfig/editorconfig-core-c/blob/d31147df3691f7668edd0389cc40f45089cb8cd5/.editorconfig
+[*.[ch]]
+indent_style = tab
+indent_size = 4
+
+# https://github.com/editorconfig/editorconfig-core-go/blob/1a04ca8314e7c335d1845704a15b839650c249ac/.editorconfig
+[*.go]
+indent_style = tab
+indent_size = 4
+
+# https://github.com/editorconfig/editorconfig-core-py/blob/a8bed26e5bbc7704826c9ccf74797625aa015cfe/.editorconfig
+[*.py]
+indent_style = space
+indent_size = 4
