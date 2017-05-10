@@ -11,6 +11,7 @@ pacman --needed -S libyaml
 pacman --needed -S libffi
 pacman --needed -S zlib
 
+pacman --needed -S linux-headers
 pacman --needed -S bash-completion
 pacman --needed -S gptfdisk
 pacman --needed -S hdparm
@@ -27,6 +28,7 @@ pacman --needed -S python-pip
 pacman --needed -S python-editorconfig
 pacman --needed -S vim
 pacman --needed -S tree
+pacman --needed -S lsof
 pacman --needed -S lftp
 pacman --needed -S ctags
 pacman --needed -S docker
