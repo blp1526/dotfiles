@@ -2,6 +2,11 @@ scriptencoding utf-8
 
 " personal settings {{{
 " functions {{{
+function! JSONFormatter()
+  silent execute '%!python -m json.tool'
+endfunction
+command! JSONFormatter call JSONFormatter()
+
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
   highlight JISX0208Space term=underline ctermbg=LightCyan

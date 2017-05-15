@@ -29,6 +29,8 @@ pacman --needed -S python-editorconfig
 pacman --needed -S vim
 pacman --needed -S tree
 pacman --needed -S lsof
+# nslookup
+pacman --needed -S dnsutils
 pacman --needed -S lftp
 pacman --needed -S ctags
 pacman --needed -S docker
