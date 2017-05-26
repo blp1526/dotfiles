@@ -86,6 +86,7 @@ package_names=(
   editorconfig/editorconfig-vim
   fatih/vim-go
   PProvost/vim-ps1
+  Shougo/neocomplete.vim
 )
 
 for package_name in "${package_names[@]}"; do
