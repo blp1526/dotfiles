@@ -1,6 +1,39 @@
 scriptencoding utf-8
 
 " personal settings {{{
+" run once {{{
+if has('vim_starting')
+  let s:package_path = '~/.vim/pack/mypack/start/'
+  call system('mkdir -p ' . s:package_path)
+  let s:author_name_repo_name_list = [
+        \ 'kana/vim-tabpagecd',
+        \ 'ctrlpvim/ctrlp.vim',
+        \ 'tpope/vim-endwise',
+        \ 'scrooloose/syntastic',
+        \ 'rking/ag.vim',
+        \ 'plasticboy/vim-markdown',
+        \ 'simeji/winresizer',
+        \ 'MarcWeber/vim-addon-local-vimrc',
+        \ 'soramugi/auto-ctags.vim',
+        \ 'editorconfig/editorconfig-vim',
+        \ 'fatih/vim-go',
+        \ 'PProvost/vim-ps1',
+        \ 'Shougo/neocomplete.vim'
+        \ ]
+  for s:author_name_repo_name in s:author_name_repo_name_list
+    let s:repo_name = split(s:author_name_repo_name, '/')[1]
+    if !isdirectory(expand(s:package_path . s:repo_name))
+      let s:git_clone     = 'git clone --depth 1'
+      let s:clone_from    = 'https://github.com/' . s:author_name_repo_name . '.git'
+      let s:clone_to      = s:package_path . s:repo_name
+      let s:clone_command = join([s:git_clone, s:clone_from, s:clone_to], ' ')
+      echo s:clone_command
+      call system(s:clone_command)
+      echo (join(['clone', s:author_name_repo_name, 'completed'], ' ')) . "\n"
+    endif
+  endfor
+endif
+" }}}
 " functions {{{
 function! JSONFormatter()
   silent execute '%!python -m json.tool'

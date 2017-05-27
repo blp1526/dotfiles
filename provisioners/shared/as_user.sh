@@ -71,28 +71,6 @@ fi
 
 . ~/.bash_profile >/dev/null 2>&1
 
-mkdir -p ~/.vim/pack/mypack/start
-
-package_names=(
-  kana/vim-tabpagecd
-  ctrlpvim/ctrlp.vim
-  tpope/vim-endwise
-  scrooloose/syntastic
-  rking/ag.vim
-  plasticboy/vim-markdown
-  simeji/winresizer
-  MarcWeber/vim-addon-local-vimrc
-  soramugi/auto-ctags.vim
-  editorconfig/editorconfig-vim
-  fatih/vim-go
-  PProvost/vim-ps1
-  Shougo/neocomplete.vim
-)
-
-for package_name in "${package_names[@]}"; do
-  git clone --depth 1 https://github.com/${package_name}.git ${HOME}/.vim/pack/mypack/start/$(echo $package_name | awk -F / '{ print $2 }') >/dev/null 2>&1
-done
-
 if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup
 fi
