@@ -56,19 +56,6 @@ for config_file_path in "${config_file_path[@]}"; do
   ln -sf ${dotfiles_path}/.config/${config_file_path} ~/.config/${config_file_path}
 done
 
-if ! [ -e ~/.gitconfig.local ]; then
-  echo 'Enter your user.name for .gitconfig'
-  read name
-  echo 'Enter your user.email for .gitconfig'
-  read email
-
-cat << __EOS__ > ~/.gitconfig.local
-[user]
-  name  = "${name}"
-  email = "${email}"
-__EOS__
-fi
-
 . ~/.bash_profile >/dev/null 2>&1
 
 if ! type nodebrew >/dev/null 2>&1; then

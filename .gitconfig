@@ -1,5 +1,3 @@
-[include]
-  path = .gitconfig.local
 [color]
   status      = auto
   diff        = auto
@@ -34,3 +32,5 @@
   sr                     = show-ref
 [ghq]
   root = ~/src
+[user]
+  useConfigOnly = true
