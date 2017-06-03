@@ -70,16 +70,23 @@ if ! type peco >/dev/null 2>&1; then
   curl -L https://github.com/peco/peco/releases/download/v0.4.9/peco_linux_amd64.tar.gz -o ~/tmp/peco.tar.gz
   tar zxvf ~/tmp/peco.tar.gz -C ~/tmp
   mv ~/tmp/peco_linux_amd64/peco ~/bin
+  rm -rf ~/tmp/peco_linux_amd64/
 fi
 
 if ! type ghq >/dev/null 2>&1; then
   curl -L https://github.com/motemen/ghq/releases/download/v0.7.4/ghq_linux_amd64.zip -o ~/tmp/ghq.zip
   unzip ~/tmp/ghq.zip -d ~/tmp
-mv ~/tmp/ghq ~/bin
+  mv ~/tmp/ghq ~/bin
 fi
 
 if ! type gibo >/dev/null 2>&1; then
   curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo -o ~/bin/gibo
   chmod +x ~/bin/gibo
   gibo -u
+fi
+
+if ! type direnv >/dev/null 2>&1; then
+  git clone https://github.com/direnv/direnv.git ~/src/github.com/direnv/direnv/
+  cd ~/src/github.com/direnv/direnv/
+  sudo make install
 fi
