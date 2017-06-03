@@ -49,14 +49,6 @@ export PATH="$PLENV_ROOT/bin:$PATH"
 eval "$(plenv init -)"
 __EOS__
 
-# direnv
-if ! type direnv >/dev/null 2>&1; then
-  cd /tmp
-  git clone https://github.com/direnv/direnv.git
-  cd direnv
-  make install
-fi
-
 # pip
 if type pip >/dev/null 2>&1; then
   pip install --upgrade pip
