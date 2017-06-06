@@ -1,11 +1,11 @@
 scriptencoding utf-8
 
 " personal settings {{{
-" run once {{{
-if has('vim_starting')
-  let s:package_path = '~/.vim/pack/mypack/start/'
-  call system('mkdir -p ' . s:package_path)
-  let s:author_name_repo_name_list = [
+" functions {{{
+function! InstallPackages()
+  let l:package_path = '~/.vim/pack/mypack/start/'
+  call system('mkdir -p ' . l:package_path)
+  let l:author_name_repo_name_list = [
         \ 'kana/vim-tabpagecd',
         \ 'ctrlpvim/ctrlp.vim',
         \ 'tpope/vim-endwise',
@@ -20,21 +20,20 @@ if has('vim_starting')
         \ 'PProvost/vim-ps1',
         \ 'Shougo/neocomplete.vim'
         \ ]
-  for s:author_name_repo_name in s:author_name_repo_name_list
-    let s:repo_name = split(s:author_name_repo_name, '/')[1]
-    if !isdirectory(expand(s:package_path . s:repo_name))
-      let s:git_clone     = 'git clone --depth 1'
-      let s:clone_from    = 'https://github.com/' . s:author_name_repo_name . '.git'
-      let s:clone_to      = s:package_path . s:repo_name
-      let s:clone_command = join([s:git_clone, s:clone_from, s:clone_to], ' ')
-      echo s:clone_command
-      call system(s:clone_command)
-      echo (join(['clone', s:author_name_repo_name, 'completed'], ' ')) . "\n"
+  for l:author_name_repo_name in l:author_name_repo_name_list
+    let l:repo_name = split(l:author_name_repo_name, '/')[1]
+    if !isdirectory(expand(l:package_path . l:repo_name))
+      let l:git_clone     = 'git clone --depth 1'
+      let l:clone_from    = 'https://github.com/' . l:author_name_repo_name . '.git'
+      let l:clone_to      = l:package_path . l:repo_name
+      let l:clone_command = join([l:git_clone, l:clone_from, l:clone_to], ' ')
+      echo l:clone_command
+      call system(l:clone_command)
+      echo (join(['clone', l:author_name_repo_name, 'completed'], ' ')) . "\n"
     endif
   endfor
-endif
-" }}}
-" functions {{{
+endfunction
+
 function! JSONFormatter()
   silent execute '%!python -m json.tool'
 endfunction
@@ -68,6 +67,11 @@ function! FtOrNoFt()
     return "no ft"
   endif
 endfunction
+" }}}
+" run once {{{
+if has('vim_starting')
+  call InstallPackages()
+endif
 " }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
