@@ -34,6 +34,20 @@ function! InstallPackages()
   endfor
 endfunction
 
+function! Exhelp()
+  let l:exhelp = [
+        \ "=== :Explore easy doc ===",
+        \ "netrw-i => CHANGE LISTING STYLE (THIN LOG WIDE TREE)",
+        \ "netrw-t => BROWSING WITH A NEW TAB",
+        \ "netrw-% => OPEN A NEW FILE IN NETRW'S CURRENT DIRECTORY",
+        \ "netrw-d => MAKING A NEW DIRECTORY",
+        \ "netrw-R => RENAMING FILES OR DIRECTORIES",
+        \ "netrw-D => DELETING FILES OR DIRECTORIES"
+        \ ]
+  echo join(l:exhelp, "\n")
+endfunction
+command! Exhelp call Exhelp()
+
 function! JSONFormatter()
   silent execute '%!python -m json.tool'
 endfunction
@@ -196,13 +210,6 @@ let g:mapleader = ','
 noremap \ ,
 
 " Netrw
-" https://shapeshed.com/vim-netrw/
-" netrw-i => CHANGE LISTING STYLE (THIN LOG WIDE TREE)
-" netrw-t => BROWSING WITH A NEW TAB
-" netrw-% => OPEN A NEW FILE IN NETRW'S CURRENT DIRECTORY
-" netrw-d => MAKING A NEW DIRECTORY
-" netrw-R => RENAMING FILES OR DIRECTORIES
-" netrw-D => DELETING FILES OR DIRECTORIES
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 75
 let g:netrw_altv = 1
