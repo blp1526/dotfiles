@@ -7,6 +7,10 @@ export EDITOR='vim'
 IGNOREEOF=256
 export IGNOREEOF
 
+if [ -e /etc/arch-release ]; then
+  export KERNEL_PATH=/usr/lib/modules/$(uname -r)/build/include
+fi
+
 if [ -f ~/.bashrc ] ; then
   . ~/.bashrc
 fi

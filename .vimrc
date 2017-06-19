@@ -18,7 +18,8 @@ function! InstallPackages()
         \ 'editorconfig/editorconfig-vim',
         \ 'fatih/vim-go',
         \ 'PProvost/vim-ps1',
-        \ 'Shougo/neocomplete.vim'
+        \ 'Shougo/neocomplete.vim',
+        \ 'scrooloose/nerdtree'
         \ ]
   for l:author_name_repo_name in l:author_name_repo_name_list
     let l:repo_name = split(l:author_name_repo_name, '/')[1]
@@ -192,6 +193,7 @@ set shortmess+=I
 set textwidth=0
 set smartcase
 set nrformats=alpha
+set path+=$KERNEL_PATH
 
 set laststatus=2
 set statusline=\|\ %t
@@ -225,22 +227,18 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtHistory(-1)':       ['<down>'],
 \ 'PrtHistory(1)':        ['<up>'],
 \ }
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
+let g:ctrlp_match_window  = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
-let g:ctrlp_show_hidden = 1
+let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 " scrooloose/syntastic {{{
-" http://qiita.com/ka2n/items/55a435c10a240ea5d434
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
-" http://d.hatena.ne.jp/oppara/20140515/p1
+let g:syntastic_c_include_dirs      = [$KERNEL_PATH]
 let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl']
-" let g:syntastic_vim_checkers = ['vint']
-" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
-let g:syntastic_html_tidy_exec = 'tidy5'
-nnoremap <LEADER>st :call SyntasticToggleMode()<CR>
+let g:syntastic_perl_checkers       = ['perl']
+let g:syntastic_ruby_checkers       = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_tidy_exec      = 'tidy5'
 " }}}
 " rking/ag.vim {{{
 let g:ag_highlight = 1
@@ -262,20 +260,16 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
 let g:go_fmt_command = 'goimports'
+" }}}
+" scrooloose/nerdtree {{{
+let g:NERDTreeShowHidden = 1
 " }}}
 " Shougo/neocomplete.vim {{{
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
 
 if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
