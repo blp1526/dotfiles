@@ -193,6 +193,7 @@ set shortmess+=I
 set textwidth=0
 set smartcase
 set nrformats=alpha
+set tags+=.git/tags
 set path+=$KERNEL_PATH
 
 set laststatus=2
@@ -251,7 +252,7 @@ let g:vim_markdown_folding_disabled = 1
 " }}}
 " soramugi/auto-ctags.vim {{{
 let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git', '.svn']
+let g:auto_ctags_directory_list = ['.git']
 " }}}
 " fatih/vim-go {{{
 let g:go_highlight_functions = 1
