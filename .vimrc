@@ -1,27 +1,30 @@
 scriptencoding utf-8
 
 " personal settings {{{
+" variables {{{
+let s:vimrc_kernel_path = substitute('/lib/modules/'.system('uname -r').'/build/include', "\\n", "", "")
+let s:vimrc_packages = [
+      \ 'kana/vim-tabpagecd',
+      \ 'ctrlpvim/ctrlp.vim',
+      \ 'tpope/vim-endwise',
+      \ 'scrooloose/syntastic',
+      \ 'rking/ag.vim',
+      \ 'plasticboy/vim-markdown',
+      \ 'simeji/winresizer',
+      \ 'MarcWeber/vim-addon-local-vimrc',
+      \ 'soramugi/auto-ctags.vim',
+      \ 'editorconfig/editorconfig-vim',
+      \ 'fatih/vim-go',
+      \ 'PProvost/vim-ps1',
+      \ 'Shougo/neocomplete.vim',
+      \ 'scrooloose/nerdtree'
+      \ ]
+" }}}
 " functions {{{
 function! InstallPackages()
   let l:package_path = '~/.vim/pack/mypack/start/'
   call system('mkdir -p ' . l:package_path)
-  let l:author_name_repo_name_list = [
-        \ 'kana/vim-tabpagecd',
-        \ 'ctrlpvim/ctrlp.vim',
-        \ 'tpope/vim-endwise',
-        \ 'scrooloose/syntastic',
-        \ 'rking/ag.vim',
-        \ 'plasticboy/vim-markdown',
-        \ 'simeji/winresizer',
-        \ 'MarcWeber/vim-addon-local-vimrc',
-        \ 'soramugi/auto-ctags.vim',
-        \ 'editorconfig/editorconfig-vim',
-        \ 'fatih/vim-go',
-        \ 'PProvost/vim-ps1',
-        \ 'Shougo/neocomplete.vim',
-        \ 'scrooloose/nerdtree'
-        \ ]
-  for l:author_name_repo_name in l:author_name_repo_name_list
+  for l:author_name_repo_name in s:vimrc_packages
     let l:repo_name = split(l:author_name_repo_name, '/')[1]
     if !isdirectory(expand(l:package_path . l:repo_name))
       let l:git_clone     = 'git clone --depth 1'
@@ -34,20 +37,6 @@ function! InstallPackages()
     endif
   endfor
 endfunction
-
-function! Exhelp()
-  let l:exhelp = [
-        \ "=== :Explore easy doc ===",
-        \ "netrw-i => CHANGE LISTING STYLE (THIN LOG WIDE TREE)",
-        \ "netrw-t => BROWSING WITH A NEW TAB",
-        \ "netrw-% => OPEN A NEW FILE IN NETRW'S CURRENT DIRECTORY",
-        \ "netrw-d => MAKING A NEW DIRECTORY",
-        \ "netrw-R => RENAMING FILES OR DIRECTORIES",
-        \ "netrw-D => DELETING FILES OR DIRECTORIES"
-        \ ]
-  echo join(l:exhelp, "\n")
-endfunction
-command! Exhelp call Exhelp()
 
 function! JSONFormatter()
   silent execute '%!python -m json.tool'
@@ -194,7 +183,7 @@ set textwidth=0
 set smartcase
 set nrformats=alpha
 set tags+=.git/tags
-set path+=$KERNEL_PATH
+let &path = &path.",".s:vimrc_kernel_path
 
 set laststatus=2
 set statusline=\|\ %t
@@ -234,7 +223,7 @@ let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 " scrooloose/syntastic {{{
-let g:syntastic_c_include_dirs      = [$KERNEL_PATH]
+let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers       = ['perl']
 let g:syntastic_ruby_checkers       = ['rubocop']
