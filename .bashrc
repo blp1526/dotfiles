@@ -27,6 +27,17 @@ if [ -e /etc/arch-release ]; then
   . /usr/share/bash-completion/bash_completion
   . /usr/share/git/completion/git-completion.bash
   . /usr/share/git/git-prompt.sh
+
+  ## https://wiki.archlinux.org/index.php/Color_output_in_console#man
+  man() {
+      LESS_TERMCAP_md=$'\e[01;31m' \
+      LESS_TERMCAP_me=$'\e[0m' \
+      LESS_TERMCAP_se=$'\e[0m' \
+      LESS_TERMCAP_so=$'\e[01;44;33m' \
+      LESS_TERMCAP_ue=$'\e[0m' \
+      LESS_TERMCAP_us=$'\e[01;32m' \
+      command man "$@"
+  }
 fi
 
 # shell variables
@@ -62,7 +73,9 @@ ssh-agent-add() {
 }
 
 repo-name-or-short-pwd() {
-  if [ -e ${PWD}/.git ]; then
+  if [ ${PWD} = ${HOME} ]; then
+    echo "~"
+  elif [ -e ${PWD}/.git ]; then
     # https://www.cyberciti.biz/faq/unix-linux-shell-get-third-field-separated-by-forward-slash-delimiter/
     echo $(awk -F / '{ print $(NF-1)"/"$(NF) }' <<< ${PWD})
   else
@@ -70,23 +83,13 @@ repo-name-or-short-pwd() {
   fi
 }
 
-## https://wiki.archlinux.org/index.php/Color_output_in_console#man
-cman() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    command man "$@"
-}
-
 alias c='change-repository-dir'
-alias ll='ls -lip --color=auto' # 'i' shows inode
-alias la='ll -a'
+alias ls='ls --color=auto'
+alias egrep='egrep --color=auto'
+alias grep='grep --color=auto'
 alias tree='tree -I ".git|tags|vendor|node_modules"'
 alias inode='stat -c %i'
-alias dmesg='dmesg --human --color=always'
+alias dmesg='dmesg --human --color=auto'
 
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
