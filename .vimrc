@@ -143,8 +143,8 @@ augroup END
 
 augroup Log
   autocmd!
-  autocmd BufNewFile,BufRead *.log     set cursorline
-  autocmd BufNewFile,BufRead *.log*.gz set cursorline
+  autocmd BufNewFile,BufRead *.log     setlocal cursorline
+  autocmd BufNewFile,BufRead *.log*.gz setlocal cursorline
 augroup END
 
 augroup Vint
