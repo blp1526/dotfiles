@@ -64,7 +64,14 @@ stty stop undef
 
 ## http://qiita.com/spesnova/items/f90b14973120f19bcda1
 change-repository-dir() {
-  cd $(ghq list --full-path | peco)
+  previous_dir=$(pwd)
+  selected_dir=$(ghq list --full-path | peco)
+  # NOTE: case SIGINT
+  if [ "${selected_dir}" = "" ]; then
+    cd ${previous_dir}
+  else
+    cd ${selected_dir}
+  fi
 }
 
 ssh-agent-add() {
