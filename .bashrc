@@ -8,7 +8,11 @@ if [ -S "$SSH_AUTH_SOCK" ]; then
 elif [ -S $agent ]; then
   export SSH_AUTH_SOCK=$agent
 else
-  echo "no ssh-agent"
+  echo "### no ssh-agent ###"
+  echo 'eval `ssh-agent`'
+  eval `ssh-agent`
+  echo 'ssh-add'
+  ssh-add
 fi
 
 # git completion & prompt
@@ -53,7 +57,7 @@ PS1_USER='\[\033[32m\]\u'
 PS1_OS='\[\033[35m\]{$(uname)}'
 PS1_JOBS='\[\033[33m\][jobs:\j]'
 PS1_SEPARATOR='\[\033[37m\]:'
-PS1_DIR='\[\033[34m\]$(repo-name-or-short-pwd)'
+PS1_DIR='\[\033[34m\]$(repo_name_or_short_pwd)'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]'
 PS1_DOLLAR='\n\$ '
 PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
@@ -63,7 +67,7 @@ PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 stty stop undef
 
 ## http://qiita.com/spesnova/items/f90b14973120f19bcda1
-change-repository-dir() {
+c() {
   previous_dir=$(pwd)
   selected_dir=$(ghq list --full-path | peco)
   # NOTE: case SIGINT
@@ -74,12 +78,7 @@ change-repository-dir() {
   fi
 }
 
-ssh-agent-add() {
-  eval `ssh-agent`
-  ssh-add
-}
-
-repo-name-or-short-pwd() {
+repo_name_or_short_pwd() {
   if [ ${PWD} = ${HOME} ]; then
     echo "~"
   elif [ -e ${PWD}/.git ]; then
@@ -90,7 +89,6 @@ repo-name-or-short-pwd() {
   fi
 }
 
-alias c='change-repository-dir'
 alias ls='ls --color=auto'
 alias egrep='egrep --color=auto'
 alias grep='grep --color=auto'
