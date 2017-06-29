@@ -50,12 +50,8 @@ HISTSIZE='1000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
 
-## https://jp.linux.com/news/linuxcom-exclusive/416957-lco20140519
-## http://ambiesoft.fam.cx/blog/archives/1122
 GIT_PS1_SHOWDIRTYSTATE=true
 PS1_USER='\[\033[32m\]\u'
-PS1_OS='\[\033[35m\]{$(uname)}'
-PS1_JOBS='\[\033[33m\][jobs:\j]'
 PS1_SEPARATOR='\[\033[37m\]:'
 PS1_DIR='\[\033[34m\]$(repo_name_or_short_pwd)'
 PS1_BRANCH='\[\033[31m\]$(__git_ps1)\[\033[00m\]'
@@ -63,10 +59,8 @@ PS1_DOLLAR='\n\$ '
 PS1="${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
 # disable tty lock
-## http://qiita.com/quwa/items/3a23c9dbe510e3e0f58e
 stty stop undef
 
-## http://qiita.com/spesnova/items/f90b14973120f19bcda1
 c() {
   previous_dir=$(pwd)
   selected_dir=$(ghq list --full-path | peco)
@@ -82,10 +76,9 @@ repo_name_or_short_pwd() {
   if [ ${PWD} = ${HOME} ]; then
     echo "~"
   elif [ -e ${PWD}/.git ]; then
-    # https://www.cyberciti.biz/faq/unix-linux-shell-get-third-field-separated-by-forward-slash-delimiter/
     echo $(awk -F / '{ print $(NF-1)"/"$(NF) }' <<< ${PWD})
   else
-    echo $(awk -F / '{ print $(NF) }' <<< ${PWD})
+    echo $(basename ${PWD})
   fi
 }
 
