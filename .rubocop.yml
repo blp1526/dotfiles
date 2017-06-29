@@ -11,9 +11,6 @@ AllCops:
 Style/AndOr:
   Enabled: true
 
-Style/BracesAroundHashParameters:
-  Enabled: true
-
 Layout/CaseIndentation:
   Enabled: true
 
