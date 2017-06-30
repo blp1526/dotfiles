@@ -145,6 +145,7 @@ augroup Log
   autocmd!
   autocmd BufNewFile,BufRead *.log     setlocal cursorline
   autocmd BufNewFile,BufRead *.log*.gz setlocal cursorline
+  autocmd Filetype           qf        setlocal cursorline
 augroup END
 
 augroup Vint
