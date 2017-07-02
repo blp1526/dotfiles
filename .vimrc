@@ -71,6 +71,20 @@ function! FtOrNoFt()
     return "no ft"
   endif
 endfunction
+
+" https://www.kaoriya.net/blog/2014/12/28/
+" see :help %:h (filename-modifiers)
+function! s:GetBufferDirectory()
+  let path = expand('%:p:h')
+  let cwd = getcwd()
+  let dir = '.'
+  if match(path, escape(cwd, '\')) != 0
+    let dir = path
+  elseif strlen(path) > strlen(cwd)
+    let dir = strpart(path, strlen(cwd) + 1)
+  endif
+  return dir . (exists('+shellslash') && !&shellslash ? '\' : '/')
+endfunction
 " }}}
 " run once {{{
 if has('vim_starting')
@@ -123,6 +137,9 @@ vnoremap <C-t> :s/\%V
 
 " tab new gf
 nnoremap gf <C-w>gf
+
+" kaoriya keymap
+cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 " }}}
 " augroup {{{
 augroup MultiByteSpace
