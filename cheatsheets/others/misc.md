@@ -305,3 +305,24 @@ ssh-keygen -l -E md5 -f ~/.ssh/id_rsa.pub
 ```markdown
 pstree -a -l
 ```
+
+## Show dmesg as "tail -f"
+
+```markdown
+# kernel 3.5.0 or later
+dmesg --follow
+```
+
+## Show date as iso8601
+
+```markdown
+date --iso-8601=seconds
+```
+
+## Show realpath
+
+```markdown
+realpath    path/to/file
+readlink -f path/to/file
+```
+
