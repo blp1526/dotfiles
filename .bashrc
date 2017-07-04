@@ -88,11 +88,14 @@ stty stop undef
 
 # alias
 alias ls='ls --color=auto'
-alias egrep='egrep --color=auto'
 alias grep='grep --color=auto'
-alias tree='tree -I ".git|tags|vendor|node_modules"'
-alias inode='stat -c %i'
+alias egrep='egrep --color=auto'
 alias dmesg='dmesg --human --color=auto'
+alias tree='tree -I ".git|tags|vendor|node_modules"'
+
+alias inode='stat -c %i'
+alias hex2dec="printf '%d\n'"
+alias dec2hex="printf '%x\n'"
 
 # direnv
 if type direnv >/dev/null 2>&1; then
