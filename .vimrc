@@ -176,6 +176,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " set option {{{
+set number
 set nocompatible
 set hlsearch
 set nowrap
