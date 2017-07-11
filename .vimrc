@@ -17,7 +17,8 @@ let s:vimrc_packages = [
       \ 'fatih/vim-go',
       \ 'PProvost/vim-ps1',
       \ 'Shougo/neocomplete.vim',
-      \ 'scrooloose/nerdtree'
+      \ 'scrooloose/nerdtree',
+      \ 'mattn/ctrlp-ghq'
       \ ]
 " }}}
 " functions {{{
@@ -240,6 +241,9 @@ let g:ctrlp_match_window  = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
+" }}}
+" mattn/ctrlp-ghq {{{
+noremap <leader>g :<c-u>CtrlPGhq<cr>
 " }}}
 " scrooloose/syntastic {{{
 let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
