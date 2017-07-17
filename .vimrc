@@ -243,7 +243,7 @@ let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 " mattn/ctrlp-ghq {{{
-noremap <leader>g :<c-u>CtrlPGhq<cr>
+noremap <silent><LEADER>g :<C-u>CtrlPGhq<CR>
 " }}}
 " scrooloose/syntastic {{{
 let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
@@ -277,6 +277,7 @@ let g:go_fmt_command = 'goimports'
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
+noremap <silent><LEADER>e :NERDTreeToggle<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 let g:acp_enableAtStartup = 0
