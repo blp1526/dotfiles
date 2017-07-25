@@ -176,7 +176,7 @@ augroup END
 runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
-" set option {{{
+" options {{{
 set number
 set nocompatible
 set hlsearch
@@ -217,15 +217,12 @@ set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
 " }}}
-" misc {{{
-let g:mapleader = ','
-noremap \ ,
-
-" Netrw
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 75
-let g:netrw_altv = 1
-let g:netrw_alto = 1
+" leader {{{
+noremap <Leader>e :NERDTreeToggle<CR>
+noremap <Leader>g :<C-u>CtrlPGhq<CR>
+noremap <Leader>n :setlocal number!<CR>
+noremap <Leader>p :setlocal paste!<CR>
+noremap <Leader>s :setlocal spell!<CR>
 " }}}
 " }}}
 
@@ -241,9 +238,6 @@ let g:ctrlp_match_window  = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage)|(\.(swp|ico|git|svn|ccache|cache))$'
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" mattn/ctrlp-ghq {{{
-noremap <silent><LEADER>g :<C-u>CtrlPGhq<CR>
 " }}}
 " scrooloose/syntastic {{{
 let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
@@ -277,7 +271,6 @@ let g:go_fmt_command = 'goimports'
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
-noremap <silent><LEADER>e :NERDTreeToggle<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 let g:acp_enableAtStartup = 0
