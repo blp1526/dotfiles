@@ -103,7 +103,7 @@ highlight FoldColumn ctermfg=0 ctermbg=10
 " http://secret-garden.hatenablog.com/entry/2016/08/16/000149
 highlight link EndOfBuffer Ignore
 " }}}
-" key mapping {{{
+" map {{{
 " http://d.hatena.ne.jp/h1mesuke/20080327/p1
 nnoremap <silent><ESC><ESC> :noh<CR>
 
@@ -141,6 +141,13 @@ nnoremap gf <C-w>gf
 
 " kaoriya keymap
 cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
+
+" leader
+noremap <Leader>e :NERDTreeToggle<CR>
+noremap <Leader>g :<C-u>CtrlPGhq<CR>
+noremap <Leader>n :setlocal number!<CR>
+noremap <Leader>p :setlocal paste!<CR>
+noremap <Leader>s :setlocal spell!<CR>
 " }}}
 " augroup {{{
 augroup MultiByteSpace
@@ -216,13 +223,6 @@ set statusline+=\ %{&encoding}\ \|
 set statusline+=\ %{FtOrNoFt()}\ \|
 set statusline+=\ %L\ \|
 set statusline+=\ %l,%c\ \|
-" }}}
-" leader {{{
-noremap <Leader>e :NERDTreeToggle<CR>
-noremap <Leader>g :<C-u>CtrlPGhq<CR>
-noremap <Leader>n :setlocal number!<CR>
-noremap <Leader>p :setlocal paste!<CR>
-noremap <Leader>s :setlocal spell!<CR>
 " }}}
 " }}}
 
