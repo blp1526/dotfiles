@@ -143,8 +143,6 @@ nnoremap gf <C-w>gf
 cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 
 " leader
-noremap <Leader>e :NERDTreeToggle<CR>
-noremap <Leader>g :<C-u>CtrlPGhq<CR>
 noremap <Leader>n :setlocal number!<CR>
 noremap <Leader>p :setlocal paste!<CR>
 noremap <Leader>s :setlocal spell!<CR>
@@ -239,6 +237,9 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|vendor|local|tmp|co
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
+" mattn/ctrlp-ghq {{{
+noremap <Leader>g :<C-u>CtrlPGhq<CR>
+" }}}
 " scrooloose/syntastic {{{
 let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
 let g:syntastic_enable_perl_checker = 1
@@ -267,10 +268,16 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = 'goimports'
+augroup VimGo
+  autocmd!
+  autocmd FileType go nmap <leader>] <Plug>(go-def-tab)
+augroup END
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
+noremap <Leader>e :NERDTreeToggle<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
 let g:acp_enableAtStartup = 0
