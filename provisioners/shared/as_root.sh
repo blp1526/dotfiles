@@ -57,8 +57,8 @@ if type pip >/dev/null 2>&1; then
 fi
 
 # sshd
-systemctl enable sshd.service
-systemctl start  sshd.service
+# systemctl enable sshd.service
+# systemctl start  sshd.service
 
 # firewalld
 # firewall-cmd --get-default-zone
