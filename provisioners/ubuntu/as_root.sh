@@ -6,6 +6,12 @@ if [ $(whoami) != root ]; then
   exit
 fi
 
+# https://github.com/golang/go/wiki/Ubuntu
+distrib_release=$(cat /etc/lsb-release | grep DISTRIB_RELEASE | awk -F '=' '{ print $NF }')
+if [ "${distrib_release}" = "16.04" ]; then
+  sudo add-apt-repository ppa:longsleep/golang-backports
+fi
+
 apt update -y
 apt upgrade -y
 apt install -y apt-file
@@ -19,7 +25,7 @@ apt install -y vim
 apt install -y ctags
 apt install -y clang
 apt install -y silversearcher-ag
-apt install -y golang
+apt install -y golang-go
 apt install -y dstat
 apt install -y iotop
 apt install -y tree
