@@ -2,18 +2,19 @@
 set -ux
 
 # only root privilege
-if [ $(whoami) != root ]; then
+if [ $(whoami) != "root" ]; then
   exit
 fi
 
 # https://github.com/golang/go/wiki/Ubuntu
-distrib_release=$(cat /etc/lsb-release | grep DISTRIB_RELEASE | awk -F '=' '{ print $NF }')
-if [ "${distrib_release}" = "16.04" ]; then
-  sudo add-apt-repository ppa:longsleep/golang-backports
+source /etc/lsb-release
+if [ "${DISTRIB_RELEASE}" = "16.04" ]; then
+  add-apt-repository ppa:longsleep/golang-backports
 fi
 
 apt update -y
 apt upgrade -y
+
 apt install -y apt-file
 apt-file update
 
@@ -21,7 +22,8 @@ apt-file update
 apt install -y git
 apt install -y tig
 apt install -y tmux
-apt install -y vim
+# enable lua flag
+apt install -y vim-gnome
 apt install -y ctags
 apt install -y clang
 apt install -y silversearcher-ag
