@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 cd $(dirname $0)
 
@@ -71,22 +70,23 @@ if ! type peco >/dev/null 2>&1; then
   tar zxvf ~/tmp/peco.tar.gz -C ~/tmp
   mv ~/tmp/peco_linux_amd64/peco ~/bin
   rm -rf ~/tmp/peco_linux_amd64/
+  rm -rf ~/tmp/peco.tar.gz
 fi
 
 if ! type ghq >/dev/null 2>&1; then
   curl -L https://github.com/motemen/ghq/releases/download/v0.7.4/ghq_linux_amd64.zip -o ~/tmp/ghq.zip
   unzip ~/tmp/ghq.zip -d ~/tmp
   mv ~/tmp/ghq ~/bin
+  rm -rf ~/tmp/ghq.zip
+fi
+
+if ! type direnv >/dev/null 2>&1; then
+  curl -L https://github.com/direnv/direnv/releases/download/v2.12.2/direnv.linux-amd64 -o ~/bin/direnv
+  chmod 0755 ~/bin/direnv
 fi
 
 if ! type gibo >/dev/null 2>&1; then
   curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo -o ~/bin/gibo
-  chmod +x ~/bin/gibo
+  chmod 0755 ~/bin/gibo
   gibo -u
-fi
-
-if ! type direnv >/dev/null 2>&1; then
-  git clone https://github.com/direnv/direnv.git ~/src/github.com/direnv/direnv/
-  cd ~/src/github.com/direnv/direnv/
-  sudo make install
 fi
