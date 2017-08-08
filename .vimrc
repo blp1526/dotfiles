@@ -277,6 +277,7 @@ augroup END
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 18
 noremap <Leader>e :NERDTreeToggle<CR>
 " }}}
 " Shougo/neocomplete.vim {{{
