@@ -141,11 +141,6 @@ nnoremap gf <C-w>gf
 
 " kaoriya keymap
 cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
-
-" leader
-noremap <Leader>n :setlocal number!<CR>
-noremap <Leader>p :setlocal paste!<CR>
-noremap <Leader>s :setlocal spell!<CR>
 " }}}
 " augroup {{{
 augroup MultiByteSpace
@@ -272,7 +267,9 @@ let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = 'goimports'
 augroup VimGo
   autocmd!
-  autocmd FileType go nmap <leader>] <Plug>(go-def-tab)
+  autocmd FileType go nmap <leader>r <Plug>(go-test)
+  autocmd FileType go nmap <leader>t <Plug>(go-def-tab)
+  autocmd FileType go nmap <leader>s <Plug>(go-def-split)
 augroup END
 " }}}
 " scrooloose/nerdtree {{{
