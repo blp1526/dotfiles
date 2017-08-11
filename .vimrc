@@ -257,19 +257,30 @@ let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git']
 " }}}
 " fatih/vim-go {{{
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+
+" let g:go_auto_sameids = 1
+" let g:go_metalinter_autosave = 1
 let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = 'goimports'
+let g:go_auto_type_info = 1
+
 augroup VimGo
   autocmd!
-  autocmd FileType go nmap <leader>r <Plug>(go-test)
-  autocmd FileType go nmap <leader>t <Plug>(go-def-tab)
-  autocmd FileType go nmap <leader>s <Plug>(go-def-split)
+  autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
+  autocmd FileType go nmap <leader>b <Plug>(go-build)
+  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+  autocmd FileType go nmap <Leader>i <Plug>(go-info)
+  autocmd FileType go nmap <Leader>m <Plug>(go-metalinter)
+  autocmd FileType go nmap <leader>r <Plug>(go-run)
+  autocmd FileType go nmap <leader>t <Plug>(go-test)
 augroup END
 " }}}
 " scrooloose/nerdtree {{{
