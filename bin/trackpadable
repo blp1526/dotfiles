@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# XXX: http://qiita.com/ShigekiKarita/items/6444822fb2c23dd21fb7
+
+enabled=$(xinput list-props ${1} | grep Enabled | awk -F " " '{ print $NF }')
+if [ "${enabled}" = "1" ]; then
+  xinput disable ${1}
+else
+  xinput enable ${1}
+fi

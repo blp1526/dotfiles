@@ -55,6 +55,8 @@ for config_file_path in "${config_file_path[@]}"; do
   ln -sf ${dotfiles_path}/.config/${config_file_path} ~/.config/${config_file_path}
 done
 
+ln -sf ${dotfiles_path}/bin/trackpadable ~/bin/trackpadable
+
 . ~/.bash_profile >/dev/null 2>&1
 
 if ! type nodebrew >/dev/null 2>&1; then
