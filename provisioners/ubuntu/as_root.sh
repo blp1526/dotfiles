@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ux
 
+# XXX: image and checksum
+# http://releases.ubuntu.com/
+
 # only root privilege
 if [ $(whoami) != "root" ]; then
   exit

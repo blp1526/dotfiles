@@ -6,6 +6,8 @@ if [ "$(whoami)" != "root" ] || [ "${HOME}" != "/root" ]; then
   exit
 fi
 
+echo "BIOS Vendor: $(dmidecode --string bios-vendor)"
+
 user="user"
 cat /etc/passwd | grep ^"${user}": >/dev/null 2>&1
 if ! [ ${?} -eq 0 ]; then
