@@ -18,7 +18,8 @@ let s:vimrc_packages = [
       \ 'PProvost/vim-ps1',
       \ 'Shougo/neocomplete.vim',
       \ 'scrooloose/nerdtree',
-      \ 'mattn/ctrlp-ghq'
+      \ 'mattn/ctrlp-ghq',
+      \ 'easymotion/vim-easymotion'
       \ ]
 " }}}
 " functions {{{
@@ -285,6 +286,10 @@ augroup END
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 18
 noremap <Leader>e :NERDTreeToggle<CR>
+" }}}
+" easymotion/vim-easymotion {{{
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 " }}}
 " Shougo/neocomplete.vim {{{
 let g:acp_enableAtStartup = 0
