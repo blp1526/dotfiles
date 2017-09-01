@@ -70,4 +70,18 @@ apt install -y libffi-dev
 apt install -y libgdbm3
 apt install -y libgdbm-dev
 
+lscpu | grep vmx >/dev/null 2>&1
+if [ ${?} -eq 0 ]; then
+  apt install -y qemu-kvm
+  apt install -y libvirt0
+  apt install -y libvirt-bin
+  apt install -y virt-manager
+  apt install -y bridge-utils
+fi
+
+dpkg -l ubuntu-desktop >/dev/null 2>&1
+if [ ${?} -eq 0 ]; then
+  apt install -y guake
+fi
+
 source ./provisioners/shared/as_root.sh
