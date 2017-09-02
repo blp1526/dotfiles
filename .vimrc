@@ -11,7 +11,6 @@ let s:vimrc_packages = [
       \ 'rking/ag.vim',
       \ 'plasticboy/vim-markdown',
       \ 'simeji/winresizer',
-      \ 'MarcWeber/vim-addon-local-vimrc',
       \ 'soramugi/auto-ctags.vim',
       \ 'editorconfig/editorconfig-vim',
       \ 'fatih/vim-go',
@@ -247,9 +246,6 @@ let g:syntastic_html_tidy_exec      = 'tidy5'
 " }}}
 " rking/ag.vim {{{
 let g:ag_highlight = 1
-" }}}
-" MarcWeber/vim-addon-local-vimrc {{{
-let g:local_vimrc = {'names':['.local-vimrc'],'hash_fun':'LVRHashOfFile'}
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
