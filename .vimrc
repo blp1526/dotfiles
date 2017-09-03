@@ -210,7 +210,7 @@ set textwidth=0
 set smartcase
 set nrformats=alpha
 set tags+=.git/tags
-let &path = &path.",".s:vimrc_kernel_path
+let &path = s:vimrc_kernel_path.",".&path
 
 set laststatus=2
 set statusline=\|\ %t
