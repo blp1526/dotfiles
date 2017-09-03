@@ -167,6 +167,12 @@ augroup Log
   autocmd Filetype           qf        setlocal cursorline
 augroup END
 
+augroup CorCPP
+  autocmd!
+  autocmd Filetype c   setlocal colorcolumn=80
+  autocmd Filetype cpp setlocal colorcolumn=80
+augroup END
+
 augroup Vint
   autocmd!
   autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
