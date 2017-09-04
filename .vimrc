@@ -18,7 +18,9 @@ let s:vimrc_packages = [
       \ 'Shougo/neocomplete.vim',
       \ 'scrooloose/nerdtree',
       \ 'mattn/ctrlp-ghq',
-      \ 'easymotion/vim-easymotion'
+      \ 'easymotion/vim-easymotion',
+      \ 'tyru/open-browser.vim',
+      \ 'cohama/agit.vim'
       \ ]
 " }}}
 " functions {{{
@@ -252,6 +254,11 @@ let g:syntastic_html_tidy_exec      = 'tidy5'
 " }}}
 " rking/ag.vim {{{
 let g:ag_highlight = 1
+" }}}
+" tyru/open-browser.vim {{{
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
