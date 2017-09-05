@@ -3,6 +3,7 @@ scriptencoding utf-8
 " personal settings {{{
 " variables {{{
 let s:vimrc_kernel_path = substitute('/lib/modules/'.system('uname -r').'/build/include', "\\n", "", "")
+let s:package_path = '~/.vim/pack/mypack/start/'
 let s:vimrc_packages = [
       \ 'kana/vim-tabpagecd',
       \ 'ctrlpvim/ctrlp.vim',
@@ -25,20 +26,29 @@ let s:vimrc_packages = [
 " }}}
 " functions {{{
 function! InstallPackages()
-  let l:package_path = '~/.vim/pack/mypack/start/'
-  call system('mkdir -p ' . l:package_path)
+  call system('mkdir -p ' . s:package_path)
   for l:author_name_repo_name in s:vimrc_packages
     let l:repo_name = split(l:author_name_repo_name, '/')[1]
-    if !isdirectory(expand(l:package_path . l:repo_name))
+    if !isdirectory(expand(s:package_path . l:repo_name))
       let l:git_clone     = 'git clone --depth 1'
       let l:clone_from    = 'https://github.com/' . l:author_name_repo_name . '.git'
-      let l:clone_to      = l:package_path . l:repo_name
+      let l:clone_to      = s:package_path . l:repo_name
       let l:clone_command = join([l:git_clone, l:clone_from, l:clone_to], ' ')
       echo l:clone_command
       call system(l:clone_command)
       echo (join(['clone', l:author_name_repo_name, 'completed'], ' ')) . "\n"
     endif
   endfor
+endfunction
+
+function! UpdatePackages()
+  let l:dirs = split(globpath(s:package_path, '*'), "\n")
+  for l:dir in l:dirs
+    let l:command = 'git -C ' . l:dir . ' pull --ff origin master'
+    echo l:command
+    call system(l:command)
+  endfor
+  echo "all git pull finished"
 endfunction
 
 function! JSONFormatter()
