@@ -185,6 +185,12 @@ augroup CorCPP
   autocmd Filetype cpp setlocal colorcolumn=80
 augroup END
 
+augroup Spell
+  autocmd!
+  autocmd Filetype markdown  setlocal spell
+  autocmd Filetype gitcommit setlocal spell
+augroup END
+
 augroup Vint
   autocmd!
   autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
@@ -201,6 +207,7 @@ set nocompatible
 set hlsearch
 set nowrap
 set ruler
+set spelllang+=cjk
 set ignorecase
 set nobackup
 set autoindent
