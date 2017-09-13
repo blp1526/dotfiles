@@ -154,6 +154,9 @@ nnoremap gf <C-w>gf
 
 " kaoriya keymap
 cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
+
+" spell suggestion
+nnoremap <leader>s z=
 " }}}
 " augroup {{{
 augroup MultiByteSpace
@@ -187,7 +190,6 @@ augroup END
 
 augroup Spell
   autocmd!
-  autocmd Filetype markdown  setlocal spell
   autocmd Filetype gitcommit setlocal spell
 augroup END
 
