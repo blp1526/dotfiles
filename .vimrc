@@ -309,6 +309,15 @@ augroup VimGo
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
 augroup END
+
+function! GoAutoImportsToggle()
+  if g:go_fmt_command == 'goimports'
+    let g:go_fmt_command = 'gofmt'
+  else
+    let g:go_fmt_command = 'goimports'
+  endif
+endfunction
+command! GoAutoImportsToggle call GoAutoImportsToggle()
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
