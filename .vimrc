@@ -308,13 +308,16 @@ augroup VimGo
   autocmd FileType go nmap <Leader>m <Plug>(go-metalinter)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
+  autocmd FileType go nmap <leader>f :GoAutoImportsToggle<CR>
 augroup END
 
 function! GoAutoImportsToggle()
   if g:go_fmt_command == 'goimports'
     let g:go_fmt_command = 'gofmt'
+    echo "let g:go_fmt_command = 'gofmt'"
   else
     let g:go_fmt_command = 'goimports'
+    echo "g:go_fmt_command = 'goimports'"
   endif
 endfunction
 command! GoAutoImportsToggle call GoAutoImportsToggle()
