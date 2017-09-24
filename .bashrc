@@ -92,6 +92,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias dmesg='dmesg --human --color=auto'
 alias tree='tree -I ".git|tags|vendor|node_modules"'
+alias info='info --vi-keys'
 
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
