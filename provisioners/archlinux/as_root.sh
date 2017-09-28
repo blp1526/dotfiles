@@ -27,6 +27,7 @@ pacman --needed -S python
 pacman --needed -S python-pip
 pacman --needed -S python-editorconfig
 pacman --needed -S vim
+pacman --needed -S jq
 # to enable neocomplete.vim
 pacman --needed -S lua
 pacman --needed -S tree
