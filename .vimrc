@@ -52,7 +52,7 @@ function! UpdatePackages()
 endfunction
 
 function! JSONFormatter()
-  silent execute '%!python -m json.tool'
+  silent execute '%!jq .'
 endfunction
 command! JSONFormatter call JSONFormatter()
 
@@ -157,6 +157,9 @@ cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 
 " spell suggestion
 nnoremap <leader>s z=
+
+" full path
+nnoremap <C-g> 1<C-g>
 " }}}
 " augroup {{{
 augroup MultiByteSpace
