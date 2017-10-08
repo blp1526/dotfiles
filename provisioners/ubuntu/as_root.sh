@@ -82,6 +82,8 @@ fi
 dpkg -l ubuntu-desktop >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y guake
+  # Keyboard and Mouse => Keytheme => Emacs
+  apt install -y gnome-tweak-tool
 fi
 
 source ./provisioners/shared/as_root.sh
