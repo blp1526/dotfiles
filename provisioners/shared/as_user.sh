@@ -2,6 +2,8 @@
 
 cd $(dirname $0)
 
+tempdir=$(mktemp -d)
+
 if ! [ -e ${HOME}/bin ]; then
   mkdir ${HOME}/bin
 fi
@@ -12,10 +14,6 @@ fi
 
 if ! [ -e ${HOME}/pkg ]; then
   mkdir ${HOME}/pkg
-fi
-
-if ! [ -e ${HOME}/tmp ]; then
-  mkdir ${HOME}/tmp
 fi
 
 if ! [ -e ${HOME}/.config/peco ]; then
@@ -67,22 +65,19 @@ if ! type bats >/dev/null 2>&1; then
 fi
 
 if ! type peco >/dev/null 2>&1; then
-  curl -L https://github.com/peco/peco/releases/download/v0.4.9/peco_linux_amd64.tar.gz -o ~/tmp/peco.tar.gz
-  tar zxvf ~/tmp/peco.tar.gz -C ~/tmp
-  mv ~/tmp/peco_linux_amd64/peco ~/bin
-  rm -rf ~/tmp/peco_linux_amd64/
-  rm -rf ~/tmp/peco.tar.gz
+  curl -L https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz -o ${tempdir}/peco.tar.gz
+  tar zxvf ${tempdir}/peco.tar.gz -C ${tempdir}
+  mv ${tempdir}/peco_linux_amd64/peco ~/bin
 fi
 
 if ! type ghq >/dev/null 2>&1; then
-  curl -L https://github.com/motemen/ghq/releases/download/v0.7.4/ghq_linux_amd64.zip -o ~/tmp/ghq.zip
-  unzip ~/tmp/ghq.zip -d ~/tmp
-  mv ~/tmp/ghq ~/bin
-  rm -rf ~/tmp/ghq.zip
+  curl -L https://github.com/motemen/ghq/releases/download/v0.8.0/ghq_linux_amd64.zip -o ${tempdir}/ghq.zip
+  unzip ${tempdir}/ghq.zip -d ${tempdir}
+  mv ${tempdir}/ghq ~/bin
 fi
 
 if ! type direnv >/dev/null 2>&1; then
-  curl -L https://github.com/direnv/direnv/releases/download/v2.12.2/direnv.linux-amd64 -o ~/bin/direnv
+  curl -L https://github.com/direnv/direnv/releases/download/v2.13.1/direnv.linux-amd64 -o ~/bin/direnv
   chmod 0755 ~/bin/direnv
 fi
 
@@ -91,3 +86,5 @@ if ! type gibo >/dev/null 2>&1; then
   chmod 0755 ~/bin/gibo
   gibo -u
 fi
+
+rm -rf ${tempdir}
