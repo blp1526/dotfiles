@@ -47,6 +47,14 @@ apt install -y cowsay
 apt install -y nginx
 apt install -y jq
 
+# ElasticSearch
+apt install -y openjdk-8-jdk
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+apt install -y apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+apt update -y
+apt install -y elasticsearch
+
 # Network
 apt install -y ssh
 apt install -y libnss-myhostname

@@ -9,7 +9,6 @@ let s:vimrc_packages = [
       \ 'ctrlpvim/ctrlp.vim',
       \ 'tpope/vim-endwise',
       \ 'scrooloose/syntastic',
-      \ 'rking/ag.vim',
       \ 'plasticboy/vim-markdown',
       \ 'simeji/winresizer',
       \ 'soramugi/auto-ctags.vim',
@@ -21,7 +20,8 @@ let s:vimrc_packages = [
       \ 'mattn/ctrlp-ghq',
       \ 'easymotion/vim-easymotion',
       \ 'tyru/open-browser.vim',
-      \ 'cohama/agit.vim'
+      \ 'cohama/agit.vim',
+      \ 'thinca/vim-qfreplace',
       \ ]
 " }}}
 " functions {{{
@@ -162,6 +162,11 @@ nnoremap <leader>s z=
 nnoremap <C-g> 1<C-g>
 " }}}
 " augroup {{{
+augroup QuickFixAfterGrep
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
+augroup END
+
 augroup MultiByteSpace
   autocmd!
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
@@ -207,6 +212,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " options {{{
+set grepprg=ag
 set number
 set nocompatible
 set hlsearch
@@ -276,9 +282,6 @@ let g:syntastic_perl_checkers       = ['perl']
 let g:syntastic_ruby_checkers       = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_html_tidy_exec      = 'tidy5'
-" }}}
-" rking/ag.vim {{{
-let g:ag_highlight = 1
 " }}}
 " tyru/open-browser.vim {{{
 let g:netrw_nogx = 1
