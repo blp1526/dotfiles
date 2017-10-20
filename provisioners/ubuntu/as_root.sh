@@ -58,6 +58,9 @@ apt install -y elasticsearch
 # Network
 apt install -y ssh
 apt install -y libnss-myhostname
+apt install -y strongswan
+apt install -y xl2tpd
+apt install -y ike-scan
 
 # Kernel
 apt install -y libncurses-dev
