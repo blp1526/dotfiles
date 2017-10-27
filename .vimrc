@@ -51,10 +51,15 @@ function! UpdatePackages()
   echo "all git pull finished"
 endfunction
 
-function! JSONFormatter()
+function! JSONBeautifier()
   silent execute '%!jq .'
 endfunction
-command! JSONFormatter call JSONFormatter()
+command! JSONBeautifier call JSONBeautifier()
+
+function! JSONMinifier()
+  silent execute '%!jq -c .'
+endfunction
+command! JSONMinifier call JSONMinifier()
 
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
