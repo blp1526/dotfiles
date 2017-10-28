@@ -220,6 +220,7 @@ runtime ftplugin/man.vim
 set grepprg=ag
 set number
 set nocompatible
+set maxmempattern=2000000
 set hlsearch
 set nowrap
 set ruler
