@@ -22,6 +22,7 @@ apt install -y apt-file
 apt-file update
 
 # Basic
+apt install -y gdisk
 apt install -y git
 apt install -y tig
 apt install -y tmux
