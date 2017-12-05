@@ -217,7 +217,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " options {{{
-set grepprg=ag
+set grepprg=ag\ --ignore-dir=vendor
 set number
 set nocompatible
 set maxmempattern=2000000
