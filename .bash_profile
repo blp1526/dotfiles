@@ -5,6 +5,10 @@ export PATH=${PATH}:/usr/local/sbin:${HOME}/.nodebrew/current/bin:${HOME}/bin:${
 export EDITOR='vim'
 export IGNOREEOF=256
 
-if [ -f ~/.bashrc ] ; then
-  . ~/.bashrc
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi
+
+if [ -f ~/.phpbrew/bashrc ]; then
+  source ~/.phpbrew/bashrc
 fi
