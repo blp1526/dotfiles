@@ -218,7 +218,7 @@ runtime ftplugin/man.vim
 " }}}
 " options {{{
 set grepprg=ag\ --ignore-dir=vendor
-set number
+set nonumber
 set nocompatible
 set maxmempattern=2000000
 set hlsearch
