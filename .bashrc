@@ -96,7 +96,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias dmesg='dmesg --human --color=auto'
-alias tree='tree -I ".git|tags|vendor|node_modules"'
+alias tree='tree -I ".git|tags|vendor|node_modules|dist|tmp"'
 alias info='info --vi-keys'
 
 alias inode='stat -c %i'
