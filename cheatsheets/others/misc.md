@@ -326,3 +326,8 @@ realpath    path/to/file
 readlink -f path/to/file
 ```
 
+## Get latest version by GitHub API
+
+```markdown
+curl --silent https://api.github.com/repos/golang/dep/releases/latest | jq --raw-output '.tag_name'
+```
