@@ -87,4 +87,8 @@ if ! type gibo >/dev/null 2>&1; then
   gibo -u
 fi
 
+if ! type rustc >/dev/null 2>&1; then
+  curl https://sh.rustup.rs -sSf | sh
+fi
+
 rm -rf ${tempdir}
