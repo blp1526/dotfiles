@@ -22,6 +22,7 @@ let s:vimrc_packages = [
       \ 'tyru/open-browser.vim',
       \ 'cohama/agit.vim',
       \ 'thinca/vim-qfreplace',
+      \ 'rust-lang/rust.vim',
       \ ]
 " }}}
 " functions {{{
@@ -338,6 +339,9 @@ function! GoAutoImportsToggle()
   endif
 endfunction
 command! GoAutoImportsToggle call GoAutoImportsToggle()
+" }}}
+" rust-lang/rust.vim {{{
+let g:rustfmt_autosave = 1
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
