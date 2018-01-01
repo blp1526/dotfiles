@@ -3,8 +3,7 @@
 ## Usage
 
 * as root user
-  * `bash provisioners/distribution_name/as_root.sh`
-  * `bash provisioners/shared/network.sh` (optional)
+  * `bash provisioners/as_root/run.sh`
 
 * as non-root user
-  * `bash provisioners/shared/as_user.sh`
+  * `bash provisioners/as_user/run.sh`
