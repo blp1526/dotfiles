@@ -38,6 +38,7 @@ apt install -y tree
 apt install -y lftp
 apt install -y docker.io
 apt install -y python-pip
+apt install -y multipath-tools
 
 # Healing
 apt install -y sl
@@ -62,6 +63,7 @@ apt install -y libnss-myhostname
 apt install -y strongswan
 apt install -y xl2tpd
 apt install -y ike-scan
+apt install -y nmap
 
 # Kernel
 apt install -y libncurses-dev
