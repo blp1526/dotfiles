@@ -331,3 +331,12 @@ readlink -f path/to/file
 ```markdown
 curl --silent https://api.github.com/repos/golang/dep/releases/latest | jq --raw-output '.tag_name'
 ```
+
+## Show and remove Exif info
+
+```markdown
+# identify and convert are installed by imagemagick
+identify -verbose foo.jpg
+convert foo.jpg -strip stripped_foo.jpg
+identify -verbose stripped_foo.jpg
+```
