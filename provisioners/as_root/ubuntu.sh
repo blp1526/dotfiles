@@ -39,6 +39,7 @@ apt install -y lftp
 apt install -y docker.io
 apt install -y python-pip
 apt install -y multipath-tools
+apt install -y imagemagick
 
 # Healing
 apt install -y sl
