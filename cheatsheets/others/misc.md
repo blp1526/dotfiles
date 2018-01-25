@@ -340,3 +340,16 @@ identify -verbose foo.jpg
 convert foo.jpg -strip stripped_foo.jpg
 identify -verbose stripped_foo.jpg
 ```
+
+## Use losetup
+
+```markdown
+dd if=/dev/zero of=/tmp/dummy bs=1M count=100
+mkfs -t ext4 /tmp/dummy
+mount -o loop -t ext4 /tmp/dummy /mnt
+lsblk
+losetup -a
+losetup -f
+umount /mnt
+losetup -a
+```
