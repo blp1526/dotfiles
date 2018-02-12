@@ -5,6 +5,7 @@ scriptencoding utf-8
 let s:vimrc_kernel_path = substitute('/lib/modules/'.system('uname -r').'/build/include', "\\n", "", "")
 let s:package_path = '~/.vim/pack/mypack/start/'
 let s:vimrc_packages = [
+      \ 'vim-jp/vimdoc-ja',
       \ 'kana/vim-tabpagecd',
       \ 'ctrlpvim/ctrlp.vim',
       \ 'tpope/vim-endwise',
@@ -37,6 +38,7 @@ function! InstallPackages()
       let l:clone_command = join([l:git_clone, l:clone_from, l:clone_to], ' ')
       echo l:clone_command
       call system(l:clone_command)
+      execute 'helptags ' . l:clone_to . '/doc'
       echo (join(['clone', l:author_name_repo_name, 'completed'], ' ')) . "\n"
     endif
   endfor
