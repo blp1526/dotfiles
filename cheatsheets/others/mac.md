@@ -43,14 +43,3 @@ see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
 <kbd>option</kbd> + <kbd>command</kbd> + drag
 
 see [this](http://qiita.com/mogulla3/items/ca5bfa585ef19ed1eb9b).
-
-## Screenshot
-
-### Change save dir
-
-```
-$ defaults write com.apple.screencapture location ~/path/to/file
-$ killall SystemUIServer
-```
-
-see [this](https://pc-karuma.net/mac-customize-screencapture-location/).
