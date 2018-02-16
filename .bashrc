@@ -92,7 +92,7 @@ PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOL
 stty stop undef
 
 # alias
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias dmesg='dmesg --human --color=auto'
