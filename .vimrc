@@ -320,6 +320,9 @@ let g:go_metalinter_autosave = 1
 
 let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = 'goimports'
+let g:go_fmt_options = {
+    \ 'gofmt': '-s',
+    \ }
 
 augroup VimGo
   autocmd!
@@ -336,11 +339,10 @@ augroup END
 function! GoAutoImportsToggle()
   if g:go_fmt_command == 'goimports'
     let g:go_fmt_command = 'gofmt'
-    echo "let g:go_fmt_command = 'gofmt'"
   else
     let g:go_fmt_command = 'goimports'
-    echo "g:go_fmt_command = 'goimports'"
   endif
+  echo "let g:go_fmt_command = '" . g:go_fmt_command . "'"
 endfunction
 command! GoAutoImportsToggle call GoAutoImportsToggle()
 " }}}
