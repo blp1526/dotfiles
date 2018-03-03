@@ -30,7 +30,7 @@ fi
 # functions
 c() {
   local previous_dir=$(pwd)
-  local selected_dir=$(ghq list --full-path | peco)
+  local selected_dir=$(find -L "${GOPATH}/src" -maxdepth 3 -mindepth 3 -type d | peco)
   # XXX: case SIGINT
   if [ "${selected_dir}" = "" ]; then
     cd ${previous_dir}

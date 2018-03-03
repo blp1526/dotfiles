@@ -17,18 +17,6 @@ vim
 
 see http://qiita.com/fieldville/items/89c3a5a2244b912592ea
 
-
-## neobundle.vim
-
-To develop a vim plugin at local path.
-
-```vim
-NeoBundle 'eighty.vim', {
-\ 'base' : '~/.ghq/github.com/blp1526',
-\ 'type' : 'nosync'
-\ }
-```
-
 ## syntastic
 
 ### JSON syntax check
