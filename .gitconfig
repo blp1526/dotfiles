@@ -30,7 +30,5 @@
   sb                     = show-branch
   sr                     = show-ref
   tags                   = tag -l --sort=v:refname
-[ghq]
-  root = ~/src
 [user]
   useConfigOnly = true

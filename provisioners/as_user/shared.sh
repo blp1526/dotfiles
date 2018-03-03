@@ -53,6 +53,7 @@ for config_file_path in "${config_file_path[@]}"; do
 done
 
 ln -sf ${dotfiles_path}/bin/trackpadable ~/bin/trackpadable
+ln -sf ${dotfiles_path}/bin/git-clone-to-gopath ~/bin/git-clone-to-gopath
 
 . ~/.bash_profile >/dev/null 2>&1
 
@@ -60,20 +61,10 @@ if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup
 fi
 
-if ! type bats >/dev/null 2>&1; then
-  git clone https://github.com/sstephenson/bats.git ~/.bats
-fi
-
 if ! type peco >/dev/null 2>&1; then
   curl -L https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz -o ${tempdir}/peco.tar.gz
   tar zxvf ${tempdir}/peco.tar.gz -C ${tempdir}
   mv ${tempdir}/peco_linux_amd64/peco ~/bin
-fi
-
-if ! type ghq >/dev/null 2>&1; then
-  curl -L https://github.com/motemen/ghq/releases/download/v0.8.0/ghq_linux_amd64.zip -o ${tempdir}/ghq.zip
-  unzip ${tempdir}/ghq.zip -d ${tempdir}
-  mv ${tempdir}/ghq ~/bin
 fi
 
 if ! type direnv >/dev/null 2>&1; then
