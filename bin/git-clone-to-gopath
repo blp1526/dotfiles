@@ -5,17 +5,20 @@ if ARGV.size != 1
   exit 1
 end
 
+exit_status = 1
 url = ARGV[0]
 git_format = /\Agit@(.+?):(.+?)\/(.+?)\.git\z/
 https_format = /\Ahttps:\/\/(.+?)\/(.+?)\/(.+?)\.git\z/
 
 [git_format, https_format].each do |format|
   if  url =~ format
-    puts "git clone #{url} #{ENV['GOPATH']}/src/#{$1}/#{$2}/#{$3}"
-    system("git clone #{url} #{ENV['GOPATH']}/src/#{$1}/#{$2}/#{$3}")
-    exit 0
+    command = "git clone #{url} #{ENV['GOPATH']}/src/#{$1}/#{$2}/#{$3}"
+    puts command
+    result = system command
+    exit_status = 0 if result
+    exit exit_status
   end
 end
 
 puts "Unexpected git clone path, got #{url}."
-exit 1
+exit exit_status
