@@ -18,7 +18,6 @@ let s:vimrc_packages = [
       \ 'PProvost/vim-ps1',
       \ 'Shougo/neocomplete.vim',
       \ 'scrooloose/nerdtree',
-      \ 'mattn/ctrlp-ghq',
       \ 'easymotion/vim-easymotion',
       \ 'tyru/open-browser.vim',
       \ 'cohama/agit.vim',
@@ -282,9 +281,6 @@ let g:ctrlp_custom_ignore = {
 \ }
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" mattn/ctrlp-ghq {{{
-noremap <Leader>g :<C-u>CtrlPGhq<CR>
 " }}}
 " scrooloose/syntastic {{{
 let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]

@@ -1,32 +1,34 @@
 #!/usr/bin/env ruby
 
 class GitClone
-  def self.to_gopath(argv)
+  attr_reader :command, :repository
+  def initialize(argv)
+    @repository = argv.delete_at(-1) || ''
+    options = "#{argv.join(' ')} " || ''
+    @command = "git clone #{options}"
+  end
+
+  def to_gopath
     exit_status = 1
-
-    if argv.size != 1
-      puts "Expected arguments size is 1, but got #{argv.size}."
-      return exit_status
-    end
-
-    url = argv[0]
     git_format = /\Agit@(.+?):(.+?)\/(.+?)\.git\z/
     https_format = /\Ahttps:\/\/(.+?)\/(.+?)\/(.+?)\.git\z/
 
     [git_format, https_format].each do |format|
-      if  url =~ format
-        command = "git clone #{url} #{ENV['GOPATH']}/src/#{$1}/#{$2}/#{$3}"
-        puts command
-        result = system command
-        exit_status = 0 if result
+      if  repository =~ format
+        dir = "#{ENV['GOPATH']}/src/#{$1}/#{$2}/#{$3}"
+        script = "#{command} #{repository} #{dir}"
+        puts(script)
+        ok = system(script)
+        exit_status = 0 if ok
         return exit_status
       end
     end
 
-    puts "Unexpected git clone path, got #{url}."
+    puts "Unexpected git repository, got #{repository}."
     return exit_status
   end
 end
 
-exit_status = GitClone.to_gopath(ARGV)
-exit exit_status
+git_clone = GitClone.new(ARGV)
+status = git_clone.to_gopath
+exit status
