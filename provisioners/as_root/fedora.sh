@@ -20,7 +20,6 @@ $manager update -y
 $manager install -y man
 $manager install -y vim
 $manager install -y git
-$manager install -y tig
 $manager install -y tmux
 $manager install -y gcc-c++
 $manager install -y automake

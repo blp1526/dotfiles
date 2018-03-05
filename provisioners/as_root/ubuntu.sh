@@ -24,7 +24,6 @@ apt-file update
 # Basic
 apt install -y gdisk
 apt install -y git
-apt install -y tig
 apt install -y tmux
 # enable lua flag
 apt install -y vim-gnome
