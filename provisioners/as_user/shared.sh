@@ -67,17 +67,6 @@ if ! type peco >/dev/null 2>&1; then
   mv ${tempdir}/peco_linux_amd64/peco ~/bin
 fi
 
-if ! type direnv >/dev/null 2>&1; then
-  curl -L https://github.com/direnv/direnv/releases/download/v2.13.1/direnv.linux-amd64 -o ~/bin/direnv
-  chmod 0755 ~/bin/direnv
-fi
-
-if ! type gibo >/dev/null 2>&1; then
-  curl -L https://raw.github.com/simonwhitaker/gibo/master/gibo -o ~/bin/gibo
-  chmod 0755 ~/bin/gibo
-  gibo -u
-fi
-
 if ! type rustc >/dev/null 2>&1; then
   curl https://sh.rustup.rs -sSf | sh
 fi

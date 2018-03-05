@@ -104,7 +104,6 @@ pacman --needed -S hdparm
 pacman --needed -S mlocate
 pacman --needed -S tmux
 pacman --needed -S git
-pacman --needed -S tig
 pacman --needed -S the_silver_searcher
 pacman --needed -S strace
 pacman --needed -S unzip
