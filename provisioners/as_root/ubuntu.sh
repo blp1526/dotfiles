@@ -25,8 +25,6 @@ apt-file update
 apt install -y gdisk
 apt install -y git
 apt install -y tmux
-# enable lua flag
-apt install -y vim-gnome
 apt install -y ctags
 apt install -y clang
 apt install -y silversearcher-ag
@@ -39,6 +37,8 @@ apt install -y docker.io
 apt install -y python-pip
 apt install -y multipath-tools
 apt install -y imagemagick
+# to install wide character supported tig from source code.
+apt install -y libncursesw5-dev
 
 # Healing
 apt install -y sl
@@ -48,14 +48,6 @@ apt install -y cowsay
 # Web+DB
 apt install -y nginx
 apt install -y jq
-
-# ElasticSearch
-apt install -y openjdk-8-jdk
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-apt install -y apt-transport-https
-echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
-apt update -y
-apt install -y elasticsearch
 
 # Network
 apt install -y ssh
