@@ -39,11 +39,6 @@ c() {
   fi
 }
 
-cmd2man() {
-  local cmd=$(compgen -c | peco --initial-filter Regexp)
-  man ${cmd}
-}
-
 jobs_size() {
   local jobs_size=$(jobs | wc -l)
   if [ ${jobs_size} -gt 0 ]; then
