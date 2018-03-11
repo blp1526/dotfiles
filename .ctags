@@ -1,5 +1,6 @@
 --exclude=.git
 --exclude=vendor
 --exclude=local
+--exclude=tmp
 --exclude=coverage
 --exclude=Session.vim
