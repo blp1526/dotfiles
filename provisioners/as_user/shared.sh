@@ -2,8 +2,6 @@
 
 cd $(dirname $0)
 
-tempdir=$(mktemp -d)
-
 if ! [ -e ${HOME}/bin ]; then
   mkdir ${HOME}/bin
 fi
@@ -59,14 +57,6 @@ if ! type nodebrew >/dev/null 2>&1; then
   curl -L git.io/nodebrew | perl - setup
 fi
 
-if ! type peco >/dev/null 2>&1; then
-  curl -L https://github.com/peco/peco/releases/download/v0.5.1/peco_linux_amd64.tar.gz -o ${tempdir}/peco.tar.gz
-  tar zxvf ${tempdir}/peco.tar.gz -C ${tempdir}
-  mv ${tempdir}/peco_linux_amd64/peco ~/bin
-fi
-
 if ! type rustc >/dev/null 2>&1; then
   curl https://sh.rustup.rs -sSf | sh
 fi
-
-rm -rf ${tempdir}
