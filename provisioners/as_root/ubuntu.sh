@@ -9,12 +9,6 @@ if [ $(whoami) != "root" ]; then
   exit
 fi
 
-# https://github.com/golang/go/wiki/Ubuntu
-source /etc/lsb-release
-if [ "${DISTRIB_RELEASE}" = "16.04" ]; then
-  add-apt-repository ppa:longsleep/golang-backports
-fi
-
 apt update -y
 apt upgrade -y
 
@@ -28,7 +22,6 @@ apt install -y tmux
 apt install -y ctags
 apt install -y clang
 apt install -y silversearcher-ag
-apt install -y golang-go
 apt install -y dstat
 apt install -y iotop
 apt install -y tree
@@ -37,8 +30,8 @@ apt install -y docker.io
 apt install -y python-pip
 apt install -y multipath-tools
 apt install -y imagemagick
-# to install wide character supported tig from source code.
 apt install -y libncursesw5-dev
+# see the latest golang installation guide via https://github.com/golang/go/wiki/Ubuntu
 
 # Healing
 apt install -y sl
@@ -46,16 +39,15 @@ apt install -y sysvbanner
 apt install -y cowsay
 
 # Web+DB
+apt install -y curl
 apt install -y nginx
 apt install -y jq
 
 # Network
 apt install -y ssh
 apt install -y libnss-myhostname
-apt install -y strongswan
-apt install -y xl2tpd
-apt install -y ike-scan
 apt install -y nmap
+# l2tp via https://github.com/nm-l2tp/network-manager-l2tp/wiki/Prebuilt-Packages#ubuntu-and-mint
 
 # Kernel
 apt install -y libncurses-dev
@@ -84,12 +76,3 @@ if [ ${?} -eq 0 ]; then
   apt install -y virt-manager
   apt install -y bridge-utils
 fi
-
-dpkg -l ubuntu-desktop >/dev/null 2>&1
-if [ ${?} -eq 0 ]; then
-  apt install -y guake
-  # Keyboard and Mouse => Keytheme => Emacs
-  apt install -y gnome-tweak-tool
-fi
-
-source ./provisioners/shared/as_root.sh
