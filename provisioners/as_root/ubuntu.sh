@@ -68,6 +68,21 @@ apt install -y libffi-dev
 apt install -y libgdbm3
 apt install -y libgdbm-dev
 
+# Python https://github.com/pyenv/pyenv/wiki
+apt install -y make
+apt install -y build-essential
+apt install -y libssl-dev
+apt install -y zlib1g-dev
+apt install -y libbz2-dev
+apt install -y libreadline-dev
+apt install -y libsqlite3-dev
+apt install -y wget
+apt install -y curl
+apt install -y llvm
+apt install -y libncurses5-dev
+apt install -y xz-utils
+apt install -y tk-dev
+
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y qemu-kvm
