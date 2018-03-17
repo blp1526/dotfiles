@@ -38,6 +38,10 @@ apt install -y sl
 apt install -y sysvbanner
 apt install -y cowsay
 
+# snap
+apt install -y snapd
+apt install -y snapcraft
+
 # Web+DB
 apt install -y curl
 apt install -y nginx
