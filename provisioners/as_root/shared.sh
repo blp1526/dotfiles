@@ -35,7 +35,6 @@ eval "$(rbenv init -)"
 __EOS__
 fi
 
-
 # plenv
 if ! [ -e /usr/local/plenv ]; then
   cd /usr/local
@@ -52,6 +51,22 @@ if ! [ -e /usr/local/plenv ]; then
 export PLENV_ROOT=/usr/local/plenv
 export PATH="$PLENV_ROOT/bin:$PATH"
 eval "$(plenv init -)"
+__EOS__
+fi
+
+# pyenv
+if ! [ -e /usr/local/pyenv ]; then
+  cd /usr/local
+  git clone https://github.com/pyenv/pyenv.git
+
+  groupadd pyenv
+  gpasswd -a "${user}" pyenv
+  chown -R "${user}":pyenv /usr/local/pyenv
+
+  cat << "__EOS__" > /etc/profile.d/pyenv.sh
+export PYENV_ROOT=/usr/local/pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 __EOS__
 fi
 
