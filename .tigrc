@@ -11,3 +11,6 @@ bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
 
 bind refs C <@git checkout %(branch)
+
+bind generic <C-A> move-first-line
+bind generic <C-E> move-last-line
