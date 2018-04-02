@@ -88,6 +88,7 @@ stty stop undef
 
 # alias
 alias ls='ls --color=auto --group-directories-first'
+alias less='less -I'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias dmesg='dmesg --human --color=auto'
