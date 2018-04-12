@@ -76,7 +76,7 @@ FG_LIGHT_GRAY='\e[37m'
 
 GIT_PS1_SHOWDIRTYSTATE=true
 PS1_JOBS_SIZE=${FG_YELLOW}'$(jobs_size)'
-PS1_USER=${FG_GREEN}'\u'
+PS1_USER=${FG_GREEN}'\u@\H'
 PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
 PS1_DIR=${FG_BLUE}'$(repo_name_or_short_pwd)'
 PS1_BRANCH=${FG_RED}'$(__git_ps1)'
