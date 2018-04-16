@@ -49,7 +49,7 @@ for config_file_path in "${config_file_path[@]}"; do
 done
 
 ln -sf ${dotfiles_path}/bin/trackpadable ~/bin/trackpadable
-ln -sf ${dotfiles_path}/bin/git-clone-to-gopath ~/bin/git-clone-to-gopath
+ln -sf ${dotfiles_path}/bin/git-gopath   ~/bin/git-gopath
 
 . ~/.bash_profile >/dev/null 2>&1
 
