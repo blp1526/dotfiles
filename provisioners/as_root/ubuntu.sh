@@ -4,9 +4,16 @@ set -ux
 # XXX: image and checksum
 # http://releases.ubuntu.com/
 
+grep "DISTRIB_ID=Ubuntu" /etc/lsb-release >/dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+  echo "Unexpected OS"
+  exit 1
+fi
+
 # only root privilege
 if [ $(whoami) != "root" ]; then
-  exit
+  echo "Use sudo"
+  exit 1
 fi
 
 apt update -y
@@ -95,7 +102,4 @@ if [ ${?} -eq 0 ]; then
   apt install -y virt-manager
   apt install -y bridge-utils
   apt install -y libguestfs-tools
-
-  # mkdir /var/lib/libvirt/iso
-  # chown -R libvirt-qemu:libvirt /var/lib/libvirt/iso
 fi
