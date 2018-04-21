@@ -37,8 +37,8 @@ apt install -y docker.io
 apt install -y python-pip
 apt install -y multipath-tools
 apt install -y imagemagick
+apt install -y pandoc
 apt install -y libncursesw5-dev
-# see the latest golang installation guide via https://github.com/golang/go/wiki/Ubuntu
 
 # Healing
 apt install -y sl
