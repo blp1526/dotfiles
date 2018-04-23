@@ -353,3 +353,11 @@ losetup -f
 umount /mnt
 losetup -a
 ```
+
+## Remove Ubuntu custom ppa
+
+```markdown
+apt-key list
+apt-key del <keyid>
+apt-key list
+```
