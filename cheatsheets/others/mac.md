@@ -6,8 +6,6 @@
 
 `Command + Shift + g`
 
-see [this](http://inforati.jp/apple/mac-tips-techniques/system-hints/how-to-use-move-to-folder-command-in-a-open-or-save-dialog-in-macos.html).
-
 ### Show no icons on the desktop
 
 * Finder => Preferences
@@ -29,8 +27,6 @@ set ftp:ssl-protect-data true
 put example.iso
 ```
 
-see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
-
 ## iTerm2
 
 * Profile => Text => Unicode
@@ -42,4 +38,8 @@ see [this](http://qiita.com/mazgi/items/f25bb6baa2cc5bbddc9a).
 
 <kbd>option</kbd> + <kbd>command</kbd> + drag
 
-see [this](http://qiita.com/mogulla3/items/ca5bfa585ef19ed1eb9b).
+## Substitute for netstat/ss
+
+```
+lsof -nP -iTCP
+```
