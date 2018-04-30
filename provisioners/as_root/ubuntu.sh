@@ -38,6 +38,7 @@ apt install -y python-pip
 apt install -y multipath-tools
 apt install -y imagemagick
 apt install -y pandoc
+apt install -y hwinfo
 apt install -y libncursesw5-dev
 
 # Healing
