@@ -34,6 +34,7 @@ apt install -y iotop
 apt install -y tree
 apt install -y lftp
 apt install -y docker.io
+apt install -y docker-compose
 apt install -y python-pip
 apt install -y multipath-tools
 apt install -y imagemagick
