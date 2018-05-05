@@ -83,9 +83,6 @@ PS1_BRANCH=${FG_RED}'$(__git_ps1)'
 PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
-# disable tty lock
-stty stop undef
-
 # alias
 alias ls='ls --color=auto --group-directories-first'
 alias less='less -I'
@@ -104,24 +101,33 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
-# ssh-agent
-agent="${HOME}/.ssh/agent"
-if [ -S "${SSH_AUTH_SOCK}" ]; then
-  case ${SSH_AUTH_SOCK} in
-  /tmp/*/agent.[0-9]*)
-    ln -snf "${SSH_AUTH_SOCK}" ${agent} && export SSH_AUTH_SOCK=${agent}
-  esac
-elif [ -S ${agent} ]; then
-  export SSH_AUTH_SOCK=${agent}
-else
-  echo "### no ssh-agent ###"
-  echo 'eval `ssh-agent`'
-  eval `ssh-agent`
-  echo 'ssh-add'
-  ssh-add
-fi
-
 # npm-completion
 if [ -e ~/.npm-completion.sh ]; then
   source ~/.npm-completion.sh
+fi
+
+# only server or Wayland desktop
+if [ "$XDG_SESSION_TYPE" != "x11" ]; then
+  # disable tty lock
+  stty stop undef
+fi
+
+# only server
+if [ "$DISPLAY" = "" ]; then
+  # ssh-agent
+  agent="${HOME}/.ssh/agent"
+  if [ -S "${SSH_AUTH_SOCK}" ]; then
+    case ${SSH_AUTH_SOCK} in
+    /tmp/*/agent.[0-9]*)
+      ln -snf "${SSH_AUTH_SOCK}" ${agent} && export SSH_AUTH_SOCK=${agent}
+    esac
+  elif [ -S ${agent} ]; then
+    export SSH_AUTH_SOCK=${agent}
+  else
+    echo "### no ssh-agent ###"
+    echo 'eval `ssh-agent`'
+    eval `ssh-agent`
+    echo 'ssh-add'
+    ssh-add
+  fi
 fi
