@@ -41,6 +41,8 @@ apt install -y imagemagick
 apt install -y pandoc
 apt install -y hwinfo
 apt install -y libncursesw5-dev
+apt install -y systemd-container
+apt install -y debootstrap
 
 # Healing
 apt install -y sl
