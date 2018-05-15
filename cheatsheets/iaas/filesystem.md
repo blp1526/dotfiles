@@ -32,3 +32,16 @@ dd if=/dev/zero of=/path/to/test.img bs=1K count=20000
 mkfs.ext4 /path/to/test.img
 mount -o loop /path/to/test.img /mnt
 ```
+
+## Squashfs
+
+```markdown
+mksquashfs ~/tmp ~/tmp.squashfs
+mkdir ~/mnt
+sudo mount -o loop ~/tmp.squashfs ~/mnt
+
+lsblk --fs
+
+sudo umount ~/mnt
+unsquashfs -d ~/tmp -f ~/tmp.squashfs
+```
