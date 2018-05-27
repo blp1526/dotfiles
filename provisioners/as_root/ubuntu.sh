@@ -43,6 +43,7 @@ apt install -y hwinfo
 apt install -y libncursesw5-dev
 apt install -y systemd-container
 apt install -y debootstrap
+apt install -y gdebi
 
 # Healing
 apt install -y sl
