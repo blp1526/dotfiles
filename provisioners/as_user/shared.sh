@@ -34,6 +34,7 @@ file_names=(
   .ctags
   .npm-completion.sh
   .gitignore_global
+  .hyper.js
 )
 
 for file_name in "${file_names[@]}"; do
