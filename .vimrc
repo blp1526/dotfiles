@@ -113,6 +113,7 @@ endif
 " }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
+highlight StatusLine ctermbg=black
 highlight Search  ctermfg=0 ctermbg=14
 highlight Visual  ctermfg=1 ctermbg=15
 
@@ -230,7 +231,6 @@ set nowrap
 set ruler
 set spelllang+=cjk
 set ignorecase
-set nobackup
 set autoindent
 set wildmenu
 set wildmode=longest,full
