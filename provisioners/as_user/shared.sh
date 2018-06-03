@@ -18,6 +18,9 @@ if ! [ -e ${HOME}/.config/peco ]; then
   mkdir -p ${HOME}/.config/peco
 fi
 
+if ! [ -e ${HOME}/.config/git ]; then
+  mkdir -p ${HOME}/.config/git
+fi
 dotfiles_path=${HOME}/src/github.com/blp1526/dotfiles
 
 file_names=(
@@ -43,6 +46,7 @@ done
 
 config_file_path=(
   peco/config.json
+  git/ignore
 )
 
 for config_file_path in "${config_file_path[@]}"; do
