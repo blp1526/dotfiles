@@ -44,6 +44,7 @@ apt install -y libncursesw5-dev
 apt install -y systemd-container
 apt install -y debootstrap
 apt install -y gdebi
+apt install -y btrfs-progs
 
 # Healing
 apt install -y sl
