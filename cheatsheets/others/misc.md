@@ -361,3 +361,12 @@ apt-key list
 apt-key del <keyid>
 apt-key list
 ```
+
+## Nested Virtualization
+
+```
+modprobe -r kvm_intel
+modprobe kvm_intel nested=1
+echo "options kvm_intel nested=1" >> /etc/modprobe.d/qemu-system-x86.conf
+systool -m kvm_intel -v | grep nested
+```
