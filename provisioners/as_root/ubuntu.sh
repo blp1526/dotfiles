@@ -73,6 +73,7 @@ apt install -y fakeroot
 apt install -y kernel-package
 apt install -y linux-source
 apt install -y sysfsutils
+apt install -y cgroup-tools
 
 # Ruby https://github.com/rbenv/ruby-build/wiki
 apt install -y autoconf
