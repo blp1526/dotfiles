@@ -283,12 +283,13 @@ let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
 " scrooloose/syntastic {{{
-let g:syntastic_c_include_dirs      = [s:vimrc_kernel_path]
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers       = ['perl']
-let g:syntastic_ruby_checkers       = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_tidy_exec      = 'tidy5'
+let g:syntastic_c_include_dirs            = [s:vimrc_kernel_path]
+let g:syntastic_enable_perl_checker       = 1
+let g:syntastic_perl_checkers             = ['perl']
+let g:syntastic_ruby_checkers             = ['rubocop']
+let g:syntastic_eruby_ruby_quiet_messages = { 'regex': 'possibly useless use of a variable in void context' }
+let g:syntastic_javascript_checkers       = ['eslint']
+let g:syntastic_html_tidy_exec            = 'tidy5'
 " }}}
 " tyru/open-browser.vim {{{
 let g:netrw_nogx = 1
