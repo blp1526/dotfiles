@@ -37,7 +37,6 @@ apt install -y docker.io
 apt install -y docker-compose
 apt install -y python-pip
 apt install -y multipath-tools
-apt install -y imagemagick
 apt install -y pandoc
 apt install -y hwinfo
 apt install -y libncursesw5-dev
@@ -45,26 +44,18 @@ apt install -y systemd-container
 apt install -y debootstrap
 apt install -y gdebi
 apt install -y btrfs-progs
-
-# Healing
-apt install -y sl
-apt install -y sysvbanner
-apt install -y cowsay
+apt install -y curl
+apt install -y jq
 
 # snap
 apt install -y snapd
 apt install -y snapcraft
 
-# Web+DB
-apt install -y curl
-apt install -y nginx
-apt install -y jq
-
 # Network
-apt install -y ssh
 apt install -y libnss-myhostname
+
+# Security
 apt install -y nmap
-# l2tp via https://github.com/nm-l2tp/network-manager-l2tp/wiki/Prebuilt-Packages#ubuntu-and-mint
 
 # Kernel
 apt install -y libncurses-dev

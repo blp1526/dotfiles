@@ -220,7 +220,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " options {{{
-set grepprg=ag\ --ignore-dir=vendor
+set grepprg=ag\ --hidden\ --ignore-dir=.git
 set noswapfile
 set nobackup
 set nonumber
