@@ -43,3 +43,10 @@ put example.iso
 ```
 lsof -nP -iTCP
 ```
+
+## Update hosts
+
+```
+sudo vim /private/etc/hosts
+sudo killall -HUP mDNSResponder
+```
