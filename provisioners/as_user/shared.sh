@@ -38,6 +38,7 @@ file_names=(
   .npm-completion.sh
   .gitignore_global
   .hyper.js
+  .gitmessage.txt
 )
 
 for file_name in "${file_names[@]}"; do
