@@ -275,10 +275,7 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtHistory(1)':        ['<up>'],
 \ }
 let g:ctrlp_match_window  = 'bottom,order:btt,min:1,max:100,results:100'
-let g:ctrlp_custom_ignore = {
-\ 'dir': '\v[\/](node_modules|target|dist|vendor|local|tmp|coverage|log)|(\.(swp|ico|git|svn|ccache|cache))$',
-\ 'file': '\v\.(out)$',
-\ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
