@@ -23,6 +23,7 @@ let s:vimrc_packages = [
       \ 'cohama/agit.vim',
       \ 'thinca/vim-qfreplace',
       \ 'rust-lang/rust.vim',
+      \ 'embear/vim-localvimrc',
       \ ]
 " }}}
 " functions {{{
