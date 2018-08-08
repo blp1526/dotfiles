@@ -95,6 +95,7 @@ alias info='info --vi-keys'
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
+alias yyyymmddhhmm="date +%Y%m%d%H%M"
 
 # direnv
 if type direnv >/dev/null 2>&1; then
