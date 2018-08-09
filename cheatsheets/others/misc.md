@@ -344,14 +344,33 @@ identify -verbose stripped_foo.jpg
 ## Use losetup
 
 ```markdown
-dd if=/dev/zero of=/tmp/dummy bs=1M count=100
-mkfs -t ext4 /tmp/dummy
-mount -o loop -t ext4 /tmp/dummy /mnt
-lsblk
 losetup -a
 losetup -f
+
+dd if=/dev/zero of=/tmp/dummy.img bs=1M count=1024
+
+sgdisk -p /tmp/dummy.img
+
+sgdisk -n 1::+512M /tmp/dummy.img
+sgdisk -n 2::      /tmp/dummy.img
+
+sgdisk -p /tmp/dummy.img
+
+losetup -P -f --show /tmp/dummy.img
+lsblk --fs
+
+mkfs -t ext4 /dev/loop0p1
+mkfs -t ext4 /dev/loop0p2
+
+lsblk --fs
+mount -t ext4 /dev/loop0p1 /mnt
+
+lsblk --fs
 umount /mnt
-losetup -a
+
+losetup -l
+losetup -d /dev/loop0
+losetup -l
 ```
 
 ## Remove Ubuntu custom ppa
