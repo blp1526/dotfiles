@@ -46,6 +46,7 @@ apt install -y gdebi
 apt install -y btrfs-progs
 apt install -y curl
 apt install -y jq
+apt install -y elfutils
 
 # snap
 apt install -y snapd
