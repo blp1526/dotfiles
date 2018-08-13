@@ -224,7 +224,7 @@ runtime ftplugin/man.vim
 set grepprg=ag\ --hidden\ --ignore-dir=.git
 set noswapfile
 set nobackup
-set nonumber
+set number
 set nocompatible
 set maxmempattern=2000000
 set hlsearch
@@ -328,6 +328,7 @@ augroup VimGo
   autocmd FileType go nmap <Leader>m <Plug>(go-metalinter)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
+  autocmd FileType go nmap <leader>e <Plug>(go-iferr)
   autocmd FileType go nmap <leader>f :GoAutoImportsToggle<CR>
 augroup END
 
@@ -347,7 +348,7 @@ let g:rustfmt_autosave = 1
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 18
-noremap <Leader>e :NERDTreeToggle<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
 " }}}
 " easymotion/vim-easymotion {{{
 map  / <Plug>(easymotion-sn)
