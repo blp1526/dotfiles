@@ -30,7 +30,7 @@ fi
 # functions
 c() {
   local previous_dir=$(pwd)
-  local selected_dir=$(find -L "${GOPATH}/src" -maxdepth 3 -mindepth 3 -type d | peco)
+  local selected_dir=$(find -L "${GOPATH}/src" -mindepth 3 -maxdepth 4 -type d | grep ".git$" | sed s/\\/\.git$// | peco)
   # XXX: case SIGINT
   if [ "${selected_dir}" = "" ]; then
     cd ${previous_dir}

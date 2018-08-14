@@ -25,6 +25,8 @@ apt-file update
 # Basic
 apt install -y gdisk
 apt install -y git
+apt install -y vim-gnome
+apt install -y tig
 apt install -y tmux
 apt install -y ctags
 apt install -y clang
