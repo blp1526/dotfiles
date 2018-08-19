@@ -14,17 +14,6 @@ if [ -e /etc/arch-release ]; then
   source /usr/share/bash-completion/bash_completion
   source /usr/share/git/completion/git-completion.bash
   source /usr/share/git/git-prompt.sh
-
-  # https://wiki.archlinux.org/index.php/Color_output_in_console#man
-  man() {
-    LESS_TERMCAP_md=$'\e[01;31m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[01;44;33m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[01;32m' \
-    command man "${@}"
-  }
 fi
 
 # functions
@@ -56,6 +45,17 @@ repo_name_or_short_pwd() {
   else
     echo $(basename ${PWD})
   fi
+}
+
+# https://wiki.archlinux.org/index.php/Color_output_in_console#man
+cman() {
+  LESS_TERMCAP_md=$'\e[01;31m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[01;44;33m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[01;32m' \
+  command man "${@}"
 }
 
 # shell variables
