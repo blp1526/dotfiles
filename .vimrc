@@ -310,7 +310,7 @@ let g:go_highlight_generate_tags = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_types = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'gofmt', 'golint', 'gocyclo']
+let g:go_metalinter_autosave_enabled = ['vet', 'gofmt', 'golint']
 let g:go_metalinter_autosave = 1
 
 let g:go_gocode_unimported_packages = 1

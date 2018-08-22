@@ -332,6 +332,14 @@ readlink -f path/to/file
 curl --silent https://api.github.com/repos/golang/dep/releases/latest | jq --raw-output '.tag_name'
 ```
 
+## ls only dir
+
+```markdown
+ls -ld /home/user/*/
+# hidden dir
+ls -ld /home/user/.*/
+```
+
 ## Show and remove Exif info
 
 ```markdown
