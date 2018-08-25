@@ -1,4 +1,14 @@
-# KVM
+# libvirt
+
+## Use shared dir
+
+via https://blog.etsukata.com/2013/07/virtfs-qemu.html
+
+1. At host, run virt-manager(Edit => Virtual Machine Details => Add Hardware => Filesystem)
+1. At host, set Filesystem(Source Path: `host dir`, Target path: `tag_name as guest VM, e.g. foo`)
+1. At host, run `virsh start guest`
+1. At guest, run `cat /sys/bus/virtio/drivers/9pnet_virtio/virtio*/mount_tag`
+1. At guest, run `mount -t 9p -o trans=virtio foo /mnt`
 
 ## Set IP address
 
