@@ -24,6 +24,7 @@ let s:vimrc_packages = [
       \ 'thinca/vim-qfreplace',
       \ 'rust-lang/rust.vim',
       \ 'embear/vim-localvimrc',
+      \ 'rhysd/vim-clang-format',
       \ ]
 " }}}
 " functions {{{

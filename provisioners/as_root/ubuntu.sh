@@ -49,6 +49,7 @@ apt install -y btrfs-progs
 apt install -y curl
 apt install -y jq
 apt install -y elfutils
+apt install -y clang-format
 
 # snap
 apt install -y snapd
