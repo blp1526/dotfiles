@@ -12,15 +12,12 @@ let s:vimrc_packages = [
       \ 'scrooloose/syntastic',
       \ 'plasticboy/vim-markdown',
       \ 'simeji/winresizer',
-      \ 'soramugi/auto-ctags.vim',
       \ 'editorconfig/editorconfig-vim',
       \ 'fatih/vim-go',
       \ 'PProvost/vim-ps1',
       \ 'Shougo/neocomplete.vim',
       \ 'scrooloose/nerdtree',
       \ 'easymotion/vim-easymotion',
-      \ 'tyru/open-browser.vim',
-      \ 'cohama/agit.vim',
       \ 'thinca/vim-qfreplace',
       \ 'rust-lang/rust.vim',
       \ 'embear/vim-localvimrc',
@@ -154,7 +151,7 @@ nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-s> :tab split<CR>
 
 " ctags
-noremap <C-]> g<C-]>
+" noremap <C-]> g<C-]>
 
 " selected text replacement
 vnoremap <C-t> :s/\%V
@@ -252,6 +249,7 @@ set textwidth=0
 set smartcase
 set nrformats=alpha
 set tags+=.git/tags
+" to search kernel functions by '[ CTRL-I', see :help include-search.
 let &path = s:vimrc_kernel_path.",".&path
 
 set laststatus=2
@@ -290,17 +288,8 @@ let g:syntastic_eruby_ruby_quiet_messages = { 'regex': 'possibly useless use of 
 let g:syntastic_javascript_checkers       = ['eslint']
 let g:syntastic_html_tidy_exec            = 'tidy5'
 " }}}
-" tyru/open-browser.vim {{{
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-" }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
-" }}}
-" soramugi/auto-ctags.vim {{{
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git']
 " }}}
 " fatih/vim-go {{{
 let g:go_highlight_build_constraints = 1

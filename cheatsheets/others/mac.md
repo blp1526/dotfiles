@@ -17,16 +17,6 @@
 mount_smbfs //foo.com/documents mnt/documents
 ```
 
-## ftps
-
-```markdown
-brew install lftp
-lftp username@example.com
-set ftp:passive-mode on
-set ftp:ssl-protect-data true
-put example.iso
-```
-
 ## iTerm2
 
 * Profile => Text => Unicode
