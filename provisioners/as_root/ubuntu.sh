@@ -28,7 +28,6 @@ apt install -y git
 apt install -y vim-gnome
 apt install -y tig
 apt install -y tmux
-apt install -y ctags
 apt install -y clang
 apt install -y silversearcher-ag
 apt install -y dstat

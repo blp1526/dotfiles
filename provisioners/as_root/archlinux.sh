@@ -120,7 +120,6 @@ pacman --needed -S lsof
 # nslookup
 pacman --needed -S dnsutils
 pacman --needed -S lftp
-pacman --needed -S ctags
 pacman --needed -S nginx
 pacman --needed -S docker
 
