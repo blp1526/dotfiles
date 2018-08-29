@@ -53,7 +53,6 @@ $manager install -y libcgroup-tools
 $manager install -y patch
 $manager install -y ccache
 $manager install -y ncurses-devel
-$manager install -y ctags
 
 # golang
 $manager install -y go
