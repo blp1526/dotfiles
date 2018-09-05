@@ -335,6 +335,9 @@ command! GoAutoImportsToggle call GoAutoImportsToggle()
 " rust-lang/rust.vim {{{
 let g:rustfmt_autosave = 1
 " }}}
+" embear/vim-localvimrc {{{
+let g:localvimrc_ask = 0
+" }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 18
