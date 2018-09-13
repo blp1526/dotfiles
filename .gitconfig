@@ -22,7 +22,6 @@
   df                     = diff
   rp                     = rev-parse
   ranking                = shortlog -ns
-  refs                   = !git checkout $(git branch | peco | awk '{ print $NF }')
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune
   release                = "!f(){ git tag -a $1 -m \"$1 release\";};f"
   cf                     = cat-file -p
