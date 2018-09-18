@@ -219,6 +219,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " options {{{
+set clipboard=unnamedplus
 set grepprg=ag\ --hidden\ --ignore-dir=.git
 set noswapfile
 set nobackup
