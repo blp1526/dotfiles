@@ -5,7 +5,7 @@ set split-view-height = 75%
 set diff-options = -m --first-parent
 set ignore-case = yes
 
-bind refs C <@git checkout %(branch)
+bind refs C <git checkout %(branch)
 
 bind generic <C-A> move-first-line
 bind generic <C-E> move-last-line

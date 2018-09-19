@@ -165,6 +165,10 @@ cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 " spell suggestion
 nnoremap <leader>s z=
 
+" jump to the first line that contains the keyword under the cursor
+" via :help [_CTRL-I
+nnoremap <leader>k [<C-i>
+
 " full path
 nnoremap <C-g> 1<C-g>
 " }}}
@@ -322,16 +326,6 @@ augroup VimGo
   autocmd FileType go nmap <leader>e <Plug>(go-iferr)
   autocmd FileType go nmap <leader>f :GoAutoImportsToggle<CR>
 augroup END
-
-function! GoAutoImportsToggle()
-  if g:go_fmt_command == 'goimports'
-    let g:go_fmt_command = 'gofmt'
-  else
-    let g:go_fmt_command = 'goimports'
-  endif
-  echo "let g:go_fmt_command = '" . g:go_fmt_command . "'"
-endfunction
-command! GoAutoImportsToggle call GoAutoImportsToggle()
 " }}}
 " rust-lang/rust.vim {{{
 let g:rustfmt_autosave = 1
