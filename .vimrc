@@ -228,6 +228,7 @@ set noswapfile
 set nobackup
 set number
 set nocompatible
+set notagbsearch
 set maxmempattern=2000000
 set hlsearch
 set nowrap
@@ -307,7 +308,6 @@ let g:go_highlight_types = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'gofmt', 'golint']
 let g:go_metalinter_autosave = 1
 
-let g:go_gocode_unimported_packages = 1
 let g:go_fmt_command = 'goimports'
 let g:go_fmt_options = {
     \ 'gofmt': '-s',
