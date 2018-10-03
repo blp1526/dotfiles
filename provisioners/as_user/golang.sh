@@ -10,8 +10,3 @@ go get -u github.com/mattn/mkup
 
 go get -u github.com/alecthomas/gometalinter
 gometalinter --install
-
-# https://github.com/nsf/gocode/issues/368
-go get -u github.com/nsf/gocode
-gocode close
-gocode set unimported-packages true
