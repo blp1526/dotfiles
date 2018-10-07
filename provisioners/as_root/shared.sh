@@ -14,6 +14,8 @@ if ! [ ${?} -eq 0 ]; then
   adduser "${user}"
   passwd "${user}"
   gpasswd -a "${user}" wheel
+  # https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+  # gpasswd -a "${user}" docker
 fi
 
 # rbenv
