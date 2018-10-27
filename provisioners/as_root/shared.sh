@@ -18,6 +18,22 @@ if ! [ ${?} -eq 0 ]; then
   # gpasswd -a "${user}" docker
 fi
 
+# goenv
+if ! [ -e /usr/local/goenv ]; then
+  cd /usr/local
+  git clone https://github.com/syndbg/goenv.git
+
+  groupadd goenv
+  gpasswd -a $user goenv
+  chown -R $user:goenv /usr/local/goenv
+
+  cat << "__EOS__" > /etc/profile.d/goenv.sh
+export GOENV_ROOT=/usr/local/goenv
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+__EOS__
+fi
+
 # rbenv
 if ! [ -e /usr/local/rbenv ]; then
   cd /usr/local
