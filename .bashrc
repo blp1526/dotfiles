@@ -88,7 +88,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias less='less -I --chop-long-lines'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
-alias dmesg='dmesg --human --color=auto'
+alias dmesg='dmesg --human --ctime --color=auto'
 alias tree='tree -I ".git|tags|vendor|node_modules|dist|tmp"'
 alias info='info --vi-keys'
 

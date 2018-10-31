@@ -226,7 +226,7 @@ set clipboard=unnamedplus
 set grepprg=ag\ --hidden\ --ignore-dir=.git\ --ignore-dir=vendor
 set noswapfile
 set nobackup
-set number
+set nonumber
 set nocompatible
 set notagbsearch
 set maxmempattern=2000000
