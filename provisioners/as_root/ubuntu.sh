@@ -73,6 +73,9 @@ apt install -y linux-source
 apt install -y sysfsutils
 apt install -y cgroup-tools
 
+# Ascii Art
+apt install -y figlet
+
 # Ruby https://github.com/rbenv/ruby-build/wiki
 apt install -y autoconf
 apt install -y bison
