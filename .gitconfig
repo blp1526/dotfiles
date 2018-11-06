@@ -30,5 +30,3 @@
   tags                   = tag -l --sort=v:refname
 [user]
   useConfigOnly = true
-[commit]
-  template = ~/.gitmessage.txt

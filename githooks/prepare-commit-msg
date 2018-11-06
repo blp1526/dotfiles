@@ -1,0 +1,16 @@
+#!/bin/bash
+
+all_diff_files=$(git diff --staged --name-only)
+all_diff_files_count=$(echo ${all_diff_files} | wc -l)
+markdown_files_count=$(echo ${all_diff_files} | grep '\.md$' | wc -l)
+
+if [ "${markdown_files_count}" = "${all_diff_files_count}" ]; then
+  commit_editmsg_path="${1}"
+  temp_path="${commit_editmsg_path}.tmp"
+
+  cp "${commit_editmsg_path}" "${temp_path}"
+
+  echo "[ci skip]"   >  "${commit_editmsg_path}"
+  cat "${temp_path}" >> "${commit_editmsg_path}"
+  rm  "${temp_path}"
+fi
