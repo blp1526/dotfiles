@@ -36,7 +36,6 @@ file_names=(
   .lftprc
   .ctags
   .npm-completion.sh
-  .gitignore_global
   .hyper.js
 )
 
