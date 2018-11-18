@@ -184,13 +184,13 @@ augroup END
 
 augroup CustomSyntaxHighlight
   autocmd!
-  autocmd BufNewFile,BufRead *.json.jbuilder set filetype=ruby
-  autocmd BufNewFile,BufRead *.xlsx.axlsx    set filetype=ruby
-  autocmd BufNewFile,BufRead *.cap           set filetype=ruby
-  autocmd BufNewFile,BufRead Guardfile       set filetype=ruby
-  autocmd BufNewFile,BufRead Capfile         set filetype=ruby
-  autocmd BufNewFile,BufRead *.t             set filetype=perl
-  autocmd BufNewFile,BufRead *.psgi          set filetype=perl
+  autocmd BufNewFile,BufRead *.json.jbuilder setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.xlsx.axlsx    setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.cap           setlocal filetype=ruby
+  autocmd BufNewFile,BufRead Guardfile       setlocal filetype=ruby
+  autocmd BufNewFile,BufRead Capfile         setlocal filetype=ruby
+  autocmd BufNewFile,BufRead *.t             setlocal filetype=perl
+  autocmd BufNewFile,BufRead *.psgi          setlocal filetype=perl
 augroup END
 
 augroup Log

@@ -46,6 +46,7 @@ apt install -y debootstrap
 apt install -y gdebi
 apt install -y btrfs-progs
 apt install -y curl
+apt install -y httpie
 apt install -y jq
 apt install -y elfutils
 apt install -y clang-format
