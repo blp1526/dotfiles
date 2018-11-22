@@ -321,11 +321,12 @@ augroup VimGo
   autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+  autocmd FileType go nmap <leader>d <Plug>(go-def-tab)
+  autocmd FileType go nmap <leader>e <Plug>(go-iferr)
   autocmd FileType go nmap <Leader>i <Plug>(go-info)
   autocmd FileType go nmap <Leader>m <Plug>(go-metalinter)
   autocmd FileType go nmap <leader>r <Plug>(go-run)
   autocmd FileType go nmap <leader>t <Plug>(go-test)
-  autocmd FileType go nmap <leader>e <Plug>(go-iferr)
 augroup END
 " }}}
 " rust-lang/rust.vim {{{
