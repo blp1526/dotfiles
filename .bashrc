@@ -95,6 +95,7 @@ alias strace='strace -Ttt -ff -s 1500000'
 alias figlet='figlet -k -w 80'
 alias lsblk='lsblk --paths'
 alias curl='curl --verbose'
+alias cal='cal -3'
 
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
