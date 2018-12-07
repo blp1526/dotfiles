@@ -321,7 +321,7 @@ augroup VimGo
   autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-  autocmd FileType go nmap <leader>d <Plug>(go-def-tab)
+  autocmd FileType go nmap <leader>d <Plug>(go-def-split)
   autocmd FileType go nmap <leader>e <Plug>(go-iferr)
   autocmd FileType go nmap <Leader>i <Plug>(go-info)
   autocmd FileType go nmap <Leader>m <Plug>(go-metalinter)
