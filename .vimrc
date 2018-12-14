@@ -161,6 +161,9 @@ nnoremap gf <C-w>gf
 " kaoriya keymap
 cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 
+" search by yanked words
+nnoremap <leader>y /<C-R>"<CR>
+
 " spell suggestion
 nnoremap <leader>s z=
 
