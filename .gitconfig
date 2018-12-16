@@ -28,5 +28,6 @@
   sb                     = show-branch
   sr                     = show-ref
   tags                   = tag -l --sort=v:refname
+  remote-tags            = ls-remote --tags
 [user]
   useConfigOnly = true
