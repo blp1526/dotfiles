@@ -21,6 +21,11 @@ let s:vimrc_packages = [
       \ 'rust-lang/rust.vim',
       \ 'embear/vim-localvimrc',
       \ 'rhysd/vim-clang-format',
+      \ 'prabirshrestha/async.vim',
+      \ 'prabirshrestha/vim-lsp',
+      \ 'prabirshrestha/asyncomplete.vim',
+      \ 'prabirshrestha/asyncomplete-lsp.vim',
+      \ 'natebosch/vim-lsc',
       \ ]
 " }}}
 " functions {{{
@@ -218,6 +223,18 @@ augroup Vint
   autocmd!
   autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
 augroup END
+
+if executable('golsp')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+  augroup END
+endif
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
@@ -346,6 +363,9 @@ noremap <Leader>n :NERDTreeToggle<CR>
 " easymotion/vim-easymotion {{{
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+" }}}
+" prabirshrestha/vim-lsp {{{{
+let g:lsp_async_completion = 1
 " }}}
 " }}}
 
