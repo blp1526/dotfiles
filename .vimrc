@@ -66,6 +66,11 @@ function! JSONMinifier()
 endfunction
 command! JSONMinifier call JSONMinifier()
 
+function! Sjis()
+  silent execute 'edit' '++encoding=sjis'
+endfunction
+command! Sjis call Sjis()
+
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
   highlight JISX0208Space term=underline ctermbg=LightCyan
