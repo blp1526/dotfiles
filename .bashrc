@@ -102,6 +102,8 @@ alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
 alias osinfo='grep --directories=skip --with-filename "" /etc/*version ; grep --directories=skip --with-filename "" /etc/*release'
+# XXX: udevinfo /dev/sda1
+alias udevinfo='udevadm info --query property --name'
 alias yyyymmddhhmm="date +%Y%m%d%H%M"
 
 # direnv
