@@ -28,6 +28,14 @@ c() {
   fi
 }
 
+cacheinfo() {
+  echo "L1d: $(cat /sys/devices/system/cpu/cpu0/cache/index0/size)"
+  echo "L1i: $(cat /sys/devices/system/cpu/cpu0/cache/index1/size)"
+  echo "L2:  $(cat /sys/devices/system/cpu/cpu0/cache/index2/size)"
+  echo "L3:  $(cat /sys/devices/system/cpu/cpu0/cache/index3/size)"
+  echo "L4:  $(cat /sys/devices/system/cpu/cpu0/cache/index4/size)"
+}
+
 jobs_size() {
   local jobs_size=$(jobs | wc -l)
   if [ ${jobs_size} -gt 0 ]; then
