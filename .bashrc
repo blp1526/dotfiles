@@ -105,6 +105,7 @@ alias lsblk='lsblk --paths'
 alias curl='curl --verbose'
 alias cal='cal -3'
 alias rsync='rsync --archive --update --append-verify --checksum'
+alias date='date --iso-8601=ns'
 
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
