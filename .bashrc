@@ -66,6 +66,28 @@ cman() {
   command man "${@}"
 }
 
+mank() {
+  if [ "${#}" != "1" ]; then
+    echo 'ArgumentError: wrong number of arguments (expected 1)'
+    return 1
+  fi
+
+  man "${1}" > /dev/null 2>&1
+  if [ "${?}" != "0" ]; then
+    echo "ArgumentError: no manual entry for ${1}"
+    return 1
+  fi
+
+  selected=$(man -k "${1}" | peco)
+  if [ "${selected}" = "" ]; then
+    return 0
+  fi
+
+  word=$(echo "${selected}" | awk '{ print $1 }' )
+  section=$(echo "${selected}" | awk '{ print $2 }' | cut -b 2)
+  man "${section}" "${word}"
+}
+
 # shell variables
 SHELL='bash'
 HISTSIZE='1000'
