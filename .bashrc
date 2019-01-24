@@ -129,7 +129,7 @@ alias cal='cal -3'
 alias rsync='rsync --archive --update --append-verify --checksum'
 alias date='date --iso-8601=ns'
 alias readlink='readlink -f'
-alias journalctl='journalctl --output short-precise'
+alias journalctl='journalctl --no-hostname --output short-precise'
 
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
@@ -142,11 +142,6 @@ alias yyyymmddhhmm="\date +%Y%m%d%H%M"
 # direnv
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
-fi
-
-# npm-completion
-if [ -e ~/.npm-completion.sh ]; then
-  source ~/.npm-completion.sh
 fi
 
 # only server or Wayland desktop
@@ -173,14 +168,4 @@ if [ "$DISPLAY" = "" ]; then
     echo 'ssh-add'
     ssh-add
   fi
-fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/.google-cloud-sdk/path.bash.inc" ]; then
-  source "$HOME/.google-cloud-sdk/path.bash.inc"
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/.google-cloud-sdk/completion.bash.inc" ]; then
-  source "$HOME/.google-cloud-sdk/completion.bash.inc"
 fi
