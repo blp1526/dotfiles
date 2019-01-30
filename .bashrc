@@ -138,6 +138,7 @@ alias osinfo='grep --directories=skip --with-filename "" /etc/*version ; grep --
 # XXX: udevinfo /dev/sda1
 alias udevinfo='udevadm info --query property --name'
 alias yyyymmddhhmm="\date +%Y%m%d%H%M"
+alias server='ruby -rwebrick -e "WEBrick::HTTPServer.new(DocumentRoot: \"./\", Port: 10080).start"'
 
 # direnv
 if type direnv >/dev/null 2>&1; then
