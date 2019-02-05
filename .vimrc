@@ -5,8 +5,6 @@ scriptencoding utf-8
 let s:vimrc_kernel_path = substitute('/lib/modules/'.system('uname -r').'/build/include', "\\n", "", "")
 let s:package_path = '~/.vim/pack/mypack/start/'
 let s:vimrc_packages = [
-      \ 'vim-jp/vimdoc-ja',
-      \ 'kana/vim-tabpagecd',
       \ 'ctrlpvim/ctrlp.vim',
       \ 'tpope/vim-endwise',
       \ 'scrooloose/syntastic',
@@ -14,7 +12,6 @@ let s:vimrc_packages = [
       \ 'simeji/winresizer',
       \ 'editorconfig/editorconfig-vim',
       \ 'fatih/vim-go',
-      \ 'PProvost/vim-ps1',
       \ 'scrooloose/nerdtree',
       \ 'easymotion/vim-easymotion',
       \ 'thinca/vim-qfreplace',

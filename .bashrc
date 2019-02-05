@@ -1,39 +1,16 @@
-# settings for each Linux distribution
-if [ -e /etc/fedora-release ]; then
-  source /usr/share/bash-completion/bash_completion
-  source /usr/share/doc/git-core-doc/contrib/completion/git-completion.bash
-  source /usr/share/doc/git-core-doc/contrib/completion/git-prompt.sh
-fi
-
-if [ -e /etc/lsb-release ]; then
-  source /etc/profile.d/bash_completion.sh
-  source /etc/bash_completion.d/git-prompt
-fi
-
-if [ -e /etc/arch-release ]; then
-  source /usr/share/bash-completion/bash_completion
-  source /usr/share/git/completion/git-completion.bash
-  source /usr/share/git/git-prompt.sh
-fi
-
 # functions
 c() {
   local previous_dir=$(pwd)
-  local selected_dir=$(find -L "${GOPATH}/src" -mindepth 3 -maxdepth 4 -type d | grep ".git$" | sed s/\\/\.git$// | peco)
+  local selected_dir=$(
+    find -L "${GOPATH}/src" -mindepth 3 -maxdepth 4 -type d | \
+    grep ".git$" | sed s/\\/\.git$// | peco
+  )
   # XXX: case SIGINT
   if [ "${selected_dir}" = "" ]; then
     cd ${previous_dir}
   else
     cd ${selected_dir}
   fi
-}
-
-cacheinfo() {
-  echo "L1d: $(cat /sys/devices/system/cpu/cpu0/cache/index0/size)"
-  echo "L1i: $(cat /sys/devices/system/cpu/cpu0/cache/index1/size)"
-  echo "L2:  $(cat /sys/devices/system/cpu/cpu0/cache/index2/size)"
-  echo "L3:  $(cat /sys/devices/system/cpu/cpu0/cache/index3/size)"
-  echo "L4:  $(cat /sys/devices/system/cpu/cpu0/cache/index4/size)"
 }
 
 jobs_size() {
@@ -43,49 +20,6 @@ jobs_size() {
   else
     echo ""
   fi
-}
-
-repo_name_or_short_pwd() {
-  if [ ${PWD} = ${HOME} ]; then
-    echo "~"
-  elif [ -e ${PWD}/.git ]; then
-    echo $(awk -F / '{ print $(NF-1)"/"$(NF) }' <<< ${PWD})
-  else
-    echo $(basename ${PWD})
-  fi
-}
-
-# https://wiki.archlinux.org/index.php/Color_output_in_console#man
-cman() {
-  LESS_TERMCAP_md=$'\e[01;31m' \
-  LESS_TERMCAP_me=$'\e[0m' \
-  LESS_TERMCAP_se=$'\e[0m' \
-  LESS_TERMCAP_so=$'\e[01;44;33m' \
-  LESS_TERMCAP_ue=$'\e[0m' \
-  LESS_TERMCAP_us=$'\e[01;32m' \
-  command man "${@}"
-}
-
-mank() {
-  if [ "${#}" != "1" ]; then
-    echo 'ArgumentError: wrong number of arguments (expected 1)'
-    return 1
-  fi
-
-  man "${1}" > /dev/null 2>&1
-  if [ "${?}" != "0" ]; then
-    echo "ArgumentError: no manual entry for ${1}"
-    return 1
-  fi
-
-  selected=$(man -k "${1}" | peco)
-  if [ "${selected}" = "" ]; then
-    return 0
-  fi
-
-  word=$(echo "${selected}" | awk '{ print $1 }' )
-  section=$(echo "${selected}" | awk '{ print $2 }' | cut -b 2)
-  man "${section}" "${word}"
 }
 
 # shell variables
@@ -108,7 +42,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 PS1_JOBS_SIZE=${FG_YELLOW}'$(jobs_size)'
 PS1_USER=${FG_GREEN}'\u@\H'
 PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
-PS1_DIR=${FG_BLUE}'$(repo_name_or_short_pwd)'
+PS1_DIR=${FG_BLUE}'\w'
 PS1_BRANCH=${FG_RED}'$(__git_ps1)'
 PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
@@ -134,11 +68,8 @@ alias journalctl='journalctl --no-hostname --output short-precise'
 alias inode='stat -c %i'
 alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
-alias osinfo='grep --directories=skip --with-filename "" /etc/*version ; grep --directories=skip --with-filename "" /etc/*release'
-# XXX: udevinfo /dev/sda1
 alias udevinfo='udevadm info --query property --name'
 alias yyyymmddhhmm="\date +%Y%m%d%H%M"
-alias server='ruby -rwebrick -e "WEBrick::HTTPServer.new(DocumentRoot: \"./\", Port: 10080).start"'
 
 # direnv
 if type direnv >/dev/null 2>&1; then
