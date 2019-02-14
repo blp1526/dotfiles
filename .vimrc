@@ -366,7 +366,7 @@ noremap <Leader>n :NERDTreeToggle<CR>
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " }}}
-" prabirshrestha/vim-lsp {{{{
+" prabirshrestha/vim-lsp {{{
 let g:lsp_async_completion = 1
 " }}}
 " }}}
