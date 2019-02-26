@@ -43,7 +43,6 @@ done
 
 config_file_path=(
   peco/config.json
-  git/ignore
 )
 
 for config_file_path in "${config_file_path[@]}"; do
