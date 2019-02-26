@@ -18,6 +18,7 @@ let s:vimrc_packages = [
       \ 'rust-lang/rust.vim',
       \ 'embear/vim-localvimrc',
       \ 'rhysd/vim-clang-format',
+      \ 'rhysd/conflict-marker.vim',
       \ 'prabirshrestha/async.vim',
       \ 'prabirshrestha/vim-lsp',
       \ 'prabirshrestha/asyncomplete.vim',
