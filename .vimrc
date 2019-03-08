@@ -24,6 +24,7 @@ let s:vimrc_packages = [
       \ 'prabirshrestha/asyncomplete.vim',
       \ 'prabirshrestha/asyncomplete-lsp.vim',
       \ 'natebosch/vim-lsc',
+      \ 'jparise/vim-graphql',
       \ ]
 " }}}
 " functions {{{
