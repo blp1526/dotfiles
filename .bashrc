@@ -22,6 +22,10 @@ jobs_size() {
   fi
 }
 
+unix2date() {
+  date -d "@${1}"
+}
+
 # shell variables
 SHELL='bash'
 HISTSIZE='1000'
