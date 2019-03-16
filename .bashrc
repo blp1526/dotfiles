@@ -74,6 +74,7 @@ alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
 alias udevinfo='udevadm info --query property --name'
 alias yyyymmddhhmm="\date +%Y%m%d%H%M"
+alias virsh-keywords="virsh help | \grep -E '^\s\S'"
 
 # direnv
 if type direnv >/dev/null 2>&1; then
