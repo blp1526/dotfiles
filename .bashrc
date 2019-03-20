@@ -74,6 +74,8 @@ alias hex2dec="printf '%d\n'"
 alias dec2hex="printf '%x\n'"
 alias udevinfo='udevadm info --query property --name'
 alias yyyymmddhhmm="\date +%Y%m%d%H%M"
+# via https://github.com/mpolden/echoip
+alias myip="\curl --silent https://ifconfig.co/json | jq ."
 alias virsh-keywords="virsh help | \grep -E '^\s\S'"
 
 # direnv
