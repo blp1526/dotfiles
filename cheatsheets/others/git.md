@@ -15,3 +15,10 @@ git filter-branch --subdirectory-filter subdir HEAD
   * Read `https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables`.
 * Add `git-xxx` file name format executable file to your $PATH.
   * Read `https://github.com/tj/git-extras`.
+
+## Fetch PR from github.com
+
+```markdown
+# https://help.github.com/en/articles/checking-out-pull-requests-locally
+git fetch upstream pull/<ID>/head:<BRANCHNAME>
+```
