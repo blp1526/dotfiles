@@ -112,6 +112,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y libvirt-bin
   apt install -y libvirt-dev
   apt install -y virt-manager
+  apt install -y virt-sandbox
   apt install -y bridge-utils
   apt install -y libguestfs-tools
   apt install -y ovmf
