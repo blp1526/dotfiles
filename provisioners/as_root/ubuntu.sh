@@ -1,10 +1,7 @@
 #!/bin/bash
 set -ux
 
-# XXX: image and checksum
-# http://releases.ubuntu.com/
-
-grep "DISTRIB_ID=Ubuntu" /etc/lsb-release >/dev/null 2>&1
+grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
 if [ "$?" -ne "0" ]; then
   echo "Unexpected OS"
   exit 1
@@ -122,4 +119,13 @@ dpkg -l ubuntu-desktop >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
+fi
+
+lscpu | grep -i vmware >/dev/null 2>&1
+if [ ${?} -eq 0 ]; then
+  # http://libguestfs.org/guestfs.3.html#force_tcg via https://bugzilla.redhat.com/show_bug.cgi?id=1648403
+  cat /etc/environment | grep -E '^LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >/dev/null 2>&1
+  if [ ${?} -eq 1 ]; then
+    echo 'LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >> /etc/environment
+  fi
 fi
