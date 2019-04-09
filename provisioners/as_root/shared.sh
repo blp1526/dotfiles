@@ -19,6 +19,7 @@ if ! [ ${?} -eq 0 ]; then
 fi
 
 # goenv
+# https://github.com/syndbg/goenv/blob/f3ea93406b51a5d80aba5cfea184043a5e6b7231/CHANGELOG.md#changed
 if ! [ -e /usr/local/goenv ]; then
   cd /usr/local
   git clone https://github.com/syndbg/goenv.git
@@ -28,6 +29,8 @@ if ! [ -e /usr/local/goenv ]; then
   chown -R $user:goenv /usr/local/goenv
 
   cat << "__EOS__" > /etc/profile.d/goenv.sh
+export GOENV_DISABLE_GOPATH=1
+export GOENV_DISABLE_GOROOT=1
 export GOENV_ROOT=/usr/local/goenv
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
