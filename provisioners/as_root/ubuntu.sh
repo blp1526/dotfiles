@@ -113,6 +113,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y bridge-utils
   apt install -y libguestfs-tools
   apt install -y ovmf
+  apt install -y qemu-user-static
 fi
 
 dpkg -l ubuntu-desktop >/dev/null 2>&1

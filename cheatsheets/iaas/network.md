@@ -11,6 +11,8 @@ ServerAliveInterval 15
 ServerAliveCountMax 10
 TCPKeepAlive yes
 IdentitiesOnly yes
+# StrictHostKeyChecking no
+# UserKnownHostsFile=/dev/null
 
 Host foo
   User bar
