@@ -1,14 +1,19 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export GOPATH=${HOME}
-export PATH=${PATH}:/usr/local/sbin:${HOME}/.nodebrew/current/bin:${HOME}/bin:${HOME}/.bats/bin:${HOME}/.cargo/bin
+
 export EDITOR='vim'
 export IGNOREEOF=256
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+export GOENV_DISABLE_GOPATH=1
+export GOENV_DISABLE_GOROOT=1
+export GOPATH=${HOME}
+
+if [ "${PATH_ORIG}" = "" ]; then
+  export PATH_ORIG="${PATH}"
 fi
 
-if [ -f ~/.phpbrew/bashrc ]; then
-  source ~/.phpbrew/bashrc
+export PATH=${PATH_ORIG}:${HOME}/.anyenv/bin:${HOME}/.cargo/bin:${HOME}/bin
+
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
 fi

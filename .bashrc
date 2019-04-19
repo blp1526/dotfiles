@@ -78,6 +78,11 @@ alias yyyymmddhhmm="\date +%Y%m%d%H%M"
 alias myip="\curl --silent https://ifconfig.co/json | jq ."
 alias virsh-keywords="virsh help | \grep -E '^\s\S'"
 
+# anyenv
+if type anyenv >/dev/null 2>&1; then
+  eval "$(anyenv init -)"
+fi
+
 # direnv
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"

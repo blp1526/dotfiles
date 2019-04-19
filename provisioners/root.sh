@@ -1,15 +1,14 @@
 #!/bin/bash
 set -ux
 
-grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
-if [ "$?" -ne "0" ]; then
-  echo "Unexpected OS"
+if [ $(whoami) != "root" ]; then
+  echo "Use sudo"
   exit 1
 fi
 
-# only root privilege
-if [ $(whoami) != "root" ]; then
-  echo "Use sudo"
+grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
+if [ "$?" -ne "0" ]; then
+  echo "Unexpected OS"
   exit 1
 fi
 
@@ -72,9 +71,6 @@ apt install -y linux-source
 apt install -y sysfsutils
 apt install -y cgroup-tools
 
-# Ascii Art
-apt install -y figlet
-
 # Ruby https://github.com/rbenv/ruby-build/wiki
 apt install -y autoconf
 apt install -y bison
@@ -86,21 +82,6 @@ apt intalll -y libncurses5-dev
 apt install -y libffi-dev
 apt install -y libgdbm3
 apt install -y libgdbm-dev
-
-# Python https://github.com/pyenv/pyenv/wiki
-apt install -y make
-apt install -y build-essential
-apt install -y libssl-dev
-apt install -y zlib1g-dev
-apt install -y libbz2-dev
-apt install -y libreadline-dev
-apt install -y libsqlite3-dev
-apt install -y wget
-apt install -y curl
-apt install -y llvm
-apt install -y libncurses5-dev
-apt install -y xz-utils
-apt install -y tk-dev
 
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
@@ -129,4 +110,14 @@ if [ ${?} -eq 0 ]; then
   if [ ${?} -eq 1 ]; then
     echo 'LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >> /etc/environment
   fi
+fi
+
+user="user"
+cat /etc/passwd | grep ^"${user}": >/dev/null 2>&1
+if ! [ ${?} -eq 0 ]; then
+  adduser "${user}"
+  passwd "${user}"
+  gpasswd -a "${user}" wheel
+  # https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+  gpasswd -a "${user}" docker
 fi
