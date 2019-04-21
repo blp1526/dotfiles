@@ -148,18 +148,12 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" http://deris.hatenablog.jp/entry/2013/05/15/024932
-" nnoremap / /\v
-
 " tab
 nnoremap <silent><C-c> :tabclose<CR>
 nnoremap <silent><C-n> :tabnew<CR>
 nnoremap <silent><C-h> :tabprevious<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-s> :tab split<CR>
-
-" ctags
-" noremap <C-]> g<C-]>
 
 " selected text replacement
 vnoremap <C-t> :s/\%V
@@ -337,8 +331,8 @@ let g:go_fmt_options = {
     \ 'gofmt': '-s',
     \ }
 
-let g:go_fmt_autosave = 0
-let g:go_metalinter_autosave = 0
+let g:go_fmt_autosave = 1
+let g:go_metalinter_autosave = 1
 
 augroup VimGo
   autocmd!
