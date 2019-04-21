@@ -5,8 +5,8 @@
   interactive = auto
   grep        = auto
 [core]
-  editor       = vim
-  quotepath    = false
+  editor    = vim
+  quotepath = false
 [push]
   default = nothing
 [merge]
@@ -14,20 +14,9 @@
 [pull]
   ff = only
 [alias]
-  st                     = status
-  ci                     = commit -v
-  cie                    = commit -v --allow-empty
-  co                     = checkout
-  br                     = branch
-  df                     = diff
-  rp                     = rev-parse
-  ranking                = shortlog -ns
-  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d % && git fetch --prune
-  release                = "!f(){ git tag -a $1 -m \"$1 release\";};f"
-  cf                     = cat-file -p
-  sb                     = show-branch
-  sr                     = show-ref
-  tags                   = tag -l --sort=v:refname
-  remote-tags            = ls-remote --tags
+  st = status
+  ci = commit -v
+  co = checkout
+  br = branch
 [user]
   useConfigOnly = true
