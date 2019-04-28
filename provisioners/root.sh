@@ -32,7 +32,6 @@ apt install -y tree
 apt install -y lftp
 apt install -y docker.io
 apt install -y docker-compose
-apt install -y python-pip
 apt install -y multipath-tools
 apt install -y pandoc
 apt install -y hwinfo
@@ -90,6 +89,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y libvirt-bin
   apt install -y libvirt-dev
   apt install -y virt-manager
+  apt install -y virt-top
   apt install -y virt-sandbox
   apt install -y bridge-utils
   apt install -y libguestfs-tools
@@ -102,6 +102,10 @@ if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
 fi
+
+# Python
+apt install -y python-pip
+pip install csvkit
 
 lscpu | grep -i vmware >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
