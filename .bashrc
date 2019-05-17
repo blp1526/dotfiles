@@ -77,6 +77,7 @@ alias yyyymmddhhmm="\date +%Y%m%d%H%M"
 # via https://github.com/mpolden/echoip
 alias myip="\curl --silent https://ifconfig.co/json | jq ."
 alias virsh-keywords="virsh help | \grep -E '^\s\S'"
+alias fingerprint="ssh-keygen -E md5 -lf"
 
 # anyenv
 if type anyenv >/dev/null 2>&1; then
