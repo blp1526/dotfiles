@@ -222,15 +222,15 @@ augroup Vint
   autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
 augroup END
 
-if executable('golsp')
-  augroup LspGo
+if executable('gopls')
+  augroup PLsGo
     au!
     autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd BufWritePre *.go LspDocumentFormatSync
   augroup END
 endif
 " }}}
