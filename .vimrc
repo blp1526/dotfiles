@@ -63,6 +63,10 @@ function! Sjis()
 endfunction
 command! Sjis call Sjis()
 
+function! BinInfo()
+  silent execute '%!xxd -g 1'
+endfunction
+
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
   highlight JISX0208Space term=underline ctermbg=LightCyan
