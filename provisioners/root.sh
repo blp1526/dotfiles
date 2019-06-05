@@ -51,10 +51,6 @@ apt install -y libpopt-dev
 apt install -y libelf-dev
 apt install -y libseccomp-dev
 
-# snap
-apt install -y snapd
-apt install -y snapcraft
-
 # Network
 apt install -y libnss-myhostname
 
@@ -103,10 +99,6 @@ if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
 fi
-
-# Python
-apt install -y python-pip
-pip install csvkit
 
 lscpu | grep -i vmware >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then

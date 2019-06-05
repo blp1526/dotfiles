@@ -45,8 +45,3 @@ if ! type peco >/dev/null 2>&1; then
   # https://github.com/peco/peco#building-peco-yourself
   git clone https://github.com/peco/peco.git ${HOME}/src/github.com/peco/peco
 fi
-
-if ! type gopls >/dev/null 2>&1; then
-  # https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
-  go get -u golang.org/x/tools/cmd/gopls
-fi
