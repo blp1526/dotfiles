@@ -2,11 +2,16 @@
 
 mkdir -p ${HOME}/bin
 mkdir -p ${HOME}/src
-mkdir -p ${HOME}/.config/git
-mkdir -p ${HOME}/.config/peco
 
 dotfiles_path=${HOME}/src/github.com/blp1526/dotfiles
+
+mkdir -p ${HOME}/.config/peco
 ln -sf ${dotfiles_path}/.config/peco/config.json ${HOME}/.config/peco/config.json
+
+mkdir -p ${HOME}/.config/git
+if ! [ -e ${HOME}/.config/git/ignore ]; then
+  cp ${dotfiles_path}/.config/git/ignore ${HOME}/.config/git/ignore
+fi
 
 file_names=(
   .bash_profile

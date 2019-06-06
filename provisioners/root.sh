@@ -42,7 +42,6 @@ apt install -y gdebi
 apt install -y btrfs-progs
 apt install -y curl
 apt install -y traceroute
-apt install -y httpie
 apt install -y jq
 apt install -y elfutils
 apt install -y clang-format
@@ -50,6 +49,8 @@ apt install -y uuid-dev
 apt install -y libpopt-dev
 apt install -y libelf-dev
 apt install -y libseccomp-dev
+apt install -y linux-tools-common
+apt install -y linux-tools-$(uname -r)
 
 # Network
 apt install -y libnss-myhostname
