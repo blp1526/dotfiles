@@ -32,7 +32,9 @@ function! InstallPackages()
       let l:clone_command = join([l:git_clone, l:clone_from, l:clone_to], ' ')
       echo l:clone_command
       call system(l:clone_command)
-      execute 'helptags ' . l:clone_to . '/doc'
+      if isdirectory(expand(l:clone_to . '/doc'))
+        execute 'helptags ' . l:clone_to . '/doc'
+      endif
       echo (join(['clone', l:author_name_repo_name, 'completed'], ' ')) . "\n"
     endif
   endfor
