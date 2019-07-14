@@ -30,8 +30,6 @@ apt install -y dstat
 apt install -y iotop
 apt install -y tree
 apt install -y lftp
-apt install -y docker.io
-apt install -y docker-compose
 apt install -y multipath-tools
 apt install -y pandoc
 apt install -y hwinfo
@@ -79,6 +77,23 @@ apt install -y libffi-dev
 apt install -y libgdbm3
 apt install -y libgdbm-dev
 
+# Docker https://docs.docker.com/install/linux/docker-ce/ubuntu
+apt install -y apt-transport-https
+apt install -y ca-certificates
+apt install -y curl
+apt install -y gnupg-agent
+apt install -y software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt update -y
+
+apt install -y docker-ce
+apt install -y docker-ce-cli
+apt install -y containerd.io
+apt install -y docker-compose
+
+# KVM
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y qemu-kvm
@@ -95,6 +110,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y qemu-user-static
 fi
 
+# Desktop
 dpkg -l ubuntu-desktop >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
