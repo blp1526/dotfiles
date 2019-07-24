@@ -3,7 +3,7 @@ c() {
   local previous_dir=$(pwd)
   local selected_dir=$(
     find -L "${HOME}/src" -mindepth 3 -maxdepth 4 -type d | \
-    grep ".git$" | sed s/\\/\.git$// | peco
+    grep "\.git$" | sed s/\\/\.git$// | peco
   )
   # XXX: case SIGINT
   if [ "${selected_dir}" = "" ]; then
