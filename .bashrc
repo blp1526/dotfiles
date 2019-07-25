@@ -47,7 +47,6 @@ PS1_JOBS_SIZE=${FG_YELLOW}'$(jobs_size)'
 PS1_USER=${FG_GREEN}'\u@\H'
 PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
 PS1_DIR=${FG_BLUE}'\w'
-# for https://github.com/rootless-containers/rootlesskit
 if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
   source /usr/lib/git-core/git-sh-prompt
 fi
