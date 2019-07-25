@@ -47,6 +47,7 @@ apt install -y uuid-dev
 apt install -y libpopt-dev
 apt install -y libelf-dev
 apt install -y libseccomp-dev
+apt install -y uidmap
 apt install -y linux-tools-common
 apt install -y linux-tools-$(uname -r)
 
