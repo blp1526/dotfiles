@@ -6,8 +6,6 @@ export IGNOREEOF=256
 
 # via https://get.docker.com/rootless
 if [ -e ~/bin/docker ]; then
-  export XDG_RUNTIME_DIR="/tmp/docker-$(id -u)"
-  mkdir -p "${XDG_RUNTIME_DIR}"
   export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
 fi
 
