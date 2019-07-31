@@ -187,17 +187,6 @@ augroup MultiByteSpace
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
 augroup END
 
-augroup CustomSyntaxHighlight
-  autocmd!
-  autocmd BufNewFile,BufRead *.json.jbuilder setlocal filetype=ruby
-  autocmd BufNewFile,BufRead *.xlsx.axlsx    setlocal filetype=ruby
-  autocmd BufNewFile,BufRead *.cap           setlocal filetype=ruby
-  autocmd BufNewFile,BufRead Guardfile       setlocal filetype=ruby
-  autocmd BufNewFile,BufRead Capfile         setlocal filetype=ruby
-  autocmd BufNewFile,BufRead *.t             setlocal filetype=perl
-  autocmd BufNewFile,BufRead *.psgi          setlocal filetype=perl
-augroup END
-
 augroup Log
   autocmd!
   autocmd BufNewFile,BufRead *.log     setlocal cursorline
@@ -205,20 +194,9 @@ augroup Log
   autocmd Filetype           qf        setlocal cursorline
 augroup END
 
-augroup CorCPP
-  autocmd!
-  autocmd Filetype c   setlocal colorcolumn=80
-  autocmd Filetype cpp setlocal colorcolumn=80
-augroup END
-
 augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
-augroup END
-
-augroup Vint
-  autocmd!
-  autocmd BufNewFile,BufRead *.vim let g:syntastic_vim_checkers = ['vint']
 augroup END
 " }}}
 " runtime {{{
