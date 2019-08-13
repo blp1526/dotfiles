@@ -9,6 +9,7 @@ let s:vimrc_packages = [
       \ 'tpope/vim-endwise',
       \ 'scrooloose/syntastic',
       \ 'plasticboy/vim-markdown',
+      \ 'cespare/vim-toml',
       \ 'simeji/winresizer',
       \ 'editorconfig/editorconfig-vim',
       \ 'fatih/vim-go',
