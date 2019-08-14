@@ -44,6 +44,7 @@ apt install -y ccze
 apt install -y jq
 apt install -y elfutils
 apt install -y clang-format
+apt install -y liblz4-tool
 apt install -y uuid-dev
 apt install -y libpopt-dev
 apt install -y libelf-dev
