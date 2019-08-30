@@ -19,6 +19,7 @@ let s:vimrc_packages = [
       \ 'rust-lang/rust.vim',
       \ 'embear/vim-localvimrc',
       \ 'jparise/vim-graphql',
+      \ 'aklt/plantuml-syntax',
       \ ]
 " }}}
 " functions {{{
