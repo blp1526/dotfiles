@@ -42,6 +42,7 @@ apt install -y curl
 apt install -y traceroute
 apt install -y ccze
 apt install -y jq
+apt install -y neofetch
 apt install -y elfutils
 apt install -y clang-format
 apt install -y liblz4-tool
