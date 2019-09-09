@@ -39,7 +39,6 @@ apt install -y debootstrap
 apt install -y gdebi
 apt install -y btrfs-progs
 apt install -y curl
-apt install -y traceroute
 apt install -y ccze
 apt install -y jq
 apt install -y neofetch
@@ -56,6 +55,8 @@ apt install -y linux-tools-$(uname -r)
 
 # Network
 apt install -y libnss-myhostname
+apt install -y traceroute
+apt install -y whois
 
 # Security
 apt install -y nmap
