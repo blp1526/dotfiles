@@ -50,3 +50,7 @@ if ! type peco >/dev/null 2>&1; then
   # https://github.com/peco/peco#building-peco-yourself
   git clone https://github.com/peco/peco.git ${HOME}/src/github.com/peco/peco
 fi
+
+if ! [ -e ${HOME}/src/github.com/Bash-it/bash-it ]; then
+  git clone https://github.com/Bash-it/bash-it.git ${HOME}/src/github.com/Bash-it/bash-it
+fi
