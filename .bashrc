@@ -91,6 +91,12 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
+# bash-it
+if [ -e "${HOME}/src/github.com/Bash-it/bash-it" ]; then
+  source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/tmux.completion.bash"
+  source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/virsh.completion.bash"
+fi
+
 # only server or Wayland desktop
 if [ "$XDG_SESSION_TYPE" != "x11" ]; then
   # disable tty lock
