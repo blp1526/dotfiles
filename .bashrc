@@ -1,4 +1,15 @@
 # functions
+dummy-img() {
+  local path="${1}"
+  local count="${2}"
+  local flag="${3}"
+  if [ "${flag}" != "--sparse" ]; then
+    dd if=/dev/zero of="${path}" bs=1024k count="${count}"
+  else
+    dd if=/dev/zero of="${path}" bs=1024k count=0 seek="${count}"
+  fi
+}
+
 c() {
   local previous_dir=$(pwd)
   local selected_dir=$(
