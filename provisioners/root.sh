@@ -38,6 +38,7 @@ apt install -y systemd-container
 apt install -y debootstrap
 apt install -y gdebi
 apt install -y btrfs-progs
+apt install -y zfsutils-linux
 apt install -y curl
 apt install -y ccze
 apt install -y jq
