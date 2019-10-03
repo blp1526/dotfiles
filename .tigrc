@@ -1,5 +1,7 @@
-set main-view = line-number:no id:yes date:default author:full commit-title:graph=yes,refs=yes
-set refs-view = line-number:no id:yes date:default author:full ref commit-title
+set main-view  = line-number:no             id:yes date:default author:full commit-title:graph=yes,refs=yes
+set refs-view  = line-number:no             id:yes date:default author:full ref commit-title
+set blame-view = line-number:yes,interval=1 id:yes date:default author:full text
+
 set vertical-split = no
 set split-view-height = 75%
 set diff-options = -m --first-parent
