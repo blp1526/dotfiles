@@ -36,19 +36,9 @@ if ! type rustc >/dev/null 2>&1; then
   curl https://sh.rustup.rs -sSf | sh
 fi
 
-if ! type direnv >/dev/null 2>&1; then
-  # https://github.com/direnv/direnv#install
-  git clone https://github.com/direnv/direnv.git ${HOME}/src/github.com/direnv/direnv
-fi
-
 if ! type gibo >/dev/null 2>&1; then
   # https://github.com/simonwhitaker/gibo#installation
   git clone https://github.com/simonwhitaker/gibo.git ${HOME}/src/github.com/simonwhitaker/gibo
-fi
-
-if ! type peco >/dev/null 2>&1; then
-  # https://github.com/peco/peco#building-peco-yourself
-  git clone https://github.com/peco/peco.git ${HOME}/src/github.com/peco/peco
 fi
 
 if ! [ -e ${HOME}/src/github.com/Bash-it/bash-it ]; then
