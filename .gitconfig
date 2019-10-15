@@ -5,8 +5,9 @@
   interactive = auto
   grep        = auto
 [core]
-  editor    = vim
-  quotepath = false
+  editor      = vim
+  quotepath   = false
+  commentchar = ";"
 [push]
   default = nothing
 [merge]
