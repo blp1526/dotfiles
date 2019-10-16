@@ -112,6 +112,7 @@ fi
 
 lscpu | grep -i vmware >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
+  apt install -y open-vm-tools
   # http://libguestfs.org/guestfs.3.html#force_tcg via https://bugzilla.redhat.com/show_bug.cgi?id=1648403
   cat /etc/environment | grep -E '^LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >/dev/null 2>&1
   if [ ${?} -eq 1 ]; then
