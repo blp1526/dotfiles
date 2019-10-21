@@ -39,6 +39,7 @@ apt install -y debootstrap
 apt install -y gdebi
 apt install -y btrfs-progs
 apt install -y zfsutils-linux
+apt install -y bindfs
 apt install -y cloud-guest-utils
 apt install -y curl
 apt install -y ccze
