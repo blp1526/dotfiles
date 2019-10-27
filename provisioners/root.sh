@@ -42,6 +42,7 @@ apt install -y zfsutils-linux
 apt install -y bindfs
 apt install -y sshfs
 apt install -y cloud-guest-utils
+apt install -y testdisk
 apt install -y curl
 apt install -y ccze
 apt install -y jq
@@ -51,6 +52,8 @@ apt install -y neofetch
 apt install -y elfutils
 apt install -y clang-format
 apt install -y liblz4-tool
+apt install -y binwalk
+apt install -y exiftool
 apt install -y uuid-dev
 apt install -y libpopt-dev
 apt install -y libelf-dev
