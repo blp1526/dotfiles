@@ -44,6 +44,8 @@ apt install -y sshfs
 apt install -y cloud-guest-utils
 apt install -y testdisk
 apt install -y curl
+apt install -y sysstat
+apt install -y crash
 apt install -y ccze
 apt install -y jq
 apt install -y peco
