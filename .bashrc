@@ -1,4 +1,15 @@
 # functions
+toggle-docker-host() {
+  if [ "${DOCKER_HOST}" = "" ]; then
+    # via https://get.docker.com/rootless
+    export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
+    echo "For rootless docker, current DOCKER_HOST is '${DOCKER_HOST}'"
+  else
+    unset DOCKER_HOST
+    echo "For root docker, current DOCKER_HOST is '${DOCKER_HOST}'"
+  fi
+}
+
 dummy-img() {
   local path="${1}"
   local count="${2}"
