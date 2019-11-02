@@ -47,6 +47,7 @@ apt install -y curl
 apt install -y sysstat
 apt install -y crash
 apt install -y ccze
+apt install -y shellcheck
 apt install -y jq
 apt install -y peco
 apt install -y direnv
