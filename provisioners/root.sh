@@ -1,13 +1,13 @@
 #!/bin/bash
 set -ux
 
-if [ $(whoami) != "root" ]; then
+if [ "$(whoami)" != "root" ]; then
   echo "Use sudo"
   exit 1
 fi
 
 grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
-if [ "$?" -ne "0" ]; then
+if [ "$?" != "0" ]; then
   echo "Unexpected OS"
   exit 1
 fi
@@ -69,6 +69,7 @@ apt install -y linux-tools-$(uname -r)
 apt install -y libnss-myhostname
 apt install -y traceroute
 apt install -y whois
+apt install -y autossh
 
 # Security
 apt install -y nmap
