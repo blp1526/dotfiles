@@ -5,6 +5,9 @@ mkdir -p ${HOME}/src
 
 dotfiles_path=${HOME}/src/github.com/blp1526/dotfiles
 
+mkdir -p ${HOME}/.config/nvim
+ln -sf ${dotfiles_path}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim
+
 mkdir -p ${HOME}/.config/peco
 ln -sf ${dotfiles_path}/.config/peco/config.json ${HOME}/.config/peco/config.json
 
