@@ -22,6 +22,7 @@ apt-file update
 apt install -y gdisk
 apt install -y git
 apt install -y vim-gnome
+apt install -y nvim
 apt install -y tig
 apt install -y tmux
 apt install -y clang
