@@ -17,7 +17,6 @@ if ! [ -e ${HOME}/.config/git/ignore ]; then
 fi
 
 file_names=(
-  .bash_profile
   .bashrc
   .gitconfig
   .vimrc
