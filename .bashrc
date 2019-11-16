@@ -1,3 +1,22 @@
+# export
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export EDITOR='vim'
+export IGNOREEOF=256
+
+export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
+
+export GOENV_DISABLE_GOPATH=1
+export GOENV_DISABLE_GOROOT=1
+export GOPATH=${HOME}
+
+if [ "${PATH_ORIG}" = "" ]; then
+  export PATH_ORIG="${PATH}"
+fi
+
+export PATH=${HOME}/.anyenv/bin:${HOME}/.cargo/bin:${HOME}/bin:${PATH_ORIG}
+
 # functions
 docker-mode() {
   if [ "${1}" = "toggle" ]; then
@@ -43,7 +62,7 @@ c() {
 
 jobs_size() {
   local jobs_size=$(jobs | wc -l)
-  if [ ${jobs_size} -gt 0 ]; then
+  if [ "${jobs_size}" -gt 0 ]; then
     echo "[jobs: ${jobs_size}] "
   else
     echo ""
