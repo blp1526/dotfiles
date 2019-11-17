@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+class GitXclone
+  attr_reader :command, :repository
+  def initialize(argv)
+    @repository = argv.delete_at(-1) || ''
+    options = "#{argv.join(' ')} " || ''
+    @command = "git clone #{options}"
+  end
+
+  def exec
+    exit_status = 1
+    git_format = %r{\Agit@(.+?):(.+?)\/(.+?)\.git\z}
+    https_format = %r{\Ahttps:\/\/(.+?)\/(.+?)\/(.+?)\.git\z}
+
+    [git_format, https_format].each do |format|
+      if repository =~ format
+        dir = ::File.join(
+          ENV['HOME'], 'src',
+          ::Regexp.last_match[1], ::Regexp.last_match[2], ::Regexp.last_match[3]
+        )
+        script = "#{command} #{repository} #{dir}"
+        puts(script)
+        ok = system(script)
+        exit_status = 0 if ok
+        return exit_status
+      end
+    end
+
+    puts "Unexpected git repository, got #{repository}."
+    exit_status
+  end
+end
+
+git_xclone = ::GitXclone.new(ARGV)
+status = git_xclone.exec
+exit status
