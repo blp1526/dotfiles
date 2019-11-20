@@ -1,0 +1,8 @@
+language: python
+python:
+  - 3.8.0
+script:
+  - pip install editorconfig-checker
+  - editorconfig-checker
+os:
+  - linux
