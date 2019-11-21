@@ -1,8 +1,4 @@
-language: python
-python:
-  - 3.8.0
+dist: bionic
 script:
-  - pip install editorconfig-checker
-  - editorconfig-checker
-os:
-  - linux
+  - pip install --user editorconfig-checker
+  - make
