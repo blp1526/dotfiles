@@ -1,7 +1,7 @@
 #!/bin/bash
-set -ux
+set -eux
 
-if [ $(whoami) != "root" ]; then
+if [ "$(whoami)" != "root" ]; then
   echo "Use sudo"
   exit 1
 fi
@@ -28,9 +28,9 @@ apt install -y docker-ce-cli
 apt install -y containerd.io
 apt install -y docker-compose
 
-user="user"
-cat /etc/group | grep ^"docker": | grep :"${user}"$ >/dev/null 2>&1
-if ! [ ${?} -eq 0 ]; then
-  # https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
-  gpasswd -a "${user}" docker
-fi
+# user="user"
+# cat /etc/group | grep ^"docker": | grep :"${user}"$ >/dev/null 2>&1
+# if ! [ ${?} -eq 0 ]; then
+#   # https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+#   gpasswd -a "${user}" docker
+# fi

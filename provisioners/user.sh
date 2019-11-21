@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 mkdir -p ${HOME}/bin
 mkdir -p ${HOME}/src
 

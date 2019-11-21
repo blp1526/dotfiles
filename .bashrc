@@ -127,6 +127,7 @@ alias yyyymmddhhmm="\date +%Y%m%d%H%M"
 # via https://github.com/mpolden/echoip
 alias myip="\curl --silent https://ifconfig.co/json | jq ."
 alias fingerprint="ssh-keygen -E md5 -lf"
+alias find-broken-symlinks="find . -xtype l"
 
 # anyenv
 if type anyenv >/dev/null 2>&1; then

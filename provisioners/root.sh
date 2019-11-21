@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ux
+set -eux
 
 if [ "$(whoami)" != "root" ]; then
   echo "Use sudo"
@@ -19,11 +19,12 @@ apt install -y apt-file
 apt-file update
 
 # Basic
+apt install -y build-essential
 apt install -y debian-goodies
 apt install -y gdisk
 apt install -y git
 apt install -y vim-gnome
-apt install -y nvim
+apt install -y neovim
 apt install -y tig
 apt install -y tmux
 apt install -y clang
@@ -46,6 +47,7 @@ apt install -y sshfs
 apt install -y cloud-guest-utils
 apt install -y testdisk
 apt install -y curl
+apt install -y wget
 apt install -y sysstat
 apt install -y crash
 apt install -y ccze
@@ -65,7 +67,7 @@ apt install -y libelf-dev
 apt install -y libseccomp-dev
 apt install -y uidmap
 apt install -y linux-tools-common
-apt install -y linux-tools-$(uname -r)
+apt install -y "linux-tools-$(uname -r)"
 
 # Network
 apt install -y libnss-myhostname
@@ -78,7 +80,6 @@ apt install -y nmap
 
 # Kernel
 apt install -y libncurses-dev
-apt install -y build-essential
 apt install -y fakeroot
 apt install -y kernel-package
 apt install -y linux-source
@@ -92,10 +93,25 @@ apt install -y libssl-dev
 apt install -y libyaml-dev
 apt install -y libreadline6-dev
 apt install -y zlib1g-dev
-apt intalll -y libncurses5-dev
+apt install -y libncurses5-dev
 apt install -y libffi-dev
-apt install -y libgdbm3
+apt install -y libgdbm5
 apt install -y libgdbm-dev
+
+# Python https://github.com/pyenv/pyenv/wiki
+apt install -y libssl-dev
+apt install -y zlib1g-dev
+apt install -y libbz2-dev
+apt install -y libreadline-dev
+apt install -y libsqlite3-dev
+apt install -y llvm
+apt install -y libncurses5-dev
+apt install -y xz-utils
+apt install -y tk-dev
+apt install -y libxml2-dev
+apt install -y libxmlsec1-dev
+apt install -y libffi-dev
+apt install -y liblzma-dev
 
 # KVM
 lscpu | grep vmx >/dev/null 2>&1
