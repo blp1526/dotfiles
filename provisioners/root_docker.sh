@@ -12,7 +12,7 @@ if [ "$?" -ne "0" ]; then
   exit 1
 fi
 
-# Docker https://docs.docker.com/install/linux/docker-ce/ubuntu
+# docker-ce https://docs.docker.com/install/linux/docker-ce/ubuntu
 apt install -y apt-transport-https
 apt install -y ca-certificates
 apt install -y curl
@@ -28,9 +28,4 @@ apt install -y docker-ce-cli
 apt install -y containerd.io
 apt install -y docker-compose
 
-# user="user"
-# cat /etc/group | grep ^"docker": | grep :"${user}"$ >/dev/null 2>&1
-# if ! [ ${?} -eq 0 ]; then
-#   # https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
-#   gpasswd -a "${user}" docker
-# fi
+# postinstall https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user

@@ -146,11 +146,3 @@ if [ ${?} -eq 0 ]; then
     echo 'LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >> /etc/environment
   fi
 fi
-
-user="user"
-cat /etc/passwd | grep ^"${user}": >/dev/null 2>&1
-if ! [ ${?} -eq 0 ]; then
-  adduser "${user}"
-  passwd "${user}"
-  gpasswd -a "${user}" wheel
-fi
