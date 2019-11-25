@@ -32,6 +32,7 @@ apt install -y silversearcher-ag
 apt install -y dstat
 apt install -y iotop
 apt install -y tree
+apt install -y pwgen
 apt install -y lftp
 apt install -y multipath-tools
 apt install -y pandoc
