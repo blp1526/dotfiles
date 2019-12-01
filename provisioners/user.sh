@@ -5,6 +5,11 @@ set -eux
 mkdir -p ~/bin
 mkdir -p ~/src
 
+if ! [ -e ~/bin/diff-highlight ]; then
+  cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
+  chmod 755 ~/bin/diff-highlight
+fi
+
 dotfiles_path=~/src/github.com/blp1526/dotfiles
 
 ln -sf ${dotfiles_path}/bin/git-xclone ~/bin/git-xclone
