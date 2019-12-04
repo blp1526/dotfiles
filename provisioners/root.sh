@@ -31,6 +31,7 @@ apt install -y clang
 apt install -y silversearcher-ag
 apt install -y dstat
 apt install -y iotop
+apt install -y cpulimit
 apt install -y tree
 apt install -y pwgen
 apt install -y lftp
@@ -136,6 +137,7 @@ dpkg -l ubuntu-desktop >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
+  apt install -y xsel
 fi
 
 lscpu | grep -i vmware >/dev/null 2>&1
