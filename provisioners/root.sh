@@ -31,6 +31,7 @@ apt install -y clang
 apt install -y silversearcher-ag
 apt install -y dstat
 apt install -y iotop
+apt install -y cpulimit
 apt install -y tree
 apt install -y pwgen
 apt install -y lftp
