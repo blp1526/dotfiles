@@ -11,7 +11,7 @@ let s:vimrc_packages = [
       \ 'plasticboy/vim-markdown',
       \ 'cespare/vim-toml',
       \ 'simeji/winresizer',
-      \ 'editorconfig/editorconfig-vim',
+      \ 'sgur/vim-editorconfig',
       \ 'fatih/vim-go',
       \ 'scrooloose/nerdtree',
       \ 'easymotion/vim-easymotion',
@@ -20,6 +20,7 @@ let s:vimrc_packages = [
       \ 'embear/vim-localvimrc',
       \ 'jparise/vim-graphql',
       \ 'aklt/plantuml-syntax',
+      \ 'othree/html5.vim',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
