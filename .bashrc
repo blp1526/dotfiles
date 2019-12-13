@@ -60,6 +60,12 @@ c() {
   fi
 }
 
+top() {
+  echo "x :Column-Highlight, z :Color/Monochrome, < :Move-Sort-Field-Left, > :Move-Sort-Field-Right"
+  read
+  $(which top)
+}
+
 jobs_size() {
   local jobs_size=$(jobs | wc -l)
   if [ "${jobs_size}" -gt 0 ]; then
