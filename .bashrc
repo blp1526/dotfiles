@@ -135,6 +135,7 @@ alias myip="\curl --silent https://ifconfig.co/json | jq ."
 alias fingerprint="ssh-keygen -E md5 -lf"
 alias find-broken-symlinks="find . -xtype l"
 alias docker-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
+alias base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
 
 # anyenv
 if type anyenv >/dev/null 2>&1; then
