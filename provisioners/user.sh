@@ -33,6 +33,7 @@ file_names=(
   .tigrc
   .inputrc
   .lftprc
+  .xsessionrc
 )
 
 for file_name in "${file_names[@]}"; do

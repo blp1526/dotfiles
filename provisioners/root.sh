@@ -141,6 +141,17 @@ if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
   apt install -y xsel
+  apt install -y xrdp
+  sed -e 's/^new_cursors=true$/new_cursors=false/g' -i /etc/xrdp/xrdp.ini
+  sed -e 's/^FuseMountName=thinclient_drives$/FuseMountName=\.thinclient_drives/g' -i /etc/xrdp/sesman.ini
+  cat << __EOS__ > /etc/polkit-1/localauthority/50-local.d/xrdp-color-manager.pkla
+[NetworkManager]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+__EOS__
 fi
 
 lscpu | grep -i vmware >/dev/null 2>&1
