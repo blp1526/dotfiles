@@ -141,6 +141,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y gnome-tweak-tool
   apt install -y dconf-editor
   apt install -y xsel
+  apt install -y wireshark
   apt install -y xrdp
   sed -e 's/^new_cursors=true$/new_cursors=false/g' -i /etc/xrdp/xrdp.ini
   sed -e 's/^FuseMountName=thinclient_drives$/FuseMountName=\.thinclient_drives/g' -i /etc/xrdp/sesman.ini
