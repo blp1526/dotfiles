@@ -80,6 +80,7 @@ apt install -y traceroute
 apt install -y whois
 apt install -y autossh
 apt install -y proxychains4
+apt install -y tsocks
 
 # Security
 apt install -y nmap
