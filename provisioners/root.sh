@@ -51,6 +51,7 @@ apt install -y cloud-guest-utils
 apt install -y testdisk
 apt install -y curl
 apt install -y wget
+apt install -y parallel
 apt install -y gnupg2
 apt install -y pass
 apt install -y sysstat
