@@ -23,6 +23,5 @@
   ci = commit -v
   co = checkout
   br = branch
-  delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [user]
   useConfigOnly = true
