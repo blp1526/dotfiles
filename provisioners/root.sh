@@ -23,6 +23,7 @@ apt install -y build-essential
 apt install -y debian-goodies
 apt install -y gdisk
 apt install -y git
+apt install -y git-extras
 apt install -y vim-gnome
 apt install -y neovim
 apt install -y tig
