@@ -23,5 +23,6 @@
   ci = commit -v
   co = checkout
   br = branch
+  fp = fetch --prune
 [user]
   useConfigOnly = true
