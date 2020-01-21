@@ -82,6 +82,7 @@ apt install -y libnss-myhostname
 apt install -y traceroute
 apt install -y whois
 apt install -y autossh
+apt install -y sshpass
 apt install -y proxychains4
 apt install -y tsocks
 
