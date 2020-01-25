@@ -28,6 +28,7 @@ apt install -y etckeeper
 apt install -y vim-gnome
 apt install -y neovim
 apt install -y tig
+apt install -y ansible
 apt install -y tmux
 apt install -y clang
 apt install -y silversearcher-ag
