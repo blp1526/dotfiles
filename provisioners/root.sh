@@ -86,6 +86,7 @@ apt install -y autossh
 apt install -y sshpass
 apt install -y proxychains4
 apt install -y tsocks
+apt install -y conntrack
 
 # Security
 apt install -y nmap
