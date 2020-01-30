@@ -126,6 +126,21 @@ apt install -y libxmlsec1-dev
 apt install -y libffi-dev
 apt install -y liblzma-dev
 
+# PHP
+apt install -y libxml2-dev
+apt install -y libkrb5-dev
+apt install -y libssl-dev
+apt install -y libsqlite3-dev
+apt install -y libbz2-dev
+apt install -y libpng-dev
+apt install -y libjpeg-dev
+apt install -y libonig-dev
+apt install -y libreadline-dev
+apt install -y libtidy-dev
+apt install -y libxslt-dev
+apt install -y libcurl4-openssl-dev
+apt install -y libzip-dev
+
 # KVM
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
