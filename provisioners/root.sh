@@ -26,6 +26,7 @@ apt install -y git
 apt install -y git-extras
 apt install -y etckeeper
 apt install -y vim-gnome
+apt install -y fish
 apt install -y neovim
 apt install -y tig
 apt install -y ansible
