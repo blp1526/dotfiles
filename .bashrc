@@ -5,8 +5,6 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export IGNOREEOF=256
 
-export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
-
 export GOENV_DISABLE_GOPATH=1
 export GOENV_DISABLE_GOROOT=1
 export GOPATH=${HOME}
