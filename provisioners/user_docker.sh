@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eux
 
+export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
+
 if ! [ -e ~/bin/dockerd ]; then
   curl -fsSL https://get.docker.com/rootless | sh
 fi
