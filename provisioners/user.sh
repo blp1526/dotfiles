@@ -5,11 +5,6 @@ set -eux
 mkdir -p ~/bin
 mkdir -p ~/src
 
-if ! [ -e ~/bin/diff-highlight ]; then
-  cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
-  chmod 755 ~/bin/diff-highlight
-fi
-
 dotfiles_path=~/src/github.com/blp1526/dotfiles
 
 ln -sf ${dotfiles_path}/bin/git-xclone ~/bin/git-xclone
@@ -55,4 +50,19 @@ fi
 
 if ! [ -e ~/src/github.com/Bash-it/bash-it ]; then
   git clone https://github.com/Bash-it/bash-it.git ~/src/github.com/Bash-it/bash-it
+fi
+
+if !  type diff-highlight >/dev/null 2>&1; then
+  cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
+  chmod 755 ~/bin/diff-highlight
+fi
+
+if ! type gh >/dev/null 2>&1; then
+  tempdir=$(mktemp -d)
+  cd "${tempdir}"
+  version="$(curl https://api.github.com/repos/cli/cli/releases/latest | jq -r .tag_name | sed 's/v//g')"
+  wget "https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_amd64.tar.gz"
+  tar zxvf "gh_${version}_linux_amd64.tar.gz"
+  mv "gh_${version}_linux_amd64/bin/gh" ~/bin/gh
+  rm -rf "${tempdir}"
 fi
