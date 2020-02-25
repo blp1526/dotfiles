@@ -53,6 +53,7 @@ apt install -y sshfs
 apt install -y cloud-guest-utils
 apt install -y testdisk
 apt install -y curl
+apt install -y httpie
 apt install -y wget
 apt install -y parallel
 apt install -y gnupg2

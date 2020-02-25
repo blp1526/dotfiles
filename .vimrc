@@ -21,6 +21,7 @@ let s:vimrc_packages = [
       \ 'jparise/vim-graphql',
       \ 'aklt/plantuml-syntax',
       \ 'othree/html5.vim',
+      \ 'dhruvasagar/vim-table-mode',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
@@ -337,6 +338,9 @@ noremap <Leader>n :NERDTreeToggle<CR>
 " easymotion/vim-easymotion {{{
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+" }}}
+" dhruvasagar/vim-table-mode {{{
+let g:table_mode_corner='|'
 " }}}
 " }}}
 
