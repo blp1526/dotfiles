@@ -16,23 +16,6 @@ fi
 export PATH=${HOME}/.anyenv/bin:${HOME}/.cargo/bin:${HOME}/bin:${PATH_ORIG}
 
 # functions
-docker-mode() {
-  if [ "${1}" = "toggle" ]; then
-    if [ "${DOCKER_HOST}" = "" ]; then
-      # via https://get.docker.com/rootless
-      export DOCKER_HOST="unix:///${XDG_RUNTIME_DIR}/docker.sock"
-    else
-      unset DOCKER_HOST
-    fi
-  fi
-
-  if [ "${DOCKER_HOST}" = "" ]; then
-    echo "root"
-  else
-    echo "rootless"
-  fi
-}
-
 dummy-img() {
   local path="${1}"
   local count="${2}"
