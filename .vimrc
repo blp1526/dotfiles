@@ -210,6 +210,11 @@ augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
 augroup END
+
+augroup GoBuffalo
+  autocmd!
+  autocmd BufNewFile,BufRead *.plush.html setlocal filetype=eruby
+augroup END
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
