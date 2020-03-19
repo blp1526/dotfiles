@@ -213,7 +213,8 @@ augroup END
 
 augroup GoBuffalo
   autocmd!
-  autocmd BufNewFile,BufRead *.plush.html setlocal filetype=eruby
+  autocmd BufNewFile,BufRead *.fizz set filetype=ruby
+  autocmd BufNewFile,BufRead *.plush.html set filetype=eruby
 augroup END
 " }}}
 " runtime {{{
