@@ -22,6 +22,7 @@ let s:vimrc_packages = [
       \ 'aklt/plantuml-syntax',
       \ 'othree/html5.vim',
       \ 'dhruvasagar/vim-table-mode',
+      \ 'nathanaelkane/vim-indent-guides',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
@@ -347,6 +348,13 @@ omap / <Plug>(easymotion-tn)
 " }}}
 " dhruvasagar/vim-table-mode {{{
 let g:table_mode_corner='|'
+" }}}
+" nathanaelkane/vim-indent-guides {{{
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_tab_guides = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'gitcommit']
 " }}}
 " }}}
 
