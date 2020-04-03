@@ -60,6 +60,10 @@ unix2date() {
   date -d "@${1}"
 }
 
+mount-vmhgfs() {
+  sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
+}
+
 # shell variables
 SHELL='bash'
 HISTSIZE='1000'

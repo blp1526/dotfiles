@@ -60,6 +60,7 @@ apt install -y gnupg2
 apt install -y pass
 apt install -y cockpit
 apt install -y sysstat
+sed -e 's/^ENABLED="false"$/ENABLED="true"/g' -i /etc/default/sysstat
 apt install -y crash
 apt install -y ccze
 apt install -y shellcheck
