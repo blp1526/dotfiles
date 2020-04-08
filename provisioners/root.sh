@@ -21,6 +21,7 @@ apt-file update
 # Basic
 apt install -y build-essential
 apt install -y debian-goodies
+apt install -y debconf-utils
 apt install -y gdisk
 apt install -y git
 apt install -y git-extras
