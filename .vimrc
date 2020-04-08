@@ -23,6 +23,7 @@ let s:vimrc_packages = [
       \ 'othree/html5.vim',
       \ 'dhruvasagar/vim-table-mode',
       \ 'Yggdroot/indentLine',
+      \ 'elzr/vim-json',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
@@ -348,6 +349,9 @@ omap / <Plug>(easymotion-tn)
 " }}}
 " dhruvasagar/vim-table-mode {{{
 let g:table_mode_corner='|'
+" }}}
+" elzr/vim-json {{{
+let g:vim_json_syntax_conceal = 0
 " }}}
 " }}}
 
