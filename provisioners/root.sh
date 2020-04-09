@@ -170,6 +170,7 @@ if [ ${?} -eq 0 ]; then
   apt install -y dconf-editor
   apt install -y xsel
   apt install -y network-manager-l2tp-gnome
+  apt install -y keepassxc
   apt install -y wireshark
 fi
 
