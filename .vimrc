@@ -353,6 +353,10 @@ let g:table_mode_corner='|'
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
 " }}}
+" Yggdroot/indentLine {{{
+let g:indentLine_enabled = 0
+" Use :IndentLinesToggle via https://github.com/Yggdroot/indentLine#commands
+" }}}
 " }}}
 
 filetype plugin indent on
