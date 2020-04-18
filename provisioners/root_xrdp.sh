@@ -12,9 +12,9 @@ if [ "$?" != "0" ]; then
   exit 1
 fi
 
-apt update -y
-apt upgrade -y
-apt install -y xrdp
+apt-get update -y
+apt-get upgrade -y
+apt-get install -y xrdp
 
 sed -e 's/^new_cursors=true$/new_cursors=false/g' -i /etc/xrdp/xrdp.ini
 sed -e 's/^FuseMountName=thinclient_drives$/FuseMountName=\.thinclient_drives/g' -i /etc/xrdp/sesman.ini
