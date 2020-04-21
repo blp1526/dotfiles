@@ -297,6 +297,8 @@ let g:syntastic_javascript_checkers       = ['eslint']
 let g:syntastic_html_tidy_exec            = 'tidy5'
 " }}}
 " plasticboy/vim-markdown {{{
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 " }}}
 " fatih/vim-go {{{
@@ -354,8 +356,7 @@ let g:table_mode_corner='|'
 let g:vim_json_syntax_conceal = 0
 " }}}
 " Yggdroot/indentLine {{{
-let g:indentLine_enabled = 0
-" Use :IndentLinesToggle via https://github.com/Yggdroot/indentLine#commands
+let g:indentLine_enabled = 1
 " }}}
 " }}}
 
