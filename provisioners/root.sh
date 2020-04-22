@@ -166,6 +166,7 @@ fi
 dpkg -l ubuntu-desktop >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
   apt-get install -y gnome-tweak-tool
+  apt-get install -y ibus-mozc
   apt-get install -y dconf-editor
   apt-get install -y xsel
   apt-get install -y network-manager-l2tp-gnome
