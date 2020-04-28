@@ -51,6 +51,7 @@ apt-get install -y btrfs-progs
 apt-get install -y bindfs
 apt-get install -y sshfs
 apt-get install -y cloud-guest-utils
+apt-get install -y cloud-image-utils
 apt-get install -y testdisk
 apt-get install -y curl
 apt-get install -y httpie

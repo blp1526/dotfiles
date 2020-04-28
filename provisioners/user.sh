@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#####################
+# My GNOME Terminal Profile Preferences Colors
+#
+# * Text and Background Color
+#   * Built-in schemes: Tango dark
+# * Palette
+#   * Built-in schemes: Solarized
+#####################
+
 set -eux
 
 mkdir -p ~/bin
