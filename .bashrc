@@ -146,7 +146,7 @@ fi
 
 # only server
 if [ "$DISPLAY" = "" ]; then
-  # ssh-agent
+  # ssh-agent for tmux
   agent="${HOME}/.ssh/agent"
   if [ -S "${SSH_AUTH_SOCK}" ]; then
     case ${SSH_AUTH_SOCK} in

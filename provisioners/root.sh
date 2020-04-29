@@ -6,7 +6,7 @@ if [ "$(whoami)" != "root" ]; then
   exit 1
 fi
 
-grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
+grep 'PRETTY_NAME="Ubuntu 20.04 LTS"' /etc/os-release >/dev/null 2>&1
 if [ "$?" != "0" ]; then
   echo "Unexpected OS"
   exit 1
@@ -35,7 +35,6 @@ apt-get install -y dstat
 apt-get install -y iotop
 apt-get install -y fio
 apt-get install -y cpulimit
-apt-get install -y exa
 apt-get install -y bat
 apt-get install -y tree
 apt-get install -y pwgen
