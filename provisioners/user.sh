@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #####################
-# My GNOME Terminal Profile Preferences Colors
+# GNOME Terminal Profile Preferences Colors Sample
 #
 # * Text and Background Color
 #   * Built-in schemes: Tango dark
@@ -46,6 +46,8 @@ done
 
 if ! type anyenv >/dev/null 2>&1; then
   git clone https://github.com/anyenv/anyenv ~/.anyenv
+  mkdir -p ~/.anyenv/plugins
+  git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
 fi
 
 if ! type rustc >/dev/null 2>&1; then
@@ -55,6 +57,7 @@ fi
 if ! type gibo >/dev/null 2>&1; then
   # https://github.com/simonwhitaker/gibo#installation
   git clone https://github.com/simonwhitaker/gibo.git ~/src/github.com/simonwhitaker/gibo
+  ln -sf ~/src/github.com/simonwhitaker/gibo/gibo ~/bin/gibo
 fi
 
 if ! [ -e ~/src/github.com/Bash-it/bash-it ]; then
