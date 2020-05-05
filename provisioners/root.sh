@@ -172,6 +172,9 @@ if [ ${?} -eq 0 ]; then
   apt-get install -y network-manager-l2tp-gnome
   apt-get install -y keepassxc
   apt-get install -y wireshark
+
+  snap install code --classic
+  snap install atom --classic
 fi
 
 lscpu | grep -i vmware >/dev/null 2>&1
