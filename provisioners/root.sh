@@ -22,7 +22,6 @@ apt-get install -y debconf-utils
 apt-get install -y gdisk
 apt-get install -y git
 apt-get install -y git-extras
-apt-get install -y etckeeper
 apt-get install -y vim
 apt-get install -y fish
 apt-get install -y neovim
@@ -52,6 +51,7 @@ apt-get install -y sshfs
 apt-get install -y cloud-guest-utils
 apt-get install -y cloud-image-utils
 apt-get install -y testdisk
+apt-get install -y ncdu
 apt-get install -y curl
 apt-get install -y httpie
 apt-get install -y wget
