@@ -93,6 +93,7 @@ PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
 # alias
+alias cp='cp -aiv'
 alias ls='ls --color=auto --group-directories-first --time-style=full-iso'
 alias less='less -I --chop-long-lines'
 alias grep='grep --color=auto'
