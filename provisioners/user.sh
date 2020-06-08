@@ -50,6 +50,10 @@ if ! type anyenv >/dev/null 2>&1; then
   git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
 fi
 
+if type anyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
+  git clone https://github.com/pyenv/pyenv-virtualenv.git "$(pyenv root)/plugins/pyenv-virtualenv"
+fi
+
 if ! type rustc >/dev/null 2>&1; then
   curl https://sh.rustup.rs -sSf | sh
 fi
