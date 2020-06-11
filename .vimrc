@@ -25,6 +25,7 @@ let s:vimrc_packages = [
       \ 'Yggdroot/indentLine',
       \ 'elzr/vim-json',
       \ 'keith/swift.vim',
+      \ 'davidhalter/jedi-vim',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
