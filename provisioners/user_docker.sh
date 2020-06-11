@@ -14,3 +14,6 @@ if ! [ -e ~/bin/docker-compose ]; then
   mv docker-compose-Linux-x86_64 docker-compose
   chmod 755 docker-compose
 fi
+
+# https://docs.docker.com/engine/security/rootless/
+# systemctl --user start docker
