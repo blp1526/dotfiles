@@ -26,6 +26,7 @@ let s:vimrc_packages = [
       \ 'elzr/vim-json',
       \ 'keith/swift.vim',
       \ 'davidhalter/jedi-vim',
+      \ 'nvie/vim-flake8',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
