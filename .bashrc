@@ -93,35 +93,34 @@ PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
 # alias
-alias cp='cp -aiv'
-alias ls='ls --color=auto --group-directories-first --time-style=full-iso'
-alias less='less -I --chop-long-lines'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias dmesg='dmesg --human --ctime --color=auto'
-alias tree='tree -I ".git|tags|vendor|node_modules|dist|tmp"'
-alias info='info --vi-keys'
-alias strace='strace -Ttt -ff -s 1500000'
-alias figlet='figlet -k -w 80'
-alias lsblk='lsblk --paths'
-alias cal='cal -3'
-alias rsync='rsync --archive --update --append-verify --checksum'
-alias date='date --iso-8601=ns'
-alias readlink='readlink -f'
-alias journalctl='journalctl --no-hostname --output short-precise'
+alias dotfiles-cp='cp -aiv'
+alias dotfiles-ls='ls --color=auto --group-directories-first --time-style=full-iso'
+alias dotfiles-less='less -I --chop-long-lines'
+alias dotfiles-grep='grep --color=auto'
+alias dotfiles-egrep='egrep --color=auto'
+alias dotfiles-dmesg='dmesg --human --ctime --color=auto'
+alias dotfiles-tree='tree -I ".git|tags|vendor|node_modules|dist|tmp"'
+alias dotfiles-info='info --vi-keys'
+alias dotfiles-strace='strace -Ttt -ff -s 1500000'
+alias dotfiles-figlet='figlet -k -w 80'
+alias dotfiles-lsblk='lsblk --paths'
+alias dotfiles-cal='cal -3'
+alias dotfiles-rsync='rsync --archive --update --append-verify --checksum'
+alias dotfiles-date='date --iso-8601=ns'
+alias dotfiles-readlink='readlink -f'
+alias dotfiles-journalctl='journalctl --no-hostname --output short-precise'
 
-alias inode='stat -c %i'
-alias hex2dec="printf '%d\n'"
-alias dec2hex="printf '%x\n'"
-alias udevinfo='udevadm info --query property --name'
-alias yyyymmddhhmm="\date +%Y%m%d%H%M"
-# via https://github.com/mpolden/echoip
-alias myip="\curl --silent https://ifconfig.co/json | jq ."
-alias fingerprint="ssh-keygen -E md5 -lf"
-alias find-broken-symlinks="find . -xtype l"
-alias docker-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
-alias base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
-alias dns-servers='systemd-resolve --status'
+alias dotfiles-inode='stat -c %i'
+alias dotfiles-hex2dec="printf '%d\n'"
+alias dotfiles-dec2hex="printf '%x\n'"
+alias dotfiles-udevinfo='udevadm info --query property --name'
+alias dotfiles-yyyymmddhhmm="\date +%Y%m%d%H%M"
+alias dotfiles-myip="\curl --silent https://ifconfig.co/json | jq ."
+alias dotfiles-fingerprint="ssh-keygen -E md5 -lf"
+alias dotfiles-find-broken-symlinks="find . -xtype l"
+alias dotfiles-docker-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
+alias dotfiles-base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
+alias dotfiles-dns-servers='systemd-resolve --status'
 
 # anyenv
 if type anyenv >/dev/null 2>&1; then

@@ -54,6 +54,7 @@ apt-get install -y cloud-guest-utils
 apt-get install -y cloud-image-utils
 apt-get install -y testdisk
 apt-get install -y ncdu
+apt-get install -y tldr
 apt-get install -y curl
 apt-get install -y httpie
 apt-get install -y wget
