@@ -66,6 +66,7 @@ apt-get install -y sysstat
 sed -e 's/^ENABLED="false"$/ENABLED="true"/g' -i /etc/default/sysstat
 apt-get install -y crash
 apt-get install -y ccze
+apt-get install -y base58
 apt-get install -y shellcheck
 apt-get install -y jq
 apt-get install -y peco
