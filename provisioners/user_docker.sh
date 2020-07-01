@@ -15,5 +15,13 @@ if ! [ -e ~/bin/docker-compose ]; then
   chmod 755 docker-compose
 fi
 
+if ! [ -e ~/bin/hadolint ]; then
+  cd ~/bin
+  latest=$(curl https://api.github.com/repos/hadolint/hadolint/releases/latest | jq -r .tag_name)
+  curl -LO "https://github.com/hadolint/hadolint/releases/download/${latest}/hadolint-Linux-x86_64"
+  mv hadolint-Linux-x86_64 hadolint
+  chmod 755 hadolint
+fi
+
 # https://docs.docker.com/engine/security/rootless/
 # systemctl --user start docker
