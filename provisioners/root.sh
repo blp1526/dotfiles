@@ -77,6 +77,7 @@ apt-get install -y clang-format
 apt-get install -y liblz4-tool
 apt-get install -y binwalk
 apt-get install -y exiftool
+apt-get install -y oathtool
 apt-get install -y uuid-dev
 apt-get install -y libpopt-dev
 apt-get install -y libelf-dev
