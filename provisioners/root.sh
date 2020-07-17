@@ -46,6 +46,7 @@ apt-get install -y systemd-container
 apt-get install -y debootstrap
 apt-get install -y gdebi
 apt-get install -y btrfs-progs
+apt-get install -y snapper
 apt-get install -y bindfs
 apt-get install -y sshfs
 apt-get install -y gocryptfs
