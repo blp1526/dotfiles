@@ -151,6 +151,9 @@ apt-get install -y libxslt-dev
 apt-get install -y libcurl4-openssl-dev
 apt-get install -y libzip-dev
 
+# snap
+snap install termdown
+
 # KVM
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
