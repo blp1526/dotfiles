@@ -216,6 +216,11 @@ augroup Spell
   autocmd Filetype gitcommit setlocal spell
 augroup END
 
+augroup Systemd
+  autocmd!
+  autocmd BufNewFile,BufRead *.service set filetype=systemd
+augroup END
+
 augroup GoBuffalo
   autocmd!
   autocmd BufNewFile,BufRead *.fizz set filetype=ruby
