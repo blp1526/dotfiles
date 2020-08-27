@@ -236,7 +236,7 @@ runtime ftplugin/man.vim
 " }}}
 " options {{{
 set clipboard=unnamedplus
-set grepprg=ag\ --hidden\ --ignore-dir=.git\ --ignore-dir=vendor
+set grepprg=ag\ --unrestricted\ --hidden\ --ignore-dir=.git\ --ignore-dir=vendor
 set noswapfile
 set nobackup
 set nonumber
