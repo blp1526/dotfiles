@@ -1,8 +1,7 @@
 if type sw_vers >/dev/null 2>&1; then
   # macOS
   export BASH_SILENCE_DEPRECATION_WARNING=1
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
-  source /usr/local/etc/bash_completion.d/git-completion.bash
+  source $(brew --prefix)/etc/bash_completion
 else
   # Ubuntu
   source /usr/lib/git-core/git-sh-prompt

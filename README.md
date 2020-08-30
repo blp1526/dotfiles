@@ -4,7 +4,16 @@
 
 ## Usage
 
+Ubuntu
+
 ```
-sudo bash provisioners/root.sh
-bash provisioners/user.sh
+$ sudo ./provisioners/root_ubuntu.sh
+$ ./provisioners/user_common.sh
+```
+
+macOS
+
+```
+$ ./provisioners/user_macos.sh
+$ ./provisioners/user_common.sh
 ```
