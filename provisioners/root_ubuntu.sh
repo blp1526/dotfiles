@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/usr/bin/env bash -eux
 
 if [ "$(whoami)" != "root" ]; then
   echo "Use sudo"

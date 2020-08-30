@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/usr/bin/env bash -eux
 
 #####################
 # GNOME Terminal Profile Preferences Colors Sample
@@ -44,21 +44,8 @@ for file_name in "${file_names[@]}"; do
   ln -sf "${dotfiles_path}/${file_name}" ~/"${file_name}"
 done
 
-if ! type anyenv >/dev/null 2>&1; then
-  if type sw_vers >/dev/null 2>&1; then
-    # https://github.com/anyenv/anyenv
-    brew install anyenv
-    # https://github.com/rbenv/ruby-build/wiki
-    # https://github.com/pyenv/pyenv/wiki
-    brew install openssl
-    brew install readline
-    brew install sqlite3
-    brew install xz
-    brew install zlib
-  else
-    # Ubuntu
-    git clone https://github.com/anyenv/anyenv ~/.anyenv
-  fi
+if type sw_vers >/dev/null 2>&1 && ! type anyenv >/dev/null 2>&1; then
+  git clone https://github.com/anyenv/anyenv ~/.anyenv
 fi
 
 if type anyenv >/dev/null 2>&1 && ! [ -e "$(anyenv root)/plugins/anyenv-update" ]; then
