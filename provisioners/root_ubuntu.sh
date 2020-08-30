@@ -1,12 +1,11 @@
-#!/bin/bash
-set -eux
+#!/bin/bash -eux
 
 if [ "$(whoami)" != "root" ]; then
   echo "Use sudo"
   exit 1
 fi
 
-grep 'PRETTY_NAME="Ubuntu 20.04 LTS"' /etc/os-release >/dev/null 2>&1
+grep 'PRETTY_NAME="Ubuntu 20.04' /etc/os-release >/dev/null 2>&1
 if [ "$?" != "0" ]; then
   echo "Unexpected OS"
   exit 1

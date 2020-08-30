@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eux
 
 #####################
 # GNOME Terminal Profile Preferences Colors Sample
@@ -45,12 +45,28 @@ for file_name in "${file_names[@]}"; do
 done
 
 if ! type anyenv >/dev/null 2>&1; then
-  git clone https://github.com/anyenv/anyenv ~/.anyenv
-  mkdir -p ~/.anyenv/plugins
-  git clone https://github.com/znz/anyenv-update.git ~/.anyenv/plugins/anyenv-update
+  if type sw_vers >/dev/null 2>&1; then
+    # https://github.com/anyenv/anyenv
+    brew install anyenv
+    # https://github.com/rbenv/ruby-build/wiki
+    # https://github.com/pyenv/pyenv/wiki
+    brew install openssl
+    brew install readline
+    brew install sqlite3
+    brew install xz
+    brew install zlib
+  else
+    # Ubuntu
+    git clone https://github.com/anyenv/anyenv ~/.anyenv
+  fi
 fi
 
-if type anyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
+if type anyenv >/dev/null 2>&1 && ! [ -e "$(anyenv root)/plugins/anyenv-update" ]; then
+  mkdir -p "$(anyenv root)/plugins"
+  git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
+fi
+
+if type pyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
   git clone https://github.com/pyenv/pyenv-virtualenv.git "$(pyenv root)/plugins/pyenv-virtualenv"
 fi
 
@@ -68,8 +84,14 @@ if ! [ -e ~/src/github.com/Bash-it/bash-it ]; then
   git clone https://github.com/Bash-it/bash-it.git ~/src/github.com/Bash-it/bash-it
 fi
 
-if !  type diff-highlight >/dev/null 2>&1; then
-  cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
+if ! type diff-highlight >/dev/null 2>&1; then
+  if type sw_vers >/dev/null 2>&1; then
+    cp /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ~/bin/
+  else
+    # Ubuntu
+    cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/
+  fi
+
   chmod 755 ~/bin/diff-highlight
 fi
 
