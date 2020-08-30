@@ -1,3 +1,13 @@
+if type sw_vers >/dev/null 2>&1; then
+  # macOS
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+  source /usr/local/etc/bash_completion.d/git-completion.bash
+else
+  # Ubuntu
+  source /usr/lib/git-core/git-sh-prompt
+fi
+
 # export
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -85,9 +95,6 @@ PS1_JOBS_SIZE=${FG_YELLOW}'$(jobs_size)'
 PS1_USER=${FG_GREEN}'\u@\H'
 PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
 PS1_DIR=${FG_BLUE}'\w'
-if [[ -e /usr/lib/git-core/git-sh-prompt ]]; then
-  source /usr/lib/git-core/git-sh-prompt
-fi
 PS1_BRANCH=${FG_RED}'$(__git_ps1)'
 PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
