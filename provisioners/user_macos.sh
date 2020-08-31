@@ -1,4 +1,5 @@
-#!/usr/bin/env bash -eux
+#!/usr/bin/env bash
+set -eux
 
 brew install bash
 brew install bash-completion
@@ -16,6 +17,7 @@ brew install tree
 brew install lftp
 brew install gocryptfs
 brew install httpie
+brew install shellcheck
 brew install direnv
 brew install anyenv
 
@@ -31,6 +33,6 @@ brew install zlib
 if type docker >/dev/null 2>&1; then
   # https://docs.docker.com/docker-for-mac/#install-shell-completion
   etc=/Applications/Docker.app/Contents/Resources/etc
-  ln -s $etc/docker.bash-completion $(brew --prefix)/etc/bash_completion.d/docker
-  ln -s $etc/docker-compose.bash-completion $(brew --prefix)/etc/bash_completion.d/docker-compose
+  ln -sf "${etc}/docker.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker"
+  ln -sf "${etc}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 fi
