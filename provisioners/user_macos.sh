@@ -18,6 +18,9 @@ brew install lftp
 brew install gocryptfs
 brew install httpie
 brew install shellcheck
+brew install bat
+brew install ccze
+brew install mysql-client
 brew install direnv
 brew install anyenv
 
