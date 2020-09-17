@@ -5,6 +5,7 @@ brew install bash
 brew install bash-completion
 brew install git
 brew install git-extras
+brew install gh
 brew install vim
 brew install peco
 brew install tig
@@ -21,6 +22,8 @@ brew install shellcheck
 brew install bat
 brew install ccze
 brew install mysql-client
+brew install coreutils
+brew install util-linux
 brew install direnv
 brew install anyenv
 
