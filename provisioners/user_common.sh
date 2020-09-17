@@ -82,13 +82,3 @@ if ! type diff-highlight >/dev/null 2>&1; then
 
   chmod 755 ~/bin/diff-highlight
 fi
-
-if ! type gh >/dev/null 2>&1; then
-  tempdir=$(mktemp -d)
-  cd "${tempdir}"
-  version="$(curl https://api.github.com/repos/cli/cli/releases/latest | jq -r .tag_name | sed 's/v//g')"
-  wget "https://github.com/cli/cli/releases/download/v${version}/gh_${version}_linux_amd64.tar.gz"
-  tar zxvf "gh_${version}_linux_amd64.tar.gz"
-  mv "gh_${version}_linux_amd64/bin/gh" ~/bin/gh
-  rm -rf "${tempdir}"
-fi
