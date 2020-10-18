@@ -153,6 +153,7 @@ apt-get install -y libzip-dev
 
 # snap
 snap install termdown
+snap install onefetch
 
 # KVM
 lscpu | grep vmx >/dev/null 2>&1

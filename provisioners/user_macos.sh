@@ -13,6 +13,7 @@ brew install tmux
 brew install the_silver_searcher
 brew install jq
 brew install neofetch
+brew install onefetch
 brew install wget
 brew install tree
 brew install lftp
