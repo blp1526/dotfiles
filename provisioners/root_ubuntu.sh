@@ -155,6 +155,10 @@ apt-get install -y libzip-dev
 snap install termdown
 snap install onefetch
 
+if ! type rclone >/dev/null 2>&1; then
+  curl https://rclone.org/install.sh | bash
+fi
+
 # KVM
 lscpu | grep vmx >/dev/null 2>&1
 if [ ${?} -eq 0 ]; then
