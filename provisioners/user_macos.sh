@@ -18,6 +18,7 @@ brew install wget
 brew install tree
 brew install lftp
 brew install rclone
+brew install ansible
 brew install gocryptfs
 brew install httpie
 brew install shellcheck

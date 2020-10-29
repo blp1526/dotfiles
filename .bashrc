@@ -142,6 +142,7 @@ fi
 if [ -e "${HOME}/src/github.com/Bash-it/bash-it" ]; then
   source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/tmux.completion.bash"
   source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/virsh.completion.bash"
+  source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/vagrant.completion.bash"
 fi
 
 # only server or Wayland desktop
