@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -eux
 
 #####################
 # GNOME Terminal Profile Preferences Colors Sample
