@@ -1,7 +1,10 @@
 if type sw_vers >/dev/null 2>&1; then
   # macOS
   export BASH_SILENCE_DEPRECATION_WARNING=1
-  source $(brew --prefix)/etc/bash_completion
+
+  if type brew >/dev/null 2>&1; then
+    source $(brew --prefix)/etc/bash_completion
+  fi
 else
   # Ubuntu
   source /usr/lib/git-core/git-sh-prompt
@@ -18,7 +21,7 @@ export GOENV_DISABLE_GOPATH=1
 export GOENV_DISABLE_GOROOT=1
 export GOPATH=${HOME}
 
-if [ "${PATH_ORIG}" = "" ]; then
+if [ "${PATH_ORIG}" == "" ]; then
   export PATH_ORIG="${PATH}"
 fi
 
