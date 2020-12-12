@@ -44,7 +44,7 @@ for file_name in "${file_names[@]}"; do
   ln -sf "${dotfiles_path}/${file_name}" ~/"${file_name}"
 done
 
-if type sw_vers >/dev/null 2>&1 && ! type anyenv >/dev/null 2>&1; then
+if ! type anyenv >/dev/null 2>&1; then
   git clone https://github.com/anyenv/anyenv ~/.anyenv
 fi
 
@@ -55,10 +55,6 @@ fi
 
 if type pyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
   git clone https://github.com/pyenv/pyenv-virtualenv.git "$(pyenv root)/plugins/pyenv-virtualenv"
-fi
-
-if ! type rustc >/dev/null 2>&1; then
-  curl https://sh.rustup.rs -sSf | sh
 fi
 
 if ! type gibo >/dev/null 2>&1; then
@@ -73,11 +69,12 @@ fi
 
 if ! type diff-highlight >/dev/null 2>&1; then
   if type sw_vers >/dev/null 2>&1; then
-    cp /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ~/bin/
+    if type brew >/dev/null 2>&1; then
+      cp /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ~/bin/
+    fi
   else
     # Ubuntu
     cp /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/
   fi
-
   chmod 755 ~/bin/diff-highlight
 fi

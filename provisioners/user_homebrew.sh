@@ -30,7 +30,6 @@ brew install mysql-client
 brew install coreutils
 brew install util-linux
 brew install direnv
-brew install anyenv
 
 # https://github.com/rbenv/ruby-build/wiki
 # https://github.com/pyenv/pyenv/wiki
@@ -39,7 +38,6 @@ brew install readline
 brew install sqlite3
 brew install xz
 brew install zlib
-
 
 if type docker >/dev/null 2>&1; then
   # https://docs.docker.com/docker-for-mac/#install-shell-completion
