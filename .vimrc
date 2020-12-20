@@ -372,6 +372,9 @@ let g:indentLine_enabled = 1
 " puremourning/vimspector {{{
 let g:vimspector_enable_mappings = 'HUMAN'
 " }}}
+" blp1526/storage.vim {{{
+let g:storage_vim_cmd = 'aws s3'
+" }}}
 " }}}
 
 filetype plugin indent on

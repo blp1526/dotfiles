@@ -1,9 +1,13 @@
 if type sw_vers >/dev/null 2>&1; then
   # macOS
   export BASH_SILENCE_DEPRECATION_WARNING=1
-
   if type brew >/dev/null 2>&1; then
-    source $(brew --prefix)/etc/bash_completion
+    if type kubectl >/dev/null 2>&1; then
+      if ! [ -f "$(brew --prefix)/etc/bash_completion.d/kubectl" ]; then
+        kubectl completion bash > "$(brew --prefix)/etc/bash_completion.d/kubectl"
+      fi
+    fi
+    source "$(brew --prefix)/etc/bash_completion"
   fi
 else
   # Ubuntu

@@ -19,7 +19,6 @@ brew install tree
 brew install lftp
 brew install rclone
 brew install ansible
-brew install gocryptfs
 brew install gnupg2
 brew install gopass
 brew install httpie
