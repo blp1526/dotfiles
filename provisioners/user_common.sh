@@ -68,7 +68,7 @@ if ! [ -e ~/src/github.com/Bash-it/bash-it ]; then
 fi
 
 if ! type diff-highlight >/dev/null 2>&1; then
-  if type sw_vers >/dev/null 2>&1; then
+  if [ "$(uname)" == "Darwin" ]; then
     if type brew >/dev/null 2>&1; then
       cp /usr/local/share/git-core/contrib/diff-highlight/diff-highlight ~/bin/
     fi

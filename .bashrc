@@ -1,5 +1,4 @@
-if type sw_vers >/dev/null 2>&1; then
-  # macOS
+if [ "$(uname)" == "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
   if type brew >/dev/null 2>&1; then
     if type kubectl >/dev/null 2>&1; then
@@ -148,7 +147,6 @@ fi
 # bash-it
 if [ -e "${HOME}/src/github.com/Bash-it/bash-it" ]; then
   source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/tmux.completion.bash"
-  source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/virsh.completion.bash"
   source "${HOME}/src/github.com/Bash-it/bash-it/completion/available/vagrant.completion.bash"
 fi
 
