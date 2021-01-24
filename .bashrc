@@ -134,10 +134,15 @@ alias dotfiles-docker-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}
 alias dotfiles-base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
 alias dotfiles-dns-servers='systemd-resolve --status'
 
-# anyenv
-if type anyenv >/dev/null 2>&1; then
-  eval "$(anyenv init -)"
+if [ -e "${HOME}/.asdf" ]; then
+  source "${HOME}/.asdf/asdf.sh"
+  source "${HOME}/.asdf/completions/asdf.bash"
 fi
+
+# anyenv
+# if type anyenv >/dev/null 2>&1; then
+#   eval "$(anyenv init -)"
+# fi
 
 # direnv
 if type direnv >/dev/null 2>&1; then

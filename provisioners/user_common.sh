@@ -57,6 +57,12 @@ if type pyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv"
   git clone https://github.com/pyenv/pyenv-virtualenv.git "$(pyenv root)/plugins/pyenv-virtualenv"
 fi
 
+if ! type asdf >/dev/null 2>&1; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+  git checkout "$(git describe --abbrev=0 --tags)"
+fi
+
 if ! type gibo >/dev/null 2>&1; then
   # https://github.com/simonwhitaker/gibo#installation
   git clone https://github.com/simonwhitaker/gibo.git ~/src/github.com/simonwhitaker/gibo
