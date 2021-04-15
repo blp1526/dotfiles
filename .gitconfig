@@ -26,3 +26,5 @@
   fp = fetch --prune
 [user]
   useConfigOnly = true
+[ghq]
+  root = ~/src

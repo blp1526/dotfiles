@@ -10,7 +10,7 @@ if [ "$(uname)" == "Darwin" ]; then
   fi
 else
   # Ubuntu
-  source /usr/lib/git-core/git-sh-prompt
+  source "/usr/lib/git-core/git-sh-prompt"
 fi
 
 # export
@@ -28,7 +28,7 @@ if [ "${PATH_ORIG}" == "" ]; then
   export PATH_ORIG="${PATH}"
 fi
 
-export PATH=${HOME}/.anyenv/bin:${HOME}/.cargo/bin:${HOME}/bin:${PATH_ORIG}
+export PATH=${HOME}/bin:${PATH_ORIG}
 
 # functions
 dummy-img() {
@@ -44,10 +44,7 @@ dummy-img() {
 
 c() {
   local previous_dir=$(pwd)
-  local selected_dir=$(
-    find -L "${HOME}/src" -mindepth 3 -maxdepth 4 -type d | \
-    grep "\.git$" | sed s/\\/\.git$// | peco
-  )
+  local selected_dir=$(ghq list --full-path | peco)
   # XXX: case SIGINT
   if [ "${selected_dir}" = "" ]; then
     cd ${previous_dir}
@@ -138,11 +135,6 @@ if [ -e "${HOME}/.asdf" ]; then
   source "${HOME}/.asdf/asdf.sh"
   source "${HOME}/.asdf/completions/asdf.bash"
 fi
-
-# anyenv
-# if type anyenv >/dev/null 2>&1; then
-#   eval "$(anyenv init -)"
-# fi
 
 # direnv
 if type direnv >/dev/null 2>&1; then
