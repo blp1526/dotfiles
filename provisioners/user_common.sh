@@ -44,19 +44,6 @@ for file_name in "${file_names[@]}"; do
   ln -sf "${dotfiles_path}/${file_name}" ~/"${file_name}"
 done
 
-if ! type anyenv >/dev/null 2>&1; then
-  git clone https://github.com/anyenv/anyenv ~/.anyenv
-fi
-
-if type anyenv >/dev/null 2>&1 && ! [ -e "$(anyenv root)/plugins/anyenv-update" ]; then
-  mkdir -p "$(anyenv root)/plugins"
-  git clone https://github.com/znz/anyenv-update.git "$(anyenv root)/plugins/anyenv-update"
-fi
-
-if type pyenv >/dev/null 2>&1 && ! [ -e "$(pyenv root)/plugins/pyenv-virtualenv" ]; then
-  git clone https://github.com/pyenv/pyenv-virtualenv.git "$(pyenv root)/plugins/pyenv-virtualenv"
-fi
-
 if ! type asdf >/dev/null 2>&1; then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
   cd ~/.asdf
