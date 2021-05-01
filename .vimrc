@@ -27,7 +27,6 @@ let s:vimrc_packages = [
       \ 'keith/swift.vim',
       \ 'davidhalter/jedi-vim',
       \ 'nvie/vim-flake8',
-      \ 'puremourning/vimspector',
       \ 'blp1526/storage.vim',
       \ ]
 " netrw
@@ -368,9 +367,6 @@ let g:vim_json_syntax_conceal = 0
 " }}}
 " Yggdroot/indentLine {{{
 let g:indentLine_enabled = 1
-" }}}
-" puremourning/vimspector {{{
-let g:vimspector_enable_mappings = 'HUMAN'
 " }}}
 " blp1526/storage.vim {{{
 let g:storage_vim_cmd = 'aws s3'
