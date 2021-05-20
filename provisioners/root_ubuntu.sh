@@ -151,6 +151,12 @@ apt-get install -y libxslt-dev
 apt-get install -y libcurl4-openssl-dev
 apt-get install -y libzip-dev
 
+# https://github.com/cli/cli/blob/6aedba38c4d98df99f3896845a9682aa08f72982/docs/install_linux.md
+apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+apt-add-repository https://cli.github.com/packages
+apt-get update -y
+apt-get install -y gh
+
 # snap
 snap install termdown
 snap install onefetch
