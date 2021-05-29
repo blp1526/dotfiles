@@ -16,8 +16,6 @@ mkdir -p ~/src
 
 dotfiles_path=~/src/github.com/blp1526/dotfiles
 
-ln -sf ${dotfiles_path}/bin/git-xclone ~/bin/git-xclone
-
 mkdir -p ~/.config/nvim
 ln -sf ${dotfiles_path}/.config/nvim/init.vim ~/.config/nvim/init.vim
 
