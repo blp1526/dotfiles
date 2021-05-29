@@ -1,43 +1,30 @@
 #!/usr/bin/env bash
+# https://docs.docker.com/engine/install/ubuntu/
 set -eux
 
-if [ "$(whoami)" != "root" ]; then
-  echo "Use sudo"
-  exit 1
-fi
+sudo apt-get update -y
 
-grep "ID=ubuntu" /etc/os-release >/dev/null 2>&1
-if [ "$?" -ne "0" ]; then
-  echo "Unexpected OS"
-  exit 1
-fi
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y ca-certificates
+sudo apt-get install -y curl
+sudo apt-get install -y gnupg
+sudo apt-get install -y lsb-release
 
-code_name=$(lsb_release -cs)
-echo "If you don't want docker for ${code_name}, enter specific code name."
-read -r expected_code_name
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-if [ "${expected_code_name}" != "" ]; then
-  code_name="${expected_code_name}"
-fi
-
-# docker-ce https://docs.docker.com/install/linux/docker-ce/ubuntu
-apt-get install -y apt-transport-https
-apt-get install -y ca-certificates
-apt-get install -y curl
-apt-get install -y gnupg-agent
-apt-get install -y software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 target="amd64"
 if [ "$(arch)" == "aarch64" ]; then
   target="arm64"
 fi
-add-apt-repository "deb [arch=${target}] https://download.docker.com/linux/ubuntu ${code_name} stable"
-apt-get update -y
 
-apt-get install -y docker-ce
-apt-get install -y docker-ce-cli
-apt-get install -y containerd.io
-apt-get install -y docker-compose
+echo \
+  "deb [arch=${target} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# postinstall https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+sudo apt-get update -y
+
+sudo apt-get install -y docker-ce
+sudo apt-get install -y docker-ce-cli
+sudo apt-get install -y containerd.io
+
+echo "Read https://docs.docker.com/engine/install/linux-postinstall/"
