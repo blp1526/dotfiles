@@ -1,4 +1,5 @@
 if [ "$(uname)" == "Darwin" ]; then
+  alias ll='gls -l --color=auto --group-directories-first'
   export BASH_SILENCE_DEPRECATION_WARNING=1
   if type brew >/dev/null 2>&1; then
     if type kubectl >/dev/null 2>&1; then
@@ -10,6 +11,7 @@ if [ "$(uname)" == "Darwin" ]; then
   fi
 else
   # Ubuntu
+  alias ll='ls -l --color=auto --group-directories-first'
   source "/usr/lib/git-core/git-sh-prompt"
 fi
 
@@ -102,8 +104,8 @@ PS1_DOLLAR=${FG_NORMAL}'\n\$ '
 PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOLLAR}"
 
 # alias
+alias la='ll -a'
 alias dotfiles-cp='cp -aiv'
-alias dotfiles-ls='ls --color=auto --group-directories-first'
 alias dotfiles-less='less -I --chop-long-lines'
 alias dotfiles-grep='grep --color=auto'
 alias dotfiles-egrep='egrep --color=auto'
