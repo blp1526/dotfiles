@@ -4,7 +4,8 @@ set blame-view = line-number:yes,interval=1 id:yes date:default author:full text
 
 set vertical-split = no
 set split-view-height = 75%
-set diff-options = -m --first-parent
+set log-options = --show-signature
+set diff-options = -m --first-parent --show-signature
 set diff-highlight = true
 set ignore-case = yes
 
