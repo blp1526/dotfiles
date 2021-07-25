@@ -38,6 +38,7 @@ apt-get install -y bat
 apt-get install -y tree
 apt-get install -y pwgen
 apt-get install -y lftp
+apt-get install -y trash-cli
 apt-get install -y multipath-tools
 apt-get install -y pandoc
 apt-get install -y hwinfo

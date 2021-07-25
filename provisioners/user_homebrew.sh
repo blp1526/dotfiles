@@ -20,6 +20,7 @@ brew install lftp
 brew install rclone
 brew install ansible
 brew install gnupg2
+brew install pinentry-mac
 brew install gopass
 brew install httpie
 brew install shellcheck
@@ -29,6 +30,7 @@ brew install mysql-client
 brew install coreutils
 brew install util-linux
 brew install direnv
+brew install iproute2mac
 
 # https://github.com/rbenv/ruby-build/wiki
 # https://github.com/pyenv/pyenv/wiki
