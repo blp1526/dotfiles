@@ -22,10 +22,6 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='vim'
 export IGNOREEOF=256
 
-export GOENV_DISABLE_GOPATH=1
-export GOENV_DISABLE_GOROOT=1
-export GOPATH=${HOME}
-
 if [ "${PATH_ORIG}" == "" ]; then
   export PATH_ORIG="${PATH}"
 fi
@@ -80,7 +76,7 @@ mount-vmhgfs() {
 
 # shell variables
 SHELL='bash'
-HISTSIZE='1000'
+HISTSIZE='10000'
 HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 HISTIGNORE='history:clear:pwd:ls'
 

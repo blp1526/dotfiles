@@ -31,6 +31,8 @@ brew install coreutils
 brew install util-linux
 brew install direnv
 brew install iproute2mac
+brew install minikube
+brew install lazydocker
 
 # https://github.com/rbenv/ruby-build/wiki
 # https://github.com/pyenv/pyenv/wiki
