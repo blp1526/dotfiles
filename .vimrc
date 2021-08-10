@@ -349,6 +349,7 @@ let g:rustfmt_autosave = 1
 " }}}
 " embear/vim-localvimrc {{{
 let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 0
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
