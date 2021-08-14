@@ -31,6 +31,7 @@ brew install coreutils
 brew install util-linux
 brew install direnv
 brew install iproute2mac
+brew install qemu
 brew install minikube
 brew install lazydocker
 
