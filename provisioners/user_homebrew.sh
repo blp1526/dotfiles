@@ -5,6 +5,7 @@ brew install bash
 brew install bash-completion
 brew install git
 brew install git-extras
+brew install git-lfs
 brew install gh
 brew install vim
 brew install peco
