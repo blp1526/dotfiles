@@ -24,6 +24,7 @@ apt-get install -y git
 apt-get install -y git-extras
 apt-get install -y vim
 apt-get install -y fish
+apt-get install -y htop
 apt-get install -y neovim
 apt-get install -y tig
 apt-get install -y ansible

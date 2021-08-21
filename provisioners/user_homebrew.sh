@@ -35,6 +35,7 @@ brew install iproute2mac
 brew install qemu
 brew install minikube
 brew install lazydocker
+brew install htop
 
 # https://github.com/rbenv/ruby-build/wiki
 # https://github.com/pyenv/pyenv/wiki
