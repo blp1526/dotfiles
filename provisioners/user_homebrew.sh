@@ -9,6 +9,7 @@ brew install git-lfs
 brew install gh
 brew install vim
 brew install peco
+brew install ghq
 brew install tig
 brew install tmux
 brew install the_silver_searcher
@@ -33,6 +34,7 @@ brew install util-linux
 brew install direnv
 brew install iproute2mac
 brew install qemu
+brew install vagrant
 brew install minikube
 brew install lazydocker
 brew install htop
