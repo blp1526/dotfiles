@@ -14,6 +14,7 @@ brew install tig
 brew install tmux
 brew install the_silver_searcher
 brew install jq
+brew install yq
 brew install neofetch
 brew install onefetch
 brew install wget
