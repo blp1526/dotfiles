@@ -162,6 +162,7 @@ apt-get install -y gh
 # snap
 snap install termdown
 snap install onefetch
+snap install yq
 
 if ! type rclone >/dev/null 2>&1; then
   curl https://rclone.org/install.sh | bash

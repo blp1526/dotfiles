@@ -163,10 +163,7 @@ if [ "$DISPLAY" = "" ]; then
   elif [ -S ${agent} ]; then
     export SSH_AUTH_SOCK=${agent}
   else
-    echo "### no ssh-agent ###"
-    echo 'eval `ssh-agent`'
     eval `ssh-agent`
-    echo 'ssh-add'
     ssh-add
   fi
 fi
