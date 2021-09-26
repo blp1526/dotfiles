@@ -29,18 +29,6 @@ fi
 
 export PATH=${HOME}/bin:${PATH_ORIG}
 
-# functions
-dummy-img() {
-  local path="${1}"
-  local count="${2}"
-  local flag="${3}"
-  if [ "${flag}" != "--sparse" ]; then
-    dd if=/dev/zero of="${path}" bs=1024k count="${count}"
-  else
-    dd if=/dev/zero of="${path}" bs=1024k count=0 seek="${count}"
-  fi
-}
-
 c() {
   local previous_dir=$(pwd)
   local selected_dir=$(ghq list --full-path | peco)
@@ -50,12 +38,6 @@ c() {
   else
     cd ${selected_dir}
   fi
-}
-
-top() {
-  echo "x :Column-Highlight, z :Color/Monochrome, < :Move-Sort-Field-Left, > :Move-Sort-Field-Right"
-  read
-  $(which top)
 }
 
 jobs_size() {
@@ -150,21 +132,4 @@ fi
 if [ "$XDG_SESSION_TYPE" != "x11" ]; then
   # disable tty lock
   stty stop undef
-fi
-
-# only server
-if [ "$DISPLAY" = "" ]; then
-  # ssh-agent for tmux
-  agent="${HOME}/.ssh/agent"
-  if [ -S "${SSH_AUTH_SOCK}" ]; then
-    case ${SSH_AUTH_SOCK} in
-    /tmp/*/agent.[0-9]*)
-      ln -snf "${SSH_AUTH_SOCK}" ${agent} && export SSH_AUTH_SOCK=${agent}
-    esac
-  elif [ -S ${agent} ]; then
-    export SSH_AUTH_SOCK=${agent}
-  else
-    eval `ssh-agent`
-    ssh-add
-  fi
 fi

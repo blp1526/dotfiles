@@ -37,6 +37,7 @@ brew install iproute2mac
 brew install qemu
 brew install vagrant
 brew install minikube
+brew install docker
 brew install lazydocker
 brew install htop
 brew install ffmpeg
