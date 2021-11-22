@@ -35,6 +35,7 @@ brew install util-linux
 brew install direnv
 brew install iproute2mac
 brew install qemu
+brew install lima
 brew install vagrant
 brew install minikube
 brew install docker
