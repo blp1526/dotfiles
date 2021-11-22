@@ -15,7 +15,7 @@ mkdir -p ~/src
 dotfiles_path=~/src/github.com/blp1526/dotfiles
 
 mkdir -p ~/bin
-ln -sf ${dotfiles_path}/bin/git-config-local-gpg ~/bin/git-config-local-gpg
+ln -sf ${dotfiles_path}/bin/git-local-user ~/bin/git-local-user
 
 mkdir -p ~/.config/nvim
 ln -sf ${dotfiles_path}/.config/nvim/init.vim ~/.config/nvim/init.vim
@@ -27,6 +27,8 @@ mkdir -p ~/.config/git
 if ! [ -e ~/.config/git/ignore ]; then
   cp ${dotfiles_path}/.config/git/ignore ~/.config/git/ignore
 fi
+
+ln -sf ${dotfiles_path}/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 
 file_names=(
   .bashrc

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+read -r -p "Input local-user file: " GIT_LOCAL_USER_FILE
+source "${GIT_LOCAL_USER_FILE}"
+
+git config --local gpg.program "$(which gpg)"
+git config --local user.name "${GIT_LOCAL_USER_NAME}"
+git config --local user.email "${GIT_LOCAL_USER_EMAIL}"
+git config --local user.signingKey "${GIT_LOCAL_USER_SIGNINGKEY}"
+git config --local commit.gpgSign true
