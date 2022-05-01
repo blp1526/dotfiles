@@ -49,14 +49,6 @@ jobs_size() {
   fi
 }
 
-unix2date() {
-  date -d "@${1}"
-}
-
-mount-vmhgfs() {
-  sudo mount -t fuse.vmhgfs-fuse .host:/ /mnt/hgfs -o allow_other
-}
-
 # shell variables
 SHELL='bash'
 HISTSIZE='10000'
@@ -84,33 +76,7 @@ PS1="${PS1_JOBS_SIZE}${PS1_USER}${PS1_SEPARATOR}${PS1_DIR}${PS1_BRANCH}${PS1_DOL
 
 # alias
 alias la='ll -a'
-alias dotfiles-cp='cp -aiv'
-alias dotfiles-less='less -I --chop-long-lines'
-alias dotfiles-grep='grep --color=auto'
-alias dotfiles-egrep='egrep --color=auto'
-alias dotfiles-dmesg='dmesg --human --ctime --color=auto'
-alias dotfiles-tree='tree -I ".git|tags|vendor|node_modules|dist|tmp"'
-alias dotfiles-info='info --vi-keys'
-alias dotfiles-strace='strace -Ttt -ff -s 1500000'
-alias dotfiles-figlet='figlet -k -w 80'
-alias dotfiles-lsblk='lsblk --paths'
-alias dotfiles-cal='cal -3'
-alias dotfiles-rsync='rsync --archive --update --append-verify --checksum'
-alias dotfiles-date='date --iso-8601=ns'
-alias dotfiles-readlink='readlink -f'
-alias dotfiles-journalctl='journalctl --no-hostname --output short-precise'
-
-alias dotfiles-inode='stat -c %i'
-alias dotfiles-hex2dec="printf '%d\n'"
-alias dotfiles-dec2hex="printf '%x\n'"
-alias dotfiles-udevinfo='udevadm info --query property --name'
-alias dotfiles-yyyymmddhhmm="\date +%Y%m%d%H%M"
-alias dotfiles-myip="\curl --silent https://ifconfig.co/json | jq ."
-alias dotfiles-fingerprint="ssh-keygen -E md5 -lf"
-alias dotfiles-find-broken-symlinks="find . -xtype l"
-alias dotfiles-docker-stats='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"'
-alias dotfiles-base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
-alias dotfiles-dns-servers='systemd-resolve --status'
+alias base58='ruby -r active_support/all -e "puts SecureRandom.base58(24)"'
 
 if [ -e "${HOME}/.asdf" ]; then
   source "${HOME}/.asdf/asdf.sh"
