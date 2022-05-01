@@ -1,4 +1,0 @@
-dist: bionic
-script:
-  - pip install --user editorconfig-checker
-  - make
