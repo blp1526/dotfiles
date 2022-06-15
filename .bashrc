@@ -99,3 +99,7 @@ if [ "$XDG_SESSION_TYPE" != "x11" ]; then
   # disable tty lock
   stty stop undef
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/user/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

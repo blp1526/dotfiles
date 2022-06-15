@@ -12,6 +12,7 @@ brew install peco
 brew install ghq
 brew install tig
 brew install tmux
+brew install fish
 brew install the_silver_searcher
 brew install jq
 brew install yq
@@ -44,3 +45,6 @@ brew install readline
 brew install sqlite3
 brew install xz
 brew install zlib
+
+brew install --cask hyper
+brew install --cask rancher
