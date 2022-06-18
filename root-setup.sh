@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-set -eux
-
-if [ "$(whoami)" != "root" ]; then
-  echo "Use sudo"
-  exit 1
-fi
+set -ux
 
 grep 'PRETTY_NAME="Ubuntu 20.04' /etc/os-release >/dev/null 2>&1
 if [ "$?" != "0" ]; then
   echo "Unexpected OS"
+  exit 1
+fi
+
+if [ "$(whoami)" != "root" ]; then
+  echo "Use sudo"
   exit 1
 fi
 
@@ -205,7 +205,7 @@ if [ ${?} -eq 0 ]; then
   apt-get install -y open-vm-tools
   apt-get install -y open-vm-tools-desktop
   # http://libguestfs.org/guestfs.3.html#force_tcg via https://bugzilla.redhat.com/show_bug.cgi?id=1648403
-  cat /etc/environment | grep -E '^LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >/dev/null 2>&1
+  grep -E '^LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' /etc/environment >/dev/null 2>&1
   if [ ${?} -eq 1 ]; then
     echo 'LIBGUESTFS_BACKEND_SETTINGS="force_tcg"' >> /etc/environment
   fi

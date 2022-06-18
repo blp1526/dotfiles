@@ -1,11 +1,7 @@
 .PHONY: all
-all: lint
+all: check
 
-.PHONY: requirements
-requirements:
-	pip install editorconfig-checker
-
-.PHONY: lint
-lint:
-	editorconfig-checker
-	shellcheck -e SC2002 -e SC2181 ./provisioners/*.sh
+.PHONY: check
+check:
+	shellcheck .bashrc
+	shellcheck *.sh
