@@ -17,6 +17,9 @@ ln -sf "${dotfiles_path}/.config/peco/config.json" ~/.config/peco/config.json
 mkdir -p ~/.config/git
 ln -sf "${dotfiles_path}/.config/git/ignore" ~/.config/git/ignore
 
+mkdir -p ~/.config/nvim
+ln -sf "${dotfiles_path}/.config/nvim/init.vim" ~/.config/nvim/init.vim
+
 ln -sf "${dotfiles_path}/.gnupg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
 
 file_names=(
