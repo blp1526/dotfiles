@@ -2,12 +2,10 @@ scriptencoding utf-8
 
 " personal settings {{{
 " variables {{{
-let s:vimrc_kernel_path = substitute('/lib/modules/'.system('uname -r').'/build/include', "\\n", "", "")
 let s:package_path = '~/.vim/pack/mypack/start/'
 let s:vimrc_packages = [
       \ 'ctrlpvim/ctrlp.vim',
       \ 'tpope/vim-endwise',
-      \ 'scrooloose/syntastic',
       \ 'plasticboy/vim-markdown',
       \ 'cespare/vim-toml',
       \ 'simeji/winresizer',
@@ -24,9 +22,6 @@ let s:vimrc_packages = [
       \ 'dhruvasagar/vim-table-mode',
       \ 'Yggdroot/indentLine',
       \ 'elzr/vim-json',
-      \ 'keith/swift.vim',
-      \ 'davidhalter/jedi-vim',
-      \ 'nvie/vim-flake8',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
@@ -266,8 +261,6 @@ set textwidth=0
 set smartcase
 set nrformats=alpha
 set tags+=.git/tags
-" to search kernel functions by '[ CTRL-I', see :help include-search.
-let &path = s:vimrc_kernel_path.",".&path
 
 set laststatus=2
 set statusline=\|\ %t
@@ -295,15 +288,6 @@ let g:ctrlp_match_window  = 'bottom,order:btt,min:1,max:100,results:100'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard | grep -v "^vendor/" | uniq']
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
-" }}}
-" scrooloose/syntastic {{{
-let g:syntastic_c_include_dirs            = [s:vimrc_kernel_path]
-let g:syntastic_enable_perl_checker       = 1
-let g:syntastic_perl_checkers             = ['perl']
-let g:syntastic_ruby_checkers             = ['rubocop']
-let g:syntastic_eruby_ruby_quiet_messages = { 'regex': 'possibly useless use of a variable in void context' }
-let g:syntastic_javascript_checkers       = ['eslint']
-let g:syntastic_html_tidy_exec            = 'tidy5'
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_conceal = 0
@@ -369,6 +353,10 @@ let g:vim_json_syntax_conceal = 0
 let g:indentLine_enabled = 1
 " }}}
 " }}}
+
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 filetype plugin indent on
 syntax on
