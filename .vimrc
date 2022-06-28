@@ -22,6 +22,7 @@ let s:vimrc_packages = [
       \ 'dhruvasagar/vim-table-mode',
       \ 'Yggdroot/indentLine',
       \ 'elzr/vim-json',
+      \ 'github/copilot.vim',
       \ ]
 " netrw
 let g:netrw_liststyle = 3
