@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-set -eu
+set -eux -o pipefail
 
-source "${HOME}/.config/dotfiles/git-local-user.sh"
+source "${HOME}/.config/git/local-user"
 git config --local gpg.program "$(which gpg)"
 git config --local user.name "${GIT_LOCAL_USER_NAME}"
 git config --local user.email "${GIT_LOCAL_USER_EMAIL}"

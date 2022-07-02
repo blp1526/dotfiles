@@ -1,29 +1,41 @@
 scriptencoding utf-8
 
-" personal settings {{{
+" general settings {{{
+" packages {{{
+let s:plug_path = '~/.vim/autoload/plug.vim'
+if empty(glob(s:plug_path))
+  let s:plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  silent execute '!curl -fLo '.s:plug_path.' --create-dirs '.s:plug_url
+  autocmd VimEnter * PlugInstall --sync | source '~/.vimrc'
+endif
+
+call plug#begin()
+  Plug 'aklt/plantuml-syntax'
+  Plug 'cespare/vim-toml'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'dhruvasagar/vim-table-mode'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'embear/vim-localvimrc'
+  Plug 'elzr/vim-json'
+  Plug 'fatih/vim-go'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'github/copilot.vim'
+  Plug 'itchyny/lightline.vim'
+  Plug 'jparise/vim-graphql'
+  Plug 'othree/html5.vim'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'rust-lang/rust.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'sgur/vim-editorconfig'
+  Plug 'simeji/winresizer'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-fugitive'
+  Plug 'thinca/vim-qfreplace'
+  Plug 'Yggdroot/indentLine'
+call plug#end()
+" }}}
 " variables {{{
-let s:package_path = '~/.vim/pack/mypack/start/'
-let s:vimrc_packages = [
-      \ 'ctrlpvim/ctrlp.vim',
-      \ 'tpope/vim-endwise',
-      \ 'plasticboy/vim-markdown',
-      \ 'cespare/vim-toml',
-      \ 'simeji/winresizer',
-      \ 'sgur/vim-editorconfig',
-      \ 'fatih/vim-go',
-      \ 'scrooloose/nerdtree',
-      \ 'easymotion/vim-easymotion',
-      \ 'thinca/vim-qfreplace',
-      \ 'rust-lang/rust.vim',
-      \ 'embear/vim-localvimrc',
-      \ 'jparise/vim-graphql',
-      \ 'aklt/plantuml-syntax',
-      \ 'othree/html5.vim',
-      \ 'dhruvasagar/vim-table-mode',
-      \ 'Yggdroot/indentLine',
-      \ 'elzr/vim-json',
-      \ 'github/copilot.vim',
-      \ ]
 " netrw
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 75
@@ -31,101 +43,11 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 " }}}
 " functions {{{
-function! InstallPackages()
-  call system('mkdir -p ' . s:package_path)
-  for l:author_name_repo_name in s:vimrc_packages
-    let l:repo_name = split(l:author_name_repo_name, '/')[1]
-    if !isdirectory(expand(s:package_path . l:repo_name))
-      let l:git_clone     = 'git clone --depth 1'
-      let l:clone_from    = 'https://github.com/' . l:author_name_repo_name . '.git'
-      let l:clone_to      = s:package_path . l:repo_name
-      let l:clone_command = join([l:git_clone, l:clone_from, l:clone_to], ' ')
-      echo l:clone_command
-      call system(l:clone_command)
-      if isdirectory(expand(l:clone_to . '/doc'))
-        execute 'helptags ' . l:clone_to . '/doc'
-      endif
-      echo (join(['clone', l:author_name_repo_name, 'completed'], ' ')) . "\n"
-    endif
-  endfor
-endfunction
-
-function! UpdatePackages()
-  let l:dirs = split(globpath(s:package_path, '*'), "\n")
-  for l:dir in l:dirs
-    let l:command = 'git -C ' . l:dir . ' pull --ff origin master'
-    echo l:command
-    call system(l:command)
-  endfor
-  echo "all git pull finished"
-endfunction
-
-function! JSONBeautifier()
-  silent execute '%!jq .'
-endfunction
-command! JSONBeautifier call JSONBeautifier()
-
-function! JSONMinifier()
-  silent execute '%!jq -c .'
-endfunction
-command! JSONMinifier call JSONMinifier()
-
-function! Sjis()
-  silent execute 'edit' '++encoding=sjis'
-endfunction
-command! Sjis call Sjis()
-
-function! BinInfo()
-  silent execute '%!xxd -g 1'
-endfunction
-
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
   highlight JISX0208Space term=underline ctermbg=LightCyan
 endf
 
-function! CwdGitBranch()
-  try
-    if match(expand("%:p"), escape(getcwd(), "~")) == 0 && isdirectory(getcwd() . "/.git")
-      " head_list is ['ref:', 'refs/heads/branch_name'] or commit hash
-      let head_list = split(readfile(getcwd() . "/.git/HEAD")[0])
-      let last_index = (len(head_list) - 1)
-      let branch = substitute(head_list[last_index], "refs/heads/", "", "")
-      return " " . branch  . " |"
-    else
-      return ""
-    endif
-  catch
-    return " " . v:exception . " |"
-  endtry
-endfunction
-
-function! FtOrNoFt()
-  if &filetype !=? ""
-    return &filetype
-  else
-    return "no ft"
-  endif
-endfunction
-
-" https://www.kaoriya.net/blog/2014/12/28/
-" see :help %:h (filename-modifiers)
-function! s:GetBufferDirectory()
-  let path = expand('%:p:h')
-  let cwd = getcwd()
-  let dir = '.'
-  if match(path, escape(cwd, '\')) != 0
-    let dir = path
-  elseif strlen(path) > strlen(cwd)
-    let dir = strpart(path, strlen(cwd) + 1)
-  endif
-  return dir . (exists('+shellslash') && !&shellslash ? '\' : '/')
-endfunction
-" }}}
-" run once {{{
-if has('vim_starting')
-  call InstallPackages()
-endif
 " }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
@@ -169,9 +91,6 @@ vnoremap <C-t> :s/\%V
 
 " tab new gf
 nnoremap gf <C-w>gf
-
-" kaoriya keymap
-cnoremap <C-X> <C-R>=<SID>GetBufferDirectory()<CR>
 
 " search by yanked words
 nnoremap <leader>y /<C-R>"<CR>
@@ -264,18 +183,14 @@ set nrformats=alpha
 set tags+=.git/tags
 
 set laststatus=2
-set statusline=\|\ %t
-set statusline+=%m
-set statusline+=%r\ \|
-set statusline+=%{CwdGitBranch()}
-set statusline+=%=
-set statusline+=\|\ %{&fileformat}\ \|
-set statusline+=\ %{&encoding}\ \|
-set statusline+=\ %{FtOrNoFt()}\ \|
-set statusline+=\ %L\ \|
-set statusline+=\ %l,%c\ \|
 " }}}
 " }}}
+
+let s:lightline_colorscheme = 'wombat'
+if has('nvim')
+  colorscheme tokyonight
+  let s:lightline_colorscheme = 'tokyonight'
+endif
 
 " plugin settings {{{
 " ctrlpvim/ctrlp.vim {{{
@@ -290,10 +205,19 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
-" plasticboy/vim-markdown {{{
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_folding_disabled = 1
+" dhruvasagar/vim-table-mode {{{
+let g:table_mode_corner='|'
+" }}}
+" easymotion/vim-easymotion {{{
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" }}}
+" elzr/vim-json {{{
+let g:vim_json_syntax_conceal = 0
+" }}}
+" embear/vim-localvimrc {{{
+let g:localvimrc_ask = 0
+let g:localvimrc_sandbox = 0
 " }}}
 " fatih/vim-go {{{
 let g:go_highlight_build_constraints = 1
@@ -328,36 +252,35 @@ augroup VimGo
   autocmd FileType go nmap <leader>t <Plug>(go-test)
 augroup END
 " }}}
+" itchyny/lightline.vim {{{
+let g:lightline = {
+      \ 'colorscheme': s:lightline_colorscheme,
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+" }}}
+" plasticboy/vim-markdown {{{
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_disabled = 1
+" }}}
 " rust-lang/rust.vim {{{
 let g:rustfmt_autosave = 1
-" }}}
-" embear/vim-localvimrc {{{
-let g:localvimrc_ask = 0
-let g:localvimrc_sandbox = 0
 " }}}
 " scrooloose/nerdtree {{{
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 18
 noremap <Leader>n :NERDTreeToggle<CR>
 " }}}
-" easymotion/vim-easymotion {{{
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-" }}}
-" dhruvasagar/vim-table-mode {{{
-let g:table_mode_corner='|'
-" }}}
-" elzr/vim-json {{{
-let g:vim_json_syntax_conceal = 0
-" }}}
 " Yggdroot/indentLine {{{
 let g:indentLine_enabled = 1
 " }}}
 " }}}
-
-if !has('nvim')
-  set ttymouse=xterm2
-endif
 
 filetype plugin indent on
 syntax on
