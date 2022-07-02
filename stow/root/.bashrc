@@ -12,9 +12,9 @@ export LC_ALL=en_US.UTF-8
 GPG_TTY="$(tty)"
 export GPG_TTY
 
-export EDITOR='vim'
+export EDITOR='nvim'
+export TERM='xterm-256color'
 export IGNOREEOF=256
-
 
 if [ "$(uname)" == "Darwin" ]; then
   alias ll='gls -l --color=auto --group-directories-first'
