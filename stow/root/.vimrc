@@ -19,7 +19,6 @@ call plug#begin()
   Plug 'embear/vim-localvimrc'
   Plug 'elzr/vim-json'
   Plug 'fatih/vim-go'
-  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   Plug 'github/copilot.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'jparise/vim-graphql'
@@ -33,6 +32,11 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   Plug 'thinca/vim-qfreplace'
   Plug 'Yggdroot/indentLine'
+
+  if has('nvim')
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'phaazon/hop.nvim'
+  endif
 call plug#end()
 " }}}
 " variables {{{
@@ -186,12 +190,6 @@ set laststatus=2
 " }}}
 " }}}
 
-let s:lightline_colorscheme = 'wombat'
-if has('nvim')
-  colorscheme tokyonight
-  let s:lightline_colorscheme = 'tokyonight'
-endif
-
 " plugin settings {{{
 " ctrlpvim/ctrlp.vim {{{
 let g:ctrlp_prompt_mappings = {
@@ -209,8 +207,10 @@ let g:ctrlp_cmd = 'CtrlPCurWD'
 let g:table_mode_corner='|'
 " }}}
 " easymotion/vim-easymotion {{{
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+if !has('nvim')
+  map <leader>f <Plug>(easymotion-sn)
+  omap <leader>f <Plug>(easymotion-tn)
+endif
 " }}}
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
@@ -252,6 +252,13 @@ augroup VimGo
   autocmd FileType go nmap <leader>t <Plug>(go-test)
 augroup END
 " }}}
+" folke/tokyonight.nvim {{{
+let s:lightline_colorscheme = 'wombat'
+if has('nvim')
+  colorscheme tokyonight
+  let s:lightline_colorscheme = 'tokyonight'
+endif
+" }}}
 " itchyny/lightline.vim {{{
 let g:lightline = {
       \ 'colorscheme': s:lightline_colorscheme,
@@ -263,6 +270,12 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+" }}}
+" phaazon/hop.nvim {{{
+if has('nvim')
+  :lua require'hop'.setup()
+  nnoremap <leader>f :HopPattern<CR>
+endif
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_conceal = 0
@@ -282,6 +295,7 @@ let g:indentLine_enabled = 1
 " }}}
 " }}}
 
+set termguicolors
 filetype plugin indent on
 syntax on
 
