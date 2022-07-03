@@ -24,6 +24,7 @@ call plug#begin()
   Plug 'jparise/vim-graphql'
   Plug 'othree/html5.vim'
   Plug 'plasticboy/vim-markdown'
+  Plug 'previm/previm'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'sgur/vim-editorconfig'
@@ -281,6 +282,11 @@ endif
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
+" }}}
+" previm/previm {{{
+if has('mac')
+  let g:previm_open_cmd = 'open'
+endif
 " }}}
 " rust-lang/rust.vim {{{
 let g:rustfmt_autosave = 1
