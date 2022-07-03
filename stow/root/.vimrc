@@ -140,12 +140,6 @@ augroup Systemd
   autocmd!
   autocmd BufNewFile,BufRead *.service set filetype=systemd
 augroup END
-
-augroup GoBuffalo
-  autocmd!
-  autocmd BufNewFile,BufRead *.fizz set filetype=ruby
-  autocmd BufNewFile,BufRead *.plush.html set filetype=eruby
-augroup END
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
