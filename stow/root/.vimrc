@@ -36,6 +36,8 @@ call plug#begin()
 
   if has('nvim')
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'phaazon/hop.nvim'
   endif
 call plug#end()
@@ -265,6 +267,11 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+" }}}
+" nvim-telescope/telescope.nvim {{{
+if has('nvim')
+  nnoremap <leader>g :Telescope git_files<CR>
+endif
 " }}}
 " phaazon/hop.nvim {{{
 if has('nvim')
