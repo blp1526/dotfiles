@@ -5,5 +5,5 @@
 ```
 $ git clone <repository> <path>
 $ cd dotfiles
-$ ./common-setup.sh
+$ ./setup.sh
 ```

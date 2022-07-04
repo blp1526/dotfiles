@@ -20,7 +20,6 @@ call plug#begin()
   Plug 'embear/vim-localvimrc'
   Plug 'elzr/vim-json'
   Plug 'fatih/vim-go'
-  Plug 'github/copilot.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'jparise/vim-graphql'
   Plug 'othree/html5.vim'
