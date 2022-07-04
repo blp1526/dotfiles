@@ -16,6 +16,7 @@ call plug#begin()
   Plug 'dense-analysis/ale'
   Plug 'dhruvasagar/vim-table-mode'
   Plug 'easymotion/vim-easymotion'
+  Plug 'editorconfig/editorconfig-vim'
   Plug 'embear/vim-localvimrc'
   Plug 'elzr/vim-json'
   Plug 'fatih/vim-go'
@@ -27,19 +28,11 @@ call plug#begin()
   Plug 'previm/previm'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdtree'
-  Plug 'sgur/vim-editorconfig'
   Plug 'simeji/winresizer'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
   Plug 'thinca/vim-qfreplace'
   Plug 'Yggdroot/indentLine'
-
-  if has('nvim')
-    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    Plug 'phaazon/hop.nvim'
-  endif
 call plug#end()
 " }}}
 " variables {{{
@@ -111,9 +104,6 @@ nnoremap <leader>k [<C-i>
 
 " full path
 nnoremap <C-g> 1<C-g>
-
-" netrw
-nnoremap <silent><LEADER>e :Explore<CR>
 " }}}
 " augroup {{{
 augroup QuickFixAfterGrep
@@ -204,10 +194,8 @@ let g:ctrlp_cmd = 'CtrlPCurWD'
 let g:table_mode_corner='|'
 " }}}
 " easymotion/vim-easymotion {{{
-if !has('nvim')
-  map <leader>f <Plug>(easymotion-sn)
-  omap <leader>f <Plug>(easymotion-tn)
-endif
+map <leader>e <Plug>(easymotion-sn)
+omap <leader>e <Plug>(easymotion-tn)
 " }}}
 " elzr/vim-json {{{
 let g:vim_json_syntax_conceal = 0
@@ -249,16 +237,9 @@ augroup VimGo
   autocmd FileType go nmap <leader>t <Plug>(go-test)
 augroup END
 " }}}
-" folke/tokyonight.nvim {{{
-let s:lightline_colorscheme = 'wombat'
-if has('nvim')
-  colorscheme tokyonight
-  let s:lightline_colorscheme = 'tokyonight'
-endif
-" }}}
 " itchyny/lightline.vim {{{
 let g:lightline = {
-      \ 'colorscheme': s:lightline_colorscheme,
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -267,17 +248,6 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-" }}}
-" nvim-telescope/telescope.nvim {{{
-if has('nvim')
-  nnoremap <leader>g :Telescope git_files<CR>
-endif
-" }}}
-" phaazon/hop.nvim {{{
-if has('nvim')
-  :lua require'hop'.setup()
-  nnoremap <leader>f :HopPattern<CR>
-endif
 " }}}
 " plasticboy/vim-markdown {{{
 let g:vim_markdown_conceal = 0
