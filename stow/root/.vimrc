@@ -34,19 +34,11 @@ call plug#begin()
   Plug 'Yggdroot/indentLine'
 call plug#end()
 " }}}
-" variables {{{
-" netrw
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 75
-let g:netrw_altv = 1
-let g:netrw_alto = 1
-" }}}
 " functions {{{
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
-  highlight JISX0208Space term=underline ctermbg=LightCyan
-endf
-
+  highlight JISX0208Space term=underline ctermbg=LightCyan guibg=darkgray gui=underline
+endfunction
 " }}}
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
