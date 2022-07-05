@@ -95,6 +95,9 @@ nnoremap <leader>k [<C-i>
 
 " full path
 nnoremap <C-g> 1<C-g>
+
+" exit terminal
+tnoremap <ESC> <C-\><C-n>
 " }}}
 " augroup {{{
 augroup QuickFixAfterGrep
