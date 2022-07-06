@@ -3,8 +3,11 @@ vim.cmd([[
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
+
+nnoremap <silent><leader>t :split\|terminal<CR>
 ]])
 -- }}}
+
 -- plugin settings {{{
 require('plugins')
 -- folke/tokyonight.nvim {{{
