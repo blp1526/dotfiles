@@ -23,10 +23,10 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'jparise/vim-graphql'
   Plug 'othree/html5.vim'
-  Plug 'plasticboy/vim-markdown'
+  Plug 'preservim/nerdtree'
+  Plug 'preservim/vim-markdown'
   Plug 'previm/previm'
   Plug 'rust-lang/rust.vim'
-  Plug 'scrooloose/nerdtree'
   Plug 'simeji/winresizer'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
@@ -227,7 +227,12 @@ let g:lightline = {
       \ },
       \ }
 " }}}
-" plasticboy/vim-markdown {{{
+" preservim/nerdtree {{{
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 18
+nnoremap <silent><Leader>n :NERDTreeToggle<CR>
+" }}}
+" preservim/vim-markdown {{{
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
@@ -239,11 +244,6 @@ endif
 " }}}
 " rust-lang/rust.vim {{{
 let g:rustfmt_autosave = 1
-" }}}
-" scrooloose/nerdtree {{{
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinSize = 18
-noremap <Leader>n :NERDTreeToggle<CR>
 " }}}
 " Yggdroot/indentLine {{{
 let g:indentLine_enabled = 1
