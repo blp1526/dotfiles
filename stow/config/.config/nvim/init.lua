@@ -84,6 +84,7 @@ end
 -- nvim-telescope/telescope.nvim {{{
 vim.cmd([[
 nnoremap <leader>f :Telescope git_files show_untracked=true<CR>
+nnoremap <leader>g :Telescope live_grep<CR>
 ]])
 -- }}}
 -- phaazon/hop.nvim {{{
