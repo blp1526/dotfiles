@@ -227,7 +227,7 @@ let g:lightline = {
 " }}}
 " preservim/nerdtree {{{
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeWinSize = 18
+let g:NERDTreeWinSize = 32
 nnoremap <silent><Leader>n :NERDTreeToggle<CR>
 " }}}
 " preservim/vim-markdown {{{
