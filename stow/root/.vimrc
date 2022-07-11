@@ -43,8 +43,8 @@ endfunction
 " highlight {{{
 " https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
 highlight StatusLine ctermbg=black
-highlight Search  ctermfg=0 ctermbg=14
-highlight Visual  ctermfg=1 ctermbg=15
+highlight Search ctermfg=0 ctermbg=14
+highlight Visual ctermfg=1 ctermbg=15
 
 highlight Folded     ctermfg=0 ctermbg=10
 highlight FoldColumn ctermfg=0 ctermbg=10
