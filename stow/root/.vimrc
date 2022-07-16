@@ -40,27 +40,10 @@ function! JISX0208SpaceHilight()
   highlight JISX0208Space term=underline ctermbg=LightCyan guibg=darkgray gui=underline
 endfunction
 " }}}
-" highlight {{{
-" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/vim-color
-highlight StatusLine ctermbg=black
-highlight Search ctermfg=0 ctermbg=14
-highlight Visual ctermfg=1 ctermbg=15
-
-highlight Folded     ctermfg=0 ctermbg=10
-highlight FoldColumn ctermfg=0 ctermbg=10
-
-" http://secret-garden.hatenablog.com/entry/2016/08/16/000149
-highlight link EndOfBuffer Ignore
-" }}}
 " map {{{
-" http://d.hatena.ne.jp/h1mesuke/20080327/p1
 nnoremap <silent><ESC><ESC> :noh<CR>
 
-" http://qiita.com/kuwana/items/d9778a9ec42a53b3aa10
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-
+" command line emacs keybindings
 " http://cohama.hateblo.jp/entry/20130529/1369843236
 cnoremap <C-a> <Home>
 cnoremap <C-b> <Left>
@@ -110,13 +93,6 @@ augroup MultiByteSpace
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
 augroup END
 
-augroup Log
-  autocmd!
-  autocmd BufNewFile,BufRead *.log     setlocal cursorline
-  autocmd BufNewFile,BufRead *.log*.gz setlocal cursorline
-  autocmd Filetype           qf        setlocal cursorline
-augroup END
-
 augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
@@ -136,11 +112,12 @@ runtime ftplugin/man.vim
 set grepprg=rg\ --vimgrep\ --hidden\ --glob=!.git/\ --glob=!vendor/
 set noswapfile
 set nobackup
-set nonumber
+set number
 set nocompatible
 set notagbsearch
 set maxmempattern=2000000
 set hlsearch
+set cursorline
 set nowrap
 set ruler
 set spelllang+=cjk
