@@ -83,6 +83,7 @@ end
 -- }}}
 -- nvim-telescope/telescope.nvim {{{
 vim.cmd([[
+nnoremap <leader>b :Telescope buffers<CR>
 nnoremap <leader>f :Telescope git_files show_untracked=true<CR>
 nnoremap <leader>g :Telescope live_grep<CR>
 ]])
