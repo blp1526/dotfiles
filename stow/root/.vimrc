@@ -41,8 +41,16 @@ function! JISX0208SpaceHilight()
 endfunction
 " }}}
 " map {{{
-nnoremap <silent><ESC><ESC> :noh<CR>
-
+" nnoremap {{{
+nnoremap <silent><ESC><ESC> :nohlsearch<CR>
+" tab
+nnoremap <silent><C-c> :tabclose<CR>
+nnoremap <silent><C-n> :tabnew<CR>
+nnoremap <silent><C-h> :tabprevious<CR>
+nnoremap <silent><C-l> :tabnext<CR>
+nnoremap <silent><C-s> :tab split<CR>
+" }}}
+" cnoremap {{{
 " command line emacs keybindings
 " http://cohama.hateblo.jp/entry/20130529/1369843236
 cnoremap <C-a> <Home>
@@ -52,35 +60,11 @@ cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
-
-" tab
-nnoremap <silent><C-c> :tabclose<CR>
-nnoremap <silent><C-n> :tabnew<CR>
-nnoremap <silent><C-h> :tabprevious<CR>
-nnoremap <silent><C-l> :tabnext<CR>
-nnoremap <silent><C-s> :tab split<CR>
-
-" selected text replacement
-vnoremap <C-t> :s/\%V
-
-" tab new gf
-nnoremap gf <C-w>gf
-
-" search by yanked words
-nnoremap <leader>y /<C-R>"<CR>
-
-" spell suggestion
-nnoremap <leader>s z=
-
-" jump to the first line that contains the keyword under the cursor
-" via :help [_CTRL-I
-nnoremap <leader>k [<C-i>
-
-" full path
-nnoremap <C-g> 1<C-g>
-
+" }}}
+" tnoremap {{{
 " exit terminal
 tnoremap <ESC> <C-\><C-n>
+" }}}
 " }}}
 " augroup {{{
 augroup QuickFixAfterGrep
@@ -141,7 +125,7 @@ set textwidth=0
 set smartcase
 set nrformats=alpha
 set tags+=.git/tags
-
+set showtabline=2
 set laststatus=2
 " }}}
 " }}}
