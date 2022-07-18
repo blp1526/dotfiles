@@ -5,6 +5,11 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 nnoremap <silent><leader>t :split\|terminal<CR>
+
+augroup TerminalNoNumber
+  autocmd!
+  autocmd TermOpen * setlocal nonumber
+augroup END
 ]])
 -- }}}
 
@@ -40,6 +45,7 @@ cmp.setup({
 })
 -- }}}
 -- itchyny/lightline.vim {{{
+-- https://github.com/itchyny/lightline.vim/issues/245#issuecomment-375136013
 vim.cmd([[
 let g:lightline = {
       \ 'colorscheme': 'tokyonight',
@@ -50,7 +56,17 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
       \ },
+      \ 'tab': {
+      \   'active': [ 'tabnum', 'cwd', 'filename', 'modified' ],
+      \   'inactive': [ 'tabnum', 'cwd', 'filename', 'modified' ]
+      \ },
+      \ 'tab_component_function': {
+      \   'cwd': 'LightlineCurrentDirectory'
       \ }
+      \ }
+function! LightlineCurrentDirectory(n) abort
+  return fnamemodify(getcwd(tabpagewinnr(a:n), a:n), ':t')
+endfunction
 ]])
 -- }}}
 -- neovim/nvim-lspconfig {{{
@@ -85,7 +101,7 @@ end
 vim.cmd([[
 nnoremap <leader>b :Telescope buffers<CR>
 nnoremap <leader>f :Telescope git_files show_untracked=true<CR>
-nnoremap <leader>g :Telescope live_grep<CR>
+nnoremap <leader>g :Telescope ghq list<CR>
 ]])
 -- }}}
 -- phaazon/hop.nvim {{{
