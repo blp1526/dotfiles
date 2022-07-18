@@ -81,11 +81,6 @@ augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
 augroup END
-
-augroup Systemd
-  autocmd!
-  autocmd BufNewFile,BufRead *.service set filetype=systemd
-augroup END
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
