@@ -42,13 +42,18 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
+# zoxide
+if type zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+
 # alias
 alias la='ll -a'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
 # function
-j() {
+jump() {
   local current_dir
   current_dir="$(pwd)"
 
@@ -64,10 +69,6 @@ j() {
 
   cd "${next_dir}"
 }
-
-# https://www.reddit.com/r/linuxquestions/comments/5w9t1z/redrawing_prompt_in_bash/
-bind -x '"\201": j'
-bind '"\C-j": "\201\C-m"'
 
 # shell variables
 SHELL='bash'
