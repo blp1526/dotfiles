@@ -98,9 +98,13 @@ local on_attach = function(client, bufnr)
 end
 -- }}}
 -- nvim-telescope/telescope.nvim {{{
+require('telescope').setup {
+  defaults = { file_ignore_patterns = { '^./.git/' } }
+}
+
 vim.cmd([[
 nnoremap <leader>b :Telescope buffers<CR>
-nnoremap <leader>f :Telescope git_files show_untracked=true<CR>
+nnoremap <leader>f :Telescope find_files hidden=true<CR>
 nnoremap <leader>g :Telescope ghq list<CR>
 ]])
 -- }}}

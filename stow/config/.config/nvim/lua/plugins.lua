@@ -30,9 +30,10 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-telescope/telescope-ghq.nvim' },
     config = function()
-      require'telescope'.load_extension'ghq'
+      require('telescope').load_extension('ghq')
     end
   }
+
   use 'phaazon/hop.nvim'
   use 'williamboman/nvim-lsp-installer'
 
