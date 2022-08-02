@@ -81,6 +81,11 @@ augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
 augroup END
+
+augroup Markdown
+  autocmd!
+  autocmd Filetype markdown setlocal wrap
+augroup END
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
