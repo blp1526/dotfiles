@@ -93,7 +93,7 @@ runtime macros/matchit.vim
 runtime ftplugin/man.vim
 " }}}
 " options {{{
-set grepprg=rg\ --vimgrep\ --hidden\ --glob=!.git/\ --glob=!vendor/
+set grepprg=rg\ --vimgrep\ -i\ --hidden\ --glob=!.git/\ --glob=!vendor/
 set noswapfile
 set nobackup
 set number
