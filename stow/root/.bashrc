@@ -53,7 +53,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 
 # function
-jump() {
+ghq-cd() {
   local current_dir
   current_dir="$(pwd)"
 
@@ -91,7 +91,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 
 PS1_USER=${FG_GREEN}'\u@\H'
 PS1_SEPARATOR=${FG_LIGHT_GRAY}':'
-PS1_DIR=${FG_BLUE}'\W'
+PS1_DIR=${FG_BLUE}'\w'
 # shellcheck disable=SC2016
 PS1_BRANCH=${FG_RED}'$(__git_ps1)'
 PS1_DOLLAR=${FG_NORMAL}'\n\$ '
