@@ -50,16 +50,25 @@ nnoremap <silent><C-h> :tabprevious<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-s> :tab split<CR>
 " }}}
+" inoremap {{{
+" insert mode emacs keybindings
+inoremap <silent><C-a> <Home>
+inoremap <silent><C-e> <End>
+inoremap <silent><C-b> <Left>
+inoremap <silent><C-f> <Right>
+inoremap <silent><C-d> <Del>
+inoremap <silent><C-k> <C-o>D
+inoremap <silent><C-p> <Up>
+inoremap <silent><C-n> <Down>
+" }}}
 " cnoremap {{{
-" command line emacs keybindings
-" http://cohama.hateblo.jp/entry/20130529/1369843236
+" command line mode emacs keybindings
 cnoremap <C-a> <Home>
-cnoremap <C-b> <Left>
-cnoremap <C-d> <Del>
 cnoremap <C-e> <End>
+cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
+cnoremap <C-d> <Del>
+cnoremap <C-k> <C-o>D
 " }}}
 " tnoremap {{{
 " exit terminal
