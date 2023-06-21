@@ -30,6 +30,7 @@ call plug#begin()
   Plug 'simeji/winresizer'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rails'
   Plug 'thinca/vim-qfreplace'
   Plug 'Yggdroot/indentLine'
 call plug#end()
