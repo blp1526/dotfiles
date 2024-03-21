@@ -15,26 +15,12 @@ export GPG_TTY
 export EDITOR='nvim'
 export IGNOREEOF=256
 
-if [ "$(uname)" == "Darwin" ]; then
-  alias ll='gls -l --color=auto --group-directories-first'
-  export BASH_SILENCE_DEPRECATION_WARNING=1
-  if type brew >/dev/null 2>&1; then
-    source "$(brew --prefix)/etc/bash_completion"
-    source "$(brew --prefix asdf)/libexec/asdf.sh"
-    source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
-  fi
-else
-  # Ubuntu
-  alias ll='ls -l --color=auto --group-directories-first'
-  source "/usr/lib/git-core/git-sh-prompt"
-  source "${HOME}/.asdf/asdf.sh"
-  source "${HOME}/.asdf/completions/asdf.bash"
-
-  # only server or Wayland desktop
-  if [ "$XDG_SESSION_TYPE" != "x11" ]; then
-    # disable tty lock
-    stty stop undef
-  fi
+alias ll='gls -l --color=auto --group-directories-first'
+export BASH_SILENCE_DEPRECATION_WARNING=1
+if type brew >/dev/null 2>&1; then
+  source "$(brew --prefix)/etc/bash_completion"
+  source "$(brew --prefix asdf)/libexec/asdf.sh"
+  source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
 fi
 
 # direnv
@@ -42,33 +28,10 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
-# zoxide
-if type zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init bash)"
-fi
-
 # alias
 alias la='ll -a'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
-
-# function
-ghq-cd() {
-  local current_dir
-  current_dir="$(pwd)"
-
-  local selected_dir
-  selected_dir="$(ghq list --full-path | peco)"
-
-  local next_dir
-  if [ "${selected_dir}" = "" ]; then
-    next_dir="${current_dir}"
-  else
-    next_dir="${selected_dir}"
-  fi
-
-  cd "${next_dir}"
-}
 
 # shell variables
 SHELL='bash'

@@ -27,8 +27,6 @@
 	fp = fetch --prune
 [user]
 	useConfigOnly = true
-[ghq]
-	root = ~/src
 [delta]
 	navigate = true
 	line-numbers = true
