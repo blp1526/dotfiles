@@ -1,18 +1,6 @@
 [core]
 	quotepath = false
 	commentchar = ";"
-[init]
-	defaultBranch = main
-[color]
-	status = auto
-	diff = auto
-	branch = auto
-	interactive = auto
-	grep = auto
-[pager]
-	log = delta
-	show = delta
-	diff = delta
 [push]
 	default = nothing
 [merge]
@@ -27,6 +15,3 @@
 	fp = fetch --prune
 [user]
 	useConfigOnly = true
-[delta]
-	navigate = true
-	line-numbers = true
