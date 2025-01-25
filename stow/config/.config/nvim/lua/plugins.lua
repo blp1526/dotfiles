@@ -26,15 +26,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip'
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/plenary.nvim'
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-telescope/telescope-ghq.nvim' },
-    config = function()
-      require('telescope').load_extension('ghq')
-    end
-  }
-
-  use 'phaazon/hop.nvim'
   use 'williamboman/nvim-lsp-installer'
 
   if packer_bootstrap then

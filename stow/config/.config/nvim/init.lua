@@ -3,13 +3,6 @@ vim.cmd([[
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
-
-nnoremap <silent><leader>t :split\|terminal<CR>
-
-augroup TerminalNoNumber
-  autocmd!
-  autocmd TermOpen * setlocal nonumber
-augroup END
 ]])
 -- }}}
 
@@ -96,23 +89,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
--- }}}
--- nvim-telescope/telescope.nvim {{{
-require('telescope').setup {
-  defaults = { file_ignore_patterns = { '^./.git/' } }
-}
-
-vim.cmd([[
-nnoremap <leader>b :Telescope buffers<CR>
-nnoremap <leader>f :Telescope find_files hidden=true<CR>
-nnoremap <leader>g :Telescope ghq list<CR>
-]])
--- }}}
--- phaazon/hop.nvim {{{
-require('hop').setup()
-vim.cmd([[
-nnoremap <leader>e :HopPattern<CR>
-]])
 -- }}}
 -- williamboman/nvim-lsp-installer {{{
 local lsp_installer = require "nvim-lsp-installer"
