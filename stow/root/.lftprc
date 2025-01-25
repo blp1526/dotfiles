@@ -1,3 +1,0 @@
-set ftp:ssl-protect-data true
-set ftp:passive-mode on
-set ftp:prefer-epsv false
