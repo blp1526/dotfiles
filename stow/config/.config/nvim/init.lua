@@ -7,12 +7,38 @@ source ~/.vimrc
 -- }}}
 
 -- plugin settings {{{
-require('plugins')
--- folke/tokyonight.nvim {{{
-vim.cmd([[
-colorscheme tokyonight
-]])
--- }}}
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--branch=stable",
+    lazyrepo,
+    lazypath
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  { 'ctrlpvim/ctrlp.vim' },
+  { 'folke/tokyonight.nvim' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-cmdline' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-vsnip' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/vim-vsnip' },
+  { 'itchyny/lightline.vim' },
+  { 'neovim/nvim-lspconfig' },
+  { 'preservim/nerdtree' },
+  { 'simeji/winresizer' },
+  { 'thinca/vim-qfreplace' },
+  { 'williamboman/nvim-lsp-installer' },
+})
+
 -- hrsh7th/nvim-cmp {{{
 local cmp = require('cmp')
 cmp.setup({
@@ -36,31 +62,6 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
--- }}}
--- itchyny/lightline.vim {{{
--- https://github.com/itchyny/lightline.vim/issues/245#issuecomment-375136013
-vim.cmd([[
-let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ 'tab': {
-      \   'active': [ 'tabnum', 'cwd', 'filename', 'modified' ],
-      \   'inactive': [ 'tabnum', 'cwd', 'filename', 'modified' ]
-      \ },
-      \ 'tab_component_function': {
-      \   'cwd': 'LightlineCurrentDirectory'
-      \ }
-      \ }
-function! LightlineCurrentDirectory(n) abort
-  return fnamemodify(getcwd(tabpagewinnr(a:n), a:n), ':t')
-endfunction
-]])
 -- }}}
 -- neovim/nvim-lspconfig {{{
 local opts = { noremap=true, silent=true }

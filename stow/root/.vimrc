@@ -1,22 +1,6 @@
 scriptencoding utf-8
 
 " general settings {{{
-" packages {{{
-let s:plug_path = '~/.vim/autoload/plug.vim'
-if empty(glob(s:plug_path))
-  let s:plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  silent execute '!curl -fLo '.s:plug_path.' --create-dirs '.s:plug_url
-  autocmd VimEnter * PlugInstall --sync | source '~/.vimrc'
-endif
-
-call plug#begin()
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'preservim/nerdtree'
-  Plug 'simeji/winresizer'
-  Plug 'thinca/vim-qfreplace'
-call plug#end()
-" }}}
 " functions {{{
 function! JISX0208SpaceHilight()
   syntax match JISX0208Space "　" display containedin=ALL
@@ -59,11 +43,6 @@ tnoremap <ESC> <C-\><C-n>
 " }}}
 " }}}
 " augroup {{{
-augroup QuickFixAfterGrep
-  autocmd!
-  autocmd QuickFixCmdPost *grep* cwindow
-augroup END
-
 augroup MultiByteSpace
   autocmd!
   autocmd BufNew,BufRead * call JISX0208SpaceHilight()
@@ -130,17 +109,35 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
+" folke/tokyonight.nvim {{{
+colorscheme tokyonight
+" }}}
 " itchyny/lightline.vim {{{
+" https://github.com/itchyny/lightline.vim/issues/245#issuecomment-375136013
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+\ 'colorscheme': 'tokyonight',
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'tab': {
+\   'active': [ 'tabnum', 'cwd', 'filename', 'modified' ],
+\   'inactive': [ 'tabnum', 'cwd', 'filename', 'modified' ]
+\ },
+\ 'tab_component_function': {
+\   'cwd': 'LightlineCurrentDirectory'
+\ }
+\ }
+
+function! LightlineCurrentDirectory(n) abort
+  return fnamemodify(getcwd(tabpagewinnr(a:n), a:n), ':t')
+endfunction
+" }}}
+" thinca/vim-qfreplace {{{
+augroup QuickFixAfterGrep
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
+augroup END
 " }}}
 " preservim/nerdtree {{{
 let g:NERDTreeShowHidden = 1
