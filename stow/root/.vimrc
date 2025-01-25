@@ -10,29 +10,11 @@ if empty(glob(s:plug_path))
 endif
 
 call plug#begin()
-  Plug 'aklt/plantuml-syntax'
-  Plug 'cespare/vim-toml'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'dense-analysis/ale'
-  Plug 'dhruvasagar/vim-table-mode'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'embear/vim-localvimrc'
-  Plug 'elzr/vim-json'
-  Plug 'fatih/vim-go'
   Plug 'itchyny/lightline.vim'
-  Plug 'jparise/vim-graphql'
-  Plug 'othree/html5.vim'
   Plug 'preservim/nerdtree'
-  Plug 'preservim/vim-markdown'
-  Plug 'previm/previm'
-  Plug 'rust-lang/rust.vim'
   Plug 'simeji/winresizer'
-  Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rails'
   Plug 'thinca/vim-qfreplace'
-  Plug 'Yggdroot/indentLine'
 call plug#end()
 " }}}
 " functions {{{
@@ -91,11 +73,6 @@ augroup Spell
   autocmd!
   autocmd Filetype gitcommit setlocal spell
 augroup END
-
-augroup Markdown
-  autocmd!
-  autocmd Filetype markdown setlocal wrap
-augroup END
 " }}}
 " runtime {{{
 " /usr/share/vim/vim74/ftplugin/man.vim
@@ -153,37 +130,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_show_hidden   = 1
 let g:ctrlp_cmd = 'CtrlPCurWD'
 " }}}
-" dhruvasagar/vim-table-mode {{{
-let g:table_mode_corner='|'
-" }}}
-" easymotion/vim-easymotion {{{
-map <leader>e <Plug>(easymotion-sn)
-omap <leader>e <Plug>(easymotion-tn)
-" }}}
-" elzr/vim-json {{{
-let g:vim_json_syntax_conceal = 0
-" }}}
-" embear/vim-localvimrc {{{
-let g:localvimrc_ask = 0
-let g:localvimrc_sandbox = 0
-" }}}
-" fatih/vim-go {{{
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_types = 1
-
-let g:go_fmt_command = 'goimports'
-let g:go_fmt_options = {
-    \ 'gofmt': '-s',
-    \ }
-
-let g:go_fmt_autosave = 1
-" }}}
 " itchyny/lightline.vim {{{
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -200,22 +146,6 @@ let g:lightline = {
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 32
 nnoremap <silent><Leader>n :NERDTreeToggle<CR>
-" }}}
-" preservim/vim-markdown {{{
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_folding_disabled = 1
-" }}}
-" previm/previm {{{
-if has('mac')
-  let g:previm_open_cmd = 'open'
-endif
-" }}}
-" rust-lang/rust.vim {{{
-let g:rustfmt_autosave = 1
-" }}}
-" Yggdroot/indentLine {{{
-let g:indentLine_enabled = 1
 " }}}
 " }}}
 
