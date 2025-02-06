@@ -19,8 +19,7 @@ alias ll='gls -l --color=auto --group-directories-first'
 export BASH_SILENCE_DEPRECATION_WARNING=1
 if type brew >/dev/null 2>&1; then
   source "$(brew --prefix)/etc/bash_completion"
-  source "$(brew --prefix asdf)/libexec/asdf.sh"
-  source "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"
+  source <(asdf completion bash)
 fi
 
 # direnv
