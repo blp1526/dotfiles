@@ -31,6 +31,7 @@ fi
 alias la='ll -a'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
+alias lazygit="XDG_CONFIG_HOME=${HOME}/.config lazygit"
 
 # shell variables
 SHELL='bash'
