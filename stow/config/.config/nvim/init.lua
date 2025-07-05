@@ -49,7 +49,7 @@ local keymap_opts = { noremap = true, silent = true }
 
 -- normal mode
 keymap('n', '<ESC><ESC>', ':nohlsearch<CR>', keymap_opts)
-keymap('n', '<C-c>', ':tabclose<CR>', keymap_opts)
+keymap('n', '<C-c>', ':tabclose!<CR>', keymap_opts)
 keymap('n', '<C-n>', ':tabnew<CR>', keymap_opts)
 keymap('n', '<C-h>', ':tabprevious<CR>', keymap_opts)
 keymap('n', '<C-l>', ':tabnext<CR>', keymap_opts)
@@ -131,18 +131,51 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
-    'ctrlpvim/ctrlp.vim',
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      vim.g.ctrlp_prompt_mappings = {
-        ['PrtSelectMove("j")'] = { '<c-n>' },
-        ['PrtSelectMove("k")'] = { '<c-p>' },
-        ['PrtHistory(-1)'] = { '<down>' },
-        ['PrtHistory(1)'] = { '<up>' },
-      }
-      vim.g.ctrlp_match_window = 'bottom,order:btt,min:1,max:100,results:100'
-      vim.g.ctrlp_user_command = { '.git', 'cd %s && git ls-files -co --exclude-standard | grep -v "^vendor/" | uniq' }
-      vim.g.ctrlp_show_hidden = 1
-      vim.g.ctrlp_cmd = 'CtrlPCurWD'
+      local telescope = require('telescope')
+      local builtin = require('telescope.builtin')
+
+      telescope.setup({
+        defaults = {
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob=!.git/',
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+            find_command = {
+              'rg',
+              '--files',
+              '--hidden',
+              '--glob=!.git/',
+            },
+          },
+        },
+      })
+
+      -- telescope keymaps
+      vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+      vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
+      vim.keymap.set('n', '<leader>fc', builtin.commands, {})
+      vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+      vim.keymap.set('n', '<leader>fw', builtin.lsp_workspace_symbols, {})
+      vim.keymap.set('n', '<leader>fd', builtin.lsp_definitions, {})
+      vim.keymap.set('n', '<leader>fR', builtin.lsp_references, {})
     end,
   },
   {
@@ -159,42 +192,76 @@ require("lazy").setup({
   { 'hrsh7th/cmp-path' },
   { 'hrsh7th/nvim-cmp' },
   {
-    'itchyny/lightline.vim',
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      vim.g.lightline = {
-        colorscheme = 'tokyonight',
-        active = {
-          left = { 
-            { 'mode', 'paste' },
-            { 'gitbranch', 'readonly', 'filename', 'modified' }
-          }
+      require('lualine').setup({
+        options = {
+          theme = 'tokyonight',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' },
         },
-        tab = {
-          active = { 'tabnum', 'cwd', 'filename', 'modified' },
-          inactive = { 'tabnum', 'cwd', 'filename', 'modified' }
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
         },
-        tab_component_function = {
-          cwd = 'LightlineCurrentDirectory'
-        }
-      }
-      vim.cmd([[
-        function! LightlineCurrentDirectory(n) abort
-          return fnamemodify(getcwd(tabpagewinnr(a:n), a:n), ':t')
-        endfunction
-      ]])
+        tabline = {
+          lualine_a = { 'tabs' },
+          lualine_b = {},
+          lualine_c = { 
+            {
+              function()
+                return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+              end,
+              icon = '📁'
+            }
+          },
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        extensions = { 'nvim-tree', 'quickfix' }
+      })
     end,
   },
   { 'neovim/nvim-lspconfig' },
   {
-    'preservim/nerdtree',
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      vim.g.NERDTreeShowHidden = 1
-      vim.g.NERDTreeWinSize = 32
-      keymap('n', '<Leader>n', ':NERDTreeToggle<CR>', keymap_opts)
+      require('nvim-tree').setup({
+        view = {
+          width = 32,
+        },
+        renderer = {
+          highlight_git = true,
+          icons = {
+            show = {
+              file = true,
+              folder = true,
+              folder_arrow = true,
+              git = true,
+            },
+          },
+        },
+        filters = {
+          dotfiles = false,
+          custom = { '^.git$' },
+        },
+        actions = {
+          open_file = {
+            quit_on_open = false,
+          },
+        },
+      })
+      keymap('n', '<Leader>n', ':NvimTreeToggle<CR>', keymap_opts)
     end,
   },
   { 'simeji/winresizer' },
-  { 'thinca/vim-qfreplace' },
   {
     'williamboman/mason.nvim',
     build = ':MasonUpdate',
