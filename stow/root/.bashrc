@@ -27,6 +27,10 @@ if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
+if type zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+
 # alias
 alias la='ll -a'
 alias grep='grep --color=auto'

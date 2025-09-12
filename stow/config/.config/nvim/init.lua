@@ -273,6 +273,13 @@ require("lazy").setup({
     'williamboman/mason-lspconfig.nvim',
     dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
   },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('which-key').setup()
+    end,
+  },
 })
 
 -- hrsh7th/nvim-cmp
