@@ -19,10 +19,12 @@ alias ll='gls -l --color=auto --group-directories-first'
 export BASH_SILENCE_DEPRECATION_WARNING=1
 if type brew >/dev/null 2>&1; then
   source "$(brew --prefix)/etc/bash_completion"
-  source <(asdf completion bash)
 fi
 
-# direnv
+if type mise >/dev/null 2>&1; then
+  eval "$(mise activate bash)"
+fi
+
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
