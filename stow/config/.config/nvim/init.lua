@@ -256,6 +256,7 @@ require("lazy").setup({
     end,
   },
   { 'simeji/winresizer' },
+  { 'tpope/vim-endwise' },
   {
     'williamboman/mason.nvim',
     build = ':MasonUpdate',
