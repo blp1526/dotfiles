@@ -1,8 +1,12 @@
 -- general settings
+-- for nvim-tree.lua via https://github.com/nvim-tree/nvim-tree.lua/blob/b8b44b6a2494d086a9177251a119f9daec6cace8/doc/nvim-tree-lua.txt#L124
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- basic options
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
--- basic options
 vim.opt.grepprg = 'rg --vimgrep -i --hidden --glob=!.git/ --glob=!vendor/'
 vim.opt.swapfile = false
 vim.opt.backup = false
