@@ -260,6 +260,7 @@ require("lazy").setup({
     end,
   },
   { 'simeji/winresizer' },
+  { 'sphamba/smear-cursor.nvim', opts = {} },
   { 'tpope/vim-endwise' },
   {
     'williamboman/mason.nvim',
