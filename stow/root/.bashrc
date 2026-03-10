@@ -4,7 +4,7 @@
 if [ "${PATH_ORIG}" == "" ]; then
   export PATH_ORIG="${PATH}"
 fi
-export PATH="${HOME}/bin:${PATH_ORIG}"
+export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH_ORIG}"
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
